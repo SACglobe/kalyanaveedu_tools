@@ -1,0 +1,39 @@
+@import "tailwindcss";
+
+:root {
+  /* Brand Colors - Warm & Auspicious */
+  --color-brand-primary: #D32F2F; /* Deep Red/Maroon */
+  --color-brand-secondary: #FFC107; /* Gold/Yellow */
+  --color-brand-accent: #E64A19; /* Deep Orange/Saffron */
+  
+  /* Backgrounds */
+  --background: #FFFDF5; /* Warm cream/off-white */
+  --foreground: #2D2D2D; /* Soft black */
+  
+  /* UI Elements */
+  --color-paper: #FFFFFF;
+  --color-border: #E5E7EB;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  
+  --color-primary: var(--color-brand-primary);
+  --color-secondary: var(--color-brand-secondary);
+  --color-accent: var(--color-brand-accent);
+  
+  --color-paper: var(--color-paper);
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Typography Overrides for Tamil Readability */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 700;
+  line-height: 1.4;
+}
