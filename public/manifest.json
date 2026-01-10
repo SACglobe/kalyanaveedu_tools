@@ -1,0 +1,22 @@
+{
+    "name": "Kalyana Veedu - Tamil Calendar",
+    "short_name": "KalyanaVeedu",
+    "description": "Tamil Matrimony Tools & Calendar",
+    "start_url": "/tools/tamil-calendar",
+    "display": "standalone",
+    "background_color": "#ffffff",
+    "theme_color": "#8B1A1A",
+    "icons": [
+        {
+            "src": "/logo.png",
+            "sizes": "192x192",
+            "type": "image/png",
+            "purpose": "any maskable"
+        },
+        {
+            "src": "/logo.png",
+            "sizes": "512x512",
+            "type": "image/png"
+        }
+    ]
+}

@@ -14,10 +14,14 @@ export const metadata: Metadata = {
     template: `%s | ${SITE_CONFIG.name}`,
   },
   description: SITE_CONFIG.description,
+  manifest: '/manifest.json',
+  themeColor: '#8B1A1A',
   other: {
     'google-adsense-account': 'ca-pub-9023402446754026',
   },
 };
+
+import PWAProvider from '@/components/providers/PWAProvider';
 
 export default function RootLayout({
   children,
@@ -25,14 +29,16 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="ta">
-      <body className={`${inter.className} min-h-screen flex flex-col`}>
-        <Header />
-        <main className="flex-grow">
-          {children}
-        </main>
-        <CookieConsent />
-        <Footer />
+    <html lang="ta" suppressHydrationWarning>
+      <body className={`${inter.className} min-h-screen flex flex-col`} suppressHydrationWarning>
+        <PWAProvider>
+          <Header />
+          <main className="flex-grow">
+            {children}
+          </main>
+          <CookieConsent />
+          <Footer />
+        </PWAProvider>
       </body>
     </html>
   );

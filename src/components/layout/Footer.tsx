@@ -20,10 +20,10 @@ export default function Footer() {
                     <div>
                         <h4 className="font-bold text-gray-900 mb-4">விரைவு இணைப்புகள்</h4>
                         <ul className="space-y-2">
-                            <li><Link href="/tools" className="text-gray-600 hover:text-primary">கருவிகள்</Link></li>
+                            <li><Link href="/tools/tamil-calendar" className="text-primary font-bold hover:text-accent">📅 தமிழ் காலண்டர்</Link></li>
+                            <li><Link href="/tools" className="text-gray-600 hover:text-primary">அனைத்து கருவிகள்</Link></li>
                             <li><Link href="/blog" className="text-gray-600 hover:text-primary">கட்டுரைகள்</Link></li>
                             <li><Link href="/about" className="text-gray-600 hover:text-primary">எங்களை பற்றி</Link></li>
-                            <li><Link href="/contact" className="text-gray-600 hover:text-primary">தொடர்புக்கு</Link></li>
                         </ul>
                     </div>
 
