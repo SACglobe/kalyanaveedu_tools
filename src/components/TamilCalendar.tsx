@@ -16,6 +16,9 @@ export default function TamilCalendar() {
     const [selectedDate, setSelectedDate] = useState(new Date(2026, 0, 1));
     const detailsRef = useRef<HTMLDivElement>(null);
     const gridRef = useRef<HTMLDivElement>(null);
+    // Swipe Navigation Refs
+    const touchStartX = useRef<number | null>(null);
+    const touchEndX = useRef<number | null>(null);
 
     useEffect(() => {
         setMounted(true);
@@ -113,6 +116,30 @@ export default function TamilCalendar() {
 
     const monthlyHighlights = getHighlightedDates();
 
+    // Swipe Navigation Logic
+    const onTouchStart = (e: React.TouchEvent) => {
+        touchEndX.current = null;
+        touchStartX.current = e.targetTouches[0].clientX;
+    };
+
+    const onTouchMove = (e: React.TouchEvent) => {
+        touchEndX.current = e.targetTouches[0].clientX;
+    };
+
+    const onTouchEnd = () => {
+        if (!touchStartX.current || !touchEndX.current) return;
+        const distance = touchStartX.current - touchEndX.current;
+        const isLeftSwipe = distance > 50;
+        const isRightSwipe = distance < -50;
+
+        if (isLeftSwipe) {
+            changeMonth(viewDate.getMonth() + 1);
+        }
+        if (isRightSwipe) {
+            changeMonth(viewDate.getMonth() - 1);
+        }
+    };
+
     return (
         <div className="flex flex-col lg:flex-row gap-0 w-full lg:max-w-[1440px] lg:mx-auto bg-gray-50 lg:rounded-3xl shadow-none lg:shadow-2xl overflow-hidden border-y lg:border border-gray-200">
 
@@ -165,7 +192,13 @@ export default function TamilCalendar() {
             </div>
 
             {/* Center Column: Calendar Grid */}
-            <div ref={gridRef} className="flex-1 bg-white  p-4 px-0 md:p-8 flex flex-col min-w-0 scroll-mt-20">
+            <div
+                ref={gridRef}
+                className="flex-1 bg-white  p-4 px-0 md:p-8 flex flex-col min-w-0 scroll-mt-20"
+                onTouchStart={onTouchStart}
+                onTouchMove={onTouchMove}
+                onTouchEnd={onTouchEnd}
+            >
                 <div className="flex flex-col md:flex-row md:items-center justify-between mb-8 gap-4">
                     <h2 className="text-3xl font-black text-gray-900 tracking-tight">
                         {monthsEng[viewDate.getMonth()]} {viewDate.getFullYear()}
