@@ -10,11 +10,11 @@ export const metadata: Metadata = {
 export default function TamilCalendarPage() {
     return (
         <main className="min-h-screen bg-gray-50 pt-12 pb-24">
-            <div className="container mx-auto px-4">
+            <div className="container mx-auto px-1 md:px-4">
                 {/* Header */}
                 <div className="text-center max-w-3xl mx-auto mb-12">
                     <h1 className="text-3xl md:text-5xl font-black text-gray-900 mb-6 font-primary">
-                        தமிழ் காலண்டர் (Tamil Calendar)
+                        தமிழ் காலண்டர்<br />(Tamil Calendar)
                     </h1>
                     <p className="text-gray-600 text-lg leading-relaxed">
                         இந்த தளம் இன்றைய தமிழ் தேதி, மாதம், நட்சத்திரம் மற்றும் திதி குறித்த துல்லியமான தகவல்களை வழங்குகிறது.
@@ -97,7 +97,7 @@ export default function TamilCalendarPage() {
                     {/* Section 3: Difference between Tamil Calendar & English Calendar */}
                     <section className="prose prose-orange max-w-none">
                         <h2 className="text-2xl font-bold text-gray-900 mb-6">தமிழ் காலண்டர் மற்றும் ஆங்கில காலண்டர்: வேறுபாடுகள்</h2>
-                        <div className="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
+                        <div className="bg-white p-4 md:p-8 rounded-2xl shadow-sm border border-gray-100 overflow-x-auto">
                             <table className="w-full text-left border-collapse">
                                 <thead>
                                     <tr className="bg-orange-50">

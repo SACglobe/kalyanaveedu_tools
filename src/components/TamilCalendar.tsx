@@ -114,7 +114,7 @@ export default function TamilCalendar() {
     const monthlyHighlights = getHighlightedDates();
 
     return (
-        <div className="flex flex-col lg:flex-row gap-0 max-w-[1440px] mx-auto bg-gray-50 rounded-3xl shadow-2xl overflow-hidden border border-gray-200">
+        <div className="flex flex-col lg:flex-row gap-0 w-full lg:max-w-[1440px] lg:mx-auto bg-gray-50 lg:rounded-3xl shadow-none lg:shadow-2xl overflow-hidden border-y lg:border border-gray-200">
 
             {/* Left Column: Month Selector (Sidebar) */}
             <div className="w-full lg:w-48 bg-[#8B1A1A] text-white flex flex-col shrink-0">
@@ -165,7 +165,7 @@ export default function TamilCalendar() {
             </div>
 
             {/* Center Column: Calendar Grid */}
-            <div ref={gridRef} className="flex-1 bg-white p-4 md:p-8 flex flex-col min-w-0 scroll-mt-20">
+            <div ref={gridRef} className="flex-1 bg-white  p-4 px-0 md:p-8 flex flex-col min-w-0 scroll-mt-20">
                 <div className="flex flex-col md:flex-row md:items-center justify-between mb-8 gap-4">
                     <h2 className="text-3xl font-black text-gray-900 tracking-tight">
                         {monthsEng[viewDate.getMonth()]} {viewDate.getFullYear()}
@@ -183,7 +183,8 @@ export default function TamilCalendar() {
                             title="Share on WhatsApp"
                         >
                             <span>📲</span>
-                            <span>WhatsApp-ல் பகிர்க</span>
+                            <span className="hidden md:inline">WhatsApp-ல் பகிர்க</span>
+                            <span className="md:hidden">Share</span>
                         </button>
                     </div>
                 </div>
@@ -249,13 +250,13 @@ export default function TamilCalendar() {
                                         {tamil.tamilDay}
                                     </span>
                                 </div>
-                                <div className="mt-auto space-y-0.5">
+                                <div className="mt-auto space-y-0.5 relative">
                                     <p className="text-[8px] md:text-[10px] text-gray-600 font-bold truncate">{shortNaks}</p>
                                     <p className="text-[8px] md:text-[10px] text-blue-600 font-bold truncate">{shortTithi}</p>
-                                </div>
-                                <div className="absolute bottom-1 right-1 flex gap-0.5">
-                                    {isMarriage && <div className="w-1.5 h-1.5 rounded-full bg-orange-500 shadow-sm" />}
-                                    {isHoliday && <div className="w-1.5 h-1.5 rounded-full bg-red-600 shadow-sm" />}
+                                    <div className="flex gap-1 mt-0.5">
+                                        {isMarriage && <div className="w-1.5 h-1.5 rounded-full bg-orange-500 shadow-sm" />}
+                                        {isHoliday && <div className="w-1.5 h-1.5 rounded-full bg-red-600 shadow-sm" />}
+                                    </div>
                                 </div>
                                 {isToday && !isSelected && <div className="absolute top-2 left-2 w-1.5 h-1.5 rounded-full bg-primary" />}
                                 {isSelected && <div className="absolute inset-0 border-2 border-primary pointer-events-none" />}
