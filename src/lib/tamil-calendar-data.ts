@@ -44,7 +44,7 @@ export const SANKRANTI_DATA: { [key: number]: number[] } = {
     2023: [14, 13, 15, 14, 15, 15, 17, 17, 17, 18, 17, 16],
     2024: [15, 13, 14, 13, 14, 15, 16, 16, 16, 17, 16, 15],
     2025: [14, 12, 14, 14, 15, 15, 16, 17, 17, 17, 16, 16],
-    2026: [14, 13, 15, 14, 14, 15, 16, 16, 16, 17, 16, 16],
+    2026: [15, 13, 15, 14, 15, 15, 16, 17, 17, 17, 16, 16],
     2027: [15, 13, 15, 14, 15, 16, 17, 17, 17, 18, 17, 16],
     2028: [15, 13, 14, 13, 14, 15, 16, 16, 16, 17, 16, 15],
     2029: [14, 12, 14, 14, 14, 15, 16, 17, 17, 17, 16, 16],
@@ -76,9 +76,10 @@ export const FESTIVALS: { [key: string]: string } = {
 
 export const HOLIDAYS_2026: Record<string, string> = {
     "01-01": "New Year's Day",
-    "01-14": "Pongal",
-    "01-15": "Thiruvalluvar Day",
-    "01-16": "Uzhavar Tirunal",
+    "01-14": "Bhogi Pongal",
+    "01-15": "Thai Pongal",
+    "01-16": "Thiruvalluvar Day",
+    "01-17": "Uzhavar Tirunal",
     "01-26": "Republic Day",
     "03-20": "Telugu New Year (Ugadi)",
     "03-28": "Ramzan (Idul Fitr)",

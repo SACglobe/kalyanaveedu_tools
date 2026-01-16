@@ -1,24 +1,46 @@
-import type { Metadata } from 'next';
 import TamilCalendar from '@/components/TamilCalendar';
+import RelevantTools from '@/components/RelevantTools';
+import type { Metadata } from 'next';
+
+import { getTamilDate, getPanchangam, getTamilDayName } from '@/lib/tamil-calendar-utils';
 
 export const metadata: Metadata = {
-    title: 'Tamil Calendar 2026 | தமிழ் காலண்டர் – Daily Date, Nakshatra & Tithi',
-    description: 'Tamil Calendar showing daily Tamil date, month, nakshatra, tithi, and festivals. Informational reference for Tamil users.',
+    title: 'Tamil Calendar Today | இன்று தமிழ் தேதி – Tamil Date, Nakshatra',
+    description: 'Today Tamil date with month, nakshatra & tithi. இன்றைய தமிழ் தேதி – தகவல் நோக்கத்திற்கான குறிப்புகள்.',
     keywords: 'Tamil Calendar, தமிழ் காலண்டர், Tamil Date today, Nakshatra, Tithi, Tamil Month, 2026 Tamil Calendar',
 };
 
 export default function TamilCalendarPage() {
+    const today = new Date();
+    const tamilDate = getTamilDate(today);
+    const panchangam = getPanchangam(today);
+    const weekday = getTamilDayName(today);
+    const englishDateStr = today.toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' });
+
     return (
         <main className="min-h-screen bg-gray-50 pt-12 pb-24">
             <div className="container mx-auto px-1 md:px-4">
-                {/* Header */}
+                {/* SEO Header: Today Intent Extraction Layer */}
                 <div className="text-center max-w-3xl mx-auto mb-12">
+                    {/* Today Tamil Date Block */}
                     <h1 className="text-3xl md:text-5xl font-black text-gray-900 mb-6 font-primary">
-                        தமிழ் காலண்டர்<br />(Tamil Calendar)
+                        இன்றைய தமிழ் தேதி (Today Tamil Date)
                     </h1>
-                    <p className="text-gray-600 text-lg leading-relaxed">
-                        இந்த தளம் இன்றைய தமிழ் தேதி, மாதம், நட்சத்திரம் மற்றும் திதி குறித்த துல்லியமான தகவல்களை வழங்குகிறது.
-                        இது ஒரு பாரம்பரிய காலண்டர் தகவல் குறிப்பு மட்டுமே.
+                    <p className="text-gray-700 text-xl md:text-2xl leading-relaxed mb-10">
+                        இன்று ({englishDateStr}) தமிழ் தேதி:<br />
+                        <strong className="text-primary">{tamilDate.tamilDay}</strong>, {tamilDate.tamilMonth}, {weekday}
+                    </p>
+
+                    {/* Today Nakshatra Block (MANDATORY for featured snippets) */}
+                    <h2 className="text-2xl md:text-3xl font-black text-gray-900 mb-4">
+                        இன்றைய நட்சத்திரம் (Today Nakshatra)
+                    </h2>
+                    <p className="text-gray-700 text-lg md:text-xl leading-relaxed">
+                        இன்று நட்சத்திரம்: <strong>{panchangam.nakshatra.split(' ')[0]}</strong> {panchangam.nakshatraEndTime !== "நாள் முழுவதும்" ? `(இன்று ${panchangam.nakshatraEndTime} வரை)` : ""}
+                    </p>
+
+                    <p className="text-gray-500 text-sm mt-12 border-t border-gray-100 pt-6">
+                        இந்த தளம் இன்றைய தமிழ் தேதி, மாதம், நட்சத்திரம் மற்றும் திதி குறித்த துல்லியமான தகவல்களை வழங்குகிறது. இது ஒரு பாரம்பரிய காலண்டர் தகவல் குறிப்பு மட்டுமே.
                     </p>
                 </div>
 
@@ -96,7 +118,7 @@ export default function TamilCalendarPage() {
 
                     {/* Section 3: Difference between Tamil Calendar & English Calendar */}
                     <section className="prose prose-orange max-w-none">
-                        <h2 className="text-2xl font-bold text-gray-900 mb-6">தமிழ் காலண்டர் மற்றும் ஆங்கில காலண்டர்: வேறுபாடுகள்</h2>
+                        <h2 className="text-2xl font-bold text-gray-900 mb-6">தமிழ் காலண்டர் மற்றும் ஆங்கில காலண்டர்: வேறுபாடுகள் (Difference)</h2>
                         <div className="bg-white p-4 md:p-8 rounded-2xl shadow-sm border border-gray-100 overflow-x-auto">
                             <table className="w-full text-left border-collapse">
                                 <thead>
@@ -173,9 +195,59 @@ export default function TamilCalendarPage() {
                             </details>
                         </div>
                     </section>
+
+                    <RelevantTools excludePath="/tools/tamil-calendar" />
                 </div>
 
                 {/* Schema Markup */}
+                <script
+                    type="application/ld+json"
+                    dangerouslySetInnerHTML={{
+                        __html: JSON.stringify({
+                            "@context": "https://schema.org",
+                            "@type": "WebApplication",
+                            "name": "தமிழ் காலண்டர்",
+                            "alternateName": "Tamil Calendar",
+                            "inLanguage": "ta",
+                            "additionalType": "WebApplication",
+                            "description": "தமிழ் நாள், மாதம், நட்சத்திரம், திதி குறித்த தகவல் தளம்",
+                            "applicationCategory": "UtilityApplication"
+                        })
+                    }}
+                />
+                <script
+                    type="application/ld+json"
+                    dangerouslySetInnerHTML={{
+                        __html: JSON.stringify({
+                            "@context": "https://schema.org",
+                            "@type": "WebPage",
+                            "name": "Tamil Calendar Today | இன்று தமிழ் தேதி – Tamil Date, Nakshatra",
+                            "description": "Today Tamil date with month, nakshatra & tithi. இன்றைய தமிழ் தேதி – தகவல் நோக்கத்திற்கான குறிப்புகள்.",
+                            "breadcrumb": "Home > Tools > Tamil Calendar",
+                            "publisher": {
+                                "@type": "Organization",
+                                "name": "Kalyanaveedu"
+                            }
+                        })
+                    }}
+                />
+                <script
+                    type="application/ld+json"
+                    dangerouslySetInnerHTML={{
+                        __html: JSON.stringify({
+                            "@context": "https://schema.org",
+                            "@type": "Dataset",
+                            "name": "தமிழ் காலண்டர் தரவு (Tamil Calendar Data)",
+                            "description": "தினசரி தமிழ் தேதி, நட்சத்திரம் மற்றும் திதி குறித்த வானியல் தரவுகள்.",
+                            "license": "https://creativecommons.org/licenses/by/4.0/",
+                            "isAccessibleForFree": true,
+                            "creator": {
+                                "@type": "Organization",
+                                "name": "Kalyanaveedu"
+                            }
+                        })
+                    }}
+                />
                 <script
                     type="application/ld+json"
                     dangerouslySetInnerHTML={{
