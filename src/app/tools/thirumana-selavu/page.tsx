@@ -3,8 +3,8 @@ import BudgetCalculator from '@/components/tools/BudgetCalculator';
 import Link from 'next/link';
 
 export const metadata: Metadata = {
-    title: 'திருமண செலவு கால்குலேட்டர் | Wedding Budget Calculator Tamil',
-    description: 'உங்கள் திருமண பட்ஜெட்டை முன்கூட்டியே திட்டமிட உதவும் எளிய கருவி. தங்கம், மண்டபம், உணவு மற்றும் இதர செலவுகளை கணக்கிடுங்கள்.',
+    title: 'Wedding Budget Calculator | திருமண செலவு கணிப்பான் – Tamil Reference',
+    description: 'Estimate your wedding expenses (Gold, Venue, Feast). திருமண பட்ஜெட்டை முன்கூட்டியே திட்டமிடுங்கள் – தகவல் நோக்கிற்கான நாட்காட்டி.',
     keywords: ['wedding budget calculator tamil', 'thirumana selavu', 'marriage cost estimator', 'tamil wedding planning'],
 };
 
@@ -27,7 +27,37 @@ export default function BudgetCalculatorPage() {
         <div className="container mx-auto px-4 py-12">
             <script
                 type="application/ld+json"
-                dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+                dangerouslySetInnerHTML={{
+                    __html: JSON.stringify({
+                        "@context": "https://schema.org",
+                        "@type": "WebPage",
+                        "name": "Wedding Budget Calculator | திருமண செலவு கணிப்பான் – Tamil Reference",
+                        "description": "Estimate your wedding expenses (Gold, Venue, Feast).",
+                        "breadcrumb": "Home > Tools > Wedding Budget",
+                        "publisher": {
+                            "@type": "Organization",
+                            "name": "Kalyanaveedu"
+                        }
+                    })
+                }}
+            />
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{
+                    __html: JSON.stringify({
+                        "@context": "https://schema.org",
+                        "@type": "SoftwareApplication",
+                        "name": "Tamil Wedding Budget Calculator",
+                        "description": "Estimate wedding expenses in Tamil for various categories",
+                        "applicationCategory": "FinanceApplication",
+                        "operatingSystem": "Any",
+                        "offers": {
+                            "@type": "Offer",
+                            "price": "0",
+                            "priceCurrency": "INR",
+                        }
+                    })
+                }}
             />
 
             <div className="max-w-5xl mx-auto">
@@ -40,13 +70,12 @@ export default function BudgetCalculatorPage() {
                 </nav>
 
                 <header className="mb-10 text-center max-w-3xl mx-auto">
-                    <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-                        திருமண செலவு கணிப்பான்
+                    {/* Step 2: Primary Answer Block (SSR) */}
+                    <h1 className="text-3xl md:text-5xl font-black text-gray-900 mb-6 font-primary">
+                        திருமண செலவு கணக்கிடுவது எப்படி? (Wedding Budget Planning)
                     </h1>
-                    <p className="text-lg text-gray-600 leading-relaxed">
-                        ஒரு பிரம்மாண்டமான திருமணத்திற்கு தெளிவான பட்ஜெட் திட்டமிடல் அவசியம்.
-                        எந்தெந்த விஷயங்களுக்கு எவ்வளவு செலவாகும் என்பதை முன்கூட்டியே கணக்கிட்டு,
-                        கடன் சுமை இல்லாத திருமணத்தை நடத்துங்கள்.
+                    <p className="text-gray-700 text-xl md:text-2xl leading-relaxed mb-10">
+                        திருமண செலவுகளைத் துல்லியமாகத் திட்டமிட தங்கம், மண்டபம், மற்றும் உணவு ஆகிய முக்கியப் பிரிவுகளில் செலவுகளைக் கணக்கிடுவது அவசியம். இது ஒரு நிதி மேலாண்மைத் தகவல் குறிப்பு மட்டுமே.
                     </p>
                 </header>
 
@@ -113,6 +142,12 @@ export default function BudgetCalculatorPage() {
                                 </span>
                             </li>
                         </ul>
+                    </section>
+                    <section className="pt-16 border-t border-gray-100">
+                        <h2 className="text-2xl font-bold text-gray-900 mb-6">2026 திருமண செலவு திட்டமிடல்</h2>
+                        <p className="text-gray-600 leading-relaxed">
+                            2026 ஆம் ஆண்டு நடைபெறும் திருமணங்களுக்கு தற்போதைய சந்தை விலையின் அடிப்படையில் வரவு செலவுகளைத் திட்டமிடுவது சிறந்தது. முறையான பட்ஜெட் போடுவது தேவையற்ற செலவுகளைக் குறைக்க உதவும்.
+                        </p>
                     </section>
                 </article>
             </div>

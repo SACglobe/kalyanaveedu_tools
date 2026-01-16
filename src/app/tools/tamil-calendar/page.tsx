@@ -3,10 +3,11 @@ import RelevantTools from '@/components/RelevantTools';
 import type { Metadata } from 'next';
 
 import { getTamilDate, getPanchangam, getTamilDayName } from '@/lib/tamil-calendar-utils';
+import { HOLIDAYS_2026, FESTIVALS } from '@/lib/tamil-calendar-data';
 
 export const metadata: Metadata = {
-    title: 'Tamil Calendar Today | இன்று தமிழ் தேதி – Tamil Date, Nakshatra',
-    description: 'Today Tamil date with month, nakshatra & tithi. இன்றைய தமிழ் தேதி – தகவல் நோக்கத்திற்கான குறிப்புகள்.',
+    title: 'Tamil Calendar Today | இன்று தமிழ் தேதி – Tamil Calendar',
+    description: 'Tamil calendar showing today’s date, nakshatra, tithi & festival. இன்றைய தமிழ் தேதி – தகவல் நோக்கத்திற்கான நாட்காட்டி.',
     keywords: 'Tamil Calendar, தமிழ் காலண்டர், Tamil Date today, Nakshatra, Tithi, Tamil Month, 2026 Tamil Calendar',
 };
 
@@ -16,6 +17,18 @@ export default function TamilCalendarPage() {
     const panchangam = getPanchangam(today);
     const weekday = getTamilDayName(today);
     const englishDateStr = today.toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' });
+    const year = today.getFullYear();
+
+    // Calculate days in the current Tamil month for Step 2
+    const getDaysInTamilMonth = () => {
+        const monthMap: Record<string, number> = {
+            "சித்திரை": 31, "வைகாசி": 31, "ஆனி": 32, "ஆடி": 31, "ஆவணி": 31, "புரட்டாசி": 30,
+            "ஐப்பசி": 30, "கார்த்திகை": 30, "மார்கழி": 29, "தை": 30, "மாசி": 29, "பங்குனி": 30
+        };
+        return monthMap[tamilDate.tamilMonth] || 30;
+    };
+    const daysCount = getDaysInTamilMonth();
+    const tamilMonths = ["சித்திரை", "வைகாசி", "ஆனி", "ஆடி", "ஆவணி", "புரட்டாசி", "ஐப்பசி", "கார்த்திகை", "மார்கழி", "தை", "மாசி", "பங்குனி"];
 
     return (
         <main className="min-h-screen bg-gray-50 pt-12 pb-24">
@@ -35,12 +48,54 @@ export default function TamilCalendarPage() {
                     <h2 className="text-2xl md:text-3xl font-black text-gray-900 mb-4">
                         இன்றைய நட்சத்திரம் (Today Nakshatra)
                     </h2>
-                    <p className="text-gray-700 text-lg md:text-xl leading-relaxed">
+                    <p className="text-gray-700 text-lg md:text-xl leading-relaxed mb-10">
                         இன்று நட்சத்திரம்: <strong>{panchangam.nakshatra.split(' ')[0]}</strong> {panchangam.nakshatraEndTime !== "நாள் முழுவதும்" ? `(இன்று ${panchangam.nakshatraEndTime} வரை)` : ""}
+                    </p>
+
+                    {/* Today Tithi Block (MANDATORY for featured snippets) */}
+                    <h2 className="text-2xl md:text-3xl font-black text-gray-900 mb-4">
+                        இன்றைய திதி (Today Tithi)
+                    </h2>
+                    <p className="text-gray-700 text-lg md:text-xl leading-relaxed mb-10">
+                        இன்று திதி: <strong>{panchangam.tithi.split(' - ')[0]}</strong> {panchangam.tithiEndTime !== "நாள் முழுவதும்" ? `(இன்று ${panchangam.tithiEndTime} வரை)` : ""}
+                    </p>
+
+                    {/* Today Festival Block (MANDATORY for featured snippets) */}
+                    <h2 className="text-2xl md:text-3xl font-black text-gray-900 mb-4">
+                        இன்றைய பண்டிகை (Today Festival)
+                    </h2>
+                    <p className="text-gray-700 text-lg md:text-xl leading-relaxed">
+                        {(() => {
+                            const dateKey = `${String(today.getMonth() + 1).padStart(2, '0')}-${String(today.getDate()).padStart(2, '0')}`;
+                            const fest = FESTIVALS[dateKey];
+                            const holiday = HOLIDAYS_2026[dateKey];
+
+                            // Collect unique festival names
+                            const festivals = [fest, holiday]
+                                .filter(Boolean)
+                                .filter((val, idx, self) => self.indexOf(val) === idx);
+
+                            if (festivals.length > 0) {
+                                return (
+                                    <>இன்று குறிப்பிடப்படும் பண்டிகை: <strong>{festivals.join(', ')}</strong></>
+                                );
+                            }
+                            return "இன்று எந்த முக்கிய பண்டிகையும் இல்லை.";
+                        })()}
                     </p>
 
                     <p className="text-gray-500 text-sm mt-12 border-t border-gray-100 pt-6">
                         இந்த தளம் இன்றைய தமிழ் தேதி, மாதம், நட்சத்திரம் மற்றும் திதி குறித்த துல்லியமான தகவல்களை வழங்குகிறது. இது ஒரு பாரம்பரிய காலண்டர் தகவல் குறிப்பு மட்டுமே.
+                    </p>
+                </div>
+
+                {/* Step 2: This Month Context Block */}
+                <div className="text-center max-w-3xl mx-auto mb-16 pb-12 border-b border-gray-100">
+                    <h2 className="text-2xl md:text-3xl font-black text-gray-900 mb-4">
+                        இந்த மாத தமிழ் நாட்காட்டி (This Month Tamil Calendar)
+                    </h2>
+                    <p className="text-gray-700 text-lg md:text-xl leading-relaxed">
+                        இந்த மாதம் ({tamilDate.tamilMonth} {year}) தமிழ் நாட்காட்டியில் மொத்தம் {daysCount} நாட்கள் உள்ளன.
                     </p>
                 </div>
 
@@ -197,6 +252,16 @@ export default function TamilCalendarPage() {
                     </section>
 
                     <RelevantTools excludePath="/tools/tamil-calendar" />
+
+                    {/* Step 3: Year Anchor Text (Crawl Support) */}
+                    <div className="pt-16 border-t border-gray-100">
+                        <h2 className="text-2xl font-bold text-gray-900 mb-6">{year} தமிழ் நாட்காட்டி மாதங்கள்</h2>
+                        <ul className="grid grid-cols-2 md:grid-cols-4 gap-4 text-gray-600">
+                            {tamilMonths.map(m => (
+                                <li key={m} className="list-none md:list-disc md:ml-4">{m} {year}</li>
+                            ))}
+                        </ul>
+                    </div>
                 </div>
 
                 {/* Schema Markup */}
@@ -221,8 +286,8 @@ export default function TamilCalendarPage() {
                         __html: JSON.stringify({
                             "@context": "https://schema.org",
                             "@type": "WebPage",
-                            "name": "Tamil Calendar Today | இன்று தமிழ் தேதி – Tamil Date, Nakshatra",
-                            "description": "Today Tamil date with month, nakshatra & tithi. இன்றைய தமிழ் தேதி – தகவல் நோக்கத்திற்கான குறிப்புகள்.",
+                            "name": "Tamil Calendar Today | இன்று தமிழ் தேதி – Tamil Calendar",
+                            "description": "Tamil calendar showing today’s date, nakshatra, tithi & festival. இன்றைய தமிழ் தேதி – தகவல் நோக்கத்திற்கான நாட்காட்டி.",
                             "breadcrumb": "Home > Tools > Tamil Calendar",
                             "publisher": {
                                 "@type": "Organization",

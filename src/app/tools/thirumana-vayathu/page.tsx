@@ -3,8 +3,8 @@ import MarriageEligibility from '@/components/tools/MarriageEligibility';
 import Link from 'next/link';
 
 export const metadata: Metadata = {
-    title: 'திருமண வயது தகுதி பரிசோதனை | Marriage Age Checker India',
-    description: 'இந்திய சட்டப்படி நீங்கள் திருமணத்திற்கு தகுதியானவரா என்று சோதிக்கவும். ஆண்கள் (21), பெண்கள் (18) வயது வரம்புகள் பற்றிய முழு விவரம்.',
+    title: 'Marriage Age India | திருமண வயது தகுதி – Tamil Reference',
+    description: 'Check legal marriage age eligibility in India (Mens 21, Womens 18). இந்திய திருமண வயது வரம்புகள் – பாரம்பரிய தகவல் நாட்காட்டி.',
     keywords: ['marriage age india', 'thirumana vayathu', 'marriage eligibility tamil', 'legal marriage age checker'],
 };
 
@@ -27,7 +27,36 @@ export default function MarriageEligibilityPage() {
         <div className="container mx-auto px-4 py-12">
             <script
                 type="application/ld+json"
-                dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+                dangerouslySetInnerHTML={{
+                    __html: JSON.stringify({
+                        "@context": "https://schema.org",
+                        "@type": "WebPage",
+                        "name": "Marriage Age India | திருமண வயது தகுதி – Tamil Reference",
+                        "description": "Check legal marriage age eligibility in India (Mens 21, Womens 18).",
+                        "breadcrumb": "Home > Tools > Marriage Age Checker",
+                        "publisher": {
+                            "@type": "Organization",
+                            "name": "Kalyanaveedu"
+                        }
+                    })
+                }}
+            />
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{
+                    __html: JSON.stringify({
+                        "@context": "https://schema.org",
+                        "@type": "Dataset",
+                        "name": "திருமண வயது தகுதி தரவு (Marriage Age Eligibility Data)",
+                        "description": "இந்திய திருமண சட்டப்படி ஆண்கள் மற்றும் பெண்களுக்கான வயது வரம்பு குறித்த சட்டப்பூர்வ தகவல்கள்.",
+                        "license": "https://creativecommons.org/licenses/by/4.0/",
+                        "isAccessibleForFree": true,
+                        "creator": {
+                            "@type": "Organization",
+                            "name": "Kalyanaveedu"
+                        }
+                    })
+                }}
             />
 
             <div className="max-w-4xl mx-auto">
@@ -39,13 +68,13 @@ export default function MarriageEligibilityPage() {
                     <span className="text-gray-900 font-medium">திருமண வயது தகுதி</span>
                 </nav>
 
-                <header className="mb-10">
-                    <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-                        திருமண வயது தகுதி பரிசோதனை
+                <header className="mb-10 text-center">
+                    {/* Step 2: Primary Answer Block (SSR) */}
+                    <h1 className="text-3xl md:text-5xl font-black text-gray-900 mb-6 font-primary">
+                        திருமண வயது என்ன? (Legal Marriage Age India)
                     </h1>
-                    <p className="text-lg text-gray-600 leading-relaxed">
-                        இந்திய அரசின் சட்டப்படி நீங்கள் திருமணத்திற்கு தகுதியானவரா என்பதை
-                        உங்கள் பிறந்த தேதியை கொண்டு பரிசோதிக்கவும்.
+                    <p className="text-gray-700 text-xl md:text-2xl leading-relaxed mb-10 max-w-3xl mx-auto">
+                        இந்திய சட்டப்படி திருமணத்திற்கான குறைந்தபட்ச வயது ஆண்களுக்கு <strong>21</strong> மற்றும் பெண்களுக்கு <strong>18</strong> ஆகும். இது ஒரு பொதுவான சட்டத் தகவல் குறிப்பு மட்டுமே.
                     </p>
                 </header>
 
@@ -121,6 +150,12 @@ export default function MarriageEligibilityPage() {
                                 </p>
                             </div>
                         </div>
+                    </section>
+                    <section className="pt-16 border-t border-gray-100">
+                        <h2 className="text-2xl font-bold text-gray-900 mb-6">2026 திருமண சட்ட வரம்புகள்</h2>
+                        <p className="text-gray-600 leading-relaxed">
+                            2026 ஆம் ஆண்டிலும் திருமணத்திற்கான அடிப்படை வயது வரம்புகள் தற்போதைய சட்டப்படியே தொடர்கின்றன. சமூக மற்றும் உடல் நலனைக் கருத்தில் கொண்டு இந்த வயது வரம்புகள் நிர்ணயிக்கப்பட்டுள்ளன.
+                        </p>
                     </section>
                 </article>
             </div>

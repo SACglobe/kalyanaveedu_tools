@@ -214,7 +214,7 @@ export default function SubhaMuhurthamCalendar() {
                 </div>
 
                 {currentMonthMarriages.length > 0 ? (
-                    <div className="space-y-4 overflow-y-auto pr-2 custom-scrollbar max-h-[70vh]">
+                    <div className="space-y-4 overflow-y-auto pr-2 pt-2 custom-scrollbar max-h-[70vh]">
                         {currentMonthMarriages.map((date) => {
                             const tamil = getTamilDate(date);
                             const panchangam = getPanchangam(date);

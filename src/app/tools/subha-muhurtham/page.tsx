@@ -1,27 +1,70 @@
 import type { Metadata } from 'next';
 import SubhaMuhurthamCalendar from '@/components/SubhaMuhurthamCalendar';
 import RelevantTools from '@/components/RelevantTools';
-
+import { VALUABLE_MARRIAGE_DATES } from '@/lib/tamil-calendar-data';
+import { getTamilDate, getTamilDayName } from '@/lib/tamil-calendar-utils';
 
 export const metadata: Metadata = {
-    title: 'சுப முகூர்த்த நாட்காட்டி | Subha Muhurtham Dates – Tamil Reference',
-    description: 'தமிழ் பாரம்பரியத்தில் குறிப்பிடப்படும் சுப முகூர்த்த தேதிகள். தகவல் நோக்கத்திற்கான நாட்காட்டி.',
+    title: 'Subha Muhurtham Today | இன்றைய சுப முகூர்த்தம் – Tamil Calendar',
+    description: 'Find today’s Subha Muhurtham date and upcoming auspicious days for 2026. இன்றைய சுப முகூர்த்த தேதிகள் – பாரம்பரிய தகவல் நாட்காட்டி.',
+    keywords: 'Subha Muhurtham Today, இன்றைய சுப முகூர்த்தம், 2026 Marriage Dates, Tamil Wedding Dates, சுப முகூர்த்த தேதிகள்',
 };
 
 export default function SubhaMuhurthamPage() {
+    const today = new Date();
+    const todayStr = today.toISOString().split('T')[0];
+    const year = today.getFullYear();
+    const englishDateStr = today.toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' });
+
+    // Calculate Today's Status and Upcoming Muhurtham
+    const isTodayMuhurtham = VALUABLE_MARRIAGE_DATES.includes(todayStr);
+    const futureMuhurthams = VALUABLE_MARRIAGE_DATES.filter(d => d >= todayStr).sort();
+    const nextMuhurthamStr = futureMuhurthams.length > 0 ? (isTodayMuhurtham && futureMuhurthams.length > 1 ? futureMuhurthams[1] : futureMuhurthams[0]) : null;
+
+    let nextMuhurthamInfo = null;
+    if (nextMuhurthamStr) {
+        const d = new Date(nextMuhurthamStr);
+        const t = getTamilDate(d);
+        nextMuhurthamInfo = {
+            date: d.getDate(),
+            month: d.toLocaleDateString('en-GB', { month: 'long' }),
+            tamilMonth: t.tamilMonth,
+            tamilDay: t.tamilDay,
+            dayName: getTamilDayName(d)
+        };
+    }
+
     return (
         <main className="min-h-screen bg-gray-50 pt-12 pb-24">
             <div className="container mx-auto px-1 md:px-4">
-                {/* Header Section */}
-                <div className="text-center max-w-4xl mx-auto mb-12">
+                {/* SEO Header: Today Intent Extraction Layer */}
+                <div className="text-center max-w-3xl mx-auto mb-12">
+                    {/* Today Subha Muhurtham Block */}
                     <h1 className="text-3xl md:text-5xl font-black text-gray-900 mb-6 font-primary">
-                        சுப முகூர்த்த நாட்காட்டி<br />
-                        <span className="text-xl md:text-2xl text-gray-500 font-bold">(Subha Muhurtham Calendar)</span>
+                        இன்றைய சுப முகூர்த்தம் (Subha Muhurtham Today)
                     </h1>
+                    <p className="text-gray-700 text-xl md:text-2xl leading-relaxed mb-10">
+                        இன்று ({englishDateStr}) {isTodayMuhurtham ? (
+                            <>சுப முகூர்த்த நாள் ஆகும். விசேஷங்களுக்கு உகந்த நாள்.</>
+                        ) : (
+                            <>எந்த முக்கிய சுப முகூர்த்தமும் இல்லை.</>
+                        )}
+                    </p>
 
-                    <p className="text-gray-600 text-lg md:text-xl leading-relaxed font-medium">
-                        இந்தத் தளம் பாரம்பரிய பஞ்சாங்கக் குறிப்புகளின் அடிப்படையில் திரட்டப்பட்ட சுப முகூர்த்த தேதிகளின் தகவல்களை வழங்குகிறது.
-                        இது ஒரு தகவல் பெட்டகம் மட்டுமே.
+                    {/* Next Subha Muhurtham Block (Featured Snippet Target) */}
+                    {nextMuhurthamInfo && (
+                        <>
+                            <h2 className="text-2xl md:text-3xl font-black text-gray-900 mb-4">
+                                அடுத்த சுப முகூர்த்த தேதி (Next Subha Muhurtham Date)
+                            </h2>
+                            <p className="text-gray-700 text-lg md:text-xl leading-relaxed mb-10">
+                                அடுத்த முகூர்த்த நாள்: <strong>{nextMuhurthamInfo.date} {nextMuhurthamInfo.month}</strong>, ({nextMuhurthamInfo.tamilMonth} {nextMuhurthamInfo.tamilDay}), {nextMuhurthamInfo.dayName}.
+                            </p>
+                        </>
+                    )}
+
+                    <p className="text-gray-500 text-sm mt-12 border-t border-gray-100 pt-6">
+                        இந்த தளம் பாரம்பரிய பஞ்சாங்கக் குறிப்புகளின் அடிப்படையில் வரக்கூடிய சுப முகூர்த்த தேதிகளைப் பட்டியலிடுகிறது. இது ஒரு தகவல் பெட்டகம் மட்டுமே.
                     </p>
                 </div>
 
@@ -169,6 +212,21 @@ export default function SubhaMuhurthamPage() {
 
                     <RelevantTools excludePath="/tools/subha-muhurtham" />
 
+                    {/* Step 3: Year Anchor Text (Crawl Support) */}
+                    <div className="pt-16 border-t border-gray-100">
+                        <h2 className="text-2xl font-bold text-gray-900 mb-6">{year} சுப முகூர்த்த தேதிகள் பட்டியல்</h2>
+                        <ul className="grid grid-cols-2 md:grid-cols-4 gap-4 text-sm text-gray-600">
+                            {VALUABLE_MARRIAGE_DATES.filter(d => d.startsWith(year.toString())).map(dateStr => {
+                                const d = new Date(dateStr);
+                                return (
+                                    <li key={dateStr} className="list-none md:list-disc md:ml-4">
+                                        {d.getDate()} {d.toLocaleDateString('en-GB', { month: 'long' })} {year}
+                                    </li>
+                                );
+                            })}
+                        </ul>
+                    </div>
+
                     {/* Final Bottom Disclaimer */}
                     <div className="p-8 bg-gray-900 text-white rounded-3xl text-center space-y-4">
                         <p className="text-xl font-bold italic opacity-90">
@@ -188,12 +246,44 @@ export default function SubhaMuhurthamPage() {
                             "@context": "https://schema.org",
                             "@type": "WebApplication",
                             "name": "சுப முகூர்த்த நாட்காட்டி",
-                            "alternateName": "Subha Muhurtham Calendar",
+                            "alternateName": "Subha Muhurtham Today",
                             "inLanguage": "ta",
                             "description": "தமிழ் பாரம்பரியத்தில் குறிப்பிடப்படும் சுப முகூர்த்த தேதிகள் குறித்த தகவல் பெட்டகம்.",
                             "applicationCategory": "EducationalApplication",
-                            "browserRequirements": "Requires JavaScript",
                             "operatingSystem": "All"
+                        })
+                    }}
+                />
+                <script
+                    type="application/ld+json"
+                    dangerouslySetInnerHTML={{
+                        __html: JSON.stringify({
+                            "@context": "https://schema.org",
+                            "@type": "WebPage",
+                            "name": "Subha Muhurtham Today | இன்றைய சுப முகூர்த்தம் – Tamil Calendar",
+                            "description": "Find today’s Subha Muhurtham date and upcoming auspicious days for 2026.",
+                            "breadcrumb": "Home > Tools > Subha Muhurtham",
+                            "publisher": {
+                                "@type": "Organization",
+                                "name": "Kalyanaveedu"
+                            }
+                        })
+                    }}
+                />
+                <script
+                    type="application/ld+json"
+                    dangerouslySetInnerHTML={{
+                        __html: JSON.stringify({
+                            "@context": "https://schema.org",
+                            "@type": "Dataset",
+                            "name": "சுப முகூர்த்த தேதிகள் தரவு (Subha Muhurtham Dates)",
+                            "description": "2026 ஆம் ஆண்டிற்கான தமிழ் சுப முகூர்த்த தேதிகள் குறித்த ஆய்வுத் தகவல்கள்.",
+                            "license": "https://creativecommons.org/licenses/by/4.0/",
+                            "isAccessibleForFree": true,
+                            "creator": {
+                                "@type": "Organization",
+                                "name": "Kalyanaveedu"
+                            }
                         })
                     }}
                 />

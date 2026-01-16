@@ -3,8 +3,8 @@ import AgeCalculator from '@/components/tools/AgeCalculator';
 import Link from 'next/link';
 
 export const metadata: Metadata = {
-    title: 'வயது கால்குலேட்டர் | Age Calculator in Tamil',
-    description: 'துல்லியமான வயது கணக்கிடும் கருவி. உங்கள் பிறந்த தேதியை வைத்து வயது, மாதம், நாட்கள் மற்றும் அடுத்த பிறந்தநாளை தமிழிலேயே தெரிந்துகொள்ளுங்கள்.',
+    title: 'Age Calculator | வயது கால்குலேட்டர் – Tamil Reference',
+    description: 'Calculate your exact age in years, months, and days. துல்லியமான வயது கணக்கிடும் கருவி – தகவல் நோக்கிற்கான நாட்காட்டி.',
     keywords: ['age calculator tamil', 'vayathu kanakku', 'birth date calculator', 'marriage age calculator'],
 };
 
@@ -27,7 +27,37 @@ export default function AgeCalculatorPage() {
         <div className="container mx-auto px-4 py-12">
             <script
                 type="application/ld+json"
-                dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+                dangerouslySetInnerHTML={{
+                    __html: JSON.stringify({
+                        "@context": "https://schema.org",
+                        "@type": "WebPage",
+                        "name": "Age Calculator | வயது கால்குலேட்டர் – Tamil Reference",
+                        "description": "Calculate your exact age in years, months, and days.",
+                        "breadcrumb": "Home > Tools > Age Calculator",
+                        "publisher": {
+                            "@type": "Organization",
+                            "name": "Kalyanaveedu"
+                        }
+                    })
+                }}
+            />
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{
+                    __html: JSON.stringify({
+                        "@context": "https://schema.org",
+                        "@type": "SoftwareApplication",
+                        "name": "Tamil Age Calculator",
+                        "description": "Calculate exact age in years, months and days in Tamil",
+                        "applicationCategory": "UtilityApplication",
+                        "operatingSystem": "Any",
+                        "offers": {
+                            "@type": "Offer",
+                            "price": "0",
+                            "priceCurrency": "INR",
+                        }
+                    })
+                }}
             />
 
             <div className="max-w-4xl mx-auto">
@@ -39,13 +69,13 @@ export default function AgeCalculatorPage() {
                     <span className="text-gray-900 font-medium">வயது கணக்கிடுபவர்</span>
                 </nav>
 
-                <header className="mb-10">
-                    <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-                        வயது கணக்கிடுபவர் (Age Calculator)
+                <header className="mb-10 text-center">
+                    {/* Step 2: Primary Answer Block (SSR) */}
+                    <h1 className="text-3xl md:text-5xl font-black text-gray-900 mb-6 font-primary">
+                        வயது கால்குலேட்டர் (Age Calculator Today)
                     </h1>
-                    <p className="text-lg text-gray-600 leading-relaxed">
-                        திருமணம், வேலைவாய்ப்பு மற்றும் அரசு விண்ணப்பங்களுக்கு உங்களின் துல்லியமான வயதை
-                        வருடம், மாதம், மற்றும் நாட்கள் வாரியாக கணக்கிட உதவும் எளிய கருவி.
+                    <p className="text-gray-700 text-xl md:text-2xl leading-relaxed mb-10 max-w-3xl mx-auto">
+                        இந்தக் கருவி உங்கள் பிறந்த தேதியின் அடிப்படையில் உங்களின் துல்லியமான வயதை வருடம், மாதம் மற்றும் நாட்கள் வாரியாகக் கணக்கிடுகிறது. இது ஒரு தகவல் குறிப்பு மட்டுமே.
                     </p>
                 </header>
 
@@ -126,6 +156,13 @@ export default function AgeCalculatorPage() {
                                 </p>
                             </div>
                         </div>
+                    </section>
+                    <section className="pt-16 border-t border-gray-100">
+                        <h2 className="text-2xl font-bold text-gray-900 mb-6">2026 வயது கணக்கீடு - முக்கிய தேதிகள்</h2>
+                        <p className="text-gray-600 leading-relaxed">
+                            2026 ஆம் ஆண்டில் உங்கள் வயதை அறிய, 2026 இலிருந்து உங்கள் பிறந்த வருடத்தைக் கழிப்பதன் மூலம் தோராயமான வயதைக் கணக்கிடலாம்.
+                            சட்டப்படியான தேவைகள், பள்ளி சேர்க்கை மற்றும் வேலை அறிவிப்புகளுக்கு துல்லியமான வயதுத் தகுதி முக்கியமானது.
+                        </p>
                     </section>
                 </article>
             </div>

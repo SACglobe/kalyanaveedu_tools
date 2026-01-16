@@ -3,8 +3,8 @@ import DatePlanner from '@/components/tools/DatePlanner';
 import Link from 'next/link';
 
 export const metadata: Metadata = {
-    title: 'திருமண தேதி பிளானர் | Marriage Date Planner Tamil',
-    description: 'உங்கள் திருமண தேதியை திட்டமிட உதவும் கருவி. இன்னும் எத்தனை நாட்கள் உள்ளன, விடுமுறை நாட்கள் மற்றும் வார நாட்களை கண்டறியலாம்.',
+    title: 'Marriage Date Planner | திருமண தேதி பிளானர் – Tamil Reference',
+    description: 'Calculate days remaining for your wedding and check day details. திருமண தேதி திட்டமிடும் கருவி – தகவல் நோக்கிற்கான நாட்காட்டி.',
     keywords: ['marriage date planner', 'thirumana thinam', 'wedding countdown tamil', 'muhurtham date checker'],
 };
 
@@ -27,7 +27,37 @@ export default function DatePlannerPage() {
         <div className="container mx-auto px-4 py-12">
             <script
                 type="application/ld+json"
-                dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+                dangerouslySetInnerHTML={{
+                    __html: JSON.stringify({
+                        "@context": "https://schema.org",
+                        "@type": "WebPage",
+                        "name": "Marriage Date Planner | திருமண தேதி பிளானர் – Tamil Reference",
+                        "description": "Calculate days remaining for your wedding and check day details.",
+                        "breadcrumb": "Home > Tools > Date Planner",
+                        "publisher": {
+                            "@type": "Organization",
+                            "name": "Kalyanaveedu"
+                        }
+                    })
+                }}
+            />
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{
+                    __html: JSON.stringify({
+                        "@context": "https://schema.org",
+                        "@type": "SoftwareApplication",
+                        "name": "Tamil Marriage Date Planner",
+                        "description": "Calculate days remaining for wedding and check day details",
+                        "applicationCategory": "UtilityApplication",
+                        "operatingSystem": "Any",
+                        "offers": {
+                            "@type": "Offer",
+                            "price": "0",
+                            "priceCurrency": "INR",
+                        }
+                    })
+                }}
             />
 
             <div className="max-w-4xl mx-auto">
@@ -39,14 +69,13 @@ export default function DatePlannerPage() {
                     <span className="text-gray-900 font-medium">திருமண தேதி கணிப்பான்</span>
                 </nav>
 
-                <header className="mb-10">
-                    <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-                        திருமண தேதி பிளானர்
+                <header className="mb-10 text-center">
+                    {/* Step 2: Primary Answer Block (SSR) */}
+                    <h1 className="text-3xl md:text-5xl font-black text-gray-900 mb-6 font-primary">
+                        திருமண தேதி பிளானர் (Marriage Date Countdown)
                     </h1>
-                    <p className="text-lg text-gray-600 leading-relaxed">
-                        திருமண தேதி முடிவாகிவிட்டதா? அல்லது ஒரு தேதியை யோசித்து வைத்துள்ளீர்களா?
-                        இந்த கருவி மூலம் அந்த நாளின் கிழமை மற்றும் திருமணத்திற்கு இன்னும் எத்தனை
-                        நாட்கள் உள்ளன என்பதை அறியலாம்.
+                    <p className="text-gray-700 text-xl md:text-2xl leading-relaxed mb-10 max-w-3xl mx-auto">
+                        திருமணத்திற்கு இன்னும் எத்தனை நாட்கள் உள்ளன மற்றும் அந்தத் தேதியின் கிழமை விவரங்களை இந்தக் கருவி மூலம் எளிதாகத் தெரிந்துகொள்ளலாம். இது ஒரு திட்டமிடல் தகவல் குறிப்பு மட்டுமே.
                     </p>
                 </header>
 
@@ -124,6 +153,12 @@ export default function DatePlannerPage() {
                                 </div>
                             </details>
                         </div>
+                    </section>
+                    <section className="pt-16 border-t border-gray-100">
+                        <h2 className="text-2xl font-bold text-gray-900 mb-6">2026 திருமண திட்டமிடல் நாட்காட்டி</h2>
+                        <p className="text-gray-600 leading-relaxed">
+                            2026 ஆம் ஆண்டு ஜூன் அல்லது டிசம்பர் போன்ற முக்கிய சுப முகூர்த்த காலங்களில் திருமணங்களைத் திட்டமிடும்போது, மண்டப முன்பதிவு மற்றும் பிற ஏற்பாடுகளுக்கு முன்கூட்டியே நாட்களைக் கணக்கிடுவது உதவியாக இருக்கும்.
+                        </p>
                     </section>
                 </article>
             </div>
