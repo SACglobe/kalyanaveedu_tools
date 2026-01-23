@@ -234,6 +234,15 @@ export function getPanchangam(date: Date): PanchangamResult {
         } else if (isPournami) {
             result.isPournami = true;
             result.tithi = "பௌர்ணமி (Pournami) - வளர்பிறை (Sukla Paksham)";
+        } else {
+            // If it's not our hardcoded moon phase day, but astronomical calculation says it is, 
+            // we must change the tithi name to avoid confusion (e.g., Feb 2 morning still being Pournami)
+            if (result.tithi.includes("பௌர்ணமி")) {
+                result.tithi = result.tithi.replace("பௌர்ணமி", "துவிதியை"); // Shift to next tithi name
+            }
+            if (result.tithi.includes("அமாவாசை")) {
+                result.tithi = result.tithi.replace("அமாவாசை", "பிரதமை"); // Shift to next tithi name
+            }
         }
     }
 

@@ -431,13 +431,14 @@ function AmavasaiSymbol() {
 
 function PournamiSymbol() {
     return (
-        <div className="w-3 h-3 md:w-5 md:h-5 border-2 border-red-500 rounded-full" title="பௌர்ணமி (Pournami)" />
+        <div className="w-3 h-3 md:w-5 md:h-5 border-2 border-red-500 rounded-full" />
     );
 }
 
 function MangalyamSymbol() {
     return (
-        <svg viewBox="0 0 100 100" className="w-4 h-4 md:w-6 md:h-6 fill-red-600" title="சுப முகூர்த்தம் (Subha Muhurtham)">
+        <svg viewBox="0 0 100 100" className="w-4 h-4 md:w-6 md:h-6 fill-red-600">
+            <title>சுப முகூர்த்தம் (Subha Muhurtham)</title>
             <path d="M20,30 L80,30 L80,40 L20,40 Z" />
             <path d="M30,40 L30,55 L40,55 L40,40 Z" />
             <path d="M60,40 L60,55 L70,55 L70,40 Z" />
