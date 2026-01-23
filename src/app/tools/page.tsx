@@ -5,6 +5,9 @@ import type { Metadata } from 'next';
 export const metadata: Metadata = {
     title: 'திருமண கருவிகள் | அனைத்தும் இலவசம்',
     description: 'வயது கணிப்பான், திருமண பொருத்தம், பட்ஜெட் பிளானர் உள்ளிட்ட அனைத்து திருமண கருவிகளின் பட்டியல்.',
+    alternates: {
+        canonical: '/tools',
+    },
 };
 
 export default function ToolsIndex() {

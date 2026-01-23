@@ -8,7 +8,7 @@ import {
     getTamilDayNameEng,
     getMuhurthamTimes
 } from '@/lib/tamil-calendar-utils';
-import { TAMIL_MONTHS, FESTIVALS, HOLIDAYS_2026, VALUABLE_MARRIAGE_DATES } from '@/lib/tamil-calendar-data';
+import { TAMIL_MONTHS, FESTIVALS, HOLIDAYS_2026, VALUABLE_MARRIAGE_DATES, AMAVASAI_DATES_2026, POURNAMI_DATES_2026 } from '@/lib/tamil-calendar-data';
 
 export default function TamilCalendar() {
     const [mounted, setMounted] = useState(false);
@@ -279,9 +279,16 @@ export default function TamilCalendar() {
                                     <span className={`text-xl md:text-3xl font-black ${isSelected ? 'text-primary' : isHoliday ? 'text-red-600' : 'text-gray-900'}`}>
                                         {day}
                                     </span>
-                                    <span className="text-xs md:text-sm font-black text-red-600">
-                                        {tamil.tamilDay}
-                                    </span>
+                                    <div className="flex flex-col items-center gap-1">
+                                        <span className="text-xs md:text-sm font-black text-red-600 leading-none">
+                                            {tamil.tamilDay}
+                                        </span>
+                                        <div className="flex flex-col items-center pointer-events-none">
+                                            {panchangam.isPournami && <PournamiSymbol />}
+                                            {panchangam.isAmavasai && <AmavasaiSymbol />}
+                                            {isMarriage && <MangalyamSymbol />}
+                                        </div>
+                                    </div>
                                 </div>
                                 <div className="mt-auto space-y-0.5 relative">
                                     <p className="text-[8px] md:text-[10px] text-gray-600 font-bold truncate">{shortNaks}</p>
@@ -412,6 +419,32 @@ export default function TamilCalendar() {
                 </div>
             </div>
         </div>
+    );
+}
+
+// Traditional Symbols Components
+function AmavasaiSymbol() {
+    return (
+        <div className="w-3 h-3 md:w-5 md:h-5 bg-red-500 rounded-full" title="அமாவாசை (Amavasai)" />
+    );
+}
+
+function PournamiSymbol() {
+    return (
+        <div className="w-3 h-3 md:w-5 md:h-5 border-2 border-red-500 rounded-full" title="பௌர்ணமி (Pournami)" />
+    );
+}
+
+function MangalyamSymbol() {
+    return (
+        <svg viewBox="0 0 100 100" className="w-4 h-4 md:w-6 md:h-6 fill-red-600" title="சுப முகூர்த்தம் (Subha Muhurtham)">
+            <path d="M20,30 L80,30 L80,40 L20,40 Z" />
+            <path d="M30,40 L30,55 L40,55 L40,40 Z" />
+            <path d="M60,40 L60,55 L70,55 L70,40 Z" />
+            <path d="M45,30 L45,65 Q50,75 55,65 L55,30 Z" />
+            <circle cx="50" cy="75" r="5" />
+            <path d="M10,30 Q50,15 90,30" fill="none" stroke="currentColor" strokeWidth="1" />
+        </svg>
     );
 }
 

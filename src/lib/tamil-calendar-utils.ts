@@ -1,4 +1,4 @@
-import { TAMIL_MONTHS, TAMIL_YEARS, SANKRANTI_DATA } from './tamil-calendar-data';
+import { TAMIL_MONTHS, TAMIL_YEARS, SANKRANTI_DATA, AMAVASAI_DATES_2026, POURNAMI_DATES_2026 } from './tamil-calendar-data';
 
 export interface TamilDateResult {
     tamilDay: number;
@@ -205,7 +205,7 @@ export function getPanchangam(date: Date): PanchangamResult {
     const endNaks = Math.floor((janmaRasiIdx + 1) * 2.25 - 0.1);
     const chandrashtamam = NAKSHATRAS.slice(startNaks, endNaks + 1).map(n => n.split(' ')[0]).join(', ');
 
-    return {
+    let result: PanchangamResult = {
         tithi: `${tithiName} - ${paksham}`,
         tithiEndTime: tithiEndTime || "நாள் முழுவதும்",
         nextTithi: nextTithi,
@@ -217,6 +217,27 @@ export function getPanchangam(date: Date): PanchangamResult {
         isPournami: initial.tithiNum === 15,
         isAmavasai: initial.tithiNum === 30
     };
+
+    // Hardcoded Overrides for Moon Phases (2026)
+    if (date.getFullYear() === 2026) {
+        const fullDateStr = `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, '0')}-${String(date.getDate()).padStart(2, '0')}`;
+        const isAmavasai = AMAVASAI_DATES_2026.includes(fullDateStr);
+        const isPournami = POURNAMI_DATES_2026.includes(fullDateStr);
+
+        // Reset both first to ensure no spillover from astronomical calculation
+        result.isAmavasai = false;
+        result.isPournami = false;
+
+        if (isAmavasai) {
+            result.isAmavasai = true;
+            result.tithi = "அமாவாசை (Amavasai) - தேய்பிறை (Krishna Paksham)";
+        } else if (isPournami) {
+            result.isPournami = true;
+            result.tithi = "பௌர்ணமி (Pournami) - வளர்பிறை (Sukla Paksham)";
+        }
+    }
+
+    return result;
 }
 
 export function getMuhurthamTimes(date: Date): MuhurthamResult {

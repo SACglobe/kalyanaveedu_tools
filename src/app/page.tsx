@@ -92,6 +92,58 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* FAQ Section */}
+      <section className="container mx-auto px-4 py-16">
+        <h2 className="text-3xl font-bold text-gray-900 text-center mb-12">
+          அடிக்கடி கேட்கப்படும் கேள்விகள்
+        </h2>
+        <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+          <div className="bg-white p-6 rounded-2xl shadow-sm border border-gray-100">
+            <h3 className="font-bold text-lg mb-2">திருமண வயது வரம்பு என்ன?</h3>
+            <p className="text-gray-600">இந்திய சட்டப்படி ஆண்களுக்கு 21 வயதும், பெண்களுக்கு 18 வயதும் பூர்த்தியடைந்திருக்க வேண்டும்.</p>
+          </div>
+          <div className="bg-white p-6 rounded-2xl shadow-sm border border-gray-100">
+            <h3 className="font-bold text-lg mb-2">இந்த கருவிகள் இலவசமா?</h3>
+            <p className="text-gray-600">ஆம், கல்யாண வீடு தளத்தில் உள்ள வயது கணிப்பான், பட்ஜெட் பிளானர் உள்ளிட்ட அனைத்து கருவிகளும் 100% இலவசம்.</p>
+          </div>
+          <div className="bg-white p-6 rounded-2xl shadow-sm border border-gray-100">
+            <h3 className="font-bold text-lg mb-2">சுப முகூர்த்தம் எப்படி கணக்கிடப்படுகிறது?</h3>
+            <p className="text-gray-600">வாக்கிய பஞ்சாங்க முறைப்படி, ராகு காலம் மற்றும் எமகண்டம் தவிர்த்து நல்நேரம் கணிக்கப்படுகிறது.</p>
+          </div>
+          <div className="bg-white p-6 rounded-2xl shadow-sm border border-gray-100">
+            <h3 className="font-bold text-lg mb-2">திருமண பட்ஜெட் போடுவது அவசியமா?</h3>
+            <p className="text-gray-600">கண்டிப்பாக. திட்டமிடாத செலவுகள் கடன் சுமையை உண்டாக்கும். முன்கூட்டியே பட்ஜெட் போடுவது 20-30% செலவை குறைக்கும்.</p>
+          </div>
+        </div>
+      </section>
+
+      {/* Latest Blog Posts Preview */}
+      <section className="bg-gray-50 py-16">
+        <div className="container mx-auto px-4 text-center">
+          <h2 className="text-3xl font-bold text-gray-900 mb-8">சமீபத்திய கட்டுரைகள்</h2>
+          <div className="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto">
+            <Link href="/blog/thirumana-velai-pattiyal" className="bg-white p-6 rounded-xl hover:shadow-md transition-shadow text-left block">
+              <span className="text-xs font-bold text-primary uppercase tracking-wider">Planning</span>
+              <h3 className="text-lg font-bold mt-2 mb-2 text-gray-900">திருமண வேலைகள் பட்டியல் 2026</h3>
+              <p className="text-gray-500 text-sm">6 மாத முழுமையான திட்டமிடல் வழிகாட்டி...</p>
+            </Link>
+            <Link href="/blog/subha-muhurtham-2026" className="bg-white p-6 rounded-xl hover:shadow-md transition-shadow text-left block">
+              <span className="text-xs font-bold text-primary uppercase tracking-wider">Astrology</span>
+              <h3 className="text-lg font-bold mt-2 mb-2 text-gray-900">2026 சுப முகூர்த்த நாட்கள்</h3>
+              <p className="text-gray-500 text-sm">திருமண தேதியை எப்படி தேர்ந்தெடுப்பது?...</p>
+            </Link>
+            <Link href="/blog/budget-planning-tips" className="bg-white p-6 rounded-xl hover:shadow-md transition-shadow text-left block">
+              <span className="text-xs font-bold text-primary uppercase tracking-wider">Finance</span>
+              <h3 className="text-lg font-bold mt-2 mb-2 text-gray-900">பட்ஜெட் திட்டமிடல் குறிப்புகள்</h3>
+              <p className="text-gray-500 text-sm">செலவுகளை குறைத்து சேமிப்பது எப்படி?...</p>
+            </Link>
+          </div>
+          <Link href="/blog" className="inline-block mt-8 text-primary font-bold hover:underline">
+            அனைத்து கட்டுரைகளையும் படிக்க →
+          </Link>
+        </div>
+      </section>
     </div>
   );
 }

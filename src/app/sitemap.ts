@@ -29,5 +29,17 @@ export default function sitemap(): MetadataRoute.Sitemap {
         priority: 0.9,
     }));
 
-    return [...routes, ...toolRoutes];
+    // Blog routes
+    const blogRoutes = [
+        '/blog/thirumana-velai-pattiyal',
+        '/blog/subha-muhurtham-2026',
+        '/blog/budget-planning-tips',
+    ].map((route) => ({
+        url: `${baseUrl}${route}`,
+        lastModified: new Date(),
+        changeFrequency: 'monthly' as const,
+        priority: 0.7,
+    }));
+
+    return [...routes, ...toolRoutes, ...blogRoutes];
 }

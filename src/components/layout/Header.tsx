@@ -12,18 +12,9 @@ export default function Header() {
     return (
         <header className="bg-white border-b border-gray-100 shadow-sm sticky top-0 z-50">
             <div className="container mx-auto px-4 h-20 lg:h-24 flex items-center justify-between">
-                {/* Logo */}
-                <Link href="/" className="flex items-center gap-3 lg:gap-4 group shrink-0">
-                    <div className="relative w-10 h-10 lg:w-12 lg:h-12 group-hover:scale-105 transition-transform duration-300">
+                <Link href="/" className="flex items-center gap-2 group shrink-0">
+                    <div className="relative w-44 h-12 lg:w-56 lg:h-14 group-hover:scale-105 transition-transform duration-300">
                         <img src="/logo.png" alt="Kalyana Veedu Logo" className="w-full h-full object-contain" />
-                    </div>
-                    <div className="flex flex-col">
-                        <span className="text-xl lg:text-2xl font-black text-primary tracking-tight leading-none">
-                            {SITE_CONFIG.name}
-                        </span>
-                        <span className="text-[9px] lg:text-[10px] text-gray-400 font-bold tracking-widest uppercase mt-1">
-                            Matrimony4U
-                        </span>
                     </div>
                 </Link>
 

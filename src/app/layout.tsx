@@ -9,13 +9,22 @@ import { SITE_CONFIG } from '@/lib/constants';
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(SITE_CONFIG.url),
   title: {
     default: `${SITE_CONFIG.name} - திருமண திட்டமிடல் கருவிகள்`,
     template: `%s | ${SITE_CONFIG.name}`,
   },
   description: SITE_CONFIG.description,
   manifest: '/manifest.json',
+  icons: {
+    icon: '/icon.png',
+    shortcut: '/icon.png',
+    apple: '/icon.png',
+  },
   themeColor: '#8B1A1A',
+  alternates: {
+    canonical: './',
+  },
   other: {
     'google-adsense-account': 'ca-pub-9023402446754026',
   },
