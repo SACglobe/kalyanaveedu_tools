@@ -293,13 +293,13 @@ export default function TamilCalendar() {
                                 <div className="mt-auto space-y-0.5 relative">
                                     <p className="text-[8px] md:text-[10px] text-gray-600 font-bold truncate">{shortNaks}</p>
                                     <p className="text-[8px] md:text-[10px] text-blue-600 font-bold truncate">{shortTithi}</p>
-                                    <div className="flex gap-1 mt-0.5">
+                                    <div className="flex gap-1 mt-0.5 items-center">
                                         {isMarriage && <div className="w-1.5 h-1.5 rounded-full bg-orange-500 shadow-sm" />}
                                         {isHoliday && <div className="w-1.5 h-1.5 rounded-full bg-red-600 shadow-sm" />}
+                                        {isToday && <div className="w-1.5 h-1.5 rounded-full bg-blue-600 shadow-md ring-1 ring-white" />}
                                     </div>
                                 </div>
-                                {isToday && !isSelected && <div className="absolute top-2 left-2 w-1.5 h-1.5 rounded-full bg-primary" />}
-                                {isSelected && <div className="absolute inset-0 border-2 border-primary pointer-events-none" />}
+                                {isSelected && <div className="absolute inset-0 border-2 border-primary pointer-events-none rounded-2xl" />}
                             </button>
                         );
                     })}
@@ -404,15 +404,21 @@ export default function TamilCalendar() {
                             இன்றைய ராசிபலன் <span className="h-px flex-1 bg-gray-100 italic">(Daily Focus)</span>
                         </h4>
                         <div className="grid grid-cols-2 gap-3">
-                            {RASI_SIGNS.map((rasi, idx) => (
-                                <div key={rasi.name} className="flex items-center gap-3 p-2 hover:bg-gray-50 rounded-xl transition-colors group">
-                                    <span className="text-xl grayscale group-hover:grayscale-0 transition-all">{rasi.icon}</span>
-                                    <div>
-                                        <p className="text-xs font-bold text-gray-900">{rasi.name}</p>
-                                        <p className="text-[10px] text-gray-500 font-medium">{RASI_PREDICTIONS[idx]}</p>
+                            {RASI_SIGNS.map((rasi, idx) => {
+                                // Dynamic index based on selected date to rotate predictions
+                                const dateHash = selectedDate.getFullYear() + selectedDate.getMonth() + selectedDate.getDate() + idx;
+                                const predictionIdx = dateHash % RASI_PREDICTIONS.length;
+
+                                return (
+                                    <div key={rasi.name} className="flex items-center gap-3 p-2 hover:bg-gray-50 rounded-xl transition-colors group">
+                                        <span className="text-xl grayscale group-hover:grayscale-0 transition-all">{rasi.icon}</span>
+                                        <div>
+                                            <p className="text-xs font-bold text-gray-900">{rasi.name}</p>
+                                            <p className="text-[10px] text-gray-500 font-medium">{RASI_PREDICTIONS[predictionIdx]}</p>
+                                        </div>
                                     </div>
-                                </div>
-                            ))}
+                                );
+                            })}
                         </div>
                     </div>
 
@@ -439,12 +445,17 @@ function MangalyamSymbol() {
     return (
         <svg viewBox="0 0 100 100" className="w-4 h-4 md:w-6 md:h-6 fill-red-600">
             <title>சுப முகூர்த்தம் (Subha Muhurtham)</title>
-            <path d="M20,30 L80,30 L80,40 L20,40 Z" />
-            <path d="M30,40 L30,55 L40,55 L40,40 Z" />
-            <path d="M60,40 L60,55 L70,55 L70,40 Z" />
-            <path d="M45,30 L45,65 Q50,75 55,65 L55,30 Z" />
-            <circle cx="50" cy="75" r="5" />
-            <path d="M10,30 Q50,15 90,30" fill="none" stroke="currentColor" strokeWidth="1" />
+            {/* The cord/thread */}
+            <path d="M10,40 Q50,25 90,40" fill="none" stroke="currentColor" strokeWidth="2" />
+            {/* Central Thaali Piece */}
+            <path d="M40,40 L60,40 L55,65 Q50,75 45,65 Z" />
+            {/* Traditional side beads/pieces */}
+            <circle cx="35" cy="42" r="3" />
+            <circle cx="65" cy="42" r="3" />
+            <path d="M30,42 L30,55 L35,55 L35,42 Z" />
+            <path d="M65,42 L65,55 L70,55 L70,42 Z" />
+            {/* Bottom dot */}
+            <circle cx="50" cy="78" r="4" className="fill-orange-500" />
         </svg>
     );
 }
