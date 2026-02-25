@@ -25,7 +25,7 @@ export default function CookieConsent() {
                 <div className="text-gray-600 text-sm md:text-base">
                     <p>
                         எங்கள் தளம் சிறந்த பயனர் அனுபவத்தை வழங்க குக்கீகளை (Cookies) பயன்படுத்துகிறது.
-                        மேலும் விவரங்களுக்கு எங்கள் <a href="/privacy-policy" className="text-primary hover:underline">தனியுரிமை கொள்கையை</a> பார்க்கவும்.
+                        மேலும் விவரங்களுக்கு எங்கள் <a href="/cookie-policy" className="text-primary hover:underline font-bold">குக்கீ கொள்கை</a> மற்றும் <a href="/privacy-policy" className="text-primary hover:underline">தனியுரிமை கொள்கையை</a> பார்க்கவும்.
                     </p>
                 </div>
                 <div className="flex gap-4">

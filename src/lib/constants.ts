@@ -9,7 +9,8 @@ export const NAV_LINKS = [
     { label: 'முகப்பு (Home)', href: '/' },
     { label: 'கருவிகள் (Tools)', href: '/tools' },
     { label: 'கட்டுரைகள் (Articles)', href: '/blog' },
-    { label: 'எங்களை பற்றி (About)', href: '/about' },
+    { label: 'நாங்கள் யார் (Who We Are)', href: '/about-us' },
+    { label: 'தொடர்பு (Contact)', href: '/contact' },
 ];
 
 export const TOOLS_LIST = [
