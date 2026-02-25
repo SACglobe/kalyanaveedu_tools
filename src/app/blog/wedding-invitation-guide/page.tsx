@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import TrustBlock from '@/components/TrustBlock';
 
 export const metadata: Metadata = {
     title: 'திருமண அழைப்பிதழ் வாசகங்கள் வழிகாட்டி | Tamil Wedding Invitation Wording Guide',
@@ -17,19 +18,10 @@ export default function WeddingInvitationGuide() {
                 <h1 className="text-3xl md:text-5xl font-bold text-gray-900 mb-6 leading-tight">
                     திருமண அழைப்பிதழ்: சிறந்த வாசகங்கள் வழிகாட்டி
                 </h1>
-                <div className="flex justify-center gap-4 text-sm text-gray-500 mb-8">
-                    <time dateTime="2026-02-10">பிப்ரவரி 10, 2026</time>
-                    <span>•</span>
-                    <span>7 நிமிட வாசிப்பு</span>
-                </div>
-                <div className="flex items-center justify-center gap-3 text-sm">
-                    <div className="text-gray-700">
-                        <strong>எழுதியவர்:</strong> சித்ரை செல்வன் |
-                        <a href="https://selvan.dev" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline ml-1">
-                            selvan.dev
-                        </a>
-                    </div>
-                </div>
+                <TrustBlock
+                    author="சித்ரை செல்வன்"
+                    updatedDate="பிப்ரவரி 2026"
+                />
             </header>
 
             <div className="prose prose-lg max-w-none text-gray-800 space-y-8 leading-relaxed">
@@ -322,6 +314,14 @@ export default function WeddingInvitationGuide() {
                             என்பது அன்பும் மரியாதையும், அழைப்பிதழ் format அல்ல.
                         </p>
                     </div>
+                </div>
+
+                <div className="bg-blue-50 p-6 rounded-xl border border-blue-100 my-8">
+                    <h3 className="font-bold text-blue-900 mb-2">மேலும் அறிய:</h3>
+                    <p className="text-blue-800 text-sm">
+                        அழைப்பிதழ் அனுப்பிய பிறகு செய்ய வேண்டிய வேலைகளை <Link href="/blog/thirumana-velai-pattiyal" className="font-bold underline">திருமண வேலைப் பட்டியல்</Link> மூலம் சரிபார்க்கவும்.
+                        மண்டப அலங்காரத்திற்கு <Link href="/blog/mandapam-decoration" className="font-bold underline">அலங்கார யோசனைகள்</Link> உங்களுக்கு உதவும்.
+                    </p>
                 </div>
 
                 <div className="bg-orange-50 p-8 rounded-2xl mt-12 border border-orange-100">

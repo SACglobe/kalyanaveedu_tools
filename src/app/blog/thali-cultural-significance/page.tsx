@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import TrustBlock from '@/components/TrustBlock';
 
 export const metadata: Metadata = {
     title: 'தாலி கலாச்சார முக்கியத்துவம் | Thali (Mangalsutra) Significance',
@@ -17,19 +18,10 @@ export default function ThaliCulturalSignificance() {
                 <h1 className="text-3xl md:text-5xl font-bold text-gray-900 mb-6 leading-tight">
                     தாலி: தமிழ் திருமணத்தின் புனித அடையாளம்
                 </h1>
-                <div className="flex justify-center gap-4 text-sm text-gray-500 mb-8">
-                    <time dateTime="2026-02-10">பிப்ரவரி 10, 2026</time>
-                    <span>•</span>
-                    <span>8 நிமிட வாசிப்பு</span>
-                </div>
-                <div className="flex items-center justify-center gap-3 text-sm">
-                    <div className="text-gray-700">
-                        <strong>எழுதியவர்:</strong> சித்ரை செல்வன் |
-                        <a href="https://selvan.dev" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline ml-1">
-                            selvan.dev
-                        </a>
-                    </div>
-                </div>
+                <TrustBlock
+                    author="சித்ரை செல்வன்"
+                    updatedDate="பிப்ரவரி 2026"
+                />
             </header>
 
             <div className="prose prose-lg max-w-none text-gray-800 space-y-8 leading-relaxed">
@@ -416,6 +408,14 @@ export default function ThaliCulturalSignificance() {
                         அன்பு, நம்பிக்கை, வாழ்நாள் முழுவதும் ஒன்றாக இருப்போம் என்ற
                         வாக்குறுதி. உங்கள் தாலி எல்லோம் சிறியதாக இருந்தாலும் பெரியதாக
                         இருந்தாலும், அதில் உங்கள் அன்பின் பெறுமானம் எல்லையற்றது!
+                    </p>
+                </div>
+
+                <div className="bg-blue-50 p-6 rounded-xl border border-blue-100 my-8">
+                    <h3 className="font-bold text-blue-900 mb-2">தொடர்புடைய சடங்குகள்:</h3>
+                    <p className="text-blue-800 text-sm">
+                        தாலி கட்டுவதன் தத்துவத்தை அறிய <Link href="/blog/thali-tying-significance" className="font-bold underline">தாலி கட்டுவதன் அர்த்தம்</Link> கட்டுரையையும்,
+                        தாலி நகைகள் வாங்கும் போது கவனிக்க வேண்டியவற்றை <Link href="/blog/gold-jewelry-buying-guide" className="font-bold underline">தங்கம் வாங்கும் வழிகாட்டி</Link> பக்கத்திலும் காணலாம்.
                     </p>
                 </div>
 

@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import TrustBlock from '@/components/TrustBlock';
 
 export const metadata: Metadata = {
     title: 'திருமண காப்பீடு வழிகாட்டி | Wedding Insurance Guide India',
@@ -17,19 +18,10 @@ export default function WeddingInsuranceGuide() {
                 <h1 className="text-3xl md:text-5xl font-bold text-gray-900 mb-6 leading-tight">
                     திருமண காப்பீடு (Wedding Insurance) வழிகாட்டி
                 </h1>
-                <div className="flex justify-center gap-4 text-sm text-gray-500 mb-8">
-                    <time dateTime="2026-02-10">பிப்ரவரி 10, 2026</time>
-                    <span>•</span>
-                    <span>5 நிமிட வாசிப்பு</span>
-                </div>
-                <div className="flex items-center justify-center gap-3 text-sm">
-                    <div className="text-gray-700">
-                        <strong>எழுதியவர்:</strong> சித்ரை செல்வன் |
-                        <a href="https://selvan.dev" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline ml-1">
-                            selvan.dev
-                        </a>
-                    </div>
-                </div>
+                <TrustBlock
+                    author="சித்ரை செல்வன்"
+                    updatedDate="பிப்ரவரி 2026"
+                />
             </header>
 
             <div className="prose prose-lg max-w-none text-gray-800 space-y-8 leading-relaxed">
@@ -375,6 +367,14 @@ export default function WeddingInsuranceGuide() {
                         பெரிய budget என்றால் insurance பற்றி கட்டாயம் யோசியுங்கள். "Better safe than sorry" -
                         insurance இருந்தால் மன அமைதியுடன் திருமணத்தை enjoy செய்யலாம், எதிர்பாராத
                         சிக்கல்களை பற்றி கவலைப்படாமல் இருக்கலாம்!
+                    </p>
+                </div>
+
+                <div className="bg-blue-50 p-6 rounded-xl border border-blue-100 my-8">
+                    <h3 className="font-bold text-blue-900 mb-2">திட்டமிடல் குறிப்புகள்:</h3>
+                    <p className="text-blue-800 text-sm">
+                        காப்பீடு எடுப்பது ஒரு பாதுகாப்பு என்றாலும், செலவுகளைக் குறைக்க <Link href="/blog/budget-planning-tips" className="font-bold underline">பட்ஜெட் திட்டமிடல்</Link> வழிகாட்டியையும்,
+                        வெளிநாட்டு திருமணங்களுக்கு <Link href="/blog/destination-wedding-planning" className="font-bold underline">டெஸ்டினேஷன் வெடிங்</Link> பதிவையும் படிக்கவும்.
                     </p>
                 </div>
 

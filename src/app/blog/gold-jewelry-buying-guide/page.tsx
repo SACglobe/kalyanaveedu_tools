@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import TrustBlock from '@/components/TrustBlock';
 
 export const metadata: Metadata = {
     title: 'திருமண தங்க நகை வாங்கும் வழிகாட்டி | Wedding Gold Jewelry Guide',
@@ -17,19 +18,10 @@ export default function GoldJewelryBuyingGuide() {
                 <h1 className="text-3xl md:text-5xl font-bold text-gray-900 mb-6 leading-tight">
                     திருமண தங்க நகை வாங்கும் வழிகாட்டி
                 </h1>
-                <div className="flex justify-center gap-4 text-sm text-gray-500 mb-8">
-                    <time dateTime="2026-02-10">பிப்ரவரி 10, 2026</time>
-                    <span>•</span>
-                    <span>6 நிமிட வாசிப்பு</span>
-                </div>
-                <div className="flex items-center justify-center gap-3 text-sm">
-                    <div className="text-gray-700">
-                        <strong>எழுதியவர்:</strong> சித்ரை செல்வன் |
-                        <a href="https://selvan.dev" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline ml-1">
-                            selvan.dev
-                        </a>
-                    </div>
-                </div>
+                <TrustBlock
+                    author="சித்ரை செல்வன்"
+                    updatedDate="பிப்ரவரி 2026"
+                />
             </header>
 
             <div className="prose prose-lg max-w-none text-gray-800 space-y-8 leading-relaxed">
@@ -363,6 +355,14 @@ export default function GoldJewelryBuyingGuide() {
                         தலைமுறை தலைமுறையாக கடத்தப்படும். தரமான, authentic தங்கம் வாங்கினால்,
                         அது வாழ்நாள் முழுவதும் value தரும். புத்திசாலித்தனமாக வாங்குங்கள், பாதுகாப்பாக
                         சேமித்து வையுங்கள், மகிழ்ச்சியுடன் அணியுங்கள்!
+                    </p>
+                </div>
+
+                <div className="bg-blue-50 p-6 rounded-xl border border-blue-100 my-8">
+                    <h3 className="font-bold text-blue-900 mb-2">மேலும் அறிய:</h3>
+                    <p className="text-blue-800 text-sm">
+                        தங்கம் வாங்குவது ஒரு முதலீடு என்றாலும், அது உங்கள் பட்ஜெட்டை பாதிக்காமல் இருக்க <Link href="/blog/avoid-wedding-debt" className="font-bold underline">திருமண கடன் தவிர்த்தல்</Link> வழிகாட்டியையும்,
+                        தாலியின் முக்கியத்துவத்தை அறிய <Link href="/blog/thali-cultural-significance" className="font-bold underline">தாலி கலாச்சார முக்கியத்துவம்</Link> கட்டுரையையும் வாசிக்கவும்.
                     </p>
                 </div>
 

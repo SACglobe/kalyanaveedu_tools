@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import TrustBlock from '@/components/TrustBlock';
 
 export const metadata: Metadata = {
     title: 'Destination திருமணம் திட்டமிடல் | Destination Wedding Planning Guide',
@@ -17,19 +18,10 @@ export default function DestinationWeddingPlanning() {
                 <h1 className="text-3xl md:text-5xl font-bold text-gray-900 mb-6 leading-tight">
                     Destination திருமணம் திட்டமிடல்: முழுமையான வழிகாட்டி
                 </h1>
-                <div className="flex justify-center gap-4 text-sm text-gray-500 mb-8">
-                    <time dateTime="2026-02-10">பிப்ரவரி 10, 2026</time>
-                    <span>•</span>
-                    <span>8 நிமிட வாசிப்பு</span>
-                </div>
-                <div className="flex items-center justify-center gap-3 text-sm">
-                    <div className="text-gray-700">
-                        <strong>எழுதியவர்:</strong> சித்ரை செல்வன் |
-                        <a href="https://selvan.dev" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline ml-1">
-                            selvan.dev
-                        </a>
-                    </div>
-                </div>
+                <TrustBlock
+                    author="சித்ரை செல்வன்"
+                    updatedDate="பிப்ரவரி 2026"
+                />
             </header>
 
             <div className="prose prose-lg max-w-none text-gray-800 space-y-8 leading-relaxed">
@@ -474,6 +466,14 @@ export default function DestinationWeddingPlanning() {
                             சொல்லுங்கள். பல venues தமிழ் wedding experience உள்ளவர்களை வைத்திருப்பார்கள்.
                         </p>
                     </div>
+                </div>
+
+                <div className="bg-blue-50 p-6 rounded-xl border border-blue-100 my-8">
+                    <h3 className="font-bold text-blue-900 mb-2">திருமண முன்னேற்பாடுகள்:</h3>
+                    <p className="text-blue-800 text-sm">
+                        வெளிநாட்டில் அல்லது வெளியூரில் திருமணம் செய்யும்போது <Link href="/blog/wedding-insurance-guide" className="font-bold underline">திருமண காப்பீடு</Link> மிகவும் அவசியம்.
+                        மேலும் பட்ஜெட் கட்டுக்குள் இருக்க <Link href="/blog/budget-planning-tips" className="font-bold underline">பட்ஜெட் திட்டமிடல் குறிப்புகள்</Link> உங்களுக்கு உதவும்.
+                    </p>
                 </div>
 
                 <div className="bg-orange-50 p-8 rounded-2xl mt-12 border border-orange-100">

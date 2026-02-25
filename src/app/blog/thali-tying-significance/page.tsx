@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import TrustBlock from '@/components/TrustBlock';
 
 // <!-- TRUST: meta-title -->
 // Meta Title: தாலி கட்டுவதன் அர்த்தம்: மூன்று முடிச்சுகளின் தத்துவம் | கல்யாண வீடு
@@ -31,27 +32,11 @@ export default function ThaliTyingSignificance() {
                     தாலி கட்டுவதன் அர்த்தம்: மூன்று முடிச்சுகளின் தத்துவம்
                 </h1>
 
-                {/* <!-- TRUST: last-updated --> */}
-                <div className="flex justify-center gap-4 text-sm text-gray-500 mb-6">
-                    <time dateTime="2026-02-25">கடைசியாக புதுப்பிக்கப்பட்டது: பிப்ரவரி 2026</time>
-                    <span>•</span>
-                    <span>8 நிமிட வாசிப்பு</span>
-                </div>
-
-                {/* <!-- TRUST: author-byline --> */}
-                <div className="flex items-center justify-center gap-2 text-sm text-gray-600">
-                    <span>எழுதியவர்:</span>
-                    <strong className="text-gray-800">மீனாட்சி சுந்தரம்</strong>
-                </div>
+                <TrustBlock
+                    author="மீனாட்சி சுந்தரம்"
+                    updatedDate="பிப்ரவரி 2026"
+                />
             </header>
-
-            {/* <!-- TRUST: disclaimer --> */}
-            <div className="bg-amber-50 border border-amber-200 rounded-xl p-5 mb-10 text-sm text-amber-900 leading-relaxed">
-                இந்தக் கட்டுரை தாலி கட்டும் சடங்கின் தத்துவ மற்றும் பண்பாட்டு விளக்கத்திற்காக எழுதப்பட்டுள்ளது.
-                சடங்கின் துல்லியமான முறை, மந்திரங்கள், மற்றும் நடைமுறைகள் சமூகத்திற்கு சமூகம், குடும்ப மரபு,
-                கோத்திரம் ஆகியவற்றைப் பொறுத்து வேறுபடும். உங்கள் குடும்பத்தின் வழக்கத்தையும் வாத்தியார்
-                வழிகாட்டுதலையும் பின்பற்றவும்.
-            </div>
 
             <div className="prose prose-lg max-w-none text-gray-800 space-y-8 leading-relaxed">
 

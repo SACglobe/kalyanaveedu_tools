@@ -26,7 +26,7 @@ export const metadata: Metadata = {
     canonical: './',
   },
   other: {
-    'google-adsense-account': 'ca-pub-9023402446754026',
+    'google-adsense-account': 'ca-pub-8665355844991273',
   },
 };
 

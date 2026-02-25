@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import TrustBlock from '@/components/TrustBlock';
 
 // <!-- TRUST: meta-title -->
 // Meta Title: மாலை மாற்றுதல்: திருமணத்தின் மகிழ்ச்சியான முதல் சங்கமம் | கல்யாண வீடு
@@ -31,26 +32,11 @@ export default function MalaiMatruthelCeremony() {
                     மாலை மாற்றுதல்: திருமணத்தின் மகிழ்ச்சியான முதல் சங்கமம்
                 </h1>
 
-                {/* <!-- TRUST: last-updated --> */}
-                <div className="flex justify-center gap-4 text-sm text-gray-500 mb-6">
-                    <time dateTime="2026-02-25">கடைசியாக புதுப்பிக்கப்பட்டது: பிப்ரவரி 2026</time>
-                    <span>•</span>
-                    <span>8 நிமிட வாசிப்பு</span>
-                </div>
-
-                {/* <!-- TRUST: author-byline --> */}
-                <div className="flex items-center justify-center gap-2 text-sm text-gray-600">
-                    <span>எழுதியவர்:</span>
-                    <strong className="text-gray-800">மீனாட்சி சுந்தரம்</strong>
-                </div>
+                <TrustBlock
+                    author="மீனாட்சி சுந்தரம்"
+                    updatedDate="பிப்ரவரி 2026"
+                />
             </header>
-
-            {/* <!-- TRUST: disclaimer --> */}
-            <div className="bg-amber-50 border border-amber-200 rounded-xl p-5 mb-10 text-sm text-amber-900 leading-relaxed">
-                இந்தக் கட்டுரை தமிழ் திருமணச் சடங்குகளைப் பற்றிய பொதுவான கலாச்சாரத் தகவல்களை வழங்குகிறது.
-                மாலை மாற்றுதல் முறைகள் சமூகத்திற்குச் சமூகம் மற்றும் குடும்ப வழக்கத்திற்கேற்ப மாறுபடலாம்.
-                கூடுதல் விவரங்களுக்கு உங்கள் குடும்பப் பெரியோர்களை அணுகவும்.
-            </div>
 
             <div className="prose prose-lg max-w-none text-gray-800 space-y-8 leading-relaxed">
 

@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import TrustBlock from '@/components/TrustBlock';
 
 export const metadata: Metadata = {
     title: 'மண்டப அலங்காரம்: 10 நவீன வடிவமைப்பு யோசனைகள் | Mandapam Decoration Ideas',
@@ -17,19 +18,10 @@ export default function MandapamDecorationGuide() {
                 <h1 className="text-3xl md:text-5xl font-bold text-gray-900 mb-6 leading-tight">
                     மண்டப அலங்காரம்: 10 நவீன வடிவமைப்பு யோசனைகள்
                 </h1>
-                <div className="flex justify-center gap-4 text-sm text-gray-500 mb-8">
-                    <time dateTime="2026-02-10">பிப்ரவரி 10, 2026</time>
-                    <span>•</span>
-                    <span>8 நிமிட வாசிப்பு</span>
-                </div>
-                <div className="flex items-center justify-center gap-3 text-sm">
-                    <div className="text-gray-700">
-                        <strong>எழுதியவர்:</strong> சித்ரை செல்வன் |
-                        <a href="https://selvan.dev" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline ml-1">
-                            selvan.dev
-                        </a>
-                    </div>
-                </div>
+                <TrustBlock
+                    author="சித்ரை செல்வன்"
+                    updatedDate="பிப்ரவரி 2026"
+                />
             </header>
 
             <div className="prose prose-lg max-w-none text-gray-800 space-y-8 leading-relaxed">
@@ -345,6 +337,14 @@ export default function MandapamDecorationGuide() {
                             மலிவு மற்றும் அழகானது.
                         </p>
                     </div>
+                </div>
+
+                <div className="bg-blue-50 p-6 rounded-xl border border-blue-100 my-8">
+                    <h3 className="font-bold text-blue-900 mb-2">தொடர்புடைய கட்டுரைகள்:</h3>
+                    <p className="text-blue-800 text-sm">
+                        அழகான அலங்காரத்தை படம் பிடிக்க <Link href="/blog/choosing-wedding-photographer" className="font-bold underline">புகைப்படக் கலைஞர் தேர்வு</Link> குறித்த எங்களின் வழிகாட்டியைப் பார்க்கவும்.
+                        மேலும் மண்டப முகவரியை அழைக்க <Link href="/blog/wedding-invitation-guide" className="font-bold underline">அழைப்பிதழ் வாசகங்கள்</Link> உங்களுக்கு உதவும்.
+                    </p>
                 </div>
 
                 <div className="bg-orange-50 p-8 rounded-2xl mt-12 border border-orange-100">

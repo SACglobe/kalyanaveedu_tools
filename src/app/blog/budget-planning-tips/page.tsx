@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import TrustBlock from '@/components/TrustBlock';
 
 export const metadata: Metadata = {
     title: 'நடுத்தர வர்க்க திருமண பட்ஜெட் திட்டமிடல்: செலவுகளை குறைப்பது எப்படி? | Wedding Budget Tips',
@@ -17,11 +18,10 @@ export default function BudgetPlanningTips() {
                 <h1 className="text-3xl md:text-5xl font-bold text-gray-900 mb-6 leading-tight">
                     நடுத்தர வர்க்க திருமண பட்ஜெட் திட்டமிடல்: செலவுகளை குறைப்பது எப்படி?
                 </h1>
-                <div className="flex justify-center gap-4 text-sm text-gray-500 mb-8">
-                    <time dateTime="2026-01-22">ஜனவரி 22, 2026</time>
-                    <span>•</span>
-                    <span>12 நிமிட வாசிப்பு</span>
-                </div>
+                <TrustBlock
+                    author="சித்ரை செல்வன்"
+                    updatedDate="பிப்ரவரி 2026"
+                />
             </header>
 
             <div className="prose prose-lg max-w-none text-gray-800 space-y-8 leading-relaxed">
@@ -82,6 +82,14 @@ export default function BudgetPlanningTips() {
                 </p>
 
                 <hr className="my-12 border-gray-200" />
+
+                <div className="bg-blue-50 p-6 rounded-xl border border-blue-100 my-8">
+                    <h3 className="font-bold text-blue-900 mb-2">திட்டமிடல் உதவிகள்:</h3>
+                    <p className="text-blue-800 text-sm">
+                        பட்ஜெட் திட்டமிடும்போது கடன்களைத் தவிர்க்க <Link href="/blog/avoid-wedding-debt" className="font-bold underline">திருமண கடன் தவிர்த்தல்</Link> ஆலோசனைகளையும்,
+                        பாதுகாப்பிற்கு <Link href="/blog/wedding-insurance-guide" className="font-bold underline">திருமண காப்பீடு</Link> வழிகாட்டியையும் பயன்படுத்தவும்.
+                    </p>
+                </div>
 
                 <div className="bg-gray-50 p-8 rounded-2xl">
                     <h3 className="text-xl font-bold text-gray-900 mb-4">சுருக்கம்</h3>

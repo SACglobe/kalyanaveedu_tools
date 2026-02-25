@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import TrustBlock from '@/components/TrustBlock';
 
 export const metadata: Metadata = {
     title: 'திருமண வேலைகள் பட்டியல்: 6 மாத முழுமையான திட்டமிடல் வழிகாட்டி | Wedding Checklist',
@@ -17,11 +18,10 @@ export default function WeddingChecklistGuide() {
                 <h1 className="text-3xl md:text-5xl font-bold text-gray-900 mb-6 leading-tight">
                     திருமண வேலைகள் பட்டியல்: 6 மாத முழுமையான திட்டமிடல் வழிகாட்டி
                 </h1>
-                <div className="flex justify-center gap-4 text-sm text-gray-500 mb-8">
-                    <time dateTime="2026-01-20">ஜனவரி 20, 2026</time>
-                    <span>•</span>
-                    <span>10 நிமிட வாசிப்பு</span>
-                </div>
+                <TrustBlock
+                    author="சித்ரை செல்வன்"
+                    updatedDate="பிப்ரவரி 2026"
+                />
             </header>
 
             <div className="prose prose-lg max-w-none text-gray-800 space-y-8 leading-relaxed">
@@ -92,6 +92,14 @@ export default function WeddingChecklistGuide() {
                 </ul>
 
                 <hr className="my-12 border-gray-200" />
+
+                <div className="bg-blue-50 p-6 rounded-xl border border-blue-100 my-8">
+                    <h3 className="font-bold text-blue-900 mb-2">திட்டமிடல் உதவிகள்:</h3>
+                    <p className="text-blue-800 text-sm">
+                        வேலைப் பட்டியலோடு சேர்த்து எங்களின் <Link href="/blog/budget-planning-tips" className="font-bold underline">பட்ஜெட் திட்டமிடல்</Link> ஆலோசனைகளையும்,
+                        வெளியூர் திருமணத் திட்டமிடலுக்கு <Link href="/blog/destination-wedding-planning" className="font-bold underline">டெஸ்டினேஷன் வெடிங்</Link> வழிகாட்டியையும் பயன்படுத்தவும்.
+                    </p>
+                </div>
 
                 <div className="bg-gray-50 p-8 rounded-2xl">
                     <h3 className="text-xl font-bold text-gray-900 mb-4">முடிவுரை</h3>

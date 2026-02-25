@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import TrustBlock from '@/components/TrustBlock';
 
 export const metadata: Metadata = {
     title: '2026 சுப முகூர்த்த நாட்கள்: திருமண தேதியை எப்படி தேர்ந்தெடுப்பது? | 2026 Muhurtham Dates',
@@ -17,11 +18,10 @@ export default function SubhaMuhurthamGuide() {
                 <h1 className="text-3xl md:text-5xl font-bold text-gray-900 mb-6 leading-tight">
                     2026 சுப முகூர்த்த நாட்கள்: திருமண தேதியை எப்படி தேர்ந்தெடுப்பது?
                 </h1>
-                <div className="flex justify-center gap-4 text-sm text-gray-500 mb-8">
-                    <time dateTime="2026-01-21">ஜனவரி 21, 2026</time>
-                    <span>•</span>
-                    <span>8 நிமிட வாசிப்பு</span>
-                </div>
+                <TrustBlock
+                    author="சித்ரை செல்வன்"
+                    updatedDate="பிப்ரவரி 2026"
+                />
             </header>
 
             <div className="prose prose-lg max-w-none text-gray-800 space-y-8 leading-relaxed">
@@ -81,6 +81,14 @@ export default function SubhaMuhurthamGuide() {
                 </div>
 
                 <hr className="my-12 border-gray-200" />
+
+                <div className="bg-blue-50 p-6 rounded-xl border border-blue-100 my-8">
+                    <h3 className="font-bold text-blue-900 mb-2">அடுத்த கட்டம்:</h3>
+                    <p className="text-blue-800 text-sm">
+                        சரியான தேதியைத் தேர்ந்தெடுத்த பிறகு, உங்கள் நட்சத்திரத்திற்குப் பொருத்தமான ராசிகளை அறிய <Link href="/blog/tamil-nakshatras-significance" className="font-bold underline">நட்சத்திரங்களின் முக்கியத்துவம்</Link> குறித்த எங்களின் பதிவைப் படிக்கவும்.
+                        மேலும் திருமணச் சடங்குகளின் சிறப்பை அறிய <Link href="/blog/tamil-wedding-rituals" className="font-bold underline">தமிழ் திருமணச் சடங்குகள்</Link> உங்களுக்கு உதவும்.
+                    </p>
+                </div>
 
                 <div className="bg-gray-50 p-8 rounded-2xl">
                     <h3 className="text-xl font-bold text-gray-900 mb-4">முடிவுரை</h3>

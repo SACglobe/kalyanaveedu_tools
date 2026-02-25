@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import TrustBlock from '@/components/TrustBlock';
 
 export const metadata: Metadata = {
     title: 'வேத திருமண மந்திரங்கள் விளக்கம் | Vedic Wedding Mantras Guide',
@@ -17,19 +18,10 @@ export default function VedicWeddingMantras() {
                 <h1 className="text-3xl md:text-5xl font-bold text-gray-900 mb-6 leading-tight">
                     வேத திருமண மந்திரங்கள்: அர்த்தம் & முக்கியத்துவம்
                 </h1>
-                <div className="flex justify-center gap-4 text-sm text-gray-500 mb-8">
-                    <time dateTime="2026-02-10">பிப்ரவரி 10, 2026</time>
-                    <span>•</span>
-                    <span>7 நிமிட வாசிப்பு</span>
-                </div>
-                <div className="flex items-center justify-center gap-3 text-sm">
-                    <div className="text-gray-700">
-                        <strong>எழுதியவர்:</strong> சித்ரை செல்வன் |
-                        <a href="https://selvan.dev" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline ml-1">
-                            selvan.dev
-                        </a>
-                    </div>
-                </div>
+                <TrustBlock
+                    author="சித்ரை செல்வன்"
+                    updatedDate="பிப்ரவரி 2026"
+                />
             </header>
 
             <div className="prose prose-lg max-w-none text-gray-800 space-y-8 leading-relaxed">
@@ -374,6 +366,14 @@ export default function VedicWeddingMantras() {
                         வாக்குறுதிகளை எடுத்துக்கொள்வது மந்திரங்களின் உண்மையான நோக்கம்.
                         பாரம்பரியமும், நவீன புரிதலும் சேர்ந்து, இந்த புனித மொழிகள் உங்கள்
                         திருமண பந்தத்தை புனிதமாகவும், அர்த்தமுள்ளதாகவும் ஆக்கும்!
+                    </p>
+                </div>
+
+                <div className="bg-blue-50 p-6 rounded-xl border border-blue-100 my-8">
+                    <h3 className="font-bold text-blue-900 mb-2">மேலதிக வாசிப்பு:</h3>
+                    <p className="text-blue-800 text-sm">
+                        இந்த மந்திரங்கள் ஓதப்படும் முக்கியச் சடங்குகளைப் பற்றி <Link href="/blog/tamil-wedding-rituals" className="font-bold underline">திருமணச் சடங்குகள்</Link> பக்கத்தில் விரிவாக அறியலாம்.
+                        தாலியின் கலாச்சாரப் பின்னணியை அறிய <Link href="/blog/thali-cultural-significance" className="font-bold underline">தாலி முக்கியத்துவம்</Link> கட்டுரை உங்களுக்கு உதவும்.
                     </p>
                 </div>
 

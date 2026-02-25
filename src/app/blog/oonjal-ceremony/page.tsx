@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import TrustBlock from '@/components/TrustBlock';
 
 // <!-- TRUST: meta-title -->
 // Meta Title: ஊஞ்சல் சடங்கு: வாழ்க்கையின் ஏற்ற இறக்கங்களை எதிர்கொள்ளும் பக்குவம் | கல்யாண வீடு
@@ -31,26 +32,11 @@ export default function OonjalCeremony() {
                     ஊஞ்சல் சடங்கு: வாழ்க்கையின் ஏற்ற இறக்கங்களை எதிர்கொள்ளும் பக்குவம்
                 </h1>
 
-                {/* <!-- TRUST: last-updated --> */}
-                <div className="flex justify-center gap-4 text-sm text-gray-500 mb-6">
-                    <time dateTime="2026-02-25">கடைசியாக புதுப்பிக்கப்பட்டது: பிப்ரவரி 2026</time>
-                    <span>•</span>
-                    <span>7 நிமிட வாசிப்பு</span>
-                </div>
-
-                {/* <!-- TRUST: author-byline --> */}
-                <div className="flex items-center justify-center gap-2 text-sm text-gray-600">
-                    <span>எழுதியவர்:</span>
-                    <strong className="text-gray-800">மீனாட்சி சுந்தரம்</strong>
-                </div>
+                <TrustBlock
+                    author="மீனாட்சி சுந்தரம்"
+                    updatedDate="பிப்ரவரி 2026"
+                />
             </header>
-
-            {/* <!-- TRUST: disclaimer --> */}
-            <div className="bg-amber-50 border border-amber-200 rounded-xl p-5 mb-10 text-sm text-amber-900 leading-relaxed">
-                இந்தக் கட்டுரை தமிழ் திருமணச் சடங்குகளின் கலாச்சாரப் பின்னணியை விளக்குவதற்காக எழுதப்பட்டது.
-                ஊஞ்சல் சடங்கு முறைகள் ஒவ்வொரு சமூகத்திலும், குடும்பப் பாரம்பரியத்திலும் சில மாற்றங்களுடன்
-                நடைபெறலாம். உங்கள் வீட்டுப் பெரியோர்களின் வழிகாட்டுதலே முதன்மையானது.
-            </div>
 
             <div className="prose prose-lg max-w-none text-gray-800 space-y-8 leading-relaxed">
 

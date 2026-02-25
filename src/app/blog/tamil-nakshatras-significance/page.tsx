@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import TrustBlock from '@/components/TrustBlock';
 
 export const metadata: Metadata = {
     title: 'தமிழ் நட்சத்திரங்கள் & திருமண பொருத்தம் | Tamil Nakshatras Wedding Guide',
@@ -17,19 +18,10 @@ export default function TamilNakshatrasSignificance() {
                 <h1 className="text-3xl md:text-5xl font-bold text-gray-900 mb-6 leading-tight">
                     தமிழ் நட்சத்திரங்கள் & திருமண பொருத்தம்
                 </h1>
-                <div className="flex justify-center gap-4 text-sm text-gray-500 mb-8">
-                    <time dateTime="2026-02-10">பிப்ரவரி 10, 2026</time>
-                    <span>•</span>
-                    <span>12 நிமிட வாசிப்பு</span>
-                </div>
-                <div className="flex items-center justify-center gap-3 text-sm">
-                    <div className="text-gray-700">
-                        <strong>எழுதியவர்:</strong> சித்ரை செல்வன் |
-                        <a href="https://selvan.dev" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline ml-1">
-                            selvan.dev
-                        </a>
-                    </div>
-                </div>
+                <TrustBlock
+                    author="சித்ரை செல்வன்"
+                    updatedDate="பிப்ரவரி 2026"
+                />
             </header>
 
             <div className="prose prose-lg max-w-none text-gray-800 space-y-8 leading-relaxed">
@@ -398,6 +390,14 @@ export default function TamilNakshatrasSignificance() {
                             சௌகரியமாக உணரும் முறையைத் தேர்ந்தெடுக்கலாம்.
                         </p>
                     </div>
+                </div>
+
+                <div className="bg-blue-50 p-6 rounded-xl border border-blue-100 my-8 text-center md:text-left">
+                    <h3 className="font-bold text-blue-900 mb-2">தொடர்புடைய தேடல்கள்:</h3>
+                    <p className="text-blue-800 text-sm">
+                        நட்சத்திரப் பொருத்தம் பார்த்த பிறகு, 2026-ஆம் ஆண்டிற்கான சிறந்த தேதிகளை அறிய <Link href="/blog/subha-muhurtham-2026" className="font-bold underline">சுப முகூர்த்த தேதிகள்</Link> பக்கத்தைப் பார்க்கவும்.
+                        இந்த நட்சத்திரங்கள் திருமணச் சடங்குகளில் எப்படி முக்கியத்துவம் பெறுகின்றன என்பதை <Link href="/blog/tamil-wedding-rituals" className="font-bold underline">திருமணச் சடங்குகள்</Link> கட்டுரையில் அறியலாம்.
+                    </p>
                 </div>
 
                 <div className="bg-orange-50 p-8 rounded-2xl mt-12 border border-orange-100">

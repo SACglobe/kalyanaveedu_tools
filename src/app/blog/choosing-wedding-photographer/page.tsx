@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import TrustBlock from '@/components/TrustBlock';
 
 export const metadata: Metadata = {
     title: 'திருமண புகைப்படக்காரர் தேர்வு: முழுமையான வழிகாட்டி | Wedding Photographer Guide',
@@ -17,19 +18,10 @@ export default function WeddingPhotographerGuide() {
                 <h1 className="text-3xl md:text-5xl font-bold text-gray-900 mb-6 leading-tight">
                     திருமண புகைப்படக்காரர் தேர்வு: முழுமையான வழிகாட்டி
                 </h1>
-                <div className="flex justify-center gap-4 text-sm text-gray-500 mb-8">
-                    <time dateTime="2026-02-10">பிப்ரவரி 10, 2026</time>
-                    <span>•</span>
-                    <span>9 நிமிட வாசிப்பு</span>
-                </div>
-                <div className="flex items-center justify-center gap-3 text-sm">
-                    <div className="text-gray-700">
-                        <strong>எழுதியவர்:</strong> சித்ரை செல்வன் |
-                        <a href="https://selvan.dev" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline ml-1">
-                            selvan.dev
-                        </a>
-                    </div>
-                </div>
+                <TrustBlock
+                    author="சித்ரை செல்வன்"
+                    updatedDate="பிப்ரவரி 2026"
+                />
             </header>
 
             <div className="prose prose-lg max-w-none text-gray-800 space-y-8 leading-relaxed">
@@ -401,6 +393,14 @@ export default function WeddingPhotographerGuide() {
                             அல்லது pen drive-ல் கிடைக்கும்.
                         </p>
                     </div>
+                </div>
+
+                <div className="bg-blue-50 p-6 rounded-xl border border-blue-100 my-8">
+                    <h3 className="font-bold text-blue-900 mb-2">இதையும் படிக்கவும்:</h3>
+                    <p className="text-blue-800 text-sm">
+                        சிறந்த புகைப்படங்களுக்கு அழகான பின்னணி அவசியம். எங்களின் <Link href="/blog/mandapam-decoration" className="font-bold underline">மண்டப அலங்கார யோசனைகள்</Link> கட்டுரையை இங்கே பார்க்கவும்.
+                        மேலும், அழைப்பிதழ்களில் புகைப்படங்கள் சேர்க்க <Link href="/blog/wedding-invitation-guide" className="font-bold underline">திருமண அழைப்பிதழ் வழிகாட்டி</Link> உங்களுக்கு உதவும்.
+                    </p>
                 </div>
 
                 <div className="bg-orange-50 p-8 rounded-2xl mt-12 border border-orange-100">

@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import TrustBlock from '@/components/TrustBlock';
 
 // <!-- TRUST: meta-title -->
 // Meta Title: நாந்தி சடங்கு: முன்னோர் ஆசியில் தொடங்கும் திருமணம் | கல்யாண வீடு
@@ -31,26 +32,11 @@ export default function NaandiCeremony() {
                     நாந்தி சடங்கு: முன்னோர் ஆசியில் தொடங்கும் திருமணம்
                 </h1>
 
-                {/* <!-- TRUST: last-updated --> */}
-                <div className="flex justify-center gap-4 text-sm text-gray-500 mb-6">
-                    <time dateTime="2026-02-25">கடைசியாக புதுப்பிக்கப்பட்டது: பிப்ரவரி 2026</time>
-                    <span>•</span>
-                    <span>7 நிமிட வாசிப்பு</span>
-                </div>
-
-                {/* <!-- TRUST: author-byline --> */}
-                <div className="flex items-center justify-center gap-2 text-sm text-gray-600">
-                    <span>எழுதியவர்:</span>
-                    <strong className="text-gray-800">மீனாட்சி சுந்தரம்</strong>
-                </div>
+                <TrustBlock
+                    author="மீனாட்சி சுந்தரம்"
+                    updatedDate="பிப்ரவரி 2026"
+                />
             </header>
-
-            {/* <!-- TRUST: disclaimer --> */}
-            <div className="bg-amber-50 border border-amber-200 rounded-xl p-5 mb-10 text-sm text-amber-900 leading-relaxed">
-                இந்தக் கட்டுரை தமிழ் திருமண சடங்குகளை பண்பாட்டு புரிதலுக்காக விவரிக்கிறது.
-                நாந்தி சடங்கின் முறை, மந்திரங்கள், மற்றும் நடைமுறைகள் சமூகத்திற்கு சமூகம், குடும்பத்திற்கு குடும்பம் மாறுபடும்.
-                உங்கள் குடும்பத்தின் குலாசாரம் மற்றும் வாத்தியார் வழிகாட்டுதலையே பின்பற்றவும்.
-            </div>
 
             <div className="prose prose-lg max-w-none text-gray-800 space-y-8 leading-relaxed">
 
@@ -116,6 +102,14 @@ export default function NaandiCeremony() {
                     திருமண முகூர்த்த நிர்ணயம் பற்றி அறிய:{' '}
                     <Link href="/blog/subha-muhurtham-2026" className="text-primary hover:underline">
                         சுப முகூர்த்தம் — தமிழ் திருமண நாள் தேர்வு
+                    </Link>
+                </p>
+
+                {/* <!-- TRUST: internal-link --> */}
+                <p className="text-sm text-gray-500 italic">
+                    மற்ற சடங்குகள் பற்ற அறிய:{' '}
+                    <Link href="/blog/tamil-wedding-rituals" className="text-primary hover:underline">
+                        தமிழ் திருமணச் சடங்குகள் — முழுமையான வழிகாட்டி
                     </Link>
                 </p>
 

@@ -1,64 +1,133 @@
+// ─────────────────────────────────────────────
+// SITEMAP — kalyanaveedu.in
+// 
+// HOW TO ADD NEW URLS:
+//
+// New ARTICLE: just create the folder and page.tsx
+//   → src/app/blog/your-slug/page.tsx
+//   → automatically appears in sitemap on next deploy
+//   → NO changes needed to this file
+//
+// New TOOL: just create the folder and page.tsx
+//   → src/app/tools/your-slug/page.tsx
+//   → automatically appears in sitemap on next deploy
+//   → NO changes needed to this file
+//
+// New STATIC PAGE: add it to the staticPages array
+//   in this file manually (these are rare)
+// ─────────────────────────────────────────────
+
 import { MetadataRoute } from 'next';
-import { SITE_CONFIG, TOOLS_LIST } from '@/lib/constants';
+import fs from 'fs';
+import path from 'path';
+
+const BASE_URL = 'https://kalyanaveedu.in';
+
+// Helper: scan a folder and return all subfolder names as slugs
+// Each subfolder = one page.tsx route = one URL slug
+function getSlugsFromFolder(folderPath: string): string[] {
+    const absolutePath = path.join(process.cwd(), folderPath);
+
+    if (!fs.existsSync(absolutePath)) {
+        return [];
+    }
+
+    return fs.readdirSync(absolutePath, { withFileTypes: true })
+        .filter(entry =>
+            entry.isDirectory() &&
+            fs.existsSync(path.join(absolutePath, entry.name, 'page.tsx'))
+        )
+        .map(entry => entry.name);
+}
 
 export default function sitemap(): MetadataRoute.Sitemap {
-    const baseUrl = SITE_CONFIG.url;
 
-    // Static routes
-    const routes = [
-        '',
-        '/about',
-        '/about-us',
-        '/contact',
-        '/privacy-policy',
-        '/cookie-policy',
-        '/terms',
-        '/disclaimer',
-        '/tools',
-        '/blog',
-    ].map((route) => ({
-        url: `${baseUrl}${route}`,
+    // ── TYPE A: Static pages ──
+    const staticPages: MetadataRoute.Sitemap = [
+        {
+            url: `${BASE_URL}/`,
+            lastModified: new Date(),
+            changeFrequency: 'weekly',
+            priority: 1.0,
+        },
+        {
+            url: `${BASE_URL}/about`,
+            lastModified: new Date(),
+            changeFrequency: 'monthly',
+            priority: 0.6,
+        },
+        {
+            url: `${BASE_URL}/about-us`,
+            lastModified: new Date(),
+            changeFrequency: 'monthly',
+            priority: 0.6,
+        },
+        {
+            url: `${BASE_URL}/contact`,
+            lastModified: new Date(),
+            changeFrequency: 'monthly',
+            priority: 0.5,
+        },
+        {
+            url: `${BASE_URL}/privacy-policy`,
+            lastModified: new Date(),
+            changeFrequency: 'yearly',
+            priority: 0.3,
+        },
+        {
+            url: `${BASE_URL}/terms`,
+            lastModified: new Date(),
+            changeFrequency: 'yearly',
+            priority: 0.3,
+        },
+        {
+            url: `${BASE_URL}/disclaimer`,
+            lastModified: new Date(),
+            changeFrequency: 'yearly',
+            priority: 0.3,
+        },
+        {
+            url: `${BASE_URL}/cookie-policy`,
+            lastModified: new Date(),
+            changeFrequency: 'yearly',
+            priority: 0.3,
+        },
+        {
+            url: `${BASE_URL}/tools`,
+            lastModified: new Date(),
+            changeFrequency: 'monthly',
+            priority: 0.6,
+        },
+        {
+            url: `${BASE_URL}/blog`,
+            lastModified: new Date(),
+            changeFrequency: 'monthly',
+            priority: 0.6,
+        },
+    ];
+
+    // ── TYPE B: Article pages ──
+    const articleSlugs = getSlugsFromFolder('src/app/blog');
+    const articlePages: MetadataRoute.Sitemap = articleSlugs.map(slug => ({
+        url: `${BASE_URL}/blog/${slug}`,
         lastModified: new Date(),
         changeFrequency: 'monthly' as const,
-        priority: route === '' ? 1 : 0.8,
+        priority: 0.8,
     }));
 
-    // Tool routes
-    const toolRoutes = TOOLS_LIST.map((tool) => ({
-        url: `${baseUrl}${tool.path}`,
+    // ── TYPE C: Tool/Calculator pages ──
+    const toolSlugs = getSlugsFromFolder('src/app/tools');
+    const toolPages: MetadataRoute.Sitemap = toolSlugs.map(slug => ({
+        url: `${BASE_URL}/tools/${slug}`,
         lastModified: new Date(),
         changeFrequency: 'weekly' as const,
         priority: 0.9,
     }));
 
-    // Blog routes
-    const blogRoutes = [
-        '/blog/vedic-wedding-mantras',
-        '/blog/avoid-wedding-debt',
-        '/blog/gold-jewelry-buying-guide',
-        '/blog/wedding-insurance-guide',
-        '/blog/wedding-menu-planning',
-        '/blog/destination-wedding-planning',
-        '/blog/tamil-nakshatras-significance',
-        '/blog/thali-cultural-significance',
-        '/blog/tamil-wedding-rituals',
-        '/blog/mandapam-decoration',
-        '/blog/wedding-invitation-guide',
-        '/blog/choosing-wedding-photographer',
-        '/blog/thirumana-velai-pattiyal',
-        '/blog/subha-muhurtham-2026',
-        '/blog/budget-planning-tips', // Note: budget-planning-tips might be a duplicate or older slug, checking consistency with page.tsx
-        '/blog/naandi-ceremony',
-        '/blog/thali-tying-significance',
-        '/blog/kasi-yatra',
-        '/blog/malai-matruthel',
-        '/blog/oonjal-ceremony',
-    ].map((route) => ({
-        url: `${baseUrl}${route}`,
-        lastModified: new Date(),
-        changeFrequency: 'monthly' as const,
-        priority: 0.7,
-    }));
-
-    return [...routes, ...toolRoutes, ...blogRoutes];
+    return [
+        ...staticPages,
+        ...articlePages,
+        ...toolPages,
+    ];
 }
+
