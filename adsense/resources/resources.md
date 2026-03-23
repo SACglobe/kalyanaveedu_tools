@@ -228,7 +228,7 @@ Before using any source, MCP must pass this internal check:
 If any answer is **No** → **Source is forbidden. Do not use.**
 
 ---
-
+//
 ## 🚨 Enforcement
 
 | Violation                          | Action                          |

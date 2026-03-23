@@ -1,6 +1,8 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import TrustBlock from '@/components/TrustBlock';
+import Schema from '@/components/SEO/Schema';
+import AuthorBio from '@/components/blog/AuthorBio';
 
 export const metadata: Metadata = {
     title: 'தமிழ் திருமண சடங்குகள் வழிகாட்டி: முழுமையான விளக்கம் | Tamil Wedding Rituals Guide',
@@ -14,6 +16,28 @@ export const metadata: Metadata = {
 export default function TamilWeddingRitualsGuide() {
     return (
         <article className="container mx-auto px-4 py-12 max-w-4xl">
+            {/* <!-- Schema.org Markup --> */}
+            <Schema 
+                type="BlogPosting" 
+                data={{
+                    title: 'தமிழ் திருமண சடங்குகள்: முழுமையான வழிகாட்டி',
+                    description: 'தமிழ் திருமணத்தின் அனைத்து சடங்குகள் - திருமணத்திற்கு முன், திருமண நாள் மற்றும் திருமணத்திற்கு பிறகு செய்யப்படும் சடங்குகளின் விரிவான விளக்கம்.',
+                    author: 'சித்ரை செல்வன்',
+                    datePublished: '2026-02-10',
+                    slug: '/blog/tamil-wedding-rituals'
+                }} 
+            />
+            <Schema 
+                type="BreadcrumbList" 
+                data={{
+                    items: [
+                        { name: 'முகப்பு', item: '/' },
+                        { name: 'கட்டுரைகள்', item: '/blog' },
+                        { name: 'தமிழ் திருமண சடங்குகள்', item: '/blog/tamil-wedding-rituals' }
+                    ]
+                }} 
+            />
+
             <header className="mb-10 text-center">
                 <h1 className="text-3xl md:text-5xl font-bold text-gray-900 mb-6 leading-tight">
                     தமிழ் திருமண சடங்குகள்: முழுமையான வழிகாட்டி
@@ -280,20 +304,12 @@ export default function TamilWeddingRitualsGuide() {
                     </p>
                 </div>
 
-                <div className="bg-orange-50 p-8 rounded-2xl mt-12 border border-orange-100">
-                    <h3 className="text-xl font-bold text-gray-900 mb-4">எழுதியவர் பற்றி</h3>
-                    <p className="text-gray-700 mb-3">
-                        <strong>சித்ரை செல்வன்</strong> ஒரு மென்பொருள் பொறியாளர் மற்றும்
-                        தமிழ் கலாச்சார ஆர்வலர். தமிழ் திருமண பாரம்பரியங்களை டிஜிட்டல் யுகத்திற்கு
-                        கொண்டு வர கல்யாண வீடு தளத்தை உருவாக்கியுள்ளார்.
-                    </p>
-                    <p className="text-gray-600 text-sm">
-                        மேலும் தகவல்களுக்கு:
-                        <a href="https://selvan.dev" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline ml-1">
-                            selvan.dev
-                        </a>
-                    </p>
-                </div>
+                <AuthorBio 
+                    name="சித்ரை செல்வன்"
+                    role="Software Engineer & Tamil Culture Enthusiast"
+                    bio="சித்ரை செல்வன் ஒரு மென்பொருள் பொறியாளர் மற்றும் தமிழ் கலாச்சார ஆர்வலர். தமிழ் திருமண பாரம்பரியங்களை டிஜிட்டல் யுகத்திற்கு கொண்டு வர கல்யாண வீடு தளத்தை உருவாக்கியுள்ளார்."
+                    website="https://selvan.dev"
+                />
             </div>
         </article>
     );

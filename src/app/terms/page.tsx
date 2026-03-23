@@ -178,7 +178,7 @@ export default function TermsPage() {
                 <p>
                     உங்கள் தனிப்பட்ட தகவல்கள் மற்றும் எங்கள் தரவு சேகரிப்பு முறைகள் பற்றிய முழு விவரங்களுக்கு
                     எங்கள்{' '}
-                    <Link href="/privacy" className="text-primary hover:underline font-semibold">
+                    <Link href="/privacy-policy" className="text-primary hover:underline font-semibold">
                         தனியுரிமை கொள்கை (Privacy Policy)
                     </Link>
                     {' '}பக்கத்தை பார்க்கவும். தனியுரிமை கொள்கை இந்த Terms of Service-ன் ஒரு பகுதி.

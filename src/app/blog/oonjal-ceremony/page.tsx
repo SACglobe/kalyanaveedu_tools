@@ -1,6 +1,8 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import TrustBlock from '@/components/TrustBlock';
+import Schema from '@/components/SEO/Schema';
+import AuthorBio from '@/components/blog/AuthorBio';
 
 // <!-- TRUST: meta-title -->
 // Meta Title: ஊஞ்சல் சடங்கு: வாழ்க்கையின் ஏற்ற இறக்கங்களை எதிர்கொள்ளும் பக்குவம் | கல்யாண வீடு
@@ -19,6 +21,28 @@ export const metadata: Metadata = {
 export default function OonjalCeremony() {
     return (
         <article className="container mx-auto px-4 py-12 max-w-4xl">
+
+            {/* <!-- Schema.org Markup --> */}
+            <Schema 
+                type="BlogPosting" 
+                data={{
+                    title: 'ஊஞ்சல் சடங்கு: வாழ்க்கையின் ஏற்ற இறக்கங்களை எதிர்கொள்ளும் பக்குவம்',
+                    description: 'ஊஞ்சல் சடங்கு ஏன் செய்யப்படுகிறது, அதன் தத்துவம் என்ன, ஊஞ்சல் பாட்டுகள் மற்றும் திருஷ்டி கழிக்கும் முறைகள் குறித்த விரிவான கட்டுரை.',
+                    author: 'மீனாட்சி சுந்தரம்',
+                    datePublished: '2026-02-25',
+                    slug: '/blog/oonjal-ceremony'
+                }} 
+            />
+            <Schema 
+                type="BreadcrumbList" 
+                data={{
+                    items: [
+                        { name: 'முகப்பு', item: '/' },
+                        { name: 'கட்டுரைகள்', item: '/blog' },
+                        { name: 'ஊஞ்சல் சடங்கு', item: '/blog/oonjal-ceremony' }
+                    ]
+                }} 
+            />
 
             {/* <!-- TRUST: canonical-label --> */}
             <div className="text-center mb-4">
@@ -177,15 +201,11 @@ export default function OonjalCeremony() {
                     எங்கள் வாழ்த்து.
                 </p>
 
-                <div className="bg-orange-50 p-8 rounded-2xl mt-12 border border-orange-100">
-                    <h3 className="text-lg font-bold text-gray-900 mb-3">எழுதியவர் பற்றி</h3>
-                    <p className="text-gray-700 leading-relaxed">
-                        <strong>மீனாட்சி சுந்தரம்</strong> தமிழ் பாரம்பரியத் திருமணங்களில்
-                        ஆழமான ஈடுபாடு கொண்டவர். சடங்குகளின் தத்துவப் பின்னணியை
-                        ஆராய்ந்து எளிமையாக விளக்குவதில் வல்லவர்.
-                    </p>
-                </div>
-
+                <AuthorBio 
+                    name="மீனாட்சி சுந்தரம்"
+                    role="Tamil Cultural Historian"
+                    bio="மீனாட்சி சுந்தரம் தமிழ் பாரம்பரியத் திருமணங்களில் ஆழமான ஈடுபாடு கொண்டவர். சடங்குகளின் தத்துவப் பின்னணியை ஆராய்ந்து எளிமையாக விளக்குவதில் வல்லவர்."
+                />
             </div>
         </article>
     );

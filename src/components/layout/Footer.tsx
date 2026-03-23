@@ -23,7 +23,7 @@ export default function Footer() {
                             <li><Link href="/tools/tamil-calendar" className="text-primary font-bold hover:text-accent">📅 தமிழ் காலண்டர்</Link></li>
                             <li><Link href="/tools" className="text-gray-600 hover:text-primary">அனைத்து கருவிகள்</Link></li>
                             <li><Link href="/blog" className="text-gray-600 hover:text-primary">கட்டுரைகள்</Link></li>
-                            <li><Link href="/about-us" className="text-gray-600 hover:text-primary">நாங்கள் யார் (About Us)</Link></li>
+                            <li><Link href="/about" className="text-gray-600 hover:text-primary">நாங்கள் யார் (About Us)</Link></li>
                             <li><Link href="/contact" className="text-gray-600 hover:text-primary">தொடர்பு கொள்ளுங்கள் (Contact)</Link></li>
                         </ul>
                     </div>

@@ -1,6 +1,8 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import TrustBlock from '@/components/TrustBlock';
+import Schema from '@/components/SEO/Schema';
+import AuthorBio from '@/components/blog/AuthorBio';
 
 export const metadata: Metadata = {
     title: 'நடுத்தர வர்க்க திருமண பட்ஜெட் திட்டமிடல்: செலவுகளை குறைப்பது எப்படி? | Wedding Budget Tips',
@@ -14,6 +16,27 @@ export const metadata: Metadata = {
 export default function BudgetPlanningTips() {
     return (
         <article className="container mx-auto px-4 py-12 max-w-4xl">
+            {/* <!-- Schema.org Markup --> */}
+            <Schema 
+                type="BlogPosting" 
+                data={{
+                    title: 'நடுத்தர வர்க்க திருமண பட்ஜெட் திட்டமிடல்: செலவுகளை குறைப்பது எப்படி? | Wedding Budget Tips',
+                    description: 'இந்திய திருமண செலவுகளை குறைப்பதற்கான நடைமுறை குறிப்புகள். தங்கம், மண்டபம் மற்றும் உணவு செலவுகளை திட்டமிடும் எளிய வழிமுறைகள்.',
+                    author: 'சித்ரை செல்வன்',
+                    datePublished: '2026-02-25',
+                    slug: '/blog/budget-planning-tips'
+                }} 
+            />
+            <Schema 
+                type="BreadcrumbList" 
+                data={{
+                    items: [
+                        { name: 'முகப்பு', item: '/' },
+                        { name: 'கட்டுரைகள்', item: '/blog' },
+                        { name: 'பட்ஜெட் திட்டமிடல்', item: '/blog/budget-planning-tips' }
+                    ]
+                }} 
+            />
             <header className="mb-10 text-center">
                 <h1 className="text-3xl md:text-5xl font-bold text-gray-900 mb-6 leading-tight">
                     நடுத்தர வர்க்க திருமண பட்ஜெட் திட்டமிடல்: செலவுகளை குறைப்பது எப்படி?
@@ -91,13 +114,11 @@ export default function BudgetPlanningTips() {
                     </p>
                 </div>
 
-                <div className="bg-gray-50 p-8 rounded-2xl">
-                    <h3 className="text-xl font-bold text-gray-900 mb-4">சுருக்கம்</h3>
-                    <p className="text-gray-700">
-                        ஆடம்பரம் என்பது பணத்தை செலவழிப்பதில் இல்லை, வந்தவர்களை மனதார உபசரிப்பதில் உள்ளது.
-                        திட்டமிட்டு செலவு செய்யுங்கள், கடன் இல்லாத புது வாழ்வைத் தொடங்குங்கள்.
-                    </p>
-                </div>
+                <AuthorBio 
+                    name="சித்ரை செல்வன்"
+                    role="Founder, Kalyana Veedu"
+                    bio="சித்ரை செல்வன் கல்யாண வீடு தளத்தின் நிறுவனர். நிதி விவேகத்துடன் திருமண திட்டமிடலை ஊக்குவிக்கிறார்."
+                />
             </div>
         </article>
     );

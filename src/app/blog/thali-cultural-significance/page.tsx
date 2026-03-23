@@ -1,6 +1,8 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import TrustBlock from '@/components/TrustBlock';
+import Schema from '@/components/SEO/Schema';
+import AuthorBio from '@/components/blog/AuthorBio';
 
 export const metadata: Metadata = {
     title: 'தாலி கலாச்சார முக்கியத்துவம் | Thali (Mangalsutra) Significance',
@@ -14,6 +16,26 @@ export const metadata: Metadata = {
 export default function ThaliCulturalSignificance() {
     return (
         <article className="container mx-auto px-4 py-12 max-w-4xl">
+            <Schema 
+                type="BlogPosting"
+                data={{
+                    title: 'தாலி கலாச்சார முக்கியத்துவம் | Thali (Mangalsutra) Significance',
+                    description: 'தமிழ் திருமணத்தில் தாலி முக்கியத்துவம், தாலி வகைகள், பாரம்பரிய நம்பிக்கைகள், நவீன வடிவமைப்புகள், மற்றும் தாலி கட்டும் முறைகள்.',
+                    author: 'சித்ரை செல்வன்',
+                    datePublished: '2026-02-25',
+                    slug: '/blog/thali-cultural-significance'
+                }}
+            />
+            <Schema 
+                type="BreadcrumbList"
+                data={{
+                    items: [
+                        { name: 'முகப்பு', item: '/' },
+                        { name: 'கட்டுரைகள்', item: '/blog' },
+                        { name: 'தாலி முக்கியத்துவம்', item: '/blog/thali-cultural-significance' }
+                    ]
+                }}
+            />
             <header className="mb-10 text-center">
                 <h1 className="text-3xl md:text-5xl font-bold text-gray-900 mb-6 leading-tight">
                     தாலி: தமிழ் திருமணத்தின் புனித அடையாளம்
@@ -419,21 +441,12 @@ export default function ThaliCulturalSignificance() {
                     </p>
                 </div>
 
-                <div className="bg-orange-50 p-8 rounded-2xl mt-12 border border-orange-100">
-                    <h3 className="text-xl font-bold text-gray-900 mb-4">எழுதியவர் பற்றி</h3>
-                    <p className="text-gray-700 mb-3">
-                        <strong>சித்ரை செல்வன்</strong> கல்யாண வீடு தளத்தின் நிறுவனர்.
-                        தமிழ் திருமண திட்டமிடலை எளிமையாக்கும் நோக்கோடு, தரமான கருவிகள்
-                        மற்றும் தகவல்களை தமிழ் குடும்பங்களுக்கு வழங்குகிறார். பாரம்பரியமும்
-                        நவீன தொழில்நுட்பமும் இணையும் இடத்தில் செயல்படுகிறார்.
-                    </p>
-                    <p className="text-gray-600 text-sm">
-                        மேலும் தகவல்களுக்கு:
-                        <a href="https://selvan.dev" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline ml-1">
-                            selvan.dev
-                        </a>
-                    </p>
-                </div>
+                <AuthorBio 
+                    name="சித்ரை செல்வன்"
+                    role="Founder, Kalyana Veedu"
+                    bio="சித்ரை செல்வன் கல்யாண வீடு தளத்தின் நிறுவனர். தமிழ் திருமண திட்டமிடலை எளிமையாக்கும் நோக்கோடு, தரமான கருவிகள் மற்றும் தகவல்களை தமிழ் குடும்பங்களுக்கு வழங்குகிறார். பாரம்பரியமும் நவீன தொழில்நுட்பமும் இணையும் இடத்தில் செயல்படுகிறார்."
+                    website="https://selvan.dev"
+                />
             </div>
         </article>
     );

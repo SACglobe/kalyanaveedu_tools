@@ -1,6 +1,8 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import TrustBlock from '@/components/TrustBlock';
+import Schema from '@/components/SEO/Schema';
+import AuthorBio from '@/components/blog/AuthorBio';
 
 export const metadata: Metadata = {
     title: 'திருமண அழைப்பிதழ் வாசகங்கள் வழிகாட்டி | Tamil Wedding Invitation Wording Guide',
@@ -14,6 +16,26 @@ export const metadata: Metadata = {
 export default function WeddingInvitationGuide() {
     return (
         <article className="container mx-auto px-4 py-12 max-w-4xl">
+            <Schema 
+                type="BlogPosting"
+                data={{
+                    title: 'திருமண அழைப்பிதழ் வாசகங்கள் வழிகாட்டி | Tamil Wedding Invitation Wording Guide',
+                    description: 'பாரம்பரிய மற்றும் நவீன தமிழ் திருமண அழைப்பிதழ் வாசகங்கள், எழுத்து முறை, என்ன சேர்க்க வேண்டும், பொதுவான தவறுகள் மற்றும் மாதிரி வாசகங்கள்.',
+                    author: 'சித்ரை செல்வன்',
+                    datePublished: '2026-02-25',
+                    slug: '/blog/wedding-invitation-guide'
+                }}
+            />
+            <Schema 
+                type="BreadcrumbList"
+                data={{
+                    items: [
+                        { name: 'முகப்பு', item: '/' },
+                        { name: 'கட்டுரைகள்', item: '/blog' },
+                        { name: 'அழைப்பிதழ் வாசகங்கள்', item: '/blog/wedding-invitation-guide' }
+                    ]
+                }}
+            />
             <header className="mb-10 text-center">
                 <h1 className="text-3xl md:text-5xl font-bold text-gray-900 mb-6 leading-tight">
                     திருமண அழைப்பிதழ்: சிறந்த வாசகங்கள் வழிகாட்டி
@@ -324,21 +346,12 @@ export default function WeddingInvitationGuide() {
                     </p>
                 </div>
 
-                <div className="bg-orange-50 p-8 rounded-2xl mt-12 border border-orange-100">
-                    <h3 className="text-xl font-bold text-gray-900 mb-4">எழுதியவர் பற்றி</h3>
-                    <p className="text-gray-700 mb-3">
-                        <strong>சித்ரை செல்வன்</strong> கல்யாண வீடு தளத்தின் நிறுவனர்.
-                        தமிழ் திருமண பாரம்பரியங்களை புதிய தலைமுறைக்கு எளிமையாக தெரிவிக்கும்
-                        நோக்கத்துடன் செயல்படுகிறார். மென்பொருள் பொறியியல் மற்றும் தமிழ்
-                        பாரம்பரியத்தை இணைக்கும் பாலமாக இருக்கிறார்.
-                    </p>
-                    <p className="text-gray-600 text-sm">
-                        மேலும் தகவல்களுக்கு:
-                        <a href="https://selvan.dev" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline ml-1">
-                            selvan.dev
-                        </a>
-                    </p>
-                </div>
+                <AuthorBio 
+                    name="சித்ரை செல்வன்"
+                    role="Founder, Kalyana Veedu"
+                    bio="சித்ரை செல்வன் கல்யாண வீடு தளத்தின் நிறுவனர். தமிழ் திருமண பாரம்பரியங்களை புதிய தலைமுறைக்கு எளிமையாக தெரிவிக்கும் நோக்கத்துடன் செயல்படுகிறார். மென்பொருள் பொறியியல் மற்றும் தமிழ் பாரம்பரியத்தை இணைக்கும் பாலமாக இருக்கிறார்."
+                    website="https://selvan.dev"
+                />
             </div>
         </article>
     );

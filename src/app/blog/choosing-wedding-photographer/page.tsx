@@ -1,6 +1,8 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import TrustBlock from '@/components/TrustBlock';
+import Schema from '@/components/SEO/Schema';
+import AuthorBio from '@/components/blog/AuthorBio';
 
 export const metadata: Metadata = {
     title: 'திருமண புகைப்படக்காரர் தேர்வு: முழுமையான வழிகாட்டி | Wedding Photographer Guide',
@@ -14,6 +16,27 @@ export const metadata: Metadata = {
 export default function WeddingPhotographerGuide() {
     return (
         <article className="container mx-auto px-4 py-12 max-w-4xl">
+            {/* <!-- Schema.org Markup --> */}
+            <Schema 
+                type="BlogPosting" 
+                data={{
+                    title: 'திருமண புகைப்படக்காரர் தேர்வு: முழுமையான வழிகாட்டி | Wedding Photographer Guide',
+                    description: 'சிறந்த திருமண புகைப்படக்காரரை எப்படி தேர்வு செய்வது? பாரம்பரிய vs candid photography, கேட்க வேண்டிய கேள்விகள், விலை நிர்ணயம், ஒப்பந்த முக்கிய விஷயங்கள்.',
+                    author: 'சித்ரை செல்வன்',
+                    datePublished: '2026-02-25',
+                    slug: '/blog/choosing-wedding-photographer'
+                }} 
+            />
+            <Schema 
+                type="BreadcrumbList" 
+                data={{
+                    items: [
+                        { name: 'முகப்பு', item: '/' },
+                        { name: 'கட்டுரைகள்', item: '/blog' },
+                        { name: 'புகைப்படக்காரர் தேர்வு', item: '/blog/choosing-wedding-photographer' }
+                    ]
+                }} 
+            />
             <header className="mb-10 text-center">
                 <h1 className="text-3xl md:text-5xl font-bold text-gray-900 mb-6 leading-tight">
                     திருமண புகைப்படக்காரர் தேர்வு: முழுமையான வழிகாட்டி
@@ -403,21 +426,12 @@ export default function WeddingPhotographerGuide() {
                     </p>
                 </div>
 
-                <div className="bg-orange-50 p-8 rounded-2xl mt-12 border border-orange-100">
-                    <h3 className="text-xl font-bold text-gray-900 mb-4">எழுதியவர் பற்றி</h3>
-                    <p className="text-gray-700 mb-3">
-                        <strong>சித்ரை செல்வன்</strong> கல்யாண வீடு தளத்தின் நிறுவனர்.
-                        தமிழ் திருமண திட்டமிடலை எளிமையாக்கும் நோக்கோடு, தரமான கருவிகள்
-                        மற்றும் தகவல்களை தமிழ் குடும்பங்களுக்கு வழங்குகிறார். பாரம்பரியமும்
-                        நவீன தொ ழில்நுட்பமும் இணையும் இடத்தில் செயல்படுகிறார்.
-                    </p>
-                    <p className="text-gray-600 text-sm">
-                        மேலும் தகவல்களுக்கு:
-                        <a href="https://selvan.dev" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline ml-1">
-                            selvan.dev
-                        </a>
-                    </p>
-                </div>
+                <AuthorBio 
+                    name="சித்ரை செல்வன்"
+                    role="Founder, Kalyana Veedu"
+                    bio="சித்ரை செல்வன் கல்யாண வீடு தளத்தின் நிறுவனர். தமிழ் திருமண திட்டமிடலை எளிமையாக்கும் நோக்கோடு, தரமான கருவிகள் மற்றும் தகவல்களை தமிழ் குடும்பங்களுக்கு வழங்குகிறார்."
+                    website="https://selvan.dev"
+                />
             </div>
         </article>
     );

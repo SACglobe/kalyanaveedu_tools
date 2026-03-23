@@ -1,6 +1,8 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import TrustBlock from '@/components/TrustBlock';
+import Schema from '@/components/SEO/Schema';
+import AuthorBio from '@/components/blog/AuthorBio';
 
 export const metadata: Metadata = {
     title: 'திருமண வேலைகள் பட்டியல்: 6 மாத முழுமையான திட்டமிடல் வழிகாட்டி | Wedding Checklist',
@@ -14,6 +16,26 @@ export const metadata: Metadata = {
 export default function WeddingChecklistGuide() {
     return (
         <article className="container mx-auto px-4 py-12 max-w-4xl">
+            <Schema 
+                type="BlogPosting"
+                data={{
+                    title: 'திருமண வேலைகள் பட்டியல்: 6 மாத முழுமையான திட்டமிடல் வழிகாட்டி | Wedding Checklist',
+                    description: 'திருமணத்திற்கு 6 மாதங்கள் முன்பு முதல் திருமண நாள் வரை செய்ய வேண்டிய அனைத்து வேலைகளின் முழுமையான பட்டியல். Wedding Checklist in Tamil.',
+                    author: 'சித்ரை செல்வன்',
+                    datePublished: '2026-02-25',
+                    slug: '/blog/thirumana-velai-pattiyal'
+                }}
+            />
+            <Schema 
+                type="BreadcrumbList"
+                data={{
+                    items: [
+                        { name: 'முகப்பு', item: '/' },
+                        { name: 'கட்டுரைகள்', item: '/blog' },
+                        { name: 'திருமண வேலைகள் பட்டியல்', item: '/blog/thirumana-velai-pattiyal' }
+                    ]
+                }}
+            />
             <header className="mb-10 text-center">
                 <h1 className="text-3xl md:text-5xl font-bold text-gray-900 mb-6 leading-tight">
                     திருமண வேலைகள் பட்டியல்: 6 மாத முழுமையான திட்டமிடல் வழிகாட்டி
@@ -114,6 +136,12 @@ export default function WeddingChecklistGuide() {
                         </Link> பயன்படுத்துங்கள்!
                     </p>
                 </div>
+                <AuthorBio 
+                    name="சித்ரை செல்வன்"
+                    role="Founder, Kalyana Veedu"
+                    bio="சித்ரை செல்வன் கல்யாண வீடு தளத்தின் நிறுவனர். தமிழ் திருமண திட்டமிடலை எளிமையாக்கும் நோக்கோடு செயல்படுகிறார்."
+                    website="https://selvan.dev"
+                />
             </div>
         </article>
     );

@@ -1,6 +1,8 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import TrustBlock from '@/components/TrustBlock';
+import AuthorBio from '@/components/blog/AuthorBio';
+import Schema from '@/components/SEO/Schema';
 
 export const metadata: Metadata = {
     title: '2026 சுப முகூர்த்த நாட்கள்: திருமண தேதியை எப்படி தேர்ந்தெடுப்பது? | 2026 Muhurtham Dates',
@@ -14,6 +16,26 @@ export const metadata: Metadata = {
 export default function SubhaMuhurthamGuide() {
     return (
         <article className="container mx-auto px-4 py-12 max-w-4xl">
+            <Schema 
+                type="BlogPosting"
+                data={{
+                    title: '2026 சுப முகூர்த்த நாட்கள்: திருமண தேதியை எப்படி தேர்ந்தெடுப்பது? | 2026 Muhurtham Dates',
+                    description: '2026 ஆம் ஆண்டிற்கான சிறந்த சுப முகூர்த்த நாட்களை தேர்ந்தெடுக்கும் முறை. வளர்பிறை, நல்ல நேரம் மற்றும் தவிர்க்க வேண்டிய நாட்களை அறிந்துகொள்ளுங்கள்.',
+                    author: 'சித்ரை செல்வன்',
+                    datePublished: '2026-02-25',
+                    slug: '/blog/subha-muhurtham-2026'
+                }}
+            />
+            <Schema 
+                type="BreadcrumbList"
+                data={{
+                    items: [
+                        { name: 'முகப்பு', item: '/' },
+                        { name: 'கட்டுரைகள்', item: '/blog' },
+                        { name: 'சுப முகூர்த்த நாட்கள் 2026', item: '/blog/subha-muhurtham-2026' }
+                    ]
+                }}
+            />
             <header className="mb-10 text-center">
                 <h1 className="text-3xl md:text-5xl font-bold text-gray-900 mb-6 leading-tight">
                     2026 சுப முகூர்த்த நாட்கள்: திருமண தேதியை எப்படி தேர்ந்தெடுப்பது?
@@ -90,14 +112,12 @@ export default function SubhaMuhurthamGuide() {
                     </p>
                 </div>
 
-                <div className="bg-gray-50 p-8 rounded-2xl">
-                    <h3 className="text-xl font-bold text-gray-900 mb-4">முடிவுரை</h3>
-                    <p className="text-gray-700">
-                        சிறந்த நாளைத் தேர்ந்தெடுப்பது பாதி கிணற்றை தாண்டியதற்கு சமம்.
-                        எங்கள் தளத்தில் உள்ள <Link href="/tools/tamil-calendar" className="text-primary hover:underline">தினசரி தமிழ் காலண்டர்</Link> மூலம்
-                        நல்ல நேரம், ராகு காலம் ஆகியவற்றை துல்லியமாக அறிந்துகொள்ளுங்கள்.
-                    </p>
-                </div>
+                <AuthorBio 
+                    name="சித்ரை செல்வன்"
+                    role="Founder, Kalyana Veedu"
+                    bio="சித்ரை செல்வன் கல்யாண வீடு தளத்தின் நிறுவனர். தமிழ் திருமண திட்டமிடலை எளிமையாக்கும் நோக்கோடு செயல்படுகிறார்."
+                    website="https://selvan.dev"
+                />
             </div>
         </article>
     );

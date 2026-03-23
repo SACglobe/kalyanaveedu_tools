@@ -8,11 +8,15 @@ export default function Home() {
       <section className="container mx-auto px-4 text-center space-y-6">
         <h1 className="text-4xl md:text-5xl font-bold text-gray-900 leading-tight">
           <span className="text-primary block mb-2">{SITE_CONFIG.name}</span>
-          உங்கள் திருமண திட்டமிடல் தோழன்
+          <span className="block italic text-2xl md:text-3xl font-medium text-gray-600 mt-2">
+            உங்கள் திருமண திட்டமிடல் தோழன்
+          </span>
         </h1>
-        <p className="text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed">
-          தமிழ் குடும்பங்களுக்கான பிரத்யேக திருமண கருவிகள்.
-          ஜாதகம், பட்ஜெட் மற்றும் திருமண ஏற்பாடுகளை எளிமையாக்க உதவும் தளம்.
+        <p className="text-xl text-gray-700 max-w-3xl mx-auto leading-relaxed">
+          தமிழ் குடும்பங்களுக்கான பிரத்யேக திருமண திட்டமிடல் தளம். 
+          சுப முகூர்த்த தேதிகள், ஜாதகப் பொருத்தம், திருமண பட்ஜெட் கணிப்பான் மற்றும் 
+          பாரம்பரிய சடங்குகளின் விளக்கங்கள் என அனைத்தையும் எளிய தமிழில் கண்டறியுங்கள். 
+          உங்கள் இல்லத் திருமணத்தை சிறப்பாகத் திட்டமிட கல்யாண வீடு உங்களுக்கு என்றும் உறுதுணையாக இருக்கும்.
         </p>
         <div className="flex justify-center gap-4 pt-4">
           <Link
@@ -67,27 +71,34 @@ export default function Home() {
 
       {/* Vision Section */}
       <section className="bg-gradient-to-b from-orange-50 to-white py-16">
-        <div className="container mx-auto px-4 text-center max-w-3xl">
+        <div className="container mx-auto px-4 text-center max-w-4xl">
           <h2 className="text-3xl font-bold text-gray-900 mb-6">
-            ஏன் கல்யாண வீடு?
+            ஏன் கல்யாண வீடு? (Why Choose Us?)
           </h2>
-          <p className="text-gray-700 text-lg leading-loose mb-8">
-            எங்கள் நோக்கம் தமிழர்களின் திருமண கலாச்சாரத்தை மதித்து, நவீன தொழில்நுட்ப உதவியுடன்
-            திருமண ஏற்பாடுகளை எளிமையாக்குவதாகும். இது வெறும் கருவிகள் மட்டுமல்ல,
-            திருமண பந்தத்தின் முக்கியத்துவத்தை உணர்த்தும் ஒரு முயற்சி.
-          </p>
+          <div className="text-gray-700 text-lg leading-loose space-y-6 mb-12">
+            <p>
+              எங்கள் நோக்கம் தமிழர்களின் திருமண கலாச்சாரத்தை மதித்து, நவீன தொழில்நுட்ப உதவியுடன்
+              திருமண ஏற்பாடுகளை எளிமையாக்குவதாகும். ஒரு திருமணத்தை திட்டமிடுவது என்பது 
+              வெறும் வேலைப் பட்டியல் மட்டுமல்ல, அது ஒரு குடும்பத்தின் உணர்வுப்பூர்வமான பயணம். 
+            </p>
+            <p>
+              கல்யாண வீடு தளத்தில், நாங்கள் வழங்கும் ஒவ்வொரு கருவியும் அனுபவம் வாய்ந்த 
+              திருமண ஆலோசனைகள் மற்றும் பாரம்பரிய பஞ்சாங்க முறைகளின் அடிப்படையில் உருவாக்கப்பட்டுள்ளது. 
+              இது வெறும் கருவிகள் மட்டுமல்ல, திருமண பந்தத்தின் முக்கியத்துவத்தை உணர்த்தும் ஒரு முயற்சி.
+            </p>
+          </div>
           <div className="grid md:grid-cols-3 gap-8 text-left mt-12 bg-white p-8 rounded-2xl shadow-sm border border-gray-100">
-            <div className="space-y-2">
-              <div className="font-bold text-lg text-primary">100% இலவசம்</div>
-              <p className="text-sm text-gray-500">அனைத்து சேவைகளும் முற்றிலும் இலவசம்</p>
+            <div className="space-y-2 group">
+              <div className="font-bold text-lg text-primary group-hover:scale-105 transition-transform">100% இலவசம்</div>
+              <p className="text-sm text-gray-500 italic">எங்கள் அனைத்து சேவைகளும் மற்றும் கட்டுரைகளும் எக்காலத்திலும் முற்றிலும் இலவசம்</p>
             </div>
-            <div className="space-y-2">
-              <div className="font-bold text-lg text-primary">தமிழ் வழி</div>
-              <p className="text-sm text-gray-500">முழுக்க முழுக்க எளிய தமிழில்</p>
+            <div className="space-y-2 group">
+              <div className="font-bold text-lg text-primary group-hover:scale-105 transition-transform">எளிய தமிழ்</div>
+              <p className="text-sm text-gray-500 italic">கடினமான வார்த்தைகளை தவிர்த்து, அனைவரும் எளிதாக புரிந்து கொள்ளும் வகையில் எளிய தமிழில்</p>
             </div>
-            <div className="space-y-2">
-              <div className="font-bold text-lg text-primary">பாதுகாப்பு</div>
-              <p className="text-sm text-gray-500">உங்கள் தரவுகள் அனைத்தும் பாதுகாப்பானவை</p>
+            <div className="space-y-2 group">
+              <div className="font-bold text-lg text-primary group-hover:scale-105 transition-transform">உயர்தர பாதுகாப்பு</div>
+              <p className="text-sm text-gray-500 italic">உங்கள் தனிப்பட்ட தரவுகள் மற்றும் தேடல்கள் 256-bit SSL பாதுகாப்புடன் பாதுகாக்கப்படுகின்றன</p>
             </div>
           </div>
         </div>

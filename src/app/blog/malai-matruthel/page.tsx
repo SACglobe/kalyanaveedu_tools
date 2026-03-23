@@ -1,6 +1,8 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import TrustBlock from '@/components/TrustBlock';
+import Schema from '@/components/SEO/Schema';
+import AuthorBio from '@/components/blog/AuthorBio';
 
 // <!-- TRUST: meta-title -->
 // Meta Title: மாலை மாற்றுதல்: திருமணத்தின் மகிழ்ச்சியான முதல் சங்கமம் | கல்யாண வீடு
@@ -19,6 +21,28 @@ export const metadata: Metadata = {
 export default function MalaiMatruthelCeremony() {
     return (
         <article className="container mx-auto px-4 py-12 max-w-4xl">
+
+            {/* <!-- Schema.org Markup --> */}
+            <Schema 
+                type="BlogPosting" 
+                data={{
+                    title: 'மாலை மாற்றுதல்: திருமணத்தின் மகிழ்ச்சியான முதல் சங்கமம்',
+                    description: 'மாலை மாற்றுதல் சடங்கு ஏன் செய்யப்படுகிறது, அதன் தத்துவம் என்ன, தோளில் தூக்குவது ஏன் — தமிழ் திருமணத்தின் உற்சாகமான சடங்கை விவரிக்கும் கட்டுரை.',
+                    author: 'மீனாட்சி சுந்தரம்',
+                    datePublished: '2026-02-25',
+                    slug: '/blog/malai-matruthel'
+                }} 
+            />
+            <Schema 
+                type="BreadcrumbList" 
+                data={{
+                    items: [
+                        { name: 'முகப்பு', item: '/' },
+                        { name: 'கட்டுரைகள்', item: '/blog' },
+                        { name: 'மாலை மாற்றுதல்', item: '/blog/malai-matruthel' }
+                    ]
+                }} 
+            />
 
             {/* <!-- TRUST: canonical-label --> */}
             <div className="text-center mb-4">
@@ -187,16 +211,11 @@ export default function MalaiMatruthelCeremony() {
                     தொடர வேண்டும் என்பதே பெரியோர்களின் ஆசீர்வாதம்.
                 </p>
 
-                <div className="bg-orange-50 p-8 rounded-2xl mt-12 border border-orange-100">
-                    <h3 className="text-lg font-bold text-gray-900 mb-3">எழுதியவர் பற்றி</h3>
-                    <p className="text-gray-700 leading-relaxed">
-                        <strong>மீனாட்சி சுந்தரம்</strong> தமிழ் கலாச்சாரம் மற்றும் திருமணச் சடங்குகள்
-                        பற்றி விரிவாக ஆய்வு செய்து வருபவர். பாரம்பரிய நிகழ்வுகளின்
-                        அர்த்தத்தைத் தெளிவுபடுத்தி, அவற்றை எளிய முறையில் அனைவருக்கும்
-                        கொண்டு சேர்ப்பதே இவரது நோக்கம்.
-                    </p>
-                </div>
-
+                <AuthorBio 
+                    name="மீனாட்சி சுந்தரம்"
+                    role="Tamil Cultural Historian"
+                    bio="மீனாட்சி சுந்தரம் தமிழ் கலாச்சாரம் மற்றும் திருமணச் சடங்குகள் பற்றி விரிவாக ஆய்வு செய்து வருபவர். பாரம்பரிய நிகழ்வுகளின் அர்த்தத்தைத் தெளிவுபடுத்தி, அவற்றை எளிய முறையில் அனைவருக்கும் கொண்டு சேர்ப்பதே இவரது நோக்கம்."
+                />
             </div>
         </article>
     );

@@ -298,7 +298,7 @@ export default function DisclaimerPage() {
                     மேலும் விவரங்களுக்கு எங்கள்{' '}
                     <Link href="/terms" className="text-primary hover:underline">Terms of Service</Link>
                     {' '}மற்றும்{' '}
-                    <Link href="/privacy" className="text-primary hover:underline">Privacy Policy</Link>
+                    <Link href="/privacy-policy" className="text-primary hover:underline">Privacy Policy</Link>
                     {' '}பார்க்கவும்.
                 </p>
             </div>

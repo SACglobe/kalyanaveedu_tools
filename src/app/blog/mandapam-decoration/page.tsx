@@ -1,6 +1,8 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import TrustBlock from '@/components/TrustBlock';
+import Schema from '@/components/SEO/Schema';
+import AuthorBio from '@/components/blog/AuthorBio';
 
 export const metadata: Metadata = {
     title: 'மண்டப அலங்காரம்: 10 நவீன வடிவமைப்பு யோசனைகள் | Mandapam Decoration Ideas',
@@ -14,6 +16,26 @@ export const metadata: Metadata = {
 export default function MandapamDecorationGuide() {
     return (
         <article className="container mx-auto px-4 py-12 max-w-4xl">
+            <Schema 
+                type="BlogPosting"
+                data={{
+                    title: 'மண்டப அலங்காரம்: 10 நவீன வடிவமைப்பு யோசனைகள் | Mandapam Decoration Ideas',
+                    description: 'தமிழ் திருமண மண்டப அலங்காரத்திற்கான பாரம்பரிய மற்றும் நவீன யோசனைகள். மலர் அலங்காரம், விளக்கு அமைப்பு, பட்ஜெட் இடத்தில் அலங்காரம் செய்வது எப்படி?',
+                    author: 'சித்ரை செல்வன்',
+                    datePublished: '2026-02-25',
+                    slug: '/blog/mandapam-decoration'
+                }}
+            />
+            <Schema 
+                type="BreadcrumbList"
+                data={{
+                    items: [
+                        { name: 'முகப்பு', item: '/' },
+                        { name: 'கட்டுரைகள்', item: '/blog' },
+                        { name: 'மண்டப அலங்காரம்', item: '/blog/mandapam-decoration' }
+                    ]
+                }}
+            />
             <header className="mb-10 text-center">
                 <h1 className="text-3xl md:text-5xl font-bold text-gray-900 mb-6 leading-tight">
                     மண்டப அலங்காரம்: 10 நவீன வடிவமைப்பு யோசனைகள்
@@ -347,20 +369,12 @@ export default function MandapamDecorationGuide() {
                     </p>
                 </div>
 
-                <div className="bg-orange-50 p-8 rounded-2xl mt-12 border border-orange-100">
-                    <h3 className="text-xl font-bold text-gray-900 mb-4">எழுதியவர் பற்றி</h3>
-                    <p className="text-gray-700 mb-3">
-                        <strong>சித்ரை செல்வன்</strong> தமிழ் குடும்பங்களுக்கான திருமண திட்டமிடல்
-                        தளமான கல்யாண வீடுவின் நிறுவனர். பாரம்பரியத்தையும் நவீன தொழில்நுட்பத்தையும்
-                        இணைத்து தமிழர்களின் திருமண ஏற்பாடுகளை எளிமையாக்குவதே இவரது நோக்கம்.
-                    </p>
-                    <p className="text-gray-600 text-sm">
-                        மேலும் தகவல்களுக்கு:
-                        <a href="https://selvan.dev" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline ml-1">
-                            selvan.dev
-                        </a>
-                    </p>
-                </div>
+                <AuthorBio 
+                    name="சித்ரை செல்வன்"
+                    role="Founder, Kalyana Veedu"
+                    bio="சித்ரை செல்வன் கல்யாண வீடு தளத்தின் நிறுவனர். தமிழ் குடும்பங்களுக்கான திருமண திட்டமிடல் தளமான கல்யாண வீடுவின் நிறுவனர். பாரம்பரியத்தையும் நவீன தொழில்நுட்பத்தையும் இணைத்து தமிழர்களின் திருமண ஏற்பாடுகளை எளிமையாக்குவதே இவரது நோக்கம்."
+                    website="https://selvan.dev"
+                />
             </div>
         </article>
     );

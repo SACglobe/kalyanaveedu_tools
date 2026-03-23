@@ -1,6 +1,8 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import TrustBlock from '@/components/TrustBlock';
+import Schema from '@/components/SEO/Schema';
+import AuthorBio from '@/components/blog/AuthorBio';
 
 export const metadata: Metadata = {
     title: 'திருமண தங்க நகை வாங்கும் வழிகாட்டி | Wedding Gold Jewelry Guide',
@@ -14,6 +16,26 @@ export const metadata: Metadata = {
 export default function GoldJewelryBuyingGuide() {
     return (
         <article className="container mx-auto px-4 py-12 max-w-4xl">
+            <Schema 
+                type="BlogPosting"
+                data={{
+                    title: 'திருமண தங்க நகை வாங்கும் வழிகாட்டி | Wedding Gold Jewelry Guide',
+                    description: 'தங்க தரம் (purity), hallmark, making charges, designs, budgeting, & பராமரிப்பு - திருமண தங்கக நகை வாங்குபவர்களுக்கான முழுமையான வழிகாட்டி.',
+                    author: 'சித்ரை செல்வன்',
+                    datePublished: '2026-02-25',
+                    slug: '/blog/gold-jewelry-buying-guide'
+                }}
+            />
+            <Schema 
+                type="BreadcrumbList"
+                data={{
+                    items: [
+                        { name: 'முகப்பு', item: '/' },
+                        { name: 'கட்டுரைகள்', item: '/blog' },
+                        { name: 'தங்க நகை வழிகாட்டி', item: '/blog/gold-jewelry-buying-guide' }
+                    ]
+                }}
+            />
             <header className="mb-10 text-center">
                 <h1 className="text-3xl md:text-5xl font-bold text-gray-900 mb-6 leading-tight">
                     திருமண தங்க நகை வாங்கும் வழிகாட்டி
@@ -366,19 +388,12 @@ export default function GoldJewelryBuyingGuide() {
                     </p>
                 </div>
 
-                <div className="bg-orange-50 p-8 rounded-2xl mt-12 border border-orange-100">
-                    <h3 className="text-xl font-bold text-gray-900 mb-4">எழுதியவர் பற்றி</h3>
-                    <p className="text-gray-700 mb-3">
-                        <strong>சித்ரை செல்வன்</strong> கல்யாண வீடு தளத்தின் நிறுவனர்.
-                        திருமண திட்டமிடலில் நிதி விவேகத்தை வலியுறுத்துகிறார்.
-                    </p>
-                    <p className="text-gray-600 text-sm">
-                        மேலும் தகவல்களுக்கு:
-                        <a href="https://selvan.dev" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline ml-1">
-                            selvan.dev
-                        </a>
-                    </p>
-                </div>
+                <AuthorBio 
+                    name="சித்ரை செல்வன்"
+                    role="Founder, Kalyana Veedu"
+                    bio="சித்ரை செல்வன் கல்யாண வீடு தளத்தின் நிறுவனர். திருமண திட்டமிடலில் நிதி விவேகத்தை வலியுறுத்துகிறார்."
+                    website="https://selvan.dev"
+                />
             </div>
         </article>
     );

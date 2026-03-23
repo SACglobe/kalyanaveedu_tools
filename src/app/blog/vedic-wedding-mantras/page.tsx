@@ -1,6 +1,8 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import TrustBlock from '@/components/TrustBlock';
+import Schema from '@/components/SEO/Schema';
+import AuthorBio from '@/components/blog/AuthorBio';
 
 export const metadata: Metadata = {
     title: 'வேத திருமண மந்திரங்கள் விளக்கம் | Vedic Wedding Mantras Guide',
@@ -14,6 +16,26 @@ export const metadata: Metadata = {
 export default function VedicWeddingMantras() {
     return (
         <article className="container mx-auto px-4 py-12 max-w-4xl">
+            <Schema 
+                type="BlogPosting"
+                data={{
+                    title: 'வேத திருமண மந்திரங்கள் விளக்கம் | Vedic Wedding Mantras Guide',
+                    description: 'தமிழ் திருமணத்தில் ஓதப்படும் வேத மந்திரங்கள், சப்த பதி மந்திரம், மங்கள சூத்ரம், மந்திர பொருள் மற்றும் முக்கியத்துவம்.',
+                    author: 'சித்ரை செல்வன்',
+                    datePublished: '2026-02-25',
+                    slug: '/blog/vedic-wedding-mantras'
+                }}
+            />
+            <Schema 
+                type="BreadcrumbList"
+                data={{
+                    items: [
+                        { name: 'முகப்பு', item: '/' },
+                        { name: 'கட்டுரைகள்', item: '/blog' },
+                        { name: 'வேத திருமண மந்திரங்கள்', item: '/blog/vedic-wedding-mantras' }
+                    ]
+                }}
+            />
             <header className="mb-10 text-center">
                 <h1 className="text-3xl md:text-5xl font-bold text-gray-900 mb-6 leading-tight">
                     வேத திருமண மந்திரங்கள்: அர்த்தம் & முக்கியத்துவம்
@@ -377,20 +399,12 @@ export default function VedicWeddingMantras() {
                     </p>
                 </div>
 
-                <div className="bg-orange-50 p-8 rounded-2xl mt-12 border border-orange-100">
-                    <h3 className="text-xl font-bold text-gray-900 mb-4">எழுதியவர் பற்றி</h3>
-                    <p className="text-gray-700 mb-3">
-                        <strong>சித்ரை செல்வன்</strong> கல்யாண வீடு தளத்தின் நிறுவனர்.
-                        தமிழ் திருமண பாரம்பரியங்களை நவீன தலைமுறைக்கு எளிமையாக விளக்கும்
-                        நோக்கோடு செயல்படுகிறார்.
-                    </p>
-                    <p className="text-gray-600 text-sm">
-                        மேலும் தகவல்களுக்கு:
-                        <a href="https://selvan.dev" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline ml-1">
-                            selvan.dev
-                        </a>
-                    </p>
-                </div>
+                <AuthorBio 
+                    name="சித்ரை செல்வன்"
+                    role="Founder, Kalyana Veedu"
+                    bio="சித்ரை செல்வன் கல்யாண வீடு தளத்தின் நிறுவனர். தமிழ் திருமண பாரம்பரியங்களை நவீன தலைமுறைக்கு எளிமையாக விளக்கும் நோக்கோடு செயல்படுகிறார்."
+                    website="https://selvan.dev"
+                />
             </div>
         </article>
     );

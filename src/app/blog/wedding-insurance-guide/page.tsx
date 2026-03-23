@@ -1,6 +1,8 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import TrustBlock from '@/components/TrustBlock';
+import Schema from '@/components/SEO/Schema';
+import AuthorBio from '@/components/blog/AuthorBio';
 
 export const metadata: Metadata = {
     title: 'திருமண காப்பீடு வழிகாட்டி | Wedding Insurance Guide India',
@@ -14,6 +16,26 @@ export const metadata: Metadata = {
 export default function WeddingInsuranceGuide() {
     return (
         <article className="container mx-auto px-4 py-12 max-w-4xl">
+            <Schema 
+                type="BlogPosting"
+                data={{
+                    title: 'திருமண காப்பீடு வழிகாட்டி | Wedding Insurance Guide India',
+                    description: 'திருமணத்திற்கான insurance தேவையா? Coverage types, cost, benefits, & claim process - முழுமையான wedding insurance வழிகாட்டி.',
+                    author: 'சித்ரை செல்வன்',
+                    datePublished: '2026-02-25',
+                    slug: '/blog/wedding-insurance-guide'
+                }}
+            />
+            <Schema 
+                type="BreadcrumbList"
+                data={{
+                    items: [
+                        { name: 'முகப்பு', item: '/' },
+                        { name: 'கட்டுரைகள்', item: '/blog' },
+                        { name: 'திருமண காப்பீடு', item: '/blog/wedding-insurance-guide' }
+                    ]
+                }}
+            />
             <header className="mb-10 text-center">
                 <h1 className="text-3xl md:text-5xl font-bold text-gray-900 mb-6 leading-tight">
                     திருமண காப்பீடு (Wedding Insurance) வழிகாட்டி
@@ -378,19 +400,12 @@ export default function WeddingInsuranceGuide() {
                     </p>
                 </div>
 
-                <div className="bg-orange-50 p-8 rounded-2xl mt-12 border border-orange-100">
-                    <h3 className="text-xl font-bold text-gray-900 mb-4">எழுதியவர் பற்றி</h3>
-                    <p className="text-gray-700 mb-3">
-                        <strong>சித்ரை செல்வன்</strong> கல்யாண வீடு தளத்தின் நிறுவனர்.
-                        திருமண திட்டமிடலில் நிதி பாதுகாப்பை வலியுறுத்துகிறார்.
-                    </p>
-                    <p className="text-gray-600 text-sm">
-                        மேலும் தகவல்களுக்கு:
-                        <a href="https://selvan.dev" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline ml-1">
-                            selvan.dev
-                        </a>
-                    </p>
-                </div>
+                <AuthorBio 
+                    name="சித்ரை செல்வன்"
+                    role="Founder, Kalyana Veedu"
+                    bio="சித்ரை செல்வன் கல்யாண வீடு தளத்தின் நிறுவனர். திருமண திட்டமிடலில் நிதி பாதுகாப்பை வலியுறுத்துகிறார்."
+                    website="https://selvan.dev"
+                />
             </div>
         </article>
     );

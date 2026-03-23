@@ -1,6 +1,8 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import TrustBlock from '@/components/TrustBlock';
+import Schema from '@/components/SEO/Schema';
+import AuthorBio from '@/components/blog/AuthorBio';
 
 // <!-- TRUST: meta-title -->
 // Meta Title: தாலி கட்டுவதன் அர்த்தம்: மூன்று முடிச்சுகளின் தத்துவம் | கல்யாண வீடு
@@ -19,6 +21,26 @@ export const metadata: Metadata = {
 export default function ThaliTyingSignificance() {
     return (
         <article className="container mx-auto px-4 py-12 max-w-4xl">
+            <Schema 
+                type="BlogPosting"
+                data={{
+                    title: 'தாலி கட்டுவதன் அர்த்தம்: மூன்று முடிச்சுகளின் தத்துவம் | கல்யாண வீடு',
+                    description: 'தாலி கட்டும் தருணத்தில் என்ன நடக்கிறது, மூன்று முடிச்சுகளின் அர்த்தம் என்ன, மந்திரங்கள் ஏன் சொல்லப்படுகின்றன — கலாச்சார விளக்கம்.',
+                    author: 'சித்ரை செல்வன்',
+                    datePublished: '2026-02-25',
+                    slug: '/blog/thali-tying-significance'
+                }}
+            />
+            <Schema 
+                type="BreadcrumbList"
+                data={{
+                    items: [
+                        { name: 'முகப்பு', item: '/' },
+                        { name: 'கட்டுரைகள்', item: '/blog' },
+                        { name: 'தாலி கட்டும் அர்த்தம்', item: '/blog/thali-tying-significance' }
+                    ]
+                }}
+            />
 
             {/* <!-- TRUST: canonical-label --> */}
             <div className="text-center mb-4">
@@ -305,16 +327,11 @@ export default function ThaliTyingSignificance() {
                     </p>
                 </div>
 
-                <div className="bg-orange-50 p-8 rounded-2xl mt-12 border border-orange-100">
-                    <h3 className="text-lg font-bold text-gray-900 mb-3">எழுதியவர் பற்றி</h3>
-                    <p className="text-gray-700 leading-relaxed">
-                        <strong>மீனாட்சி சுந்தரம்</strong> தமிழ் திருமண மரபுகள் மற்றும் சடங்குகள்
-                        குறித்து ஆழமான அறிவும் நேரடி அனுபவமும் கொண்ட பண்பாட்டு எழுத்தாளர்.
-                        தமிழ்நாடு முழுவதிலும் பல திருமண நிகழ்வுகளில் பங்கேற்று,
-                        ஒவ்வொரு சடங்கின் பின்னணியையும் குடும்பங்களுக்கு விளக்கி வருகிறார்.
-                    </p>
-                </div>
-
+                <AuthorBio 
+                    name="மீனாட்சி சுந்தரம்"
+                    role="Culture & Rituals Expert"
+                    bio="மீனாட்சி சுந்தரம் தமிழ் திருமண மரபுகள் மற்றும் சடங்குகள் குறித்து ஆழமான அறிவும் நேரடி அனுபவமும் கொண்ட பண்பாட்டு எழுத்தாளர். தமிழ்நாடு முழுவதிலும் பல திருமண நிகழ்வுகளில் பங்கேற்று, ஒவ்வொரு சடங்கின் பின்னணியையும் குடும்பங்களுக்கு விளக்கி வருகிறார்."
+                />
             </div>
         </article>
     );
