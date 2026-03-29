@@ -1,6 +1,7 @@
 import TamilCalendar from '@/components/TamilCalendar';
 import RelevantTools from '@/components/RelevantTools';
 import type { Metadata } from 'next';
+import { SITE_CONFIG } from '@/lib/constants';
 
 import { getTamilDate, getPanchangam, getTamilDayName } from '@/lib/tamil-calendar-utils';
 import { HOLIDAYS_2026, FESTIVALS } from '@/lib/tamil-calendar-data';
@@ -9,6 +10,9 @@ export const metadata: Metadata = {
     title: 'Tamil Calendar Today | இன்று தமிழ் தேதி – Tamil Calendar',
     description: 'Tamil calendar showing today’s date, nakshatra, tithi & festival. இன்றைய தமிழ் தேதி – தகவல் நோக்கத்திற்கான நாட்காட்டி.',
     keywords: 'Tamil Calendar, தமிழ் காலண்டர், Tamil Date today, Nakshatra, Tithi, Tamil Month, 2026 Tamil Calendar',
+    alternates: {
+        canonical: `${SITE_CONFIG.url}/tools/tamil-calendar`,
+    },
 };
 
 export default function TamilCalendarPage() {

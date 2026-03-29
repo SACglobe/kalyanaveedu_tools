@@ -1,8 +1,11 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import Image from 'next/image';
 import TrustBlock from '@/components/TrustBlock';
 import Schema from '@/components/SEO/Schema';
 import AuthorBio from '@/components/blog/AuthorBio';
+import RelatedArticles from '@/components/blog/RelatedArticles';
+import { SITE_CONFIG } from '@/lib/constants';
 
 // <!-- TRUST: meta-title -->
 // Meta Title: ஊஞ்சல் சடங்கு: வாழ்க்கையின் ஏற்ற இறக்கங்களை எதிர்கொள்ளும் பக்குவம் | கல்யாண வீடு
@@ -14,7 +17,7 @@ export const metadata: Metadata = {
     description: 'ஊஞ்சல் சடங்கு ஏன் செய்யப்படுகிறது, அதன் தத்துவம் என்ன, ஊஞ்சல் பாட்டுகள் மற்றும் திருஷ்டி கழிக்கும் முறைகள் குறித்த விரிவான கட்டுரை.',
     keywords: ['ஊஞ்சல் சடங்கு', 'Oonjal Ceremony significance', 'Tamil wedding swing ritual', 'wedding drishti removal', 'Oonjal songs meaning'],
     alternates: {
-        canonical: '/blog/oonjal-ceremony',
+        canonical: `${SITE_CONFIG.url}/blog/oonjal-ceremony`,
     },
 };
 
@@ -55,6 +58,15 @@ export default function OonjalCeremony() {
                 <h1 className="text-3xl md:text-5xl font-bold text-gray-900 mb-6 leading-tight">
                     ஊஞ்சல் சடங்கு: வாழ்க்கையின் ஏற்ற இறக்கங்களை எதிர்கொள்ளும் பக்குவம்
                 </h1>
+            <div className="relative h-[300px] md:h-[450px] w-full mb-10 rounded-3xl overflow-hidden shadow-2xl">
+                <Image
+                    src="https://images.unsplash.com/photo-1583939003579-730e3918a45a?auto=format&fit=crop&q=80&w=1200"
+                    alt="ஊஞ்சல் சடங்கு"
+                    fill
+                    className="object-cover"
+                    priority
+                />
+            </div>
 
                 <TrustBlock
                     author="மீனாட்சி சுந்தரம்"
@@ -205,6 +217,10 @@ export default function OonjalCeremony() {
                     name="மீனாட்சி சுந்தரம்"
                     role="Tamil Cultural Historian"
                     bio="மீனாட்சி சுந்தரம் தமிழ் பாரம்பரியத் திருமணங்களில் ஆழமான ஈடுபாடு கொண்டவர். சடங்குகளின் தத்துவப் பின்னணியை ஆராய்ந்து எளிமையாக விளக்குவதில் வல்லவர்."
+                />
+                <RelatedArticles 
+                    currentSlug="/blog/oonjal-ceremony" 
+                    category="Traditions" 
                 />
             </div>
         </article>

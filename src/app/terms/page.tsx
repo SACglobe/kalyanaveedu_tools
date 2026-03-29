@@ -237,7 +237,7 @@ export default function TermsPage() {
 
                 <div className="bg-gray-50 p-6 rounded-xl my-6">
                     <ul className="space-y-2 text-sm mb-0">
-                        <li><strong>இணையதளம்:</strong> <a href="https://kalyanaveedu.in" className="text-primary hover:underline">kalyanaveedu.in</a></li>
+                        <li><strong>இணையதளம்:</strong> <a href="https://www.kalyanaveedu.in" className="text-primary hover:underline">www.kalyanaveedu.in</a></li>
                         <li><strong>மின்னஞ்சல்:</strong> <a href="mailto:myutilitybox.helpdesk@gmail.com" className="text-primary hover:underline">myutilitybox.helpdesk@gmail.com</a></li>
                         <li><strong>தொடர்பு பக்கம்:</strong> <Link href="/contact" className="text-primary hover:underline">kalyanaveedu.in/contact</Link></li>
                         <li><strong>நிறுவனர்:</strong> Chithrai Selvan (<a href="https://selvan.dev" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">selvan.dev</a>)</li>

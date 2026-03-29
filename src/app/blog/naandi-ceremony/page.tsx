@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import Image from 'next/image';
 import TrustBlock from '@/components/TrustBlock';
 import AuthorBio from '@/components/blog/AuthorBio';
 import Schema from '@/components/SEO/Schema';
@@ -9,12 +10,16 @@ import Schema from '@/components/SEO/Schema';
 // <!-- TRUST: meta-description -->
 // Meta Description: நாந்தி சடங்கு என்றால் என்ன, எப்போது, எப்படி செய்வார்கள், முன்னோர்களை ஏன் வழிபடுகிறோம் — திருமணத்தின் புனித தொடக்க சடங்கை விரிவாக அறியுங்கள்.
 
+import { SITE_CONFIG } from '@/lib/constants';
+import RelatedArticles from '@/components/blog/RelatedArticles';
+
+
 export const metadata: Metadata = {
     title: 'நாந்தி சடங்கு: முன்னோர் ஆசியில் தொடங்கும் திருமணம் | கல்யாண வீடு',
     description: 'நாந்தி சடங்கு என்றால் என்ன, எப்போது, எப்படி செய்வார்கள், முன்னோர்களை ஏன் வழிபடுகிறோம் — திருமணத்தின் புனித தொடக்க சடங்கை விரிவாக அறியுங்கள்.',
     keywords: ['நாந்தி சடங்கு', 'naandi ceremony', 'naandi sradham', 'tamil wedding ritual', 'pre-wedding ceremony', 'pitru tharpanam', 'முன்னோர் வழிபாடு'],
     alternates: {
-        canonical: '/blog/naandi-ceremony',
+        canonical: `${SITE_CONFIG.url}/blog/naandi-ceremony`,
     },
 };
 
@@ -53,6 +58,15 @@ export default function NaandiCeremony() {
                 <h1 className="text-3xl md:text-5xl font-bold text-gray-900 mb-6 leading-tight">
                     நாந்தி சடங்கு: முன்னோர் ஆசியில் தொடங்கும் திருமணம்
                 </h1>
+            <div className="relative h-[300px] md:h-[450px] w-full mb-10 rounded-3xl overflow-hidden shadow-2xl">
+                <Image
+                    src="https://images.unsplash.com/photo-1544923246-77307dd654ca?auto=format&fit=crop&q=80&w=1200"
+                    alt="நாந்தி சடங்கு"
+                    fill
+                    className="object-cover"
+                    priority
+                />
+            </div>
 
                 <TrustBlock
                     author="மீனாட்சி சுந்தரம்"
@@ -280,6 +294,10 @@ export default function NaandiCeremony() {
                     name="மீனாட்சி சுந்தரம்"
                     role="Culture & Rituals Expert"
                     bio="மீனாட்சி சுந்தரம் தமிழ் திருமண மரபுகள் மற்றும் சடங்குகள் குறித்து ஆழமான அறிவும் நேரடி அனுபவமும் கொண்ட பண்பாட்டு எழுத்தாளர். தமிழ்நாடு முழுவதிலும் பல திருமண நிகழ்வுகளில் பங்கேற்று, ஒவ்வொரு சடங்கின் பின்னணியையும் குடும்பங்களுக்கு விளக்கி வருகிறார்."
+                />
+                <RelatedArticles 
+                    currentSlug="/blog/naandi-ceremony" 
+                    category="Traditions" 
                 />
 
             </div>

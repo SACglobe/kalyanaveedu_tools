@@ -18,24 +18,39 @@ export default function Footer() {
 
                     {/* Quick Links */}
                     <div>
-                        <h4 className="font-bold text-gray-900 mb-4">விரைவு இணைப்புகள்</h4>
+                        <h4 className="font-bold text-gray-900 mb-4">கருவிகள் (Tools)</h4>
                         <ul className="space-y-2">
-                            <li><Link href="/tools/tamil-calendar" className="text-primary font-bold hover:text-accent">📅 தமிழ் காலண்டர்</Link></li>
-                            <li><Link href="/tools" className="text-gray-600 hover:text-primary">அனைத்து கருவிகள்</Link></li>
-                            <li><Link href="/blog" className="text-gray-600 hover:text-primary">கட்டுரைகள்</Link></li>
-                            <li><Link href="/about" className="text-gray-600 hover:text-primary">நாங்கள் யார் (About Us)</Link></li>
-                            <li><Link href="/contact" className="text-gray-600 hover:text-primary">தொடர்பு கொள்ளுங்கள் (Contact)</Link></li>
+                            <li><Link href="/tools/tamil-calendar" className="text-gray-600 hover:text-primary">📅 தமிழ் காலண்டர்</Link></li>
+                            <li><Link href="/tools/vayathu-kanakku" className="text-gray-600 hover:text-primary">📅 வயது கணக்கிடுபவர்</Link></li>
+                            <li><Link href="/tools" className="text-gray-600 font-bold hover:text-accent">அனைத்து கருவிகள் →</Link></li>
+                            <li><Link href="/faq" className="text-gray-600 hover:text-primary">கேள்வி-பதில் (FAQ)</Link></li>
+                            <li><Link href="/about" className="text-gray-600 hover:text-primary">நாங்கள் யார் (About)</Link></li>
                         </ul>
                     </div>
 
-                    {/* Legal */}
+                    {/* Traditions (Internal Links for SEO) */}
                     <div>
-                        <h4 className="font-bold text-gray-900 mb-4">விதிமுறைகள்</h4>
-                        <ul className="space-y-2">
-                            <li><Link href="/privacy-policy" className="text-gray-600 hover:text-primary">தனியுரிமை கொள்கை</Link></li>
-                            <li><Link href="/cookie-policy" className="text-gray-600 hover:text-primary">குக்கீ கொள்கை</Link></li>
-                            <li><Link href="/terms" className="text-gray-600 hover:text-primary">விதிமுறைகள்</Link></li>
-                            <li><Link href="/disclaimer" className="text-gray-600 hover:text-primary">பொறுப்புத் துறப்பு</Link></li>
+                        <h4 className="font-bold text-gray-900 mb-4">பாரம்பரிய கட்டுரைகள்</h4>
+                        <ul className="space-y-2 text-sm">
+                            <li><Link href="/blog/oonjal-ceremony" className="text-gray-600 hover:text-primary">ஊஞ்சல் சடங்கு விளக்கம்</Link></li>
+                            <li><Link href="/blog/malai-matruthel" className="text-gray-600 hover:text-primary">மாலை மாற்றுதல் தத்துவம்</Link></li>
+                            <li><Link href="/blog/kasi-yatra" className="text-gray-600 hover:text-primary">காசி யாத்திரை சடங்கு</Link></li>
+                            <li><Link href="/blog/thali-tying-significance" className="text-gray-600 hover:text-primary">தாலி கட்டுவதன் ரகசியம்</Link></li>
+                            <li><Link href="/blog/vedic-wedding-mantras" className="text-gray-600 hover:text-primary">வேத மந்திர விளக்கம்</Link></li>
+                            <li><Link href="/blog" className="text-gray-600 font-bold hover:text-accent">அனைத்து கட்டுரைகள் →</Link></li>
+                        </ul>
+                    </div>
+
+                    {/* Guides (Internal Links for SEO) */}
+                    <div>
+                        <h4 className="font-bold text-gray-900 mb-4">திருமண வழிகாட்டி</h4>
+                        <ul className="space-y-2 text-sm">
+                            <li><Link href="/blog/thirumana-velai-pattiyal" className="text-gray-600 hover:text-primary">வேலைகள் பட்டியல் (Checklist)</Link></li>
+                            <li><Link href="/blog/subha-muhurtham-2026" className="text-gray-600 hover:text-primary">சுப முகூர்த்த நாட்கள் 2026</Link></li>
+                            <li><Link href="/blog/budget-planning-tips" className="text-gray-600 hover:text-primary">சிக்கன திருமண டிப்ஸ்</Link></li>
+                            <li><Link href="/blog/gold-jewelry-buying-guide" className="text-gray-600 hover:text-primary">தங்க நகை வாங்கும் முறை</Link></li>
+                            <li><Link href="/blog/wedding-invitation-guide" className="text-gray-600 hover:text-primary">அழைப்பிதழ் எழுதும் முறை</Link></li>
+                            <li><Link href="/privacy-policy" className="text-gray-600 hover:text-primary">Legal & Privacy</Link></li>
                         </ul>
                     </div>
                 </div>

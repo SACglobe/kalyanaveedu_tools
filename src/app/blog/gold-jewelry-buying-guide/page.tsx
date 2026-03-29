@@ -1,15 +1,20 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import Image from 'next/image';
 import TrustBlock from '@/components/TrustBlock';
 import Schema from '@/components/SEO/Schema';
 import AuthorBio from '@/components/blog/AuthorBio';
+
+import { SITE_CONFIG } from '@/lib/constants';
+import RelatedArticles from '@/components/blog/RelatedArticles';
+
 
 export const metadata: Metadata = {
     title: 'திருமண தங்க நகை வாங்கும் வழிகாட்டி | Wedding Gold Jewelry Guide',
     description: 'தங்க தரம் (purity), hallmark, making charges, designs, budgeting, & பராமரிப்பு - திருமண தங்கக நகை வாங்குபவர்களுக்கான முழுமையான வழிகாட்டி.',
     keywords: ['gold jewelry', 'wedding jewelry', 'gold purity', 'hallmark', 'tamil wedding', 'jewelry buying'],
     alternates: {
-        canonical: '/blog/gold-jewelry-buying-guide',
+        canonical: `${SITE_CONFIG.url}/blog/gold-jewelry-buying-guide`,
     },
 };
 
@@ -40,6 +45,15 @@ export default function GoldJewelryBuyingGuide() {
                 <h1 className="text-3xl md:text-5xl font-bold text-gray-900 mb-6 leading-tight">
                     திருமண தங்க நகை வாங்கும் வழிகாட்டி
                 </h1>
+            <div className="relative h-[300px] md:h-[450px] w-full mb-10 rounded-3xl overflow-hidden shadow-2xl">
+                <Image
+                    src="https://images.unsplash.com/photo-1601121141461-9d6647bca1ed?auto=format&fit=crop&q=80&w=1200"
+                    alt="திருமண தங்க நகை வாங்கும் வழிகாட்டி"
+                    fill
+                    className="object-cover"
+                    priority
+                />
+            </div>
                 <TrustBlock
                     author="சித்ரை செல்வன்"
                     updatedDate="பிப்ரவரி 2026"
@@ -393,6 +407,10 @@ export default function GoldJewelryBuyingGuide() {
                     role="Founder, Kalyana Veedu"
                     bio="சித்ரை செல்வன் கல்யாண வீடு தளத்தின் நிறுவனர். திருமண திட்டமிடலில் நிதி விவேகத்தை வலியுறுத்துகிறார்."
                     website="https://selvan.dev"
+                />
+                <RelatedArticles 
+                    currentSlug="/blog/gold-jewelry-buying-guide" 
+                    category="Shopping" 
                 />
             </div>
         </article>

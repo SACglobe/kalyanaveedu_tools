@@ -1,15 +1,20 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import Image from 'next/image';
 import TrustBlock from '@/components/TrustBlock';
 import Schema from '@/components/SEO/Schema';
 import AuthorBio from '@/components/blog/AuthorBio';
 
+import { SITE_CONFIG } from '@/lib/constants';
+import RelatedArticles from '@/components/blog/RelatedArticles';
+
+
 export const metadata: Metadata = {
-    title: 'திருமண வேலைகள் பட்டியல்: 6 மாத முழுமையான திட்டமிடல் வழிகாட்டி | Wedding Checklist',
-    description: 'திருமணத்திற்கு 6 மாதங்கள் முன்பு முதல் திருமண நாள் வரை செய்ய வேண்டிய அனைத்து வேலைகளின் முழுமையான பட்டியல். Wedding Checklist in Tamil.',
-    keywords: ['wedding checklist tamil', 'marriage planning tamil', 'thirumana velai pattiyal', 'tamil wedding guide'],
+    title: 'திருமண வேலைப் பட்டியல்: திருமணத்தை திட்டமிட முழுமையான செக்லிஸ்ட்',
+    description: 'திருமணத்திற்கு முந்தைய 12 மாத வேலைப் பட்டியல். மண்டபம், கேட்டரிங், அழைப்பிதழ் முதல் தேனிலவு வரை அனைத்தையும் திட்டமிட உதவும் விரிவான வழிகாட்டி.',
+    keywords: ['wedding checklist tamil', 'wedding planning list', 'marriage preparations', 'tamil wedding guide', 'wedding organizer'],
     alternates: {
-        canonical: '/blog/thirumana-velai-pattiyal',
+        canonical: `${SITE_CONFIG.url}/blog/thirumana-velai-pattiyal`,
     },
 };
 
@@ -40,6 +45,15 @@ export default function WeddingChecklistGuide() {
                 <h1 className="text-3xl md:text-5xl font-bold text-gray-900 mb-6 leading-tight">
                     திருமண வேலைகள் பட்டியல்: 6 மாத முழுமையான திட்டமிடல் வழிகாட்டி
                 </h1>
+            <div className="relative h-[300px] md:h-[450px] w-full mb-10 rounded-3xl overflow-hidden shadow-2xl">
+                <Image
+                    src="https://images.unsplash.com/photo-1506784365847-bbad939e9335?auto=format&fit=crop&q=80&w=1200"
+                    alt="திருமண வேலைகள் பட்டியல்"
+                    fill
+                    className="object-cover"
+                    priority
+                />
+            </div>
                 <TrustBlock
                     author="சித்ரை செல்வன்"
                     updatedDate="பிப்ரவரி 2026"
@@ -141,6 +155,10 @@ export default function WeddingChecklistGuide() {
                     role="Founder, Kalyana Veedu"
                     bio="சித்ரை செல்வன் கல்யாண வீடு தளத்தின் நிறுவனர். தமிழ் திருமண திட்டமிடலை எளிமையாக்கும் நோக்கோடு செயல்படுகிறார்."
                     website="https://selvan.dev"
+                />
+                <RelatedArticles 
+                    currentSlug="/blog/thirumana-velai-pattiyal" 
+                    category="Planning" 
                 />
             </div>
         </article>

@@ -1,15 +1,20 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import Image from 'next/image';
 import TrustBlock from '@/components/TrustBlock';
 import Schema from '@/components/SEO/Schema';
 import AuthorBio from '@/components/blog/AuthorBio';
+
+import { SITE_CONFIG } from '@/lib/constants';
+import RelatedArticles from '@/components/blog/RelatedArticles';
+
 
 export const metadata: Metadata = {
     title: 'வேத திருமண மந்திரங்கள் விளக்கம் | Vedic Wedding Mantras Guide',
     description: 'தமிழ் திருமணத்தில் ஓதப்படும் வேத மந்திரங்கள், சப்த பதி மந்திரம், மங்கள சூத்ரம், மந்திர பொருள் மற்றும் முக்கியத்துவம்.',
     keywords: ['vedic mantras', 'wedding mantras', 'saptha padi', 'tamil wedding', 'vedic rituals', 'mangalya dharanam'],
     alternates: {
-        canonical: '/blog/vedic-wedding-mantras',
+        canonical: `${SITE_CONFIG.url}/blog/vedic-wedding-mantras`,
     },
 };
 
@@ -40,6 +45,15 @@ export default function VedicWeddingMantras() {
                 <h1 className="text-3xl md:text-5xl font-bold text-gray-900 mb-6 leading-tight">
                     வேத திருமண மந்திரங்கள்: அர்த்தம் & முக்கியத்துவம்
                 </h1>
+            <div className="relative h-[300px] md:h-[450px] w-full mb-10 rounded-3xl overflow-hidden shadow-2xl">
+                <Image
+                    src="https://images.unsplash.com/photo-1596751303335-ca42b3ca50c1?auto=format&fit=crop&q=80&w=1200"
+                    alt="வேத மந்திர விளக்கம்"
+                    fill
+                    className="object-cover"
+                    priority
+                />
+            </div>
                 <TrustBlock
                     author="சித்ரை செல்வன்"
                     updatedDate="பிப்ரவரி 2026"
@@ -404,6 +418,10 @@ export default function VedicWeddingMantras() {
                     role="Founder, Kalyana Veedu"
                     bio="சித்ரை செல்வன் கல்யாண வீடு தளத்தின் நிறுவனர். தமிழ் திருமண பாரம்பரியங்களை நவீன தலைமுறைக்கு எளிமையாக விளக்கும் நோக்கோடு செயல்படுகிறார்."
                     website="https://selvan.dev"
+                />
+                <RelatedArticles 
+                    currentSlug="/blog/vedic-wedding-mantras" 
+                    category="Traditions" 
                 />
             </div>
         </article>

@@ -1,4 +1,6 @@
+import Link from 'next/link';
 import type { Metadata } from 'next';
+import { SITE_CONFIG } from '@/lib/constants';
 import SubhaMuhurthamCalendar from '@/components/SubhaMuhurthamCalendar';
 import RelevantTools from '@/components/RelevantTools';
 import { VALUABLE_MARRIAGE_DATES } from '@/lib/tamil-calendar-data';
@@ -8,6 +10,9 @@ export const metadata: Metadata = {
     title: 'Subha Muhurtham Today | இன்றைய சுப முகூர்த்தம் – Tamil Calendar',
     description: 'Find today’s Subha Muhurtham date and upcoming auspicious days for 2026. இன்றைய சுப முகூர்த்த தேதிகள் – பாரம்பரிய தகவல் நாட்காட்டி.',
     keywords: 'Subha Muhurtham Today, இன்றைய சுப முகூர்த்தம், 2026 Marriage Dates, Tamil Wedding Dates, சுப முகூர்த்த தேதிகள்',
+    alternates: {
+        canonical: `${SITE_CONFIG.url}/tools/subha-muhurtham`,
+    },
 };
 
 export default function SubhaMuhurthamPage() {
@@ -220,7 +225,12 @@ export default function SubhaMuhurthamPage() {
                                 const d = new Date(dateStr);
                                 return (
                                     <li key={dateStr} className="list-none md:list-disc md:ml-4">
-                                        {d.getDate()} {d.toLocaleDateString('en-GB', { month: 'long' })} {year}
+                                        <Link 
+                                            href={`/tools/subha-muhurtham/${dateStr}`}
+                                            className="hover:text-primary hover:underline transition-colors"
+                                        >
+                                            {d.getDate()} {d.toLocaleDateString('en-GB', { month: 'long' })} {year}
+                                        </Link>
                                     </li>
                                 );
                             })}
@@ -292,7 +302,7 @@ export default function SubhaMuhurthamPage() {
                     dangerouslySetInnerHTML={{
                         __html: JSON.stringify({
                             "@context": "https://schema.org",
-                            "@id": "https://kalyanaveedu.in/tools/subha-muhurtham#faq",
+                            "@id": "https://www.kalyanaveedu.in/tools/subha-muhurtham#faq",
                             "@type": "FAQPage",
                             "mainEntity": [
                                 {

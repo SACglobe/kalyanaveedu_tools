@@ -1,15 +1,20 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import Image from 'next/image';
 import TrustBlock from '@/components/TrustBlock';
 import Schema from '@/components/SEO/Schema';
 import AuthorBio from '@/components/blog/AuthorBio';
 
+import { SITE_CONFIG } from '@/lib/constants';
+import RelatedArticles from '@/components/blog/RelatedArticles';
+
+
 export const metadata: Metadata = {
     title: 'திருமண அழைப்பிதழ் வாசகங்கள் வழிகாட்டி | Tamil Wedding Invitation Wording Guide',
-    description: 'பாரம்பரிய மற்றும் நவீன தமிழ் திருமண அழைப்பிதழ் வாசகங்கள், எழுத்து முறை, என்ன சேர்க்க வேண்டும், பொதுவான தவறுகள் மற்றும் மாதிரி வாசகங்கள்.',
+    description: 'பாரம்பரிய மற்றும் நவீன தமிழ் திருமண அழைப்பிதழ் வாசகங்கள், எழுத்து முறை, என்ன சேர்க்க வேண்டும், பொதுவான தவறவுகள் மற்றும் மாதிரி வாசகங்கள்.',
     keywords: ['tamil wedding invitation', 'thirum ana azhaipu', 'wedding card wording', 'invitation samples tamil', 'traditional invitation format'],
     alternates: {
-        canonical: '/blog/wedding-invitation-guide',
+        canonical: `${SITE_CONFIG.url}/blog/wedding-invitation-guide`,
     },
 };
 
@@ -40,6 +45,15 @@ export default function WeddingInvitationGuide() {
                 <h1 className="text-3xl md:text-5xl font-bold text-gray-900 mb-6 leading-tight">
                     திருமண அழைப்பிதழ்: சிறந்த வாசகங்கள் வழிகாட்டி
                 </h1>
+            <div className="relative h-[300px] md:h-[450px] w-full mb-10 rounded-3xl overflow-hidden shadow-2xl">
+                <Image
+                    src="https://images.unsplash.com/photo-1510076857177-7470076d4098?auto=format&fit=crop&q=80&w=1200"
+                    alt="திருமண அழைப்பிதழ் எழுதும் முறை"
+                    fill
+                    className="object-cover"
+                    priority
+                />
+            </div>
                 <TrustBlock
                     author="சித்ரை செல்வன்"
                     updatedDate="பிப்ரவரி 2026"
@@ -351,6 +365,10 @@ export default function WeddingInvitationGuide() {
                     role="Founder, Kalyana Veedu"
                     bio="சித்ரை செல்வன் கல்யாண வீடு தளத்தின் நிறுவனர். தமிழ் திருமண பாரம்பரியங்களை புதிய தலைமுறைக்கு எளிமையாக தெரிவிக்கும் நோக்கத்துடன் செயல்படுகிறார். மென்பொருள் பொறியியல் மற்றும் தமிழ் பாரம்பரியத்தை இணைக்கும் பாலமாக இருக்கிறார்."
                     website="https://selvan.dev"
+                />
+                <RelatedArticles 
+                    currentSlug="/blog/wedding-invitation-guide" 
+                    category="Invitations" 
                 />
             </div>
         </article>

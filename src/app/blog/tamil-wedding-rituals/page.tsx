@@ -1,15 +1,20 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import Image from 'next/image';
 import TrustBlock from '@/components/TrustBlock';
 import Schema from '@/components/SEO/Schema';
 import AuthorBio from '@/components/blog/AuthorBio';
+
+import { SITE_CONFIG } from '@/lib/constants';
+import RelatedArticles from '@/components/blog/RelatedArticles';
+
 
 export const metadata: Metadata = {
     title: 'தமிழ் திருமண சடங்குகள் வழிகாட்டி: முழுமையான விளக்கம் | Tamil Wedding Rituals Guide',
     description: 'தமிழ் திருமணத்தின் அனைத்து சடங்குகளும் - திருமணத்திற்கு முன், திருமண நாள் மற்றும் திருமணத்திற்கு பிறகு செய்யப்படும் சடங்குகளின் விரிவான விளக்கம் மற்றும் அவற்றின் முக்கியத்துவம்.',
     keywords: ['tamil wedding rituals', 'thirumana sadangugal', 'tamil marriage customs', 'kasi yatra', 'saptapadi', 'mangalsutra dharanam'],
     alternates: {
-        canonical: '/blog/tamil-wedding-rituals',
+        canonical: `${SITE_CONFIG.url}/blog/tamil-wedding-rituals`,
     },
 };
 
@@ -42,6 +47,15 @@ export default function TamilWeddingRitualsGuide() {
                 <h1 className="text-3xl md:text-5xl font-bold text-gray-900 mb-6 leading-tight">
                     தமிழ் திருமண சடங்குகள்: முழுமையான வழிகாட்டி
                 </h1>
+            <div className="relative h-[300px] md:h-[450px] w-full mb-10 rounded-3xl overflow-hidden shadow-2xl">
+                <Image
+                    src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&q=80&w=1200"
+                    alt="தமிழ் திருமண சடங்குகள்"
+                    fill
+                    className="object-cover"
+                    priority
+                />
+            </div>
                 <TrustBlock
                     author="சித்ரை செல்வன்"
                     updatedDate="பிப்ரவரி 2026"
@@ -309,6 +323,10 @@ export default function TamilWeddingRitualsGuide() {
                     role="Software Engineer & Tamil Culture Enthusiast"
                     bio="சித்ரை செல்வன் ஒரு மென்பொருள் பொறியாளர் மற்றும் தமிழ் கலாச்சார ஆர்வலர். தமிழ் திருமண பாரம்பரியங்களை டிஜிட்டல் யுகத்திற்கு கொண்டு வர கல்யாண வீடு தளத்தை உருவாக்கியுள்ளார்."
                     website="https://selvan.dev"
+                />
+                <RelatedArticles 
+                    currentSlug="/blog/tamil-wedding-rituals" 
+                    category="Traditions" 
                 />
             </div>
         </article>

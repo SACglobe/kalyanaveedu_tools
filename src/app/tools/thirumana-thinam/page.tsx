@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { SITE_CONFIG } from '@/lib/constants';
 import DatePlanner from '@/components/tools/DatePlanner';
 import Link from 'next/link';
 
@@ -6,6 +7,9 @@ export const metadata: Metadata = {
     title: 'Marriage Date Planner | திருமண தேதி பிளானர் – Tamil Reference',
     description: 'Calculate days remaining for your wedding and check day details. திருமண தேதி திட்டமிடும் கருவி – தகவல் நோக்கிற்கான நாட்காட்டி.',
     keywords: ['marriage date planner', 'thirumana thinam', 'wedding countdown tamil', 'muhurtham date checker'],
+    alternates: {
+        canonical: `${SITE_CONFIG.url}/tools/thirumana-thinam`,
+    },
 };
 
 export default function DatePlannerPage() {
@@ -25,6 +29,10 @@ export default function DatePlannerPage() {
 
     return (
         <div className="container mx-auto px-4 py-12">
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+            />
             <script
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{

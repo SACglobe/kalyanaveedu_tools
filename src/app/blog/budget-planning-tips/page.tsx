@@ -1,15 +1,20 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import Image from 'next/image';
 import TrustBlock from '@/components/TrustBlock';
 import Schema from '@/components/SEO/Schema';
 import AuthorBio from '@/components/blog/AuthorBio';
+
+import { SITE_CONFIG } from '@/lib/constants';
+import RelatedArticles from '@/components/blog/RelatedArticles';
+
 
 export const metadata: Metadata = {
     title: 'நடுத்தர வர்க்க திருமண பட்ஜெட் திட்டமிடல்: செலவுகளை குறைப்பது எப்படி? | Wedding Budget Tips',
     description: 'இந்திய திருமண செலவுகளை குறைப்பதற்கான நடைமுறை குறிப்புகள். தங்கம், மண்டபம் மற்றும் உணவு செலவுகளை திட்டமிடும் எளிய வழிமுறைகள்.',
     keywords: ['wedding budget tips tamil', 'low budget wedding ideas', 'middle class marriage planning', 'thirumana selavu'],
     alternates: {
-        canonical: '/blog/budget-planning-tips',
+        canonical: `${SITE_CONFIG.url}/blog/budget-planning-tips`,
     },
 };
 
@@ -41,6 +46,15 @@ export default function BudgetPlanningTips() {
                 <h1 className="text-3xl md:text-5xl font-bold text-gray-900 mb-6 leading-tight">
                     நடுத்தர வர்க்க திருமண பட்ஜெட் திட்டமிடல்: செலவுகளை குறைப்பது எப்படி?
                 </h1>
+            <div className="relative h-[300px] md:h-[450px] w-full mb-10 rounded-3xl overflow-hidden shadow-2xl">
+                <Image
+                    src="https://images.unsplash.com/photo-1554224155-16974a4ea2c5?auto=format&fit=crop&q=80&w=1200"
+                    alt="நடுத்தர வர்க்க திருமண பட்ஜெட்"
+                    fill
+                    className="object-cover"
+                    priority
+                />
+            </div>
                 <TrustBlock
                     author="சித்ரை செல்வன்"
                     updatedDate="பிப்ரவரி 2026"
@@ -118,6 +132,10 @@ export default function BudgetPlanningTips() {
                     name="சித்ரை செல்வன்"
                     role="Founder, Kalyana Veedu"
                     bio="சித்ரை செல்வன் கல்யாண வீடு தளத்தின் நிறுவனர். நிதி விவேகத்துடன் திருமண திட்டமிடலை ஊக்குவிக்கிறார்."
+                />
+                <RelatedArticles 
+                    currentSlug="/blog/budget-planning-tips" 
+                    category="Finance" 
                 />
             </div>
         </article>

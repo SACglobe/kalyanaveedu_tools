@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { SITE_CONFIG } from '@/lib/constants';
 import MarriageEligibility from '@/components/tools/MarriageEligibility';
 import Link from 'next/link';
 
@@ -6,6 +7,9 @@ export const metadata: Metadata = {
     title: 'Marriage Age India | திருமண வயது தகுதி – Tamil Reference',
     description: 'Check legal marriage age eligibility in India (Mens 21, Womens 18). இந்திய திருமண வயது வரம்புகள் – பாரம்பரிய தகவல் நாட்காட்டி.',
     keywords: ['marriage age india', 'thirumana vayathu', 'marriage eligibility tamil', 'legal marriage age checker'],
+    alternates: {
+        canonical: `${SITE_CONFIG.url}/tools/thirumana-vayathu`,
+    },
 };
 
 export default function MarriageEligibilityPage() {
@@ -25,6 +29,10 @@ export default function MarriageEligibilityPage() {
 
     return (
         <div className="container mx-auto px-4 py-12">
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+            />
             <script
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{

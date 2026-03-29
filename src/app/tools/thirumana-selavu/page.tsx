@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { SITE_CONFIG } from '@/lib/constants';
 import BudgetCalculator from '@/components/tools/BudgetCalculator';
 import Link from 'next/link';
 
@@ -6,6 +7,9 @@ export const metadata: Metadata = {
     title: 'Wedding Budget Calculator | திருமண செலவு கணிப்பான் – Tamil Reference',
     description: 'Estimate your wedding expenses (Gold, Venue, Feast). திருமண பட்ஜெட்டை முன்கூட்டியே திட்டமிடுங்கள் – தகவல் நோக்கிற்கான நாட்காட்டி.',
     keywords: ['wedding budget calculator tamil', 'thirumana selavu', 'marriage cost estimator', 'tamil wedding planning'],
+    alternates: {
+        canonical: `${SITE_CONFIG.url}/tools/thirumana-selavu`,
+    },
 };
 
 export default function BudgetCalculatorPage() {
@@ -25,6 +29,10 @@ export default function BudgetCalculatorPage() {
 
     return (
         <div className="container mx-auto px-4 py-12">
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+            />
             <script
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{

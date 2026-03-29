@@ -21,7 +21,7 @@ import { MetadataRoute } from 'next';
 import fs from 'fs';
 import path from 'path';
 
-const BASE_URL = 'https://kalyanaveedu.in';
+const BASE_URL = 'https://www.kalyanaveedu.in';
 
 // Helper: scan a folder and return all subfolder names as slugs
 // Each subfolder = one page.tsx route = one URL slug

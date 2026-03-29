@@ -1,8 +1,12 @@
+import type { Metadata } from 'next';
 import Link from 'next/link';
 
-export const metadata = {
+export const metadata: Metadata = {
     title: 'தனியுரிமை கொள்கை | Privacy Policy - Kalyana Veedu',
     description: 'கல்யாண வீடு தனியுரிமை கொள்கை. உங்கள் தகவல்கள் எவ்வாறு சேகரிக்கப்படுகின்றன, பயன்படுத்தப்படுகின்றன மற்றும் பாதுகாக்கப்படுகின்றன என்பதை அறிந்து கொள்ளுங்கள்.',
+    alternates: {
+        canonical: '/privacy-policy',
+    },
 };
 
 export default function PrivacyPage() {
@@ -232,8 +236,8 @@ export default function PrivacyPage() {
                             </a>
                         </p>
                         <p><strong>🌐 Website:</strong>
-                            <a href="https://kalyanaveedu.in" className="text-primary hover:underline ml-1">
-                                kalyanaveedu.in
+                            <a href="https://www.kalyanaveedu.in" className="text-primary hover:underline ml-1">
+                                www.kalyanaveedu.in
                             </a>
                         </p>
                         <p><strong>📍 Location:</strong> Chennai, Tamil Nadu, India</p>

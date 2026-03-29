@@ -1,15 +1,20 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import Image from 'next/image';
 import TrustBlock from '@/components/TrustBlock';
 import Schema from '@/components/SEO/Schema';
 import AuthorBio from '@/components/blog/AuthorBio';
+
+import { SITE_CONFIG } from '@/lib/constants';
+import RelatedArticles from '@/components/blog/RelatedArticles';
+
 
 export const metadata: Metadata = {
     title: 'திருமண உணவு திட்டமிடல்: முழுமையான வழிகாட்டி | Wedding Menu Planning Guide',
     description: 'தமிழ் திருமண உணவு மெனு திட்டமிடல். பாரம்பரிய சைவ உணவுகள், விருந்து எண்ணிக்கை கணக்கீடு, கேட்டரிங் தேர்வு, மற்றும் செலவு குறைப்பு tips.',
     keywords: ['wedding menu', 'tamil wedding food', 'vegetarian menu', 'catering tips', 'wedding food budget', 'traditional tamil food'],
     alternates: {
-        canonical: '/blog/wedding-menu-planning',
+        canonical: `${SITE_CONFIG.url}/blog/wedding-menu-planning`,
     },
 };
 
@@ -40,6 +45,15 @@ export default function WeddingMenuPlanning() {
                 <h1 className="text-3xl md:text-5xl font-bold text-gray-900 mb-6 leading-tight">
                     திருமண உணவு திட்டமிடல்: முழுமையான வழிகாட்டி
                 </h1>
+            <div className="relative h-[300px] md:h-[450px] w-full mb-10 rounded-3xl overflow-hidden shadow-2xl">
+                <Image
+                    src="https://images.unsplash.com/photo-1555244162-803834f70033?auto=format&fit=crop&q=80&w=1200"
+                    alt="திருமண உணவு திட்டமிடல்"
+                    fill
+                    className="object-cover"
+                    priority
+                />
+            </div>
                 <TrustBlock
                     author="சித்ரை செல்வன்"
                     updatedDate="பிப்ரவரி 2026"
@@ -440,6 +454,10 @@ export default function WeddingMenuPlanning() {
                     role="Founder, Kalyana Veedu"
                     bio="சித்ரை செல்வன் கல்யாண வீடு தளத்தின் நிறுவனர். தமிழ் திருமண திட்டமிடலை எளிமையாக்கும் நோக்கோடு, தரமான கருவிகள் மற்றும் தகவல்களை தமிழ் குடும்பங்களுக்கு வழங்குகிறார். பாரம்பரியமும் நவீன தொழில்நுட்பமும் இணையும் இடத்தில் செயல்படுகிறார்."
                     website="https://selvan.dev"
+                />
+                <RelatedArticles 
+                    currentSlug="/blog/wedding-menu-planning" 
+                    category="Planning" 
                 />
             </div>
         </article>

@@ -1,15 +1,20 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import Image from 'next/image';
 import TrustBlock from '@/components/TrustBlock';
 import Schema from '@/components/SEO/Schema';
 import AuthorBio from '@/components/blog/AuthorBio';
 
+import { SITE_CONFIG } from '@/lib/constants';
+import RelatedArticles from '@/components/blog/RelatedArticles';
+
+
 export const metadata: Metadata = {
     title: 'Destination திருமணம் திட்டமிடல் | Destination Wedding Planning Guide',
-    description: 'Destination wedding தமிழ் நாட்டில் திட்டமிடுவது எப்படி? Best locations, budget planning, guest management, மற்றும் legal formalities explained.',
+    description: 'Destination wedding தமிழ் நாட்டில் திட்டமிடுவது எப்படி? Best locations, budget planning, guest management, and legal formalities explained.',
     keywords: ['destination wedding', 'tamil destination wedding', 'wedding locations', 'Coorg wedding', 'Ooty wedding', 'Kerala wedding'],
     alternates: {
-        canonical: '/blog/destination-wedding-planning',
+        canonical: `${SITE_CONFIG.url}/blog/destination-wedding-planning`,
     },
 };
 
@@ -41,6 +46,15 @@ export default function DestinationWeddingPlanning() {
                 <h1 className="text-3xl md:text-5xl font-bold text-gray-900 mb-6 leading-tight">
                     Destination திருமணம் திட்டமிடல்: முழுமையான வழிகாட்டி
                 </h1>
+            <div className="relative h-[300px] md:h-[450px] w-full mb-10 rounded-3xl overflow-hidden shadow-2xl">
+                <Image
+                    src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&q=80&w=1200"
+                    alt="Destination திருமணம் திட்டமிடல்"
+                    fill
+                    className="object-cover"
+                    priority
+                />
+            </div>
                 <TrustBlock
                     author="சித்ரை செல்வன்"
                     updatedDate="பிப்ரவரி 2026"
@@ -504,6 +518,10 @@ export default function DestinationWeddingPlanning() {
                     role="Founder, Kalyana Veedu"
                     bio="சித்ரை செல்வன் கல்யாண வீடு தளத்தின் நிறுவனர். தமிழ் திருமண திட்டமிடலை எளிமையாக்கும் நோக்கோடு, தரமான கருவிகள் மற்றும் தகவல்களை தமிழ் குடும்பங்களுக்கு வழங்குகிறார்."
                     website="https://selvan.dev"
+                />
+                <RelatedArticles 
+                    currentSlug="/blog/destination-wedding-planning" 
+                    category="Planning" 
                 />
             </div>
         </article>

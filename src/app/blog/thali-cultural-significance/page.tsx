@@ -1,15 +1,20 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import Image from 'next/image';
 import TrustBlock from '@/components/TrustBlock';
 import Schema from '@/components/SEO/Schema';
 import AuthorBio from '@/components/blog/AuthorBio';
+
+import { SITE_CONFIG } from '@/lib/constants';
+import RelatedArticles from '@/components/blog/RelatedArticles';
+
 
 export const metadata: Metadata = {
     title: 'தாலி கலாச்சார முக்கியத்துவம் | Thali (Mangalsutra) Significance',
     description: 'தமிழ் திருமணத்தில் தாலி முக்கியத்துவம், தாலி வகைகள், பாரம்பரிய நம்பிக்கைகள், நவீன வடிவமைப்புகள், மற்றும் தாலி கட்டும் முறைகள்.',
     keywords: ['thali', 'mangalsutra', 'tamil wedding', 'thali significance', 'mangalsutra designs', 'thirumangalyam'],
     alternates: {
-        canonical: '/blog/thali-cultural-significance',
+        canonical: `${SITE_CONFIG.url}/blog/thali-cultural-significance`,
     },
 };
 
@@ -40,6 +45,15 @@ export default function ThaliCulturalSignificance() {
                 <h1 className="text-3xl md:text-5xl font-bold text-gray-900 mb-6 leading-tight">
                     தாலி: தமிழ் திருமணத்தின் புனித அடையாளம்
                 </h1>
+            <div className="relative h-[300px] md:h-[450px] w-full mb-10 rounded-3xl overflow-hidden shadow-2xl">
+                <Image
+                    src="https://images.unsplash.com/photo-1621112904887-419379ce6824?auto=format&fit=crop&q=80&w=1200"
+                    alt="தாலி: புனித அடையாளம்"
+                    fill
+                    className="object-cover"
+                    priority
+                />
+            </div>
                 <TrustBlock
                     author="சித்ரை செல்வன்"
                     updatedDate="பிப்ரவரி 2026"
@@ -446,6 +460,10 @@ export default function ThaliCulturalSignificance() {
                     role="Founder, Kalyana Veedu"
                     bio="சித்ரை செல்வன் கல்யாண வீடு தளத்தின் நிறுவனர். தமிழ் திருமண திட்டமிடலை எளிமையாக்கும் நோக்கோடு, தரமான கருவிகள் மற்றும் தகவல்களை தமிழ் குடும்பங்களுக்கு வழங்குகிறார். பாரம்பரியமும் நவீன தொழில்நுட்பமும் இணையும் இடத்தில் செயல்படுகிறார்."
                     website="https://selvan.dev"
+                />
+                <RelatedArticles 
+                    currentSlug="/blog/thali-cultural-significance" 
+                    category="Traditions" 
                 />
             </div>
         </article>

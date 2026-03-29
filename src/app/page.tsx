@@ -1,9 +1,42 @@
 import Link from 'next/link';
 import { SITE_CONFIG, TOOLS_LIST } from '@/lib/constants';
 
+import Schema from '@/components/SEO/Schema';
+
 export default function Home() {
   return (
     <div className="flex flex-col gap-16 py-12">
+      <Schema 
+        type="BreadcrumbList"
+        data={{
+          items: [
+            { name: 'முகப்பு', item: '/' },
+            { name: 'திருமண கருவிகள்', item: '/tools' }
+          ]
+        }}
+      />
+      <Schema 
+        type="Organization"
+        data={{}}
+      />
+      {/* Entity list for AEO */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "ItemList",
+            "name": "திருமண திட்டமிடல் கருவிகள்",
+            "description": "தமிழர்களின் திருமணத்தை எளிமையாக்கும் 7 இலவச கருவிகள்",
+            "itemListElement": TOOLS_LIST.map((tool, index) => ({
+              "@type": "ListItem",
+              "position": index + 1,
+              "name": tool.title,
+              "url": `${SITE_CONFIG.url}${tool.path}`
+            }))
+          })
+        }}
+      />
       {/* Hero Section */}
       <section className="container mx-auto px-4 text-center space-y-6">
         <h1 className="text-4xl md:text-5xl font-bold text-gray-900 leading-tight">
@@ -12,24 +45,29 @@ export default function Home() {
             உங்கள் திருமண திட்டமிடல் தோழன்
           </span>
         </h1>
-        <p className="text-xl text-gray-700 max-w-3xl mx-auto leading-relaxed">
-          தமிழ் குடும்பங்களுக்கான பிரத்யேக திருமண திட்டமிடல் தளம். 
-          சுப முகூர்த்த தேதிகள், ஜாதகப் பொருத்தம், திருமண பட்ஜெட் கணிப்பான் மற்றும் 
-          பாரம்பரிய சடங்குகளின் விளக்கங்கள் என அனைத்தையும் எளிய தமிழில் கண்டறியுங்கள். 
-          உங்கள் இல்லத் திருமணத்தை சிறப்பாகத் திட்டமிட கல்யாண வீடு உங்களுக்கு என்றும் உறுதுணையாக இருக்கும்.
-        </p>
+        <div className="text-xl text-gray-700 max-w-4xl mx-auto leading-relaxed space-y-4">
+          <p>
+            தமிழர்களின் பாரம்பரியம் மற்றும் கலாச்சாரத்தை மதிக்கும் வகையில் உருவாக்கப்பட்ட 
+            நம்பகமான திருமண திட்டமிடல் தளம். சுப முகூர்த்த தேதிகள், எளிய திருமண பட்ஜெட் கணிப்பான், 
+            மற்றும் விரிவான சடங்கு முறைகளை எளிய தமிழில் கண்டறியுங்கள்.
+          </p>
+          <p className="text-lg text-gray-600">
+            திருமண ஏற்பாடுகளில் ஏற்படும் குழப்பங்களை தவிர்த்து, ஒவ்வொரு செயலையும் திட்டமிட்டு 
+            மகிழ்ச்சியுடன் கொண்டாட எங்களது இலவச கருவிகள் மற்றும் கட்டுரைகள் உங்களுக்கு உதவும்.
+          </p>
+        </div>
         <div className="flex justify-center gap-4 pt-4">
           <Link
             href="/tools"
             className="bg-primary text-white px-8 py-3 rounded-full font-bold text-lg hover:bg-accent transition-transform hover:scale-105 shadow-lg"
           >
-            கருவிகளைப் பார்க்க
+            இலவச கருவிகளைப் பயன்படுத்த
           </Link>
           <Link
-            href="/about"
+            href="/blog"
             className="bg-white text-gray-700 border border-gray-300 px-8 py-3 rounded-full font-medium text-lg hover:bg-gray-50 transition-colors"
           >
-            மேலும் அறிய
+            கட்டுரைகளை வாசிக்க
           </Link>
         </div>
       </section>
@@ -38,10 +76,12 @@ export default function Home() {
       <section className="container mx-auto px-4">
         <div className="text-center mb-12">
           <h2 className="text-3xl font-bold text-gray-900 mb-4">
-            பயனுள்ள திருமண கருவிகள்
+            பயனுள்ள திருமண கருவிகள் (Wedding Tools)
           </h2>
-          <p className="text-gray-600">
-            திருமண ஏற்பாடுகளை எளிமையாக்க நாங்கள் வழங்கும் இலவச சேவைகள்
+          <p className="text-gray-600 max-w-2xl mx-auto">
+            ஒரு திருமணத்தை வெற்றிகரமாக நடத்த சரியான திட்டமிடல் அவசியம். 
+            செலவு கணக்கீடு முதல் முகூர்த்தம் பார்ப்பது வரை அனைத்தையும் 
+            இலவசமாக இங்கே செய்து முடித்திடுங்கள்.
           </p>
         </div>
 
@@ -58,11 +98,11 @@ export default function Home() {
               <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-primary transition-colors">
                 {tool.title}
               </h3>
-              <p className="text-gray-600 leading-relaxed">
-                {tool.description}
+              <p className="text-gray-600 leading-relaxed text-sm">
+                {tool.description}. இது ஒரு முழுமையான திருமண திட்டமிடல் கருவியாகும்.
               </p>
               <div className="mt-6 flex items-center text-primary font-medium opacity-0 group-hover:opacity-100 transition-opacity">
-                பயன்படுத்தவும் <span className="ml-2">→</span>
+                இப்போது தொடங்கவும் <span className="ml-2">→</span>
               </div>
             </Link>
           ))}
@@ -71,20 +111,31 @@ export default function Home() {
 
       {/* Vision Section */}
       <section className="bg-gradient-to-b from-orange-50 to-white py-16">
-        <div className="container mx-auto px-4 text-center max-w-4xl">
+        <div className="container mx-auto px-4 text-center max-w-5xl">
           <h2 className="text-3xl font-bold text-gray-900 mb-6">
             ஏன் கல்யாண வீடு? (Why Choose Us?)
           </h2>
-          <div className="text-gray-700 text-lg leading-loose space-y-6 mb-12">
+          <div className="text-gray-700 text-lg leading-loose space-y-6 mb-12 text-left bg-white/50 p-8 rounded-3xl border border-orange-100">
             <p>
               எங்கள் நோக்கம் தமிழர்களின் திருமண கலாச்சாரத்தை மதித்து, நவீன தொழில்நுட்ப உதவியுடன்
               திருமண ஏற்பாடுகளை எளிமையாக்குவதாகும். ஒரு திருமணத்தை திட்டமிடுவது என்பது 
               வெறும் வேலைப் பட்டியல் மட்டுமல்ல, அது ஒரு குடும்பத்தின் உணர்வுப்பூர்வமான பயணம். 
+              ஒவ்வொரு தமிழ் இல்லத்திலும் நடைபெறும் மங்களகரமான நிகழ்வுகள் தங்கு தடையின்றி 
+              நடைபெற வழிகாட்டுவதே எங்களது பிரதான இலக்காகும்.
             </p>
             <p>
               கல்யாண வீடு தளத்தில், நாங்கள் வழங்கும் ஒவ்வொரு கருவியும் அனுபவம் வாய்ந்த 
               திருமண ஆலோசனைகள் மற்றும் பாரம்பரிய பஞ்சாங்க முறைகளின் அடிப்படையில் உருவாக்கப்பட்டுள்ளது. 
-              இது வெறும் கருவிகள் மட்டுமல்ல, திருமண பந்தத்தின் முக்கியத்துவத்தை உணர்த்தும் ஒரு முயற்சி.
+              இது வெறும் டிஜிட்டல் கருவிகள் மட்டுமல்ல, திருமண பந்தத்தின் புனிதத்தையும் 
+              முக்கியத்துவத்தையும் இன்றைய தலைமுறைக்கு உணர்த்தும் ஒரு சிறு முயற்சி. 
+              நாங்கள் எந்தவித கட்டணமும் இன்றி இந்த சேவையை வழங்குவதன் மூலம், 
+              அனைத்து நடுத்தர மற்றும் ஏழை குடும்பங்களும் பலன் பெற வேண்டும் என்று விரும்புகிறோம்.
+            </p>
+            <p>
+              பட்ஜெட் பிளானர் முதல் சடங்கு முறைகளுக்கான விளக்கம் வரை, நாங்கள் 
+              வழங்கும் தகவல்கள் மிகவும் துல்லியமானவை மற்றும் நம்பகமானவை. 
+              திருமணத்திற்கு முன் கவனிக்க வேண்டிய சட்ட விஷயங்கள் முதல் ஜோதிட ரீதியான 
+              பொருத்தங்கள் வரை அனைத்தையும் ஒரே இடத்தில் நீங்கள் பெற முடியும்.
             </p>
           </div>
           <div className="grid md:grid-cols-3 gap-8 text-left mt-12 bg-white p-8 rounded-2xl shadow-sm border border-gray-100">

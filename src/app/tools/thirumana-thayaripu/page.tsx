@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { SITE_CONFIG } from '@/lib/constants';
 import WeddingChecklist from '@/components/tools/WeddingChecklist';
 import Link from 'next/link';
 
@@ -6,6 +7,9 @@ export const metadata: Metadata = {
     title: 'Wedding Checklist | திருமண வேலைகள் பட்டியல் – Tamil Reference',
     description: 'A complete digital checklist for Tamil wedding planning. திருமண ஏற்பாடுகளைத் திட்டமிடும் பட்டியல் – தகவல் நோக்கிற்கான நாட்காட்டி.',
     keywords: ['wedding checklist tamil', 'thirumana velai pattiyal', 'wedding to-do list tamil', 'marriage preparation checklist'],
+    alternates: {
+        canonical: `${SITE_CONFIG.url}/tools/thirumana-thayaripu`,
+    },
 };
 
 export default function ChecklistPage() {
@@ -25,6 +29,10 @@ export default function ChecklistPage() {
 
     return (
         <div className="container mx-auto px-4 py-12">
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+            />
             <script
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{

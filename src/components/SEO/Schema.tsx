@@ -17,9 +17,15 @@ export default function Schema({ type, data }: SchemaProps) {
                 '@type': 'Organization',
                 'name': SITE_CONFIG.name,
                 'url': SITE_CONFIG.url,
-                'logo': `${SITE_CONFIG.url}/icon.png`,
+                'logo': `${SITE_CONFIG.url}/icon-v2.png`,
                 'sameAs': [
-                    // Add social links here if any
+                    'https://selvan.dev',
+                    'https://x.com/kalyanaveedu',
+                    'https://www.facebook.com/kalyanaveedu',
+                    'https://www.instagram.com/kalyanaveedu',
+                    'https://www.linkedin.com/company/kalyanaveedu',
+                    'https://www.wikidata.org/wiki/Special:Search?search=kalyanaveedu',
+                    'https://en.wikipedia.org/wiki/Special:Search?search=kalyanaveedu'
                 ]
             };
             break;
@@ -56,7 +62,7 @@ export default function Schema({ type, data }: SchemaProps) {
                     'name': SITE_CONFIG.name,
                     'logo': {
                         '@type': 'ImageObject',
-                        'url': `${SITE_CONFIG.url}/icon.png`
+                        'url': `${SITE_CONFIG.url}/icon-v2.png`
                     }
                 },
                 'mainEntityOfPage': {
