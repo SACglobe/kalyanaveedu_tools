@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import Image from 'next/image';
 import TrustBlock from '@/components/TrustBlock';
 import Schema from '@/components/SEO/Schema';
 import AuthorBio from '@/components/blog/AuthorBio';
@@ -9,12 +10,16 @@ import AuthorBio from '@/components/blog/AuthorBio';
 // <!-- TRUST: meta-description -->
 // Meta Description: தாலி கட்டும் தருணத்தில் என்ன நடக்கிறது, மூன்று முடிச்சுகளின் அர்த்தம் என்ன, மந்திரங்கள் ஏன் சொல்லப்படுகின்றன — கலாச்சார விளக்கம்.
 
+import { SITE_CONFIG } from '@/lib/constants';
+import RelatedArticles from '@/components/blog/RelatedArticles';
+
+
 export const metadata: Metadata = {
     title: 'தாலி கட்டுவதன் அர்த்தம்: மூன்று முடிச்சுகளின் தத்துவம் | கல்யாண வீடு',
     description: 'தாலி கட்டும் தருணத்தில் என்ன நடக்கிறது, மூன்று முடிச்சுகளின் அர்த்தம் என்ன, மந்திரங்கள் ஏன் சொல்லப்படுகின்றன — கலாச்சார விளக்கம்.',
     keywords: ['தாலி கட்டுவதன் அர்த்தம்', 'thali ceremony meaning', 'mangalsutra significance', 'tamil wedding thali', 'மூன்று முடிச்சு அர்த்தம்', 'thirumaangalyam'],
     alternates: {
-        canonical: '/blog/thali-tying-significance',
+        canonical: `${SITE_CONFIG.url}/blog/thali-tying-significance`,
     },
 };
 
@@ -53,6 +58,15 @@ export default function ThaliTyingSignificance() {
                 <h1 className="text-3xl md:text-5xl font-bold text-gray-900 mb-6 leading-tight">
                     தாலி கட்டுவதன் அர்த்தம்: மூன்று முடிச்சுகளின் தத்துவம்
                 </h1>
+            <div className="relative h-[300px] md:h-[450px] w-full mb-10 rounded-3xl overflow-hidden shadow-2xl">
+                <Image
+                    src="https://images.unsplash.com/photo-1621112904887-419379ce6824?auto=format&fit=crop&q=80&w=1200"
+                    alt="தாலி கட்டுவதன் ரகசியம்"
+                    fill
+                    className="object-cover"
+                    priority
+                />
+            </div>
 
                 <TrustBlock
                     author="மீனாட்சி சுந்தரம்"
@@ -331,6 +345,10 @@ export default function ThaliTyingSignificance() {
                     name="மீனாட்சி சுந்தரம்"
                     role="Culture & Rituals Expert"
                     bio="மீனாட்சி சுந்தரம் தமிழ் திருமண மரபுகள் மற்றும் சடங்குகள் குறித்து ஆழமான அறிவும் நேரடி அனுபவமும் கொண்ட பண்பாட்டு எழுத்தாளர். தமிழ்நாடு முழுவதிலும் பல திருமண நிகழ்வுகளில் பங்கேற்று, ஒவ்வொரு சடங்கின் பின்னணியையும் குடும்பங்களுக்கு விளக்கி வருகிறார்."
+                />
+                <RelatedArticles 
+                    currentSlug="/blog/thali-tying-significance" 
+                    category="Traditions" 
                 />
             </div>
         </article>

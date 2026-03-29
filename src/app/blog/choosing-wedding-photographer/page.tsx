@@ -1,15 +1,20 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import Image from 'next/image';
 import TrustBlock from '@/components/TrustBlock';
 import Schema from '@/components/SEO/Schema';
 import AuthorBio from '@/components/blog/AuthorBio';
 
+import { SITE_CONFIG } from '@/lib/constants';
+import RelatedArticles from '@/components/blog/RelatedArticles';
+
+
 export const metadata: Metadata = {
     title: 'திருமண புகைப்படக்காரர் தேர்வு: முழுமையான வழிகாட்டி | Wedding Photographer Guide',
     description: 'சிறந்த திருமண புகைப்படக்காரரை எப்படி தேர்வு செய்வது? பாரம்பரிய vs candid photography, கேட்க வேண்டிய கேள்விகள், விலை நிர்ணயம், ஒப்பந்த முக்கிய விஷயங்கள்.',
-    keywords: ['wedding photographer tamil', 'candid photography', 'traditional photography', 'wedding videography', 'photographer contract', 'photography pricing'],
+    keywords: ['wedding photographer tamil', 'candid photography', 'traditional photography', 'wedding videography', 'photographer contract', 'photography photography pricing'],
     alternates: {
-        canonical: '/blog/choosing-wedding-photographer',
+        canonical: `${SITE_CONFIG.url}/blog/choosing-wedding-photographer`,
     },
 };
 
@@ -41,6 +46,15 @@ export default function WeddingPhotographerGuide() {
                 <h1 className="text-3xl md:text-5xl font-bold text-gray-900 mb-6 leading-tight">
                     திருமண புகைப்படக்காரர் தேர்வு: முழுமையான வழிகாட்டி
                 </h1>
+            <div className="relative h-[300px] md:h-[450px] w-full mb-10 rounded-3xl overflow-hidden shadow-2xl">
+                <Image
+                    src="https://images.unsplash.com/photo-1537633552985-df8429e8048b?auto=format&fit=crop&q=80&w=1200"
+                    alt="திருமண புகைப்படக்காரர் தேர்வு"
+                    fill
+                    className="object-cover"
+                    priority
+                />
+            </div>
                 <TrustBlock
                     author="சித்ரை செல்வன்"
                     updatedDate="பிப்ரவரி 2026"
@@ -431,6 +445,10 @@ export default function WeddingPhotographerGuide() {
                     role="Founder, Kalyana Veedu"
                     bio="சித்ரை செல்வன் கல்யாண வீடு தளத்தின் நிறுவனர். தமிழ் திருமண திட்டமிடலை எளிமையாக்கும் நோக்கோடு, தரமான கருவிகள் மற்றும் தகவல்களை தமிழ் குடும்பங்களுக்கு வழங்குகிறார்."
                     website="https://selvan.dev"
+                />
+                <RelatedArticles 
+                    currentSlug="/blog/choosing-wedding-photographer" 
+                    category="Photography" 
                 />
             </div>
         </article>

@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { SITE_CONFIG } from '@/lib/constants';
 import AgeCalculator from '@/components/tools/AgeCalculator';
 import Link from 'next/link';
 
@@ -6,6 +7,9 @@ export const metadata: Metadata = {
     title: 'Age Calculator | வயது கால்குலேட்டர் – Tamil Reference',
     description: 'Calculate your exact age in years, months, and days. துல்லியமான வயது கணக்கிடும் கருவி – தகவல் நோக்கிற்கான நாட்காட்டி.',
     keywords: ['age calculator tamil', 'vayathu kanakku', 'birth date calculator', 'marriage age calculator'],
+    alternates: {
+        canonical: `${SITE_CONFIG.url}/tools/vayathu-kanakku`,
+    },
 };
 
 export default function AgeCalculatorPage() {
@@ -25,6 +29,10 @@ export default function AgeCalculatorPage() {
 
     return (
         <div className="container mx-auto px-4 py-12">
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+            />
             <script
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{

@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import Image from 'next/image';
 import TrustBlock from '@/components/TrustBlock';
 import Schema from '@/components/SEO/Schema';
 import AuthorBio from '@/components/blog/AuthorBio';
@@ -9,12 +10,16 @@ import AuthorBio from '@/components/blog/AuthorBio';
 // <!-- TRUST: meta-description -->
 // Meta Description: காசி யாத்திரை சடங்கு என்றால் என்ன, குடை, கம்பு, விசிறி ஏன் பிடிக்கிறார்கள் — தமிழ் திருமணத்தின் முக்கிய நிகழ்வை விரிவாக அறிந்துகொள்ளுங்கள்.
 
+import { SITE_CONFIG } from '@/lib/constants';
+import RelatedArticles from '@/components/blog/RelatedArticles';
+
+
 export const metadata: Metadata = {
     title: 'காசி யாத்திரை: திருமணத்தின் சுவாரஸ்யமான பண்பாட்டு சடங்கு | கல்யாண வீடு',
     description: 'காசி யாத்திரை சடங்கு என்றால் என்ன, குடை, கம்பு, விசிறி ஏன் பிடிக்கிறார்கள் — தமிழ் திருமணத்தின் முக்கிய நிகழ்வை விரிவாக அறிந்துகொள்ளுங்கள்.',
     keywords: ['காசி யாத்திரை', 'Kasi Yatra ritual', 'Tamil wedding ceremony', 'Kasi Yatra significance', 'மாப்பிள்ளை அழைப்பு', 'wedding traditions'],
     alternates: {
-        canonical: '/blog/kasi-yatra',
+        canonical: `${SITE_CONFIG.url}/blog/kasi-yatra`,
     },
 };
 
@@ -55,6 +60,15 @@ export default function KasiYatraCeremony() {
                 <h1 className="text-3xl md:text-5xl font-bold text-gray-900 mb-6 leading-tight">
                     காசி யாத்திரை: திருமணத்தின் சுவாரஸ்யமான பண்பாட்டு சடங்கு
                 </h1>
+            <div className="relative h-[300px] md:h-[450px] w-full mb-10 rounded-3xl overflow-hidden shadow-2xl">
+                <Image
+                    src="https://images.unsplash.com/photo-1532706302136-3392437645f7?auto=format&fit=crop&q=80&w=1200"
+                    alt="காசி யாத்திரை"
+                    fill
+                    className="object-cover"
+                    priority
+                />
+            </div>
 
                 <TrustBlock
                     author="மீனாட்சி சுந்தரம்"
@@ -248,6 +262,10 @@ export default function KasiYatraCeremony() {
                     name="மீனாட்சி சுந்தரம்"
                     role="Tamil Cultural Historian"
                     bio="மீனாட்சி சுந்தரம் தமிழ் திருமண மரபுகள் மற்றும் சடங்குகள் குறித்த நீண்ட அனுபவம் கொண்டவர். பண்பாட்டுத் தரவுகளைத் தொகுத்து, அவற்றை இன்றைய தலைமுறைக்கு ஏற்ப எளிய தமிழில் விளக்குவதில் ஆர்வம் கொண்டவர்."
+                />
+                <RelatedArticles 
+                    currentSlug="/blog/kasi-yatra" 
+                    category="Traditions" 
                 />
             </div>
         </article>

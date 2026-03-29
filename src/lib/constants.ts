@@ -1,8 +1,8 @@
 export const SITE_CONFIG = {
     name: 'கல்யாண வீடு',
-    domain: 'kalyanaveedu.in',
+    domain: 'www.kalyanaveedu.in',
     description: 'தமிழர்களின் நம்பகமான திருமண திட்டமிடல் தளம். வயது வரம்பு, பட்ஜெட் மற்றும் திருமண தேதி கணிப்பான்கள்.',
-    url: 'https://kalyanaveedu.in',
+    url: 'https://www.kalyanaveedu.in',
     metaDescription: 'தமிழ் குடும்பங்களுக்கான நம்பகமான திருமண திட்டமிடல் தளம். சுப முகூர்த்த தேதிகள், வயது தகுதி, பட்ஜெட் கணிப்பான் மற்றும் விரிவான திருமண வழிகாட்டிகள் அனைத்தும் ஒரே இடத்தில். ',
 };
 

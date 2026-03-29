@@ -1,15 +1,20 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import Image from 'next/image';
 import TrustBlock from '@/components/TrustBlock';
 import Schema from '@/components/SEO/Schema';
 import AuthorBio from '@/components/blog/AuthorBio';
+
+import { SITE_CONFIG } from '@/lib/constants';
+import RelatedArticles from '@/components/blog/RelatedArticles';
+
 
 export const metadata: Metadata = {
     title: 'திருமண கடனை தவிர்ப்பது எப்படி? | How to Avoid Wedding Debt',
     description: 'திருமண செலவுக்கு கடன் வாங்காமல் இருக்க practical tips, budget planning, cost-cutting strategies, மற்றும் நிதி மேலாண்மை வழிகாட்டி.',
     keywords: ['wedding debt', 'wedding budget', 'avoid debt', 'wedding savings', 'financial planning', 'tamil wedding'],
     alternates: {
-        canonical: '/blog/avoid-wedding-debt',
+        canonical: `${SITE_CONFIG.url}/blog/avoid-wedding-debt`,
     },
 };
 
@@ -41,6 +46,15 @@ export default function AvoidWeddingDebt() {
                 <h1 className="text-3xl md:text-5xl font-bold text-gray-900 mb-6 leading-tight">
                     திருமண கடனை தவிர்ப்பது எப்படி?
                 </h1>
+            <div className="relative h-[300px] md:h-[450px] w-full mb-10 rounded-3xl overflow-hidden shadow-2xl">
+                <Image
+                    src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&q=80&w=1200"
+                    alt="திருமண கடனை தவிர்ப்பது எப்படி?"
+                    fill
+                    className="object-cover"
+                    priority
+                />
+            </div>
                 <TrustBlock
                     author="சித்ரை செல்வன்"
                     updatedDate="பிப்ரவரி 2026"
@@ -372,6 +386,10 @@ export default function AvoidWeddingDebt() {
                     role="Founder, Kalyana Veedu"
                     bio="சித்ரை செல்வன் கல்யாண வீடு தளத்தின் நிறுவனர். நிதி விவேகத்துடன் திருமண திட்டமிடலை ஊக்குவிக்கிறார்."
                     website="https://selvan.dev"
+                />
+                <RelatedArticles 
+                    currentSlug="/blog/avoid-wedding-debt" 
+                    category="Finance" 
                 />
             </div>
         </article >

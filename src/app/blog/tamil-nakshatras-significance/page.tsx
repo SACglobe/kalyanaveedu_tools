@@ -1,15 +1,20 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import Image from 'next/image';
 import TrustBlock from '@/components/TrustBlock';
 import Schema from '@/components/SEO/Schema';
 import AuthorBio from '@/components/blog/AuthorBio';
+
+import { SITE_CONFIG } from '@/lib/constants';
+import RelatedArticles from '@/components/blog/RelatedArticles';
+
 
 export const metadata: Metadata = {
     title: 'தமிழ் நட்சத்திரங்கள் & திருமண பொருத்தம் | Tamil Nakshatras Wedding Guide',
     description: '27 தமிழ் நட்சத்திரங்கள், திருமண பொருத்தம், நட்சத்திர குணங்கள், தோஷங்கள், மற்றும் ஜோதிட முக்கியத்துவம் பற்றிய விரிவான வழிகாட்டி.',
     keywords: ['tamil nakshatras', 'birth star', 'horoscope matching', 'rasi natchathiram', 'wedding compatibility', 'tamil astrology'],
     alternates: {
-        canonical: '/blog/tamil-nakshatras-significance',
+        canonical: `${SITE_CONFIG.url}/blog/tamil-nakshatras-significance`,
     },
 };
 
@@ -40,6 +45,15 @@ export default function TamilNakshatrasSignificance() {
                 <h1 className="text-3xl md:text-5xl font-bold text-gray-900 mb-6 leading-tight">
                     தமிழ் நட்சத்திரங்கள் & திருமண பொருத்தம்
                 </h1>
+            <div className="relative h-[300px] md:h-[450px] w-full mb-10 rounded-3xl overflow-hidden shadow-2xl">
+                <Image
+                    src="https://images.unsplash.com/photo-1532968961962-8a0cb3a2d4f5?auto=format&fit=crop&q=80&w=1200"
+                    alt="தமிழ் நட்சத்திரங்கள்"
+                    fill
+                    className="object-cover"
+                    priority
+                />
+            </div>
                 <TrustBlock
                     author="சித்ரை செல்வன்"
                     updatedDate="பிப்ரவரி 2026"
@@ -427,6 +441,10 @@ export default function TamilNakshatrasSignificance() {
                     role="Founder, Kalyana Veedu"
                     bio="சித்ரை செல்வன் கல்யாண வீடு தளத்தின் நிறுவனர். தமிழ் திருமண திட்டமிடலை எளிமையாக்கும் நோக்கோடு, தரமான கருவிகள் மற்றும் தகவல்களை தமிழ் குடும்பங்களுக்கு வழங்குகிறார். பாரம்பரியமும் நவீன தொழில்நுட்பமும் இணையும் இடத்தில் செயல்படுகிறார்."
                     website="https://selvan.dev"
+                />
+                <RelatedArticles 
+                    currentSlug="/blog/tamil-nakshatras-significance" 
+                    category="Astrology" 
                 />
             </div>
         </article>

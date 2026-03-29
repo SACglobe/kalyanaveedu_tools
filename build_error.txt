@@ -1,0 +1,71 @@
+
+> kalyanaveedu@0.1.0 build
+> next build
+
+▲ Next.js 16.1.1 (Turbopack)
+
+⚠ The "middleware" file convention is deprecated. Please use "proxy" instead. Learn more: https://nextjs.org/docs/messages/middleware-to-proxy
+  Creating an optimized production build ...
+✓ Compiled successfully in 2.0min
+  Running TypeScript ...
+  Collecting page data using 3 workers ...
+  Generating static pages using 3 workers (0/95) ...
+  Generating static pages using 3 workers (23/95) 
+  Generating static pages using 3 workers (47/95) 
+  Generating static pages using 3 workers (71/95) 
+✓ Generating static pages using 3 workers (95/95) in 33.2s
+  Finalizing page optimization ...
+
+Route (app)
+┌ ○ /
+├ ○ /_not-found
+├ ○ /about
+├ ○ /blog
+├ ○ /blog/avoid-wedding-debt
+├ ○ /blog/budget-planning-tips
+├ ○ /blog/choosing-wedding-photographer
+├ ○ /blog/destination-wedding-planning
+├ ○ /blog/gold-jewelry-buying-guide
+├ ○ /blog/kasi-yatra
+├ ○ /blog/malai-matruthel
+├ ○ /blog/mandapam-decoration
+├ ○ /blog/naandi-ceremony
+├ ○ /blog/oonjal-ceremony
+├ ○ /blog/subha-muhurtham-2026
+├ ○ /blog/tamil-nakshatras-significance
+├ ○ /blog/tamil-wedding-rituals
+├ ○ /blog/thali-cultural-significance
+├ ○ /blog/thali-tying-significance
+├ ○ /blog/thirumana-velai-pattiyal
+├ ○ /blog/vedic-wedding-mantras
+├ ○ /blog/wedding-insurance-guide
+├ ○ /blog/wedding-invitation-guide
+├ ○ /blog/wedding-menu-planning
+├ ○ /contact
+├ ○ /cookie-policy
+├ ○ /disclaimer
+├ ○ /icon.png
+├ ○ /privacy-policy
+├ ○ /robots.txt
+├ ○ /sitemap.xml
+├ ○ /terms
+├ ○ /tools
+├ ○ /tools/subha-muhurtham
+├ ● /tools/subha-muhurtham/[date]
+│ ├ /tools/subha-muhurtham/2026-01-28
+│ ├ /tools/subha-muhurtham/2026-02-06
+│ ├ /tools/subha-muhurtham/2026-02-08
+│ └ [+51 more paths]
+├ ○ /tools/tamil-calendar
+├ ○ /tools/thirumana-selavu
+├ ○ /tools/thirumana-thayaripu
+├ ○ /tools/thirumana-thinam
+├ ○ /tools/thirumana-vayathu
+└ ○ /tools/vayathu-kanakku
+
+
+ƒ Proxy (Middleware)
+
+○  (Static)  prerendered as static content
+●  (SSG)     prerendered as static HTML (uses generateStaticParams)
+

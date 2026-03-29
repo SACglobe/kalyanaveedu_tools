@@ -1,15 +1,20 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import Image from 'next/image';
 import TrustBlock from '@/components/TrustBlock';
 import Schema from '@/components/SEO/Schema';
 import AuthorBio from '@/components/blog/AuthorBio';
+
+import { SITE_CONFIG } from '@/lib/constants';
+import RelatedArticles from '@/components/blog/RelatedArticles';
+
 
 export const metadata: Metadata = {
     title: 'மண்டப அலங்காரம்: 10 நவீன வடிவமைப்பு யோசனைகள் | Mandapam Decoration Ideas',
     description: 'தமிழ் திருமண மண்டப அலங்காரத்திற்கான பாரம்பரிய மற்றும் நவீன யோசனைகள். மலர் அலங்காரம், விளக்கு அமைப்பு, பட்ஜெட் இடத்தில் அலங்காரம் செய்வது எப்படி?',
     keywords: ['mandapam decoration', 'wedding decoration tamil', 'flower decoration ideas', 'marriage hall decoration', 'budget wedding decor'],
     alternates: {
-        canonical: '/blog/mandapam-decoration',
+        canonical: `${SITE_CONFIG.url}/blog/mandapam-decoration`,
     },
 };
 
@@ -40,6 +45,15 @@ export default function MandapamDecorationGuide() {
                 <h1 className="text-3xl md:text-5xl font-bold text-gray-900 mb-6 leading-tight">
                     மண்டப அலங்காரம்: 10 நவீன வடிவமைப்பு யோசனைகள்
                 </h1>
+            <div className="relative h-[300px] md:h-[450px] w-full mb-10 rounded-3xl overflow-hidden shadow-2xl">
+                <Image
+                    src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?auto=format&fit=crop&q=80&w=1200"
+                    alt="மண்டப அலங்காரம்"
+                    fill
+                    className="object-cover"
+                    priority
+                />
+            </div>
                 <TrustBlock
                     author="சித்ரை செல்வன்"
                     updatedDate="பிப்ரவரி 2026"
@@ -374,6 +388,10 @@ export default function MandapamDecorationGuide() {
                     role="Founder, Kalyana Veedu"
                     bio="சித்ரை செல்வன் கல்யாண வீடு தளத்தின் நிறுவனர். தமிழ் குடும்பங்களுக்கான திருமண திட்டமிடல் தளமான கல்யாண வீடுவின் நிறுவனர். பாரம்பரியத்தையும் நவீன தொழில்நுட்பத்தையும் இணைத்து தமிழர்களின் திருமண ஏற்பாடுகளை எளிமையாக்குவதே இவரது நோக்கம்."
                     website="https://selvan.dev"
+                />
+                <RelatedArticles 
+                    currentSlug="/blog/mandapam-decoration" 
+                    category="Decoration" 
                 />
             </div>
         </article>

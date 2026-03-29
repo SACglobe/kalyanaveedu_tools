@@ -1,15 +1,20 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import Image from 'next/image';
 import TrustBlock from '@/components/TrustBlock';
 import AuthorBio from '@/components/blog/AuthorBio';
 import Schema from '@/components/SEO/Schema';
+
+import { SITE_CONFIG } from '@/lib/constants';
+import RelatedArticles from '@/components/blog/RelatedArticles';
+
 
 export const metadata: Metadata = {
     title: '2026 சுப முகூர்த்த நாட்கள்: திருமண தேதியை எப்படி தேர்ந்தெடுப்பது? | 2026 Muhurtham Dates',
     description: '2026 ஆம் ஆண்டிற்கான சிறந்த சுப முகூர்த்த நாட்களை தேர்ந்தெடுக்கும் முறை. வளர்பிறை, நல்ல நேரம் மற்றும் தவிர்க்க வேண்டிய நாட்களை அறிந்துகொள்ளுங்கள்.',
     keywords: ['2026 subha muhurtham tamil', 'wedding dates 2026', 'valarpirai muhurtham 2026', 'tamil marriage dates'],
     alternates: {
-        canonical: '/blog/subha-muhurtham-2026',
+        canonical: `${SITE_CONFIG.url}/blog/subha-muhurtham-2026`,
     },
 };
 
@@ -40,6 +45,15 @@ export default function SubhaMuhurthamGuide() {
                 <h1 className="text-3xl md:text-5xl font-bold text-gray-900 mb-6 leading-tight">
                     2026 சுப முகூர்த்த நாட்கள்: திருமண தேதியை எப்படி தேர்ந்தெடுப்பது?
                 </h1>
+            <div className="relative h-[300px] md:h-[450px] w-full mb-10 rounded-3xl overflow-hidden shadow-2xl">
+                <Image
+                    src="https://images.unsplash.com/photo-1505933383163-e3832bd7232e?auto=format&fit=crop&q=80&w=1200"
+                    alt="2026 சுப முகூர்த்த நாட்கள்"
+                    fill
+                    className="object-cover"
+                    priority
+                />
+            </div>
                 <TrustBlock
                     author="சித்ரை செல்வன்"
                     updatedDate="பிப்ரவரி 2026"
@@ -117,6 +131,10 @@ export default function SubhaMuhurthamGuide() {
                     role="Founder, Kalyana Veedu"
                     bio="சித்ரை செல்வன் கல்யாண வீடு தளத்தின் நிறுவனர். தமிழ் திருமண திட்டமிடலை எளிமையாக்கும் நோக்கோடு செயல்படுகிறார்."
                     website="https://selvan.dev"
+                />
+                <RelatedArticles 
+                    currentSlug="/blog/subha-muhurtham-2026" 
+                    category="Astrology" 
                 />
             </div>
         </article>

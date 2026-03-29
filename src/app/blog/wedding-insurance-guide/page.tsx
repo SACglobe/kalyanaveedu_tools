@@ -1,15 +1,20 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import Image from 'next/image';
 import TrustBlock from '@/components/TrustBlock';
 import Schema from '@/components/SEO/Schema';
 import AuthorBio from '@/components/blog/AuthorBio';
 
+import { SITE_CONFIG } from '@/lib/constants';
+import RelatedArticles from '@/components/blog/RelatedArticles';
+
+
 export const metadata: Metadata = {
-    title: 'திருமண காப்பீடு வழிகாட்டி | Wedding Insurance Guide India',
-    description: 'திருமணத்திற்கான insurance தேவையா? Coverage types, cost, benefits, & claim process - முழுமையான wedding insurance வழிகாட்டி.',
-    keywords: ['wedding insurance', 'event insurance', 'marriage protection', 'cancellation coverage', 'india wedding'],
+    title: 'திருமண காப்பீடு வழிகாட்டி: ஏன் அவசியம்? முழு விவரங்கள் | Wedding Insurance Guide',
+    description: 'இந்தியாவில் திருமண காப்பீடு (Wedding Insurance) என்றால் என்ன? எதிர்பாராத ரத்து, நகை களவு, மற்றும் விபத்துகளுக்கு பாதுகாப்பு பெறுவது எப்படி?',
+    keywords: ['wedding insurance india', 'marriage insurance', 'wedding cancelation coverage', 'event insurance', 'protect your wedding'],
     alternates: {
-        canonical: '/blog/wedding-insurance-guide',
+        canonical: `${SITE_CONFIG.url}/blog/wedding-insurance-guide`,
     },
 };
 
@@ -40,6 +45,15 @@ export default function WeddingInsuranceGuide() {
                 <h1 className="text-3xl md:text-5xl font-bold text-gray-900 mb-6 leading-tight">
                     திருமண காப்பீடு (Wedding Insurance) வழிகாட்டி
                 </h1>
+            <div className="relative h-[300px] md:h-[450px] w-full mb-10 rounded-3xl overflow-hidden shadow-2xl">
+                <Image
+                    src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&q=80&w=1200"
+                    alt="திருமண காப்பீடு வழிகாட்டி"
+                    fill
+                    className="object-cover"
+                    priority
+                />
+            </div>
                 <TrustBlock
                     author="சித்ரை செல்வன்"
                     updatedDate="பிப்ரவரி 2026"
@@ -405,6 +419,10 @@ export default function WeddingInsuranceGuide() {
                     role="Founder, Kalyana Veedu"
                     bio="சித்ரை செல்வன் கல்யாண வீடு தளத்தின் நிறுவனர். திருமண திட்டமிடலில் நிதி பாதுகாப்பை வலியுறுத்துகிறார்."
                     website="https://selvan.dev"
+                />
+                <RelatedArticles 
+                    currentSlug="/blog/wedding-insurance-guide" 
+                    category="Finance" 
                 />
             </div>
         </article>

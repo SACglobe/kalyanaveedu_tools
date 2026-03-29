@@ -18,13 +18,15 @@ export const metadata: Metadata = {
   description: SITE_CONFIG.metaDescription,
   manifest: '/manifest.json',
   icons: {
-    icon: '/icon.png',
-    shortcut: '/icon.png',
-    apple: '/icon.png',
+    icon: '/icon-v2.png',
+    shortcut: '/icon-v2.png',
+    apple: '/icon-v2.png',
   },
-  themeColor: '#8B1A1A',
+  other: {
+    'google-adsense-account': 'ca-pub-8665355844991273',
+  },
   alternates: {
-    canonical: './',
+    canonical: SITE_CONFIG.url,
   },
   openGraph: {
     title: SITE_CONFIG.name,
@@ -33,15 +35,25 @@ export const metadata: Metadata = {
     siteName: SITE_CONFIG.name,
     locale: 'ta_IN',
     type: 'website',
+    images: [
+      {
+        url: '/logo-v2.png',
+        width: 1200,
+        height: 630,
+        alt: SITE_CONFIG.name,
+      },
+    ],
   },
   twitter: {
     card: 'summary_large_image',
     title: SITE_CONFIG.name,
     description: SITE_CONFIG.metaDescription,
+    images: ['/logo-v2.png'],
   },
-  other: {
-    'google-adsense-account': 'ca-pub-8665355844991273',
-  },
+};
+
+export const viewport = {
+  themeColor: '#8B1A1A',
 };
 
 import PWAProvider from '@/components/providers/PWAProvider';

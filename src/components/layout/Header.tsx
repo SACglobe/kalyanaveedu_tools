@@ -1,5 +1,5 @@
 'use client';
-
+import Image from 'next/image';
 import { useState } from 'react';
 import Link from 'next/link';
 import { SITE_CONFIG, NAV_LINKS } from '@/lib/constants';
@@ -14,7 +14,13 @@ export default function Header() {
             <div className="container mx-auto px-4 h-20 lg:h-24 flex items-center justify-between">
                 <Link href="/" className="flex items-center gap-2 group shrink-0">
                     <div className="relative w-44 h-12 lg:w-56 lg:h-14 group-hover:scale-105 transition-transform duration-300">
-                        <img src="/logo.png" alt="Kalyana Veedu Logo" className="w-full h-full object-contain" />
+                        <Image 
+                            src="/logo-v2.png" 
+                            alt="Kalyana Veedu Logo" 
+                            fill
+                            className="object-contain"
+                            priority
+                        />
                     </div>
                 </Link>
 

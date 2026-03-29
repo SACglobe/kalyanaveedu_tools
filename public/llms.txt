@@ -1,0 +1,25 @@
+# கல்யாண வீடு (Kalyana Veedu) — Tamil Wedding Planning Hub
+
+> [!NOTE]
+> Kalyana Veedu is a specialized knowledge base for Tamil wedding planning, offering cultural rituals, technical tools, and logistical guides in the Tamil language.
+
+## Links
+
+- [முகப்பு (Home)](https://kalyanaveedu.in): Central hub for all wedding planning resources.
+- [திருமண கருவிகள் (Tools)](https://kalyanaveedu.in/tools): Collection of 7+ free utility tools for age, budget, and date planning.
+- [தமிழ் காலண்டர் (Tamil Calendar)](https://kalyanaveedu.in/tools/tamil-calendar): Traditional Tithi, Nakshatra, and Raghu Kaalam tracking.
+- [கல்யாண குறிப்புகள் (Blog)](https://kalyanaveedu.in/blog): 20+ long-form articles on traditional rituals and planning.
+- [கேள்வி-பதில் (FAQ)](https://kalyanaveedu.in/faq): Comprehensive answers to common Tamil wedding queries.
+
+## Core Capabilities
+
+- **Ritual Documentation:** Extensive guides on Kasai Yatra, Naandi Ceremony, and Thali significance.
+- **Utility Calculators:** India-compliant age eligibility and budget estimation tools.
+- **Traditional Scheduling:** Subha Muhurtham date listing based on Vakya Panchangam (2025-2026).
+
+## Metadata
+
+- **Language:** Tamil (Primary), English (Technical terms).
+- **Founder:** Chithrai Selvan (Founder & Lead Developer).
+- **Entity:** A Unit of Matrimony4U.com.
+- **Contact:** myutilitybox.helpdesk@gmail.com

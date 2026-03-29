@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import Image from 'next/image';
 import TrustBlock from '@/components/TrustBlock';
 import Schema from '@/components/SEO/Schema';
 import AuthorBio from '@/components/blog/AuthorBio';
@@ -9,12 +10,16 @@ import AuthorBio from '@/components/blog/AuthorBio';
 // <!-- TRUST: meta-description -->
 // Meta Description: மாலை மாற்றுதல் சடங்கு ஏன் செய்யப்படுகிறது, அதன் தத்துவம் என்ன, தோளில் தூக்குவது ஏன் — தமிழ் திருமணத்தின் உற்சாகமான சடங்கை விவரிக்கும் கட்டுரை.
 
+import { SITE_CONFIG } from '@/lib/constants';
+import RelatedArticles from '@/components/blog/RelatedArticles';
+
+
 export const metadata: Metadata = {
     title: 'மாலை மாற்றுதல்: திருமணத்தின் மகிழ்ச்சியான முதல் சங்கமம் | கல்யாண வீடு',
     description: 'மாலை மாற்றுதல் சடங்கு ஏன் செய்யப்படுகிறது, அதன் தத்துவம் என்ன, தோளில் தூக்குவது ஏன் — தமிழ் திருமணத்தின் உற்சாகமான சடங்கை விவரிக்கும் கட்டுரை.',
     keywords: ['மாலை மாற்றுதல்', 'Malai Matruthel significance', 'Tamil wedding garlands', 'wedding flower exchange', 'garland ceremony meaning'],
     alternates: {
-        canonical: '/blog/malai-matruthel',
+        canonical: `${SITE_CONFIG.url}/blog/malai-matruthel`,
     },
 };
 
@@ -55,6 +60,15 @@ export default function MalaiMatruthelCeremony() {
                 <h1 className="text-3xl md:text-5xl font-bold text-gray-900 mb-6 leading-tight">
                     மாலை மாற்றுதல்: திருமணத்தின் மகிழ்ச்சியான முதல் சங்கமம்
                 </h1>
+            <div className="relative h-[300px] md:h-[450px] w-full mb-10 rounded-3xl overflow-hidden shadow-2xl">
+                <Image
+                    src="https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?auto=format&fit=crop&q=80&w=1200"
+                    alt="மாலை மாற்றுதல்"
+                    fill
+                    className="object-cover"
+                    priority
+                />
+            </div>
 
                 <TrustBlock
                     author="மீனாட்சி சுந்தரம்"
@@ -215,6 +229,10 @@ export default function MalaiMatruthelCeremony() {
                     name="மீனாட்சி சுந்தரம்"
                     role="Tamil Cultural Historian"
                     bio="மீனாட்சி சுந்தரம் தமிழ் கலாச்சாரம் மற்றும் திருமணச் சடங்குகள் பற்றி விரிவாக ஆய்வு செய்து வருபவர். பாரம்பரிய நிகழ்வுகளின் அர்த்தத்தைத் தெளிவுபடுத்தி, அவற்றை எளிய முறையில் அனைவருக்கும் கொண்டு சேர்ப்பதே இவரது நோக்கம்."
+                />
+                <RelatedArticles 
+                    currentSlug="/blog/malai-matruthel" 
+                    category="Traditions" 
                 />
             </div>
         </article>
