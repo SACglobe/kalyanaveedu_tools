@@ -18,9 +18,9 @@ export const metadata: Metadata = {
   description: SITE_CONFIG.metaDescription,
   manifest: '/manifest.json',
   icons: {
-    icon: '/icon-v2.png',
-    shortcut: '/icon-v2.png',
-    apple: '/icon-v2.png',
+    icon: '/favicon-32.png',
+    shortcut: '/favicon-32.png',
+    apple: '/icon-192.png',
   },
   other: {
     'google-adsense-account': 'ca-pub-8665355844991273',
@@ -81,6 +81,18 @@ export default function RootLayout({
             data={{
               name: SITE_CONFIG.name,
               url: SITE_CONFIG.url
+            }} 
+          />
+          <Schema 
+            type="Person" 
+            data={{
+              name: SITE_CONFIG.founder.name,
+              url: SITE_CONFIG.founder.url,
+              jobTitle: SITE_CONFIG.founder.title,
+              sameAs: [
+                SITE_CONFIG.founder.linkedin,
+                SITE_CONFIG.founder.twitter
+              ]
             }} 
           />
           <Header />

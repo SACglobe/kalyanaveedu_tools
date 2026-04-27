@@ -5,6 +5,7 @@ export interface BlogPost {
     date: string;
     category: string;
     image: string;
+    author: string;
 }
 
 export const BLOG_POSTS: BlogPost[] = [
@@ -14,7 +15,8 @@ export const BLOG_POSTS: BlogPost[] = [
         excerpt: '2026 ஜனவரி மாதத்திற்கான சிறந்த சுப முகூர்த்த நாட்கள் மற்றும் திருமண தேதிகள் வழிகாட்டி.',
         date: 'Mar 01, 2026',
         category: 'Astrology',
-        image: 'https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?auto=format&fit=crop&q=80&w=1200'
+        image: 'https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?auto=format&fit=crop&q=80&w=1200',
+        author: 'சித்ரை செல்வன் & குழு'
     },
     {
         slug: '/blog/subha-muhurtham-2026-february',
@@ -22,7 +24,8 @@ export const BLOG_POSTS: BlogPost[] = [
         excerpt: '2026 பிப்ரவரி மாதத்திற்கான சிறந்த சுப முகூர்த்த நாட்கள் மற்றும் திருமண தேதிகள் வழிகாட்டி.',
         date: 'Mar 01, 2026',
         category: 'Astrology',
-        image: 'https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?auto=format&fit=crop&q=80&w=1200'
+        image: 'https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?auto=format&fit=crop&q=80&w=1200',
+        author: 'சித்ரை செல்வன் & குழு'
     },
     {
         slug: '/blog/subha-muhurtham-2026-march',
@@ -30,7 +33,8 @@ export const BLOG_POSTS: BlogPost[] = [
         excerpt: '2026 மார்ச் மாதத்திற்கான சிறந்த சுப முகூர்த்த நாட்கள் மற்றும் திருமண தேதிகள் வழிகாட்டி.',
         date: 'Mar 01, 2026',
         category: 'Astrology',
-        image: 'https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?auto=format&fit=crop&q=80&w=1200'
+        image: 'https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?auto=format&fit=crop&q=80&w=1200',
+        author: 'சித்ரை செல்வன் & குழு'
     },
     {
         slug: '/blog/subha-muhurtham-2026-april',
@@ -38,7 +42,8 @@ export const BLOG_POSTS: BlogPost[] = [
         excerpt: '2026 ஏப்ரல் மாதத்திற்கான சிறந்த சுப முகூர்த்த நாட்கள் மற்றும் திருமண தேதிகள் வழிகாட்டி.',
         date: 'Mar 01, 2026',
         category: 'Astrology',
-        image: 'https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?auto=format&fit=crop&q=80&w=1200'
+        image: 'https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?auto=format&fit=crop&q=80&w=1200',
+        author: 'சித்ரை செல்வன் & குழு'
     },
     {
         slug: '/blog/subha-muhurtham-2026-may',
@@ -46,7 +51,8 @@ export const BLOG_POSTS: BlogPost[] = [
         excerpt: '2026 மே மாதத்திற்கான சிறந்த சுப முகூர்த்த நாட்கள் மற்றும் திருமண தேதிகள் வழிகாட்டி.',
         date: 'Mar 01, 2026',
         category: 'Astrology',
-        image: 'https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?auto=format&fit=crop&q=80&w=1200'
+        image: 'https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?auto=format&fit=crop&q=80&w=1200',
+        author: 'சித்ரை செல்வன் & குழு'
     },
     {
         slug: '/blog/subha-muhurtham-2026-june',
@@ -54,7 +60,8 @@ export const BLOG_POSTS: BlogPost[] = [
         excerpt: '2026 ஜூன் மாதத்திற்கான சிறந்த சுப முகூர்த்த நாட்கள் மற்றும் திருமண தேதிகள் வழிகாட்டி.',
         date: 'Mar 01, 2026',
         category: 'Astrology',
-        image: 'https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?auto=format&fit=crop&q=80&w=1200'
+        image: 'https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?auto=format&fit=crop&q=80&w=1200',
+        author: 'சித்ரை செல்வன் & குழு'
     },
     {
         slug: '/blog/subha-muhurtham-2026-july',
@@ -62,7 +69,8 @@ export const BLOG_POSTS: BlogPost[] = [
         excerpt: '2026 ஜூலை மாதத்திற்கான சிறந்த சுப முகூர்த்த நாட்கள் மற்றும் திருமண தேதிகள் வழிகாட்டி.',
         date: 'Mar 01, 2026',
         category: 'Astrology',
-        image: 'https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?auto=format&fit=crop&q=80&w=1200'
+        image: 'https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?auto=format&fit=crop&q=80&w=1200',
+        author: 'சித்ரை செல்வன் & குழு'
     },
     {
         slug: '/blog/subha-muhurtham-2026-august',
@@ -70,7 +78,8 @@ export const BLOG_POSTS: BlogPost[] = [
         excerpt: '2026 ஆகஸ்ட் மாதத்திற்கான சிறந்த சுப முகூர்த்த நாட்கள் மற்றும் திருமண தேதிகள் வழிகாட்டி.',
         date: 'Mar 01, 2026',
         category: 'Astrology',
-        image: 'https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?auto=format&fit=crop&q=80&w=1200'
+        image: 'https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?auto=format&fit=crop&q=80&w=1200',
+        author: 'சித்ரை செல்வன் & குழு'
     },
     {
         slug: '/blog/subha-muhurtham-2026-september',
@@ -78,7 +87,8 @@ export const BLOG_POSTS: BlogPost[] = [
         excerpt: '2026 செப்டம்பர் மாதத்திற்கான சிறந்த சுப முகூர்த்த நாட்கள் மற்றும் திருமண தேதிகள் வழிகாட்டி.',
         date: 'Mar 01, 2026',
         category: 'Astrology',
-        image: 'https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?auto=format&fit=crop&q=80&w=1200'
+        image: 'https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?auto=format&fit=crop&q=80&w=1200',
+        author: 'சித்ரை செல்வன் & குழு'
     },
     {
         slug: '/blog/subha-muhurtham-2026-october',
@@ -86,7 +96,8 @@ export const BLOG_POSTS: BlogPost[] = [
         excerpt: '2026 அக்டோபர் மாதத்திற்கான சிறந்த சுப முகூர்த்த நாட்கள் மற்றும் திருமண தேதிகள் வழிகாட்டி.',
         date: 'Mar 01, 2026',
         category: 'Astrology',
-        image: 'https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?auto=format&fit=crop&q=80&w=1200'
+        image: 'https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?auto=format&fit=crop&q=80&w=1200',
+        author: 'சித்ரை செல்வன் & குழு'
     },
     {
         slug: '/blog/subha-muhurtham-2026-november',
@@ -94,7 +105,8 @@ export const BLOG_POSTS: BlogPost[] = [
         excerpt: '2026 நவம்பர் மாதத்திற்கான சிறந்த சுப முகூர்த்த நாட்கள் மற்றும் திருமண தேதிகள் வழிகாட்டி.',
         date: 'Mar 01, 2026',
         category: 'Astrology',
-        image: 'https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?auto=format&fit=crop&q=80&w=1200'
+        image: 'https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?auto=format&fit=crop&q=80&w=1200',
+        author: 'சித்ரை செல்வன் & குழு'
     },
     {
         slug: '/blog/subha-muhurtham-2026-december',
@@ -102,7 +114,8 @@ export const BLOG_POSTS: BlogPost[] = [
         excerpt: '2026 டிசம்பர் மாதத்திற்கான சிறந்த சுப முகூர்த்த நாட்கள் மற்றும் திருமண தேதிகள் வழிகாட்டி.',
         date: 'Mar 01, 2026',
         category: 'Astrology',
-        image: 'https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?auto=format&fit=crop&q=80&w=1200'
+        image: 'https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?auto=format&fit=crop&q=80&w=1200',
+        author: 'சித்ரை செல்வன் & குழு'
     },
     {
         slug: '/blog/oonjal-ceremony',
@@ -110,7 +123,8 @@ export const BLOG_POSTS: BlogPost[] = [
         excerpt: 'ஊஞ்சல் சடங்கு ஏன் செய்யப்படுகிறது, அதன் தத்துவம் என்ன, ஊஞ்சல் பாட்டுகள் மற்றும் திருஷ்டி கழிக்கும் முறைகள்.',
         date: 'Feb 25, 2026',
         category: 'Traditions',
-        image: 'https://images.unsplash.com/photo-1583939003579-730e3918a45a?auto=format&fit=crop&q=80&w=1200'
+        image: 'https://images.unsplash.com/photo-1583939003579-730e3918a45a?auto=format&fit=crop&q=80&w=1200',
+        author: 'சித்ரை செல்வன் & குழு'
     },
     {
         slug: '/blog/malai-matruthel',
@@ -118,7 +132,8 @@ export const BLOG_POSTS: BlogPost[] = [
         excerpt: 'மாலை மாற்றுதல் சடங்கு ஏன் செய்யப்படுகிறது, அதன் தத்துவம் என்ன, தோளில் தூக்குவது ஏன் - விரிவான கட்டுரை.',
         date: 'Feb 25, 2026',
         category: 'Traditions',
-        image: 'https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?auto=format&fit=crop&q=80&w=1200'
+        image: 'https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?auto=format&fit=crop&q=80&w=1200',
+        author: 'சித்ரை செல்வன் & குழு'
     },
     {
         slug: '/blog/kasi-yatra',
@@ -126,7 +141,8 @@ export const BLOG_POSTS: BlogPost[] = [
         excerpt: 'காசி யாத்திரை சடங்கு என்றால் என்ன, குடை, கம்பு, விசிறி ஏன் பிடிக்கிறார்கள் — தமிழ் திருமணத்தின் முக்கிய நிகழ்வு.',
         date: 'Feb 25, 2026',
         category: 'Traditions',
-        image: 'https://images.unsplash.com/photo-1532706302136-3392437645f7?auto=format&fit=crop&q=80&w=1200'
+        image: 'https://images.unsplash.com/photo-1532706302136-3392437645f7?auto=format&fit=crop&q=80&w=1200',
+        author: 'சித்ரை செல்வன் & குழு'
     },
     {
         slug: '/blog/thali-tying-significance',
@@ -134,7 +150,8 @@ export const BLOG_POSTS: BlogPost[] = [
         excerpt: 'தாலி கட்டும் போது போடப்படும் மூன்று முடிச்சுகள், மஞ்சள் கயிறு மற்றும் அதன் பின்னால் உள்ள ஆன்மீக உண்மைகளை அறிக.',
         date: 'Feb 25, 2026',
         category: 'Traditions',
-        image: 'https://images.unsplash.com/photo-1621112904887-419379ce6824?auto=format&fit=crop&q=80&w=1200'
+        image: 'https://images.unsplash.com/photo-1621112904887-419379ce6824?auto=format&fit=crop&q=80&w=1200',
+        author: 'சித்ரை செல்வன் & குழு'
     },
     {
         slug: '/blog/naandi-ceremony',
@@ -142,7 +159,8 @@ export const BLOG_POSTS: BlogPost[] = [
         excerpt: 'திருமணத்திற்கு முன் முன்னோர்களை வணங்கி அவர்களின் ஆசியைப் பெறும் நாந்தி சடங்கின் முக்கியத்துவம் மற்றும் வழிமுறைகள்.',
         date: 'Feb 25, 2026',
         category: 'Traditions',
-        image: 'https://images.unsplash.com/photo-1544923246-77307dd654ca?auto=format&fit=crop&q=80&w=1200'
+        image: 'https://images.unsplash.com/photo-1544923246-77307dd654ca?auto=format&fit=crop&q=80&w=1200',
+        author: 'சித்ரை செல்வன் & குழு'
     },
     {
         slug: '/blog/vedic-wedding-mantras',
@@ -150,7 +168,8 @@ export const BLOG_POSTS: BlogPost[] = [
         excerpt: 'மங்கள்ய தாரணம், சப்தபதி, மற்றும் பிற வேத மந்திரங்களின் பொருள், உச்சரிப்பு, மற்றும் நவீன முக்கியத்துவம்.',
         date: 'Feb 10, 2026',
         category: 'Traditions',
-        image: 'https://images.unsplash.com/photo-1596751303335-ca42b3ca50c1?auto=format&fit=crop&q=80&w=1200'
+        image: 'https://images.unsplash.com/photo-1596751303335-ca42b3ca50c1?auto=format&fit=crop&q=80&w=1200',
+        author: 'சித்ரை செல்வன் & குழு'
     },
     {
         slug: '/blog/avoid-wedding-debt',
@@ -158,7 +177,8 @@ export const BLOG_POSTS: BlogPost[] = [
         excerpt: 'கடன் வாங்காமல் அழகான திருமணம் நடத்துவது எப்படி? Budget tips, cost-cutting strategies, மற்றும் நிதி மேலாண்மை.',
         date: 'Feb 10, 2026',
         category: 'Finance',
-        image: 'https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&q=80&w=1200'
+        image: 'https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&q=80&w=1200',
+        author: 'சித்ரை செல்வன் & குழு'
     },
     {
         slug: '/blog/gold-jewelry-buying-guide',
@@ -166,7 +186,8 @@ export const BLOG_POSTS: BlogPost[] = [
         excerpt: 'தங்க தரம் (purity), hallmark, making charges, designs, budgeting - திருமண தங்க நகை வாங்குபவர்களுக்கான முழுமையான வழிகாட்டி.',
         date: 'Feb 10, 2026',
         category: 'Shopping',
-        image: 'https://images.unsplash.com/photo-1601121141461-9d6647bca1ed?auto=format&fit=crop&q=80&w=1200'
+        image: 'https://images.unsplash.com/photo-1601121141461-9d6647bca1ed?auto=format&fit=crop&q=80&w=1200',
+        author: 'சித்ரை செல்வன் & குழு'
     },
     {
         slug: '/blog/wedding-insurance-guide',
@@ -174,7 +195,8 @@ export const BLOG_POSTS: BlogPost[] = [
         excerpt: 'திருமணத்திற்கு insurance வேண்டுமா? Coverage types, cost, benefits, மற்றும் claim process - முழுமையான வழிகாட்டி.',
         date: 'Feb 10, 2026',
         category: 'Finance',
-        image: 'https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&q=80&w=1200'
+        image: 'https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&q=80&w=1200',
+        author: 'சித்ரை செல்வன் & குழு'
     },
     {
         slug: '/blog/wedding-menu-planning',
@@ -182,7 +204,8 @@ export const BLOG_POSTS: BlogPost[] = [
         excerpt: 'தமிழ் திருமண உணவு மெனு திட்டமிடல். பாரம்பரிய சைவ உணவுகள், விருந்து எண்ணிக்கை கணக்கீடு, கேட்டரிங் தேர்வு.',
         date: 'Feb 10, 2026',
         category: 'Planning',
-        image: 'https://images.unsplash.com/photo-1555244162-803834f70033?auto=format&fit=crop&q=80&w=1200'
+        image: 'https://images.unsplash.com/photo-1555244162-803834f70033?auto=format&fit=crop&q=80&w=1200',
+        author: 'சித்ரை செல்வன் & குழு'
     },
     {
         slug: '/blog/destination-wedding-planning',
@@ -190,7 +213,8 @@ export const BLOG_POSTS: BlogPost[] = [
         excerpt: 'Destination wedding திட்டமிடுவது எப்படி? Best locations (Ooty, Coorg, Kerala), budget tips, guest management.',
         date: 'Feb 10, 2026',
         category: 'Planning',
-        image: 'https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&q=80&w=1200'
+        image: 'https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&q=80&w=1200',
+        author: 'சித்ரை செல்வன் & குழு'
     },
     {
         slug: '/blog/tamil-nakshatras-significance',
@@ -198,7 +222,8 @@ export const BLOG_POSTS: BlogPost[] = [
         excerpt: '27 தமிழ் நட்சத்திரங்கள், திருமண பொருத்தம், 10 பொருத்தங்கள், தோஷங்கள், மற்றும் ஜோதிட முக்கியத்துவம்.',
         date: 'Feb 10, 2026',
         category: 'Astrology',
-        image: 'https://images.unsplash.com/photo-1532968961962-8a0cb3a2d4f5?auto=format&fit=crop&q=80&w=1200'
+        image: 'https://images.unsplash.com/photo-1532968961962-8a0cb3a2d4f5?auto=format&fit=crop&q=80&w=1200',
+        author: 'சித்ரை செல்வன் & குழு'
     },
     {
         slug: '/blog/thali-cultural-significance',
@@ -206,7 +231,8 @@ export const BLOG_POSTS: BlogPost[] = [
         excerpt: 'தாலி கலாச்சார முக்கியத்துவம், வகைகள், பாரம்பரிய நம்பிக்கைகள், நவீன வடிவமைப்புகள்.',
         date: 'Feb 10, 2026',
         category: 'Traditions',
-        image: 'https://images.unsplash.com/photo-1621112904887-419379ce6824?auto=format&fit=crop&q=80&w=1200'
+        image: 'https://images.unsplash.com/photo-1621112904887-419379ce6824?auto=format&fit=crop&q=80&w=1200',
+        author: 'சித்ரை செல்வன் & குழு'
     },
     {
         slug: '/blog/tamil-wedding-rituals',
@@ -214,7 +240,8 @@ export const BLOG_POSTS: BlogPost[] = [
         excerpt: 'நிச்சயதார்த்தம், திருமண நாள் சடங்குகள், மற்றும் திருமணத்திற்கு பின் நடக்கும் அனைத்து சடங்குகளையும் விரிவாக அறிந்து கொள்ளுங்கள்.',
         date: 'Feb 10, 2026',
         category: 'Traditions',
-        image: 'https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&q=80&w=1200'
+        image: 'https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&q=80&w=1200',
+        author: 'சித்ரை செல்வன் & குழு'
     },
     {
         slug: '/blog/mandapam-decoration',
@@ -222,7 +249,8 @@ export const BLOG_POSTS: BlogPost[] = [
         excerpt: 'பாரம்பரியம் மற்றும் நவீனம் கலந்த மண்டப அலங்கார யோசனைகள். பட்ஜெட் மற்றும் சுற்றுச்சூழல் நட்பு தேர்வுகளும் உள்ளடங்கும்.',
         date: 'Feb 10, 2026',
         category: 'Decoration',
-        image: 'https://images.unsplash.com/photo-1511795409834-ef04bbd61622?auto=format&fit=crop&q=80&w=1200'
+        image: 'https://images.unsplash.com/photo-1511795409834-ef04bbd61622?auto=format&fit=crop&q=80&w=1200',
+        author: 'சித்ரை செல்வன் & குழு'
     },
     {
         slug: '/blog/wedding-invitation-guide',
@@ -230,7 +258,8 @@ export const BLOG_POSTS: BlogPost[] = [
         excerpt: 'பாரம்பரிய தமிழ் திருமண அழைப்பிதழ் எழுதும் முறை, இருமொழி அழைப்பிதழ், மற்றும் தவிர்க்க வேண்டிய பிழைகள்.',
         date: 'Feb 10, 2026',
         category: 'Invitations',
-        image: 'https://images.unsplash.com/photo-1510076857177-7470076d4098?auto=format&fit=crop&q=80&w=1200'
+        image: 'https://images.unsplash.com/photo-1510076857177-7470076d4098?auto=format&fit=crop&q=80&w=1200',
+        author: 'சித்ரை செல்வன் & குழு'
     },
     {
         slug: '/blog/choosing-wedding-photographer',
@@ -238,7 +267,8 @@ export const BLOG_POSTS: BlogPost[] = [
         excerpt: 'சிறந்த புகைப்படக்காரரை தேர்வு செய்வது எப்படி? Candid vs Traditional, விலை நிர்ணயம், contract முக்கிய விஷயங்கள்.',
         date: 'Feb 10, 2026',
         category: 'Photography',
-        image: 'https://images.unsplash.com/photo-1537633552985-df8429e8048b?auto=format&fit=crop&q=80&w=1200'
+        image: 'https://images.unsplash.com/photo-1537633552985-df8429e8048b?auto=format&fit=crop&q=80&w=1200',
+        author: 'சித்ரை செல்வன் & குழு'
     },
     {
         slug: '/blog/thirumana-velai-pattiyal',
@@ -246,7 +276,8 @@ export const BLOG_POSTS: BlogPost[] = [
         excerpt: 'திருமணத்திற்கு 6 மாதங்கள் முன்பு முதல் திருமண நாள் வரை செய்ய வேண்டிய அனைத்து வேலைகளின் பட்டியல்.',
         date: 'Jan 20, 2026',
         category: 'Planning',
-        image: 'https://images.unsplash.com/photo-1506784365847-bbad939e9335?auto=format&fit=crop&q=80&w=1200'
+        image: 'https://images.unsplash.com/photo-1506784365847-bbad939e9335?auto=format&fit=crop&q=80&w=1200',
+        author: 'சித்ரை செல்வன் & குழு'
     },
     {
         slug: '/blog/subha-muhurtham-2026',
@@ -254,7 +285,8 @@ export const BLOG_POSTS: BlogPost[] = [
         excerpt: 'வளர்பிறை, நல்ல நேரம், மற்றும் தவிர்க்க வேண்டிய நாட்களைக் கொண்டு சிறந்த திருமண தேதியை தேர்வு செய்வது எப்படி?',
         date: 'Jan 21, 2026',
         category: 'Astrology',
-        image: 'https://images.unsplash.com/photo-1505933383163-e3832bd7232e?auto=format&fit=crop&q=80&w=1200'
+        image: 'https://images.unsplash.com/photo-1505933383163-e3832bd7232e?auto=format&fit=crop&q=80&w=1200',
+        author: 'சித்ரை செல்வன் & குழு'
     },
     {
         slug: '/blog/budget-planning-tips',
@@ -262,6 +294,7 @@ export const BLOG_POSTS: BlogPost[] = [
         excerpt: 'ஆடம்பரத்தை குறைத்து, அவசியமான செலவுகளை மட்டும் செய்து சிக்கனமான திருமணம் நடத்துவது எப்படி?',
         date: 'Jan 22, 2026',
         category: 'Finance',
-        image: 'https://images.unsplash.com/photo-1554224155-16974a4ea2c5?auto=format&fit=crop&q=80&w=1200'
+        image: 'https://images.unsplash.com/photo-1554224155-16974a4ea2c5?auto=format&fit=crop&q=80&w=1200',
+        author: 'சித்ரை செல்வன் & குழு'
     }
 ];
