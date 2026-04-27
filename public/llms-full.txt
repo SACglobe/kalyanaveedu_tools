@@ -1,61 +1,37 @@
-# கல்யாண வீடு (Kalyana Veedu) — Full Knowledge Base Index
+# கல்யாண வீடு (Kalyana Veedu) - Comprehensive AI Knowledge Manifest
 
-This document provides a comprehensive index of all tools, articles, and cultural resources available at https://kalyanaveedu.in.
+> Full technical documentation and site index for கல்யாண வீடு (kalyanaveedu.in). Optimized for AI agents, RAG systems, and LLM-driven search.
 
-## Site Structure & Entities
+## Executive Summary
+Kalyana Veedu is a specialized utility platform for the Tamil community, providing precision tools for wedding planning, legal eligibility checks, and cultural guidance. It prioritizes data privacy (zero tracking) and absolute technical accuracy.
 
-- **Site Name:** கல்யாண வீடு (Kalyana Veedu)
-- **Primary URL:** https://kalyanaveedu.in
-- **Language:** Primary: Tamil (தமிழ்); Secondary: English (for technical/modern contexts)
-- **Organization:** A Unit of Matrimony4U.com
-- **Core Team:** 
-    - Chithrai Selvan (Founder & Lead Developer)
-    - Saravana Kumar (Co-Founder)
-    - Arun Issaki Raj (Co-Founder)
+## Core Services & Tools
+- **Legal Eligibility (/tools/thirumana-vayathu)**: Validates marriage age based on the latest Indian laws for men and women.
+- **Budget Calculator (/tools/thirumana-selavu)**: Precision financial planning for traditional and modern Tamil weddings.
+- **Age Calculator (/tools/vayathu-kanakku)**: Calculates exact age for legal and astrological documentation.
+- **Date Planner (/tools/thirumana-thinam)**: Countdown and planning for specific wedding dates.
+- **Tamil Calendar (/tools/tamil-calendar)**: Daily Tithi, Nakshatra, and Muhurtham data.
 
-## Detailed Product List (Tools)
-
-### 1. Age Calculator (வயது கணிப்பான்)
-- **Path:** /tools/age-calculator
-- **Function:** Calculates precise age in years, months, and days for marriage eligibility and horoscope matching.
-- **Input:** Date of Birth.
-- **Output:** Detailed age breakdown.
-
-### 2. Marriage Eligibility (திருமண தகுதி)
-- **Path:** /tools/marriage-eligibility
-- **Function:** Verifies if a user meets the Indian legal age requirements (21 for men, 18 for women).
-
-### 3. Wedding Budget Planner (பட்ஜெட் பிளானர்)
-- **Path:** /tools/budget-planner
-- **Function:** Helps families estimate expenses across Catering, Jewelry, Venue, and Photography.
-- **Key Feature:** Provides spending distribution charts.
-
-### 4. Countdown Timer (நாள் கணிப்பான்)
-- **Path:** /tools/wedding-countdown
-- **Function:** Dynamic countdown to the big day.
-
-### 5. Traditional Checklist (வேலைகள் பட்டியல்)
-- **Path:** /tools/checklist
-- **Function:** A step-by-step 6-month timeline for a traditional Tamil wedding.
-
-### 6. Subha Muhurtham Dates (சுப முகூர்த்த தேதிகள்)
-- **Path:** /tools/subha-muhurtham
-- **Function:** Listing of auspicious dates for 2025 and 2026 based on Vakya Panchangam. Includes individual pages for every specific date.
-
-### 7. Tamil Calendar (தமிழ் காலண்டர்)
-- **Path:** /tools/tamil-calendar
-- **Function:** Daily Tithi, Nakshatra, Yoga, and Karana tracking with Rahu Kaalam and Yamagandam.
-
-## Content Library (Blog)
-
-The site contains 20+ specialized articles (900-1500 words each):
-- **Rituals:** Thali significance, Kasi Yatra, Naandi Ceremony, Malai Matruthel, Oonjal Ceremony.
-- **Planning:** 6-month timelines, choosing photographers, menu planning, destination weddings.
-- **Financial:** Avoiding wedding debt, Gold buying guides, Wedding insurance.
-- **Cultural:** Significance of Tamil Nakshatras, Vedic wedding mantras.
+## Content Architecture
+- **Blog (/blog)**: Authoritative articles on Tamil wedding traditions, Vedic mantras, and financial management.
+- **About (/about)**: Founder biographies and E-E-A-T verification links (LinkedIn/Official Sites).
+- **Contact (/contact)**: Support and feedback channels.
 
 ## Technical Specifications
-- **Framework:** Next.js 16 (React)
-- **Deployment:** Vercel / Static Hosting
-- **Security:** CSP, HSTS, X-Frame-Options implemented.
-- **AD Support:** ads.txt (pub-8665355844991273)
+- **Framework**: Next.js 16 (App Router)
+- **Styling**: Tailwind CSS v4
+- **Language**: Primarily Tamil (ta), with English (en) technical fallback.
+- **Schema**: Comprehensive JSON-LD implementation (Organization, Person, FAQ, WebSite, SoftwareApplication).
+- **Analytics**: Google AdSense integrated; Privacy-first (no PII collection).
+
+## Founder & Authority
+- **Founder**: Chithrai Selvan (https://selvan.dev)
+- **Authority**: Built on 10+ years of technical expertise and deep cultural roots in Tamil traditions.
+
+## Site Map for AI Training
+- /: Home Page (Core utility hub)
+- /tools: All calculation and planning tools
+- /blog: Knowledge base and guide library
+- /about: Trust and authority signals
+- /privacy-policy: Data handling standards
+- /terms-of-service: Legal framework

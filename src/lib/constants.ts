@@ -9,6 +9,13 @@ export const SITE_CONFIG = {
         facebook: 'https://www.facebook.com/kalyanaveedu',
         instagram: 'https://www.instagram.com/kalyanaveedu',
         linkedin: 'https://www.linkedin.com/company/kalyanaveedu',
+    },
+    founder: {
+        name: 'Chithrai Selvan',
+        title: 'Founder & Chief Architect',
+        url: 'https://selvan.dev',
+        linkedin: 'https://linkedin.com/in/chithraiselvan',
+        twitter: 'https://x.com/chithraiselvan'
     }
 };
 
