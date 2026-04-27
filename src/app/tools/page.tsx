@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { TOOLS_LIST } from '@/lib/constants';
 import type { Metadata } from 'next';
+import Schema from '@/components/SEO/Schema';
 
 export const metadata: Metadata = {
     title: 'திருமண கருவிகள் | அனைத்தும் இலவசம்',
@@ -13,6 +14,24 @@ export const metadata: Metadata = {
 export default function ToolsIndex() {
     return (
         <div className="container mx-auto px-4 py-12">
+            <Schema 
+                type="ItemList"
+                data={{
+                    name: "திருமண திட்டமிடல் கருவிகள்",
+                    description: "தமிழர்களின் திருமணத்தை எளிமையாக்கும் 7 இலவச கருவிகள்",
+                    items: TOOLS_LIST
+                }}
+            />
+            {TOOLS_LIST.map((tool) => (
+                <Schema 
+                    key={tool.path}
+                    type="SoftwareApplication"
+                    data={{
+                        title: tool.title,
+                        description: tool.description
+                    }}
+                />
+            ))}
             <div className="text-center max-w-2xl mx-auto mb-12">
                 <h1 className="text-3xl font-bold text-gray-900 mb-4">
                     திருமண திட்டமிடல் கருவிகள்

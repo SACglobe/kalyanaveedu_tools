@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
-import Image from 'next/image';
+import OptimizedImage from '@/components/common/OptimizedImage';
 import TrustBlock from '@/components/TrustBlock';
 import Schema from '@/components/SEO/Schema';
 import AuthorBio from '@/components/blog/AuthorBio';
@@ -46,7 +46,7 @@ export default function VedicWeddingMantras() {
                     வேத திருமண மந்திரங்கள்: அர்த்தம் & முக்கியத்துவம்
                 </h1>
             <div className="relative h-[300px] md:h-[450px] w-full mb-10 rounded-3xl overflow-hidden shadow-2xl">
-                <Image
+                <OptimizedImage
                     src="https://images.unsplash.com/photo-1596751303335-ca42b3ca50c1?auto=format&fit=crop&q=80&w=1200"
                     alt="வேத மந்திர விளக்கம்"
                     fill
@@ -411,6 +411,32 @@ export default function VedicWeddingMantras() {
                         இந்த மந்திரங்கள் ஓதப்படும் முக்கியச் சடங்குகளைப் பற்றி <Link href="/blog/tamil-wedding-rituals" className="font-bold underline">திருமணச் சடங்குகள்</Link> பக்கத்தில் விரிவாக அறியலாம்.
                         தாலியின் கலாச்சாரப் பின்னணியை அறிய <Link href="/blog/thali-cultural-significance" className="font-bold underline">தாலி முக்கியத்துவம்</Link> கட்டுரை உங்களுக்கு உதவும்.
                     </p>
+                </div>
+
+                
+                <div className="bg-primary/5 p-8 rounded-3xl border border-primary/10 my-12">
+                    <h3 className="text-xl font-bold text-gray-900 mb-4 flex items-center gap-2">
+                        <span className="text-2xl">🛠️</span> எங்களின் இலவச திருமண கருவிகள்
+                    </h3>
+                    <p className="text-gray-700 mb-6">
+                        திருமண ஏற்பாடுகளை எளிமையாக்க நாங்கள் வழங்கும் இலவச டிஜிட்டல் கருவிகளைப் பயன்படுத்தி மகிழுங்கள்.
+                    </p>
+                    <div className="grid sm:grid-cols-2 gap-4">
+                        <Link href="/tools/thirumana-selavu" className="flex items-center gap-3 p-4 bg-white rounded-xl shadow-sm hover:shadow-md transition-all group">
+                            <span className="text-2xl group-hover:scale-110 transition-transform">💰</span>
+                            <div>
+                                <div className="font-bold text-gray-900">பட்ஜெட் பிளானர்</div>
+                                <div className="text-xs text-gray-500">செலவுகளைத் திட்டமிட</div>
+                            </div>
+                        </Link>
+                        <Link href="/tools/thirumana-thayaripu" className="flex items-center gap-3 p-4 bg-white rounded-xl shadow-sm hover:shadow-md transition-all group">
+                            <span className="text-2xl group-hover:scale-110 transition-transform">📝</span>
+                            <div>
+                                <div className="font-bold text-gray-900">வேலைகள் பட்டியல்</div>
+                                <div className="text-xs text-gray-500">Checklist நிர்வகிக்க</div>
+                            </div>
+                        </Link>
+                    </div>
                 </div>
 
                 <AuthorBio 

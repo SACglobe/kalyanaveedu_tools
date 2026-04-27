@@ -9,6 +9,102 @@ export interface BlogPost {
 
 export const BLOG_POSTS: BlogPost[] = [
     {
+        slug: '/blog/subha-muhurtham-2026-january',
+        title: '2026 ஜனவரி சுப முகூர்த்த நாட்கள் | January 2026 Muhurtham Dates',
+        excerpt: '2026 ஜனவரி மாதத்திற்கான சிறந்த சுப முகூர்த்த நாட்கள் மற்றும் திருமண தேதிகள் வழிகாட்டி.',
+        date: 'Mar 01, 2026',
+        category: 'Astrology',
+        image: 'https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?auto=format&fit=crop&q=80&w=1200'
+    },
+    {
+        slug: '/blog/subha-muhurtham-2026-february',
+        title: '2026 பிப்ரவரி சுப முகூர்த்த நாட்கள் | February 2026 Muhurtham Dates',
+        excerpt: '2026 பிப்ரவரி மாதத்திற்கான சிறந்த சுப முகூர்த்த நாட்கள் மற்றும் திருமண தேதிகள் வழிகாட்டி.',
+        date: 'Mar 01, 2026',
+        category: 'Astrology',
+        image: 'https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?auto=format&fit=crop&q=80&w=1200'
+    },
+    {
+        slug: '/blog/subha-muhurtham-2026-march',
+        title: '2026 மார்ச் சுப முகூர்த்த நாட்கள் | March 2026 Muhurtham Dates',
+        excerpt: '2026 மார்ச் மாதத்திற்கான சிறந்த சுப முகூர்த்த நாட்கள் மற்றும் திருமண தேதிகள் வழிகாட்டி.',
+        date: 'Mar 01, 2026',
+        category: 'Astrology',
+        image: 'https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?auto=format&fit=crop&q=80&w=1200'
+    },
+    {
+        slug: '/blog/subha-muhurtham-2026-april',
+        title: '2026 ஏப்ரல் சுப முகூர்த்த நாட்கள் | April 2026 Muhurtham Dates',
+        excerpt: '2026 ஏப்ரல் மாதத்திற்கான சிறந்த சுப முகூர்த்த நாட்கள் மற்றும் திருமண தேதிகள் வழிகாட்டி.',
+        date: 'Mar 01, 2026',
+        category: 'Astrology',
+        image: 'https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?auto=format&fit=crop&q=80&w=1200'
+    },
+    {
+        slug: '/blog/subha-muhurtham-2026-may',
+        title: '2026 மே சுப முகூர்த்த நாட்கள் | May 2026 Muhurtham Dates',
+        excerpt: '2026 மே மாதத்திற்கான சிறந்த சுப முகூர்த்த நாட்கள் மற்றும் திருமண தேதிகள் வழிகாட்டி.',
+        date: 'Mar 01, 2026',
+        category: 'Astrology',
+        image: 'https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?auto=format&fit=crop&q=80&w=1200'
+    },
+    {
+        slug: '/blog/subha-muhurtham-2026-june',
+        title: '2026 ஜூன் சுப முகூர்த்த நாட்கள் | June 2026 Muhurtham Dates',
+        excerpt: '2026 ஜூன் மாதத்திற்கான சிறந்த சுப முகூர்த்த நாட்கள் மற்றும் திருமண தேதிகள் வழிகாட்டி.',
+        date: 'Mar 01, 2026',
+        category: 'Astrology',
+        image: 'https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?auto=format&fit=crop&q=80&w=1200'
+    },
+    {
+        slug: '/blog/subha-muhurtham-2026-july',
+        title: '2026 ஜூலை சுப முகூர்த்த நாட்கள் | July 2026 Muhurtham Dates',
+        excerpt: '2026 ஜூலை மாதத்திற்கான சிறந்த சுப முகூர்த்த நாட்கள் மற்றும் திருமண தேதிகள் வழிகாட்டி.',
+        date: 'Mar 01, 2026',
+        category: 'Astrology',
+        image: 'https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?auto=format&fit=crop&q=80&w=1200'
+    },
+    {
+        slug: '/blog/subha-muhurtham-2026-august',
+        title: '2026 ஆகஸ்ட் சுப முகூர்த்த நாட்கள் | August 2026 Muhurtham Dates',
+        excerpt: '2026 ஆகஸ்ட் மாதத்திற்கான சிறந்த சுப முகூர்த்த நாட்கள் மற்றும் திருமண தேதிகள் வழிகாட்டி.',
+        date: 'Mar 01, 2026',
+        category: 'Astrology',
+        image: 'https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?auto=format&fit=crop&q=80&w=1200'
+    },
+    {
+        slug: '/blog/subha-muhurtham-2026-september',
+        title: '2026 செப்டம்பர் சுப முகூர்த்த நாட்கள் | September 2026 Muhurtham Dates',
+        excerpt: '2026 செப்டம்பர் மாதத்திற்கான சிறந்த சுப முகூர்த்த நாட்கள் மற்றும் திருமண தேதிகள் வழிகாட்டி.',
+        date: 'Mar 01, 2026',
+        category: 'Astrology',
+        image: 'https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?auto=format&fit=crop&q=80&w=1200'
+    },
+    {
+        slug: '/blog/subha-muhurtham-2026-october',
+        title: '2026 அக்டோபர் சுப முகூர்த்த நாட்கள் | October 2026 Muhurtham Dates',
+        excerpt: '2026 அக்டோபர் மாதத்திற்கான சிறந்த சுப முகூர்த்த நாட்கள் மற்றும் திருமண தேதிகள் வழிகாட்டி.',
+        date: 'Mar 01, 2026',
+        category: 'Astrology',
+        image: 'https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?auto=format&fit=crop&q=80&w=1200'
+    },
+    {
+        slug: '/blog/subha-muhurtham-2026-november',
+        title: '2026 நவம்பர் சுப முகூர்த்த நாட்கள் | November 2026 Muhurtham Dates',
+        excerpt: '2026 நவம்பர் மாதத்திற்கான சிறந்த சுப முகூர்த்த நாட்கள் மற்றும் திருமண தேதிகள் வழிகாட்டி.',
+        date: 'Mar 01, 2026',
+        category: 'Astrology',
+        image: 'https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?auto=format&fit=crop&q=80&w=1200'
+    },
+    {
+        slug: '/blog/subha-muhurtham-2026-december',
+        title: '2026 டிசம்பர் சுப முகூர்த்த நாட்கள் | December 2026 Muhurtham Dates',
+        excerpt: '2026 டிசம்பர் மாதத்திற்கான சிறந்த சுப முகூர்த்த நாட்கள் மற்றும் திருமண தேதிகள் வழிகாட்டி.',
+        date: 'Mar 01, 2026',
+        category: 'Astrology',
+        image: 'https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?auto=format&fit=crop&q=80&w=1200'
+    },
+    {
         slug: '/blog/oonjal-ceremony',
         title: 'ஊஞ்சல் சடங்கு: வாழ்க்கையின் ஏற்ற இறக்கங்களை எதிர்கொள்ளும் பக்குவம்',
         excerpt: 'ஊஞ்சல் சடங்கு ஏன் செய்யப்படுகிறது, அதன் தத்துவம் என்ன, ஊஞ்சல் பாட்டுகள் மற்றும் திருஷ்டி கழிக்கும் முறைகள்.',

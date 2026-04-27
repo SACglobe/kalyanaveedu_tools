@@ -16,27 +16,24 @@ export default function Home() {
         }}
       />
       <Schema 
-        type="Organization"
-        data={{}}
-      />
-      {/* Entity list for AEO */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "ItemList",
-            "name": "திருமண திட்டமிடல் கருவிகள்",
-            "description": "தமிழர்களின் திருமணத்தை எளிமையாக்கும் 7 இலவச கருவிகள்",
-            "itemListElement": TOOLS_LIST.map((tool, index) => ({
-              "@type": "ListItem",
-              "position": index + 1,
-              "name": tool.title,
-              "url": `${SITE_CONFIG.url}${tool.path}`
-            }))
-          })
+        type="ItemList"
+        data={{
+          name: "திருமண திட்டமிடல் கருவிகள்",
+          description: "தமிழர்களின் திருமணத்தை எளிமையாக்கும் 7 இலவச கருவிகள்",
+          items: TOOLS_LIST
         }}
       />
+      {/* Individual Tool Software Schema for Search Dominance */}
+      {TOOLS_LIST.map((tool) => (
+        <Schema 
+          key={tool.path}
+          type="SoftwareApplication"
+          data={{
+            title: tool.title,
+            description: tool.description
+          }}
+        />
+      ))}
       {/* Hero Section */}
       <section className="container mx-auto px-4 text-center space-y-6">
         <h1 className="text-4xl md:text-5xl font-bold text-gray-900 leading-tight">

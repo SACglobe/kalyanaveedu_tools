@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
-import Image from 'next/image';
+import OptimizedImage from '@/components/common/OptimizedImage';
 import TrustBlock from '@/components/TrustBlock';
 import Schema from '@/components/SEO/Schema';
 import AuthorBio from '@/components/blog/AuthorBio';
@@ -46,7 +46,7 @@ export default function ThaliCulturalSignificance() {
                     தாலி: தமிழ் திருமணத்தின் புனித அடையாளம்
                 </h1>
             <div className="relative h-[300px] md:h-[450px] w-full mb-10 rounded-3xl overflow-hidden shadow-2xl">
-                <Image
+                <OptimizedImage
                     src="https://images.unsplash.com/photo-1621112904887-419379ce6824?auto=format&fit=crop&q=80&w=1200"
                     alt="தாலி: புனித அடையாளம்"
                     fill

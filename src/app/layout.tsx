@@ -67,8 +67,22 @@ export default function RootLayout({
     <html lang="ta" suppressHydrationWarning>
       <body className={`${inter.className} min-h-screen flex flex-col`} suppressHydrationWarning>
         <PWAProvider>
-          <Schema type="Organization" data={{}} />
-          <Schema type="WebSite" data={{}} />
+          <Schema 
+            type="Organization" 
+            data={{
+              name: SITE_CONFIG.name,
+              url: SITE_CONFIG.url,
+              logo: `${SITE_CONFIG.url}/icon-v2.png`,
+              sameAs: Object.values(SITE_CONFIG.social || {})
+            }} 
+          />
+          <Schema 
+            type="WebSite" 
+            data={{
+              name: SITE_CONFIG.name,
+              url: SITE_CONFIG.url
+            }} 
+          />
           <Header />
           <main className="flex-grow">
             {children}

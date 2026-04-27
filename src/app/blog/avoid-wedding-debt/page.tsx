@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
-import Image from 'next/image';
+import OptimizedImage from '@/components/common/OptimizedImage';
 import TrustBlock from '@/components/TrustBlock';
 import Schema from '@/components/SEO/Schema';
 import AuthorBio from '@/components/blog/AuthorBio';
@@ -47,7 +47,7 @@ export default function AvoidWeddingDebt() {
                     திருமண கடனை தவிர்ப்பது எப்படி?
                 </h1>
             <div className="relative h-[300px] md:h-[450px] w-full mb-10 rounded-3xl overflow-hidden shadow-2xl">
-                <Image
+                <OptimizedImage
                     src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&q=80&w=1200"
                     alt="திருமண கடனை தவிர்ப்பது எப்படி?"
                     fill
@@ -379,6 +379,32 @@ export default function AvoidWeddingDebt() {
                         திருமண செலவுகளை முறையாக திட்டமிட எங்களின் <Link href="/blog/budget-planning-tips" className="font-bold underline">திருமண பட்ஜெட் திட்டமிடல்</Link> கட்டுரையையும்,
                         அனைத்து வேலைகளையும் கண்காணிக்க <Link href="/blog/thirumana-velai-pattiyal" className="font-bold underline">திருமண வேலைப் பட்டியல்</Link> கருவியையும் பயன்படுத்தவும்.
                     </p>
+                </div>
+
+                
+                <div className="bg-primary/5 p-8 rounded-3xl border border-primary/10 my-12">
+                    <h3 className="text-xl font-bold text-gray-900 mb-4 flex items-center gap-2">
+                        <span className="text-2xl">🛠️</span> எங்களின் இலவச திருமண கருவிகள்
+                    </h3>
+                    <p className="text-gray-700 mb-6">
+                        திருமண ஏற்பாடுகளை எளிமையாக்க நாங்கள் வழங்கும் இலவச டிஜிட்டல் கருவிகளைப் பயன்படுத்தி மகிழுங்கள்.
+                    </p>
+                    <div className="grid sm:grid-cols-2 gap-4">
+                        <Link href="/tools/thirumana-selavu" className="flex items-center gap-3 p-4 bg-white rounded-xl shadow-sm hover:shadow-md transition-all group">
+                            <span className="text-2xl group-hover:scale-110 transition-transform">💰</span>
+                            <div>
+                                <div className="font-bold text-gray-900">பட்ஜெட் பிளானர்</div>
+                                <div className="text-xs text-gray-500">செலவுகளைத் திட்டமிட</div>
+                            </div>
+                        </Link>
+                        <Link href="/tools/thirumana-thayaripu" className="flex items-center gap-3 p-4 bg-white rounded-xl shadow-sm hover:shadow-md transition-all group">
+                            <span className="text-2xl group-hover:scale-110 transition-transform">📝</span>
+                            <div>
+                                <div className="font-bold text-gray-900">வேலைகள் பட்டியல்</div>
+                                <div className="text-xs text-gray-500">Checklist நிர்வகிக்க</div>
+                            </div>
+                        </Link>
+                    </div>
                 </div>
 
                 <AuthorBio 

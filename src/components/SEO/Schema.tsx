@@ -3,30 +3,52 @@
 import { SITE_CONFIG } from '@/lib/constants';
 
 interface SchemaProps {
-    type: 'Organization' | 'WebSite' | 'BlogPosting' | 'BreadcrumbList';
+    type: 'Organization' | 'Person' | 'FAQPage' | 'WebSite' | 'BlogPosting' | 'BreadcrumbList' | 'ItemList' | 'SoftwareApplication';
     data: any;
 }
 
+/**
+ * Global Schema component for JSON-LD injection.
+ * Supports multiple types for E-E-A-T and AEO optimization.
+ */
 export default function Schema({ type, data }: SchemaProps) {
-    let jsonLd = {};
+    let jsonLd: any = {};
 
     switch (type) {
         case 'Organization':
             jsonLd = {
                 '@context': 'https://schema.org',
                 '@type': 'Organization',
-                'name': SITE_CONFIG.name,
-                'url': SITE_CONFIG.url,
-                'logo': `${SITE_CONFIG.url}/icon-v2.png`,
-                'sameAs': [
-                    'https://selvan.dev',
-                    'https://x.com/kalyanaveedu',
-                    'https://www.facebook.com/kalyanaveedu',
-                    'https://www.instagram.com/kalyanaveedu',
-                    'https://www.linkedin.com/company/kalyanaveedu',
-                    'https://www.wikidata.org/wiki/Special:Search?search=kalyanaveedu',
-                    'https://en.wikipedia.org/wiki/Special:Search?search=kalyanaveedu'
-                ]
+                'name': data.name || SITE_CONFIG.name,
+                'url': data.url || SITE_CONFIG.url,
+                'logo': data.logo || `${SITE_CONFIG.url}/icon-v2.png`,
+                'sameAs': data.sameAs || []
+            };
+            break;
+
+        case 'Person':
+            jsonLd = {
+                '@context': 'https://schema.org',
+                '@type': 'Person',
+                'name': data.name,
+                'url': data.url,
+                'sameAs': data.sameAs || [],
+                'jobTitle': data.jobTitle
+            };
+            break;
+
+        case 'FAQPage':
+            jsonLd = {
+                '@context': 'https://schema.org',
+                '@type': 'FAQPage',
+                'mainEntity': data.mainEntity.map((item: any) => ({
+                    '@type': 'Question',
+                    'name': item.question,
+                    'acceptedAnswer': {
+                        '@type': 'Answer',
+                        'text': item.answer
+                    }
+                }))
             };
             break;
 
@@ -34,11 +56,11 @@ export default function Schema({ type, data }: SchemaProps) {
             jsonLd = {
                 '@context': 'https://schema.org',
                 '@type': 'WebSite',
-                'name': SITE_CONFIG.name,
-                'url': SITE_CONFIG.url,
+                'name': data.name || SITE_CONFIG.name,
+                'url': data.url || SITE_CONFIG.url,
                 'potentialAction': {
                     '@type': 'SearchAction',
-                    'target': `${SITE_CONFIG.url}/search?q={search_term_string}`,
+                    'target': `${data.url || SITE_CONFIG.url}/search?q={search_term_string}`,
                     'query-input': 'required name=search_term_string'
                 }
             };
@@ -52,7 +74,7 @@ export default function Schema({ type, data }: SchemaProps) {
                 'description': data.description,
                 'author': {
                     '@type': 'Person',
-                    'name': data.author || 'கல்யாண வீடு டீம்'
+                    'name': data.author
                 },
                 'datePublished': data.datePublished,
                 'dateModified': data.dateModified || data.datePublished,
@@ -82,6 +104,41 @@ export default function Schema({ type, data }: SchemaProps) {
                     'name': item.name,
                     'item': item.item.startsWith('http') ? item.item : `${SITE_CONFIG.url}${item.item}`
                 }))
+            };
+            break;
+
+        case 'ItemList':
+            jsonLd = {
+                '@context': 'https://schema.org',
+                '@type': 'ItemList',
+                'name': data.name,
+                'description': data.description,
+                'itemListElement': data.items.map((item: any, index: number) => ({
+                    '@type': 'ListItem',
+                    'position': index + 1,
+                    'name': item.title || item.name,
+                    'url': item.url || `${SITE_CONFIG.url}${item.path}`
+                }))
+            };
+            break;
+
+        case 'SoftwareApplication':
+            jsonLd = {
+                '@context': 'https://schema.org',
+                '@type': 'SoftwareApplication',
+                'name': data.title || data.name,
+                'description': data.description,
+                'applicationCategory': 'UtilityApplication',
+                'operatingSystem': 'Any',
+                'offers': {
+                    '@type': 'Offer',
+                    'price': '0',
+                    'priceCurrency': 'INR'
+                },
+                'author': {
+                    '@type': 'Organization',
+                    'name': SITE_CONFIG.name
+                }
             };
             break;
     }
