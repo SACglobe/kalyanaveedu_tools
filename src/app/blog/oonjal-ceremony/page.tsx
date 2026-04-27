@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
-import Image from 'next/image';
+import OptimizedImage from '@/components/common/OptimizedImage';
 import TrustBlock from '@/components/TrustBlock';
 import Schema from '@/components/SEO/Schema';
 import AuthorBio from '@/components/blog/AuthorBio';
@@ -59,7 +59,7 @@ export default function OonjalCeremony() {
                     ஊஞ்சல் சடங்கு: வாழ்க்கையின் ஏற்ற இறக்கங்களை எதிர்கொள்ளும் பக்குவம்
                 </h1>
             <div className="relative h-[300px] md:h-[450px] w-full mb-10 rounded-3xl overflow-hidden shadow-2xl">
-                <Image
+                <OptimizedImage
                     src="https://images.unsplash.com/photo-1583939003579-730e3918a45a?auto=format&fit=crop&q=80&w=1200"
                     alt="ஊஞ்சல் சடங்கு"
                     fill

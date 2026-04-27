@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
-import Image from 'next/image';
+import OptimizedImage from '@/components/common/OptimizedImage';
 import TrustBlock from '@/components/TrustBlock';
 import Schema from '@/components/SEO/Schema';
 import AuthorBio from '@/components/blog/AuthorBio';
@@ -46,7 +46,7 @@ export default function TamilNakshatrasSignificance() {
                     தமிழ் நட்சத்திரங்கள் & திருமண பொருத்தம்
                 </h1>
             <div className="relative h-[300px] md:h-[450px] w-full mb-10 rounded-3xl overflow-hidden shadow-2xl">
-                <Image
+                <OptimizedImage
                     src="https://images.unsplash.com/photo-1532968961962-8a0cb3a2d4f5?auto=format&fit=crop&q=80&w=1200"
                     alt="தமிழ் நட்சத்திரங்கள்"
                     fill
@@ -434,6 +434,32 @@ export default function TamilNakshatrasSignificance() {
                         நட்சத்திரப் பொருத்தம் பார்த்த பிறகு, 2026-ஆம் ஆண்டிற்கான சிறந்த தேதிகளை அறிய <Link href="/blog/subha-muhurtham-2026" className="font-bold underline">சுப முகூர்த்த தேதிகள்</Link> பக்கத்தைப் பார்க்கவும்.
                         இந்த நட்சத்திரங்கள் திருமணச் சடங்குகளில் எப்படி முக்கியத்துவம் பெறுகின்றன என்பதை <Link href="/blog/tamil-wedding-rituals" className="font-bold underline">திருமணச் சடங்குகள்</Link> கட்டுரையில் அறியலாம்.
                     </p>
+                </div>
+
+                
+                <div className="bg-primary/5 p-8 rounded-3xl border border-primary/10 my-12">
+                    <h3 className="text-xl font-bold text-gray-900 mb-4 flex items-center gap-2">
+                        <span className="text-2xl">🛠️</span> எங்களின் இலவச திருமண கருவிகள்
+                    </h3>
+                    <p className="text-gray-700 mb-6">
+                        திருமண ஏற்பாடுகளை எளிமையாக்க நாங்கள் வழங்கும் இலவச டிஜிட்டல் கருவிகளைப் பயன்படுத்தி மகிழுங்கள்.
+                    </p>
+                    <div className="grid sm:grid-cols-2 gap-4">
+                        <Link href="/tools/thirumana-selavu" className="flex items-center gap-3 p-4 bg-white rounded-xl shadow-sm hover:shadow-md transition-all group">
+                            <span className="text-2xl group-hover:scale-110 transition-transform">💰</span>
+                            <div>
+                                <div className="font-bold text-gray-900">பட்ஜெட் பிளானர்</div>
+                                <div className="text-xs text-gray-500">செலவுகளைத் திட்டமிட</div>
+                            </div>
+                        </Link>
+                        <Link href="/tools/thirumana-thayaripu" className="flex items-center gap-3 p-4 bg-white rounded-xl shadow-sm hover:shadow-md transition-all group">
+                            <span className="text-2xl group-hover:scale-110 transition-transform">📝</span>
+                            <div>
+                                <div className="font-bold text-gray-900">வேலைகள் பட்டியல்</div>
+                                <div className="text-xs text-gray-500">Checklist நிர்வகிக்க</div>
+                            </div>
+                        </Link>
+                    </div>
                 </div>
 
                 <AuthorBio 
