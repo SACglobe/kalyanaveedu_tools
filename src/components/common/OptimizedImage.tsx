@@ -59,6 +59,7 @@ export default function OptimizedImage({
             height={height}
             priority={priority}
             className={className}
+            unoptimized={isUnsplash}
             // Standard responsive sizes: mobile 100vw, tablet 50vw, desktop 33vw
             // This helps the browser pick the right size before the CSS loads
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
