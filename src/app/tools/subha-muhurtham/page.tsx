@@ -5,6 +5,7 @@ import SubhaMuhurthamCalendar from '@/components/SubhaMuhurthamCalendar';
 import RelevantTools from '@/components/RelevantTools';
 import { VALUABLE_MARRIAGE_DATES } from '@/lib/tamil-calendar-data';
 import { getTamilDate, getTamilDayName } from '@/lib/tamil-calendar-utils';
+import MuhurthamMasterIndex from '@/components/tools/MuhurthamMasterIndex';
 
 export const metadata: Metadata = {
     title: 'Subha Muhurtham Today | இன்றைய சுப முகூர்த்தம் – Tamil Calendar',
@@ -219,22 +220,7 @@ export default function SubhaMuhurthamPage() {
 
                     {/* Step 3: Year Anchor Text (Crawl Support) */}
                     <div className="pt-16 border-t border-gray-100">
-                        <h2 className="text-2xl font-bold text-gray-900 mb-6">{year} சுப முகூர்த்த தேதிகள் பட்டியல்</h2>
-                        <ul className="grid grid-cols-2 md:grid-cols-4 gap-4 text-sm text-gray-600">
-                            {VALUABLE_MARRIAGE_DATES.filter(d => d.startsWith(year.toString())).map(dateStr => {
-                                const d = new Date(dateStr);
-                                return (
-                                    <li key={dateStr} className="list-none md:list-disc md:ml-4">
-                                        <Link 
-                                            href={`/tools/subha-muhurtham/${dateStr}`}
-                                            className="hover:text-primary hover:underline transition-colors"
-                                        >
-                                            {d.getDate()} {d.toLocaleDateString('en-GB', { month: 'long' })} {year}
-                                        </Link>
-                                    </li>
-                                );
-                            })}
-                        </ul>
+                        <MuhurthamMasterIndex />
                     </div>
 
                     {/* Final Bottom Disclaimer */}

@@ -23,7 +23,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     const { date } = await params;
     
     if (!VALUABLE_MARRIAGE_DATES.includes(date)) {
-        return {};
+        return {
+            title: 'சுப முகூர்த்த தேதிகள் 2026 | Subha Muhurtham Dates',
+            description: '2026 ஆம் ஆண்டின் அனைத்து சுப முகூர்த்த தேதிகள், மங்களகரமான லக்னம் மற்றும் நல்ல நேரங்கள் பற்றிய முழுமையான விபரங்கள் மற்றும் வழிகாட்டி.',
+        };
     }
 
     const d = new Date(date);

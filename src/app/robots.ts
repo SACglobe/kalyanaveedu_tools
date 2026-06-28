@@ -22,7 +22,9 @@ export default function robots(): MetadataRoute.Robots {
                     'CCBot', 
                     'anthropic-ai',
                     'FacebookBot',
-                    'Amazonbot'
+                    'Amazonbot',
+                    'OAI-SearchBot',
+                    'CriteoBot'
                 ],
                 disallow: ['/private/'],
             }

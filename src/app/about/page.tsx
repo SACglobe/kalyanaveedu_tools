@@ -7,7 +7,7 @@ export const metadata: Metadata = {
     title: 'எங்களை பற்றி | About Kalyana Veedu',
     description: 'கல்யாண வீடு - தமிழர்களின் நம்பகமான திருமண திட்டமிடல் தளம். எங்கள் நோக்கம், குழு மற்றும் சேவைகள் பற்றி அறிந்துகொள்ளுங்கள்.',
     alternates: {
-        canonical: '/about',
+        canonical: `${SITE_CONFIG.url}/about`,
     },
 };
 
@@ -124,6 +124,17 @@ export default function AboutPage() {
                             </div>
                         ))}
                     </div>
+                </section>
+
+                <section className="bg-white p-8 rounded-3xl border border-gray-100 shadow-sm space-y-4">
+                    <h2 className="text-2xl font-bold text-gray-900 mb-4 flex items-center gap-2">
+                        <span className="text-3xl">🛡️</span> எங்கள் மதிப்புகள் (Our Core Values)
+                    </h2>
+                    <ul className="list-disc pl-6 space-y-3">
+                        <li><strong>நம்பகத்தன்மை (Trust & Reliability):</strong> எங்களது அனைத்து கணக்கீடுகளும், தேதிகள் விபரங்களும் ஜோதிட சாஸ்திரம் மற்றும் அதிகாரப்பூர்வ சட்டங்களின்படி துல்லியமாக சரிபார்க்கப்படுகின்றன.</li>
+                        <li><strong>முழுமையான இலவச சேவை (100% Free Service):</strong> எந்தவொரு வணிக நோக்கமும் இன்றி, தமிழ் மக்களுக்குப் பயன்பட வேண்டும் என்ற ஒரே லட்சியத்தோடு அனைத்துக் கருவிகளையும் இலவசமாக வழங்குகிறோம்.</li>
+                        <li><strong>தரவுப் பாதுகாப்பு (Data Privacy):</strong> உங்களது பட்ஜெட் மற்றும் திட்டமிடல் தரவுகள் அனைத்தும் உங்களது சொந்த பிரவுசரிலேயே சேமிக்கப்படுகின்றன. உங்களது தரவுகளை நாங்கள் எப்போதும் சேகரிப்பதில்லை.</li>
+                    </ul>
                 </section>
 
                 <div className="bg-primary/5 p-8 md:p-12 rounded-3xl border border-primary/10 text-center">

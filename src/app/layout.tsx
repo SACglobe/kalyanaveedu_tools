@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { Inter } from 'next/font/google';
+import { Inter, Noto_Sans_Tamil } from 'next/font/google';
 import './globals.css';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
@@ -7,7 +7,8 @@ import CookieConsent from '@/components/layout/CookieConsent';
 import { SITE_CONFIG } from '@/lib/constants';
 import Schema from '@/components/SEO/Schema';
 
-const inter = Inter({ subsets: ['latin'] });
+const inter = Inter({ subsets: ['latin'], variable: '--font-inter' });
+const notoTamil = Noto_Sans_Tamil({ subsets: ['tamil'], variable: '--font-noto-tamil', weight: ['400', '500', '700', '900'] });
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_CONFIG.url),
@@ -27,6 +28,9 @@ export const metadata: Metadata = {
   },
   alternates: {
     canonical: SITE_CONFIG.url,
+    languages: {
+      'ta-IN': '/',
+    },
   },
   openGraph: {
     title: SITE_CONFIG.name,
@@ -65,7 +69,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="ta" suppressHydrationWarning>
-      <body className={`${inter.className} min-h-screen flex flex-col`} suppressHydrationWarning>
+      <body className={`${inter.variable} ${notoTamil.variable} font-noto min-h-screen flex flex-col`} suppressHydrationWarning>
         <PWAProvider>
           <Schema 
             type="Organization" 
@@ -73,7 +77,10 @@ export default function RootLayout({
               name: SITE_CONFIG.name,
               url: SITE_CONFIG.url,
               logo: `${SITE_CONFIG.url}/icon-v2.png`,
-              sameAs: Object.values(SITE_CONFIG.social || {})
+              sameAs: [
+                ...Object.values(SITE_CONFIG.social || {}),
+                SITE_CONFIG.founder.url
+              ]
             }} 
           />
           <Schema 

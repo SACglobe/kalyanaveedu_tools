@@ -4,9 +4,17 @@ import MarriageEligibility from '@/components/tools/MarriageEligibility';
 import Link from 'next/link';
 
 export const metadata: Metadata = {
-    title: 'Marriage Age India | திருமண வயது தகுதி – Tamil Reference',
-    description: 'Check legal marriage age eligibility in India (Mens 21, Womens 18). இந்திய திருமண வயது வரம்புகள் – பாரம்பரிய தகவல் நாட்காட்டி.',
-    keywords: ['marriage age india', 'thirumana vayathu', 'marriage eligibility tamil', 'legal marriage age checker'],
+    title: 'Legal Marriage Age in India 2026: Age Limit & Rules | திருமண வயது',
+    description: 'Check the legal marriage age limit in India (Men 21, Women 18) according to the latest 2026 laws. Verify your register marriage age limit & eligibility online.',
+    keywords: [
+        'marriage age in india',
+        'according to law marriage age in india',
+        'age eligibility for marriage in india',
+        'age limit for marriage in india',
+        'legal marriage age checker',
+        'thirumana vayathu',
+        'திருமண வயது தகுதி'
+    ],
     alternates: {
         canonical: `${SITE_CONFIG.url}/tools/thirumana-vayathu`,
     },
@@ -16,8 +24,8 @@ export default function MarriageEligibilityPage() {
     const jsonLd = {
         '@context': 'https://schema.org',
         '@type': 'WebApplication',
-        name: 'Tamil Marriage Age Eligibility Checker',
-        description: 'Verify legal marriage eligibility in India based on DOB and Gender',
+        name: 'Legal Marriage Age Checker | திருமண வயது தகுதி',
+        description: 'Verify legal marriage age limit & eligibility in India based on DOB and Gender according to child marriage prevention acts.',
         applicationCategory: 'UtilityApplication',
         operatingSystem: 'Any',
         offers: {
@@ -39,8 +47,8 @@ export default function MarriageEligibilityPage() {
                     __html: JSON.stringify({
                         "@context": "https://schema.org",
                         "@type": "WebPage",
-                        "name": "Marriage Age India | திருமண வயது தகுதி – Tamil Reference",
-                        "description": "Check legal marriage age eligibility in India (Mens 21, Womens 18).",
+                        "name": "Legal Marriage Age in India 2026: Age Limit & Rules | திருமண வயது",
+                        "description": "Check the legal marriage age limit in India (Men 21, Women 18) according to the latest 2026 laws.",
                         "breadcrumb": "Home > Tools > Marriage Age Checker",
                         "publisher": {
                             "@type": "Organization",

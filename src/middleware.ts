@@ -3,14 +3,16 @@ import type { NextRequest } from 'next/server';
 
 export function middleware(request: NextRequest) {
     const url = request.nextUrl.clone();
-    const hostname = request.headers.get('host') || '';
+    // Use x-forwarded-host for Vercel proxy reliability, fallback to host header
+    const host = request.headers.get('x-forwarded-host') || request.headers.get('host') || '';
 
     // Enforce www and https (skip for localhost/dev)
-    const isLocalhost = hostname.includes('localhost') || hostname.includes('127.0.0.1');
-    if (!isLocalhost && !hostname.startsWith('www.')) {
-        const newHostname = `www.${hostname}`;
-        url.hostname = newHostname;
+    const isLocalhost = host.includes('localhost') || host.includes('127.0.0.1');
+    
+    if (!isLocalhost && !host.startsWith('www.')) {
+        url.hostname = `www.${host}`;
         url.protocol = 'https';
+        // 308 is permanent redirect, better for SEO than 307 (Temporary)
         return NextResponse.redirect(url, 308);
     }
 

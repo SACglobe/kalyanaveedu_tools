@@ -10,7 +10,7 @@ import RelatedArticles from '@/components/blog/RelatedArticles';
 
 
 export const metadata: Metadata = {
-    title: 'தமிழ் நட்சத்திரங்கள் & திருமண பொருத்தம் | Tamil Nakshatras Wedding Guide',
+    title: 'தமிழ் நட்சத்திரங்கள் & திருமண பொருத்தம் | Tamil Nakshatras Guide',
     description: '27 தமிழ் நட்சத்திரங்கள், திருமண பொருத்தம், நட்சத்திர குணங்கள், தோஷங்கள், மற்றும் ஜோதிட முக்கியத்துவம் பற்றிய விரிவான வழிகாட்டி.',
     keywords: ['tamil nakshatras', 'birth star', 'horoscope matching', 'rasi natchathiram', 'wedding compatibility', 'tamil astrology'],
     alternates: {
@@ -24,7 +24,7 @@ export default function TamilNakshatrasSignificance() {
             <Schema 
                 type="BlogPosting"
                 data={{
-                    title: 'தமிழ் நட்சத்திரங்கள் & திருமண பொருத்தம் | Tamil Nakshatras Wedding Guide',
+                    title: 'தமிழ் நட்சத்திரங்கள் & திருமண பொருத்தம் | Tamil Nakshatras Guide',
                     description: '27 தமிழ் நட்சத்திரங்கள், திருமண பொருத்தம், நட்சத்திர குணங்கள், தோஷங்கள், மற்றும் ஜோதிட முக்கியத்துவம் பற்றிய விரிவான வழிகாட்டி.',
                     author: 'சித்ரை செல்வன்',
                     datePublished: '2026-02-25',

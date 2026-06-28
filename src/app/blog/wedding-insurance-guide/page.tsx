@@ -10,7 +10,7 @@ import RelatedArticles from '@/components/blog/RelatedArticles';
 
 
 export const metadata: Metadata = {
-    title: 'திருமண காப்பீடு வழிகாட்டி: ஏன் அவசியம்? முழு விவரங்கள் | Wedding Insurance Guide',
+    title: 'திருமண காப்பீடு வழிகாட்டி: ஏன் அவசியம்? | Wedding Insurance Guide',
     description: 'இந்தியாவில் திருமண காப்பீடு (Wedding Insurance) என்றால் என்ன? எதிர்பாராத ரத்து, நகை களவு, மற்றும் விபத்துகளுக்கு பாதுகாப்பு பெறுவது எப்படி?',
     keywords: ['wedding insurance india', 'marriage insurance', 'wedding cancelation coverage', 'event insurance', 'protect your wedding'],
     alternates: {

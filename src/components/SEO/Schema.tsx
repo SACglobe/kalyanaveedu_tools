@@ -3,7 +3,7 @@
 import { SITE_CONFIG } from '@/lib/constants';
 
 interface SchemaProps {
-    type: 'Organization' | 'Person' | 'FAQPage' | 'WebSite' | 'BlogPosting' | 'BreadcrumbList' | 'ItemList' | 'SoftwareApplication';
+    type: 'Organization' | 'Person' | 'FAQPage' | 'WebSite' | 'BlogPosting' | 'BreadcrumbList' | 'ItemList' | 'SoftwareApplication' | 'Blog';
     data: any;
 }
 
@@ -15,6 +15,16 @@ export default function Schema({ type, data }: SchemaProps) {
     let jsonLd: any = {};
 
     switch (type) {
+        case 'Blog':
+            jsonLd = {
+                '@context': 'https://schema.org',
+                '@type': 'Blog',
+                'name': data.name,
+                'description': data.description,
+                'publisher': data.publisher
+            };
+            break;
+
         case 'Organization':
             jsonLd = {
                 '@context': 'https://schema.org',

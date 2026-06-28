@@ -10,7 +10,7 @@ import RelatedArticles from '@/components/blog/RelatedArticles';
 
 
 export const metadata: Metadata = {
-    title: '2026 சுப முகூர்த்த நாட்கள்: திருமண தேதியை எப்படி தேர்ந்தெடுப்பது? | 2026 Muhurtham Dates',
+    title: '2026 சுப முகூர்த்த நாட்கள் தேர்வு | 2026 Muhurtham Dates',
     description: '2026 ஆம் ஆண்டிற்கான சிறந்த சுப முகூர்த்த நாட்களை தேர்ந்தெடுக்கும் முறை. வளர்பிறை, நல்ல நேரம் மற்றும் தவிர்க்க வேண்டிய நாட்களை அறிந்துகொள்ளுங்கள்.',
     keywords: ['2026 subha muhurtham tamil', 'wedding dates 2026', 'valarpirai muhurtham 2026', 'tamil marriage dates'],
     alternates: {
@@ -24,7 +24,7 @@ export default function SubhaMuhurthamGuide() {
             <Schema 
                 type="BlogPosting"
                 data={{
-                    title: '2026 சுப முகூர்த்த நாட்கள்: திருமண தேதியை எப்படி தேர்ந்தெடுப்பது? | 2026 Muhurtham Dates',
+                    title: '2026 சுப முகூர்த்த நாட்கள் தேர்வு | 2026 Muhurtham Dates',
                     description: '2026 ஆம் ஆண்டிற்கான சிறந்த சுப முகூர்த்த நாட்களை தேர்ந்தெடுக்கும் முறை. வளர்பிறை, நல்ல நேரம் மற்றும் தவிர்க்க வேண்டிய நாட்களை அறிந்துகொள்ளுங்கள்.',
                     author: 'சித்ரை செல்வன்',
                     datePublished: '2026-02-25',

@@ -10,7 +10,7 @@ import RelatedArticles from '@/components/blog/RelatedArticles';
 
 
 export const metadata: Metadata = {
-    title: 'மண்டப அலங்காரம்: 10 நவீன வடிவமைப்பு யோசனைகள் | Mandapam Decoration Ideas',
+    title: '10 நவீன மண்டப அலங்கார யோசனைகள் | Mandapam Decoration Ideas',
     description: 'தமிழ் திருமண மண்டப அலங்காரத்திற்கான பாரம்பரிய மற்றும் நவீன யோசனைகள். மலர் அலங்காரம், விளக்கு அமைப்பு, பட்ஜெட் இடத்தில் அலங்காரம் செய்வது எப்படி?',
     keywords: ['mandapam decoration', 'wedding decoration tamil', 'flower decoration ideas', 'marriage hall decoration', 'budget wedding decor'],
     alternates: {
@@ -24,7 +24,7 @@ export default function MandapamDecorationGuide() {
             <Schema 
                 type="BlogPosting"
                 data={{
-                    title: 'மண்டப அலங்காரம்: 10 நவீன வடிவமைப்பு யோசனைகள் | Mandapam Decoration Ideas',
+                    title: '10 நவீன மண்டப அலங்கார யோசனைகள் | Mandapam Decoration Ideas',
                     description: 'தமிழ் திருமண மண்டப அலங்காரத்திற்கான பாரம்பரிய மற்றும் நவீன யோசனைகள். மலர் அலங்காரம், விளக்கு அமைப்பு, பட்ஜெட் இடத்தில் அலங்காரம் செய்வது எப்படி?',
                     author: 'சித்ரை செல்வன்',
                     datePublished: '2026-02-25',

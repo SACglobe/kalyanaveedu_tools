@@ -10,7 +10,7 @@ export default function Header() {
     const { showInstallButton, installApp } = usePWA();
 
     return (
-        <header className="bg-white border-b border-gray-100 shadow-sm sticky top-0 z-50">
+        <header className="backdrop-blur-md bg-white/80 border-b border-orange-100/50 shadow-sm sticky top-0 z-50">
             <div className="container mx-auto px-4 h-20 lg:h-24 flex items-center justify-between">
                 <Link href="/" className="flex items-center gap-2 group shrink-0">
                     <div className="relative w-44 h-12 lg:w-56 lg:h-14 group-hover:scale-105 transition-transform duration-300">

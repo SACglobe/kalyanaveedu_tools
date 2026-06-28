@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { BLOG_POSTS, BlogPost } from '@/lib/blog-data';
+import { SITE_CONFIG } from '@/lib/constants';
 
 interface RelatedArticlesProps {
     currentSlug: string;
@@ -10,7 +11,7 @@ interface RelatedArticlesProps {
 export default function RelatedArticles({ 
     currentSlug, 
     category, 
-    maxArticles = 3 
+    maxArticles = 6 
 }: RelatedArticlesProps) {
     // Filter out the current article
     let related = BLOG_POSTS.filter(post => post.slug !== currentSlug);
@@ -38,7 +39,7 @@ export default function RelatedArticles({
                 {displayedArticles.map((post) => (
                     <Link
                         key={post.slug}
-                        href={post.slug}
+                        href={`${SITE_CONFIG.url}${post.slug}`}
                         className="group bg-white p-6 rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition-all flex flex-col h-full"
                     >
                         <span className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-3">

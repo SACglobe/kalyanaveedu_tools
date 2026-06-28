@@ -10,7 +10,7 @@ import RelatedArticles from '@/components/blog/RelatedArticles';
 
 
 export const metadata: Metadata = {
-    title: 'திருமண அழைப்பிதழ் வாசகங்கள் வழிகாட்டி | Tamil Wedding Invitation Wording Guide',
+    title: 'திருமண அழைப்பிதழ் வாசகங்கள் | Tamil Wedding Invitation Guide',
     description: 'பாரம்பரிய மற்றும் நவீன தமிழ் திருமண அழைப்பிதழ் வாசகங்கள், எழுத்து முறை, என்ன சேர்க்க வேண்டும், பொதுவான தவறவுகள் மற்றும் மாதிரி வாசகங்கள்.',
     keywords: ['tamil wedding invitation', 'thirum ana azhaipu', 'wedding card wording', 'invitation samples tamil', 'traditional invitation format'],
     alternates: {
@@ -24,7 +24,7 @@ export default function WeddingInvitationGuide() {
             <Schema 
                 type="BlogPosting"
                 data={{
-                    title: 'திருமண அழைப்பிதழ் வாசகங்கள் வழிகாட்டி | Tamil Wedding Invitation Wording Guide',
+                    title: 'திருமண அழைப்பிதழ் வாசகங்கள் | Tamil Wedding Invitation Guide',
                     description: 'பாரம்பரிய மற்றும் நவீன தமிழ் திருமண அழைப்பிதழ் வாசகங்கள், எழுத்து முறை, என்ன சேர்க்க வேண்டும், பொதுவான தவறுகள் மற்றும் மாதிரி வாசகங்கள்.',
                     author: 'சித்ரை செல்வன்',
                     datePublished: '2026-02-25',

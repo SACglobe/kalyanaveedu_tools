@@ -10,8 +10,8 @@ import RelatedArticles from '@/components/blog/RelatedArticles';
 
 
 export const metadata: Metadata = {
-    title: 'தமிழ் திருமண சடங்குகள் வழிகாட்டி: முழுமையான விளக்கம் | Tamil Wedding Rituals Guide',
-    description: 'தமிழ் திருமணத்தின் அனைத்து சடங்குகளும் - திருமணத்திற்கு முன், திருமண நாள் மற்றும் திருமணத்திற்கு பிறகு செய்யப்படும் சடங்குகளின் விரிவான விளக்கம் மற்றும் அவற்றின் முக்கியத்துவம்.',
+    title: 'தமிழ் திருமண சடங்குகள் விளக்கம் | Tamil Wedding Rituals Guide',
+    description: 'தமிழ் திருமணத்தின் முக்கிய சடங்குகள் மற்றும் சம்பிரதாயங்களின் ஆன்மீக காரணங்கள் மற்றும் முழு விளக்கம்.',
     keywords: ['tamil wedding rituals', 'thirumana sadangugal', 'tamil marriage customs', 'kasi yatra', 'saptapadi', 'mangalsutra dharanam'],
     alternates: {
         canonical: `${SITE_CONFIG.url}/blog/tamil-wedding-rituals`,

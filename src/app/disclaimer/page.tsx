@@ -1,11 +1,12 @@
 import type { Metadata } from 'next';
+import { SITE_CONFIG } from '@/lib/constants';
 import Link from 'next/link';
 
 export const metadata: Metadata = {
     title: 'பொறுப்புத் துறப்பு | Disclaimer - Kalyanaveedu.in',
     description: 'கல்யாண வீடு தளத்தின் தகவல் துல்லியம், சட்ட பொறுப்புத் துறப்பு, ஜோதிட மற்றும் கணக்கீட்டு கருவிகள் பொறுப்புத் துறப்பு, மூன்றாம் தரப்பு இணை விதிமுறைகள்.',
     alternates: {
-        canonical: '/disclaimer',
+        canonical: `${SITE_CONFIG.url}/disclaimer`,
     },
 };
 
