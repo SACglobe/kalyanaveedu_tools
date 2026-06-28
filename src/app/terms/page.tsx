@@ -1,11 +1,12 @@
 import type { Metadata } from 'next';
+import { SITE_CONFIG } from '@/lib/constants';
 import Link from 'next/link';
 
 export const metadata: Metadata = {
     title: 'விதிமுறைகள் மற்றும் நிபந்தனைகள் | Terms of Service - Kalyanaveedu.in',
     description: 'கல்யாண வீடு தளத்தின் பயன்பாட்டு விதிமுறைகள், பொறுப்புகள், அறிவுசார் சொத்துரிமை, தனியுரிமை மற்றும் விளம்பர கொள்கைகள்.',
     alternates: {
-        canonical: '/terms',
+        canonical: `${SITE_CONFIG.url}/terms`,
     },
 };
 

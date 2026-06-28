@@ -10,7 +10,7 @@ import RelatedArticles from '@/components/blog/RelatedArticles';
 
 
 export const metadata: Metadata = {
-    title: 'திருமண புகைப்படக்காரர் தேர்வு: முழுமையான வழிகாட்டி | Wedding Photographer Guide',
+    title: 'திருமண புகைப்படக்காரர் தேர்வு | Wedding Photographer Guide',
     description: 'சிறந்த திருமண புகைப்படக்காரரை எப்படி தேர்வு செய்வது? பாரம்பரிய vs candid photography, கேட்க வேண்டிய கேள்விகள், விலை நிர்ணயம், ஒப்பந்த முக்கிய விஷயங்கள்.',
     keywords: ['wedding photographer tamil', 'candid photography', 'traditional photography', 'wedding videography', 'photographer contract', 'photography photography pricing'],
     alternates: {
@@ -25,7 +25,7 @@ export default function WeddingPhotographerGuide() {
             <Schema 
                 type="BlogPosting" 
                 data={{
-                    title: 'திருமண புகைப்படக்காரர் தேர்வு: முழுமையான வழிகாட்டி | Wedding Photographer Guide',
+                    title: 'திருமண புகைப்படக்காரர் தேர்வு | Wedding Photographer Guide',
                     description: 'சிறந்த திருமண புகைப்படக்காரரை எப்படி தேர்வு செய்வது? பாரம்பரிய vs candid photography, கேட்க வேண்டிய கேள்விகள், விலை நிர்ணயம், ஒப்பந்த முக்கிய விஷயங்கள்.',
                     author: 'சித்ரை செல்வன்',
                     datePublished: '2026-02-25',

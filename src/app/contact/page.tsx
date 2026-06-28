@@ -214,12 +214,15 @@ export default function ContactPage() {
                         </a>
                     </div>
 
-                    <div className="bg-gray-50 p-6 rounded-xl border border-gray-200">
-                        <h3 className="font-bold text-gray-900 mb-2">💡 குறிப்பு:</h3>
+                    <div className="bg-gray-50 p-6 rounded-xl border border-gray-200 space-y-4">
+                        <h3 className="font-bold text-gray-900 mb-2">💡 குறிப்பு & பங்களிப்புகள்:</h3>
                         <p className="text-sm text-gray-700">
                             தொழில்நுட்ப பிரச்சனைகளுக்கு, தயவுசெய்து உங்கள் பிரவுசர் வகை (Chrome, Firefox, Safari),
                             சாதன வகை (mobile, desktop), மற்றும் பிழை விவரங்களை குறிப்பிடவும்.
                             இது எங்களுக்கு விரைவாக உதவ உதவும்.
+                        </p>
+                        <p className="text-sm text-gray-700">
+                            கல்யாண வீடு தளம் ஒரு பொதுநல நோக்கோடு உருவாக்கப்பட்டது. இந்த இணையதளம் தமிழ் குடும்பங்களின் திருமண திட்டமிடலை எளிமையாக்க முற்றிலும் இலவசமாக வழங்கப்படுகிறது. இதில் புதிய திருமண கருவிகள், தமிழ் பஞ்சாங்க கணக்கீடுகள், அல்லது ஜாதகப் பொருத்தம் சார்ந்த புதிய யோசனைகள் இருந்தால் எங்களுடன் தாராளமாக பகிர்ந்து கொள்ளலாம். உங்களது கருத்துக்கள் இந்தத் தளத்தை மேலும் மேம்படுத்த உதவும்.
                         </p>
                     </div>
                 </div>

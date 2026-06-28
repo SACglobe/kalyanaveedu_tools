@@ -13,7 +13,7 @@ import { SITE_CONFIG } from '@/lib/constants';
 // Meta Description: ஊஞ்சல் சடங்கு ஏன் செய்யப்படுகிறது, அதன் தத்துவம் என்ன, ஊஞ்சல் பாட்டுகள் மற்றும் திருஷ்டி கழிக்கும் முறைகள் குறித்த விரிவான கட்டுரை.
 
 export const metadata: Metadata = {
-    title: 'ஊஞ்சல் சடங்கு: வாழ்க்கையின் ஏற்ற இறக்கங்களை எதிர்கொள்ளும் பக்குவம் | கல்யாண வீடு',
+    title: 'ஊஞ்சல் சடங்கு: ஏற்ற இறக்கங்களை எதிர்கொள்ளும் தத்துவம் | கல்யாண வீடு',
     description: 'ஊஞ்சல் சடங்கு ஏன் செய்யப்படுகிறது, அதன் தத்துவம் என்ன, ஊஞ்சல் பாட்டுகள் மற்றும் திருஷ்டி கழிக்கும் முறைகள் குறித்த விரிவான கட்டுரை.',
     keywords: ['ஊஞ்சல் சடங்கு', 'Oonjal Ceremony significance', 'Tamil wedding swing ritual', 'wedding drishti removal', 'Oonjal songs meaning'],
     alternates: {

@@ -7,9 +7,11 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
-    "sitemap:check": "node scripts/sitemap-check.mjs"
+    "sitemap:check": "node scripts/sitemap-check.mjs",
+    "index:all": "node scripts/index-everything.mjs"
   },
   "dependencies": {
+    "googleapis": "^171.4.0",
     "next": "16.1.1",
     "react": "19.2.3",
     "react-dom": "19.2.3",

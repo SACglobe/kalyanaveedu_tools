@@ -10,7 +10,7 @@ import RelatedArticles from '@/components/blog/RelatedArticles';
 
 
 export const metadata: Metadata = {
-    title: 'திருமண உணவு திட்டமிடல்: முழுமையான வழிகாட்டி | Wedding Menu Planning Guide',
+    title: 'திருமண உணவு திட்டமிடல் வழிகாட்டி | Wedding Menu Planning',
     description: 'தமிழ் திருமண உணவு மெனு திட்டமிடல். பாரம்பரிய சைவ உணவுகள், விருந்து எண்ணிக்கை கணக்கீடு, கேட்டரிங் தேர்வு, மற்றும் செலவு குறைப்பு tips.',
     keywords: ['wedding menu', 'tamil wedding food', 'vegetarian menu', 'catering tips', 'wedding food budget', 'traditional tamil food'],
     alternates: {
@@ -24,7 +24,7 @@ export default function WeddingMenuPlanning() {
             <Schema 
                 type="BlogPosting"
                 data={{
-                    title: 'திருமண உணவு திட்டமிடல்: முழுமையான வழிகாட்டி | Wedding Menu Planning Guide',
+                    title: 'திருமண உணவு திட்டமிடல் வழிகாட்டி | Wedding Menu Planning',
                     description: 'தமிழ் திருமண உணவு மெனு திட்டமிடல். பாரம்பரிய சைவ உணவுகள், விருந்து எண்ணிக்கை கணக்கீடு, கேட்டரிங் தேர்வு, மற்றும் செலவு குறைப்பு tips.',
                     author: 'சித்ரை செல்வன்',
                     datePublished: '2026-02-25',

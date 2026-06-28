@@ -10,7 +10,7 @@ import RelatedArticles from '@/components/blog/RelatedArticles';
 
 
 export const metadata: Metadata = {
-    title: 'நடுத்தர வர்க்க திருமண பட்ஜெட் திட்டமிடல்: செலவுகளை குறைப்பது எப்படி? | Wedding Budget Tips',
+    title: 'நடுத்தர வர்க்க திருமண பட்ஜெட் திட்டமிடல் | Wedding Budget Tips',
     description: 'இந்திய திருமண செலவுகளை குறைப்பதற்கான நடைமுறை குறிப்புகள். தங்கம், மண்டபம் மற்றும் உணவு செலவுகளை திட்டமிடும் எளிய வழிமுறைகள்.',
     keywords: ['wedding budget tips tamil', 'low budget wedding ideas', 'middle class marriage planning', 'thirumana selavu'],
     alternates: {
@@ -25,7 +25,7 @@ export default function BudgetPlanningTips() {
             <Schema 
                 type="BlogPosting" 
                 data={{
-                    title: 'நடுத்தர வர்க்க திருமண பட்ஜெட் திட்டமிடல்: செலவுகளை குறைப்பது எப்படி? | Wedding Budget Tips',
+                    title: 'நடுத்தர வர்க்க திருமண பட்ஜெட் திட்டமிடல் | Wedding Budget Tips',
                     description: 'இந்திய திருமண செலவுகளை குறைப்பதற்கான நடைமுறை குறிப்புகள். தங்கம், மண்டபம் மற்றும் உணவு செலவுகளை திட்டமிடும் எளிய வழிமுறைகள்.',
                     author: 'சித்ரை செல்வன்',
                     datePublished: '2026-02-25',
