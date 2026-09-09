@@ -1,3 +1,87 @@
+export interface BlogCategory {
+    id: string;
+    labelTa: string;
+    labelEn: string;
+    icon: string;
+    description: string;
+}
+
+export const BLOG_CATEGORIES: Record<string, BlogCategory> = {
+    'all': {
+        id: 'all',
+        labelTa: 'அனைத்தும்',
+        labelEn: 'All Articles',
+        icon: '📚',
+        description: 'அனைத்து திருமண வழிகாட்டி கட்டுரைகள்'
+    },
+    'government-schemes': {
+        id: 'government-schemes',
+        labelTa: 'அரசு திட்டங்கள்',
+        labelEn: 'Govt Schemes',
+        icon: '🏛️',
+        description: 'தமிழ்நாடு மற்றும் மத்திய அரசு திருமண உதவித் திட்டங்கள்'
+    },
+    'traditions': {
+        id: 'traditions',
+        labelTa: 'திருமண சடங்குகள்',
+        labelEn: 'Traditions',
+        icon: '🪔',
+        description: 'பாரம்பரிய சடங்குகள், சாதி வழி மரபுகள் மற்றும் வேத சடங்குகள்'
+    },
+    'legal-documents': {
+        id: 'legal-documents',
+        labelTa: 'சட்டம் & ஆவணங்கள்',
+        labelEn: 'Legal & Docs',
+        icon: '⚖️',
+        description: 'திருமண பதிவு, ஆதார் புதுப்பிப்பு மற்றும் சட்ட வழிகாட்டல்'
+    },
+    'budget-planning': {
+        id: 'budget-planning',
+        labelTa: 'பட்ஜெட் & நிதி',
+        labelEn: 'Budget & Finance',
+        icon: '💰',
+        description: 'செலவு சேமிப்பு, திருமண கடன் மற்றும் பட்ஜெட் திட்டமிடல்'
+    },
+    'astrology': {
+        id: 'astrology',
+        labelTa: 'சுப முகூர்த்தம்',
+        labelEn: 'Muhurtham Dates',
+        icon: '🌟',
+        description: 'மாதாந்திர சுப முகூர்த்த நாட்கள் மற்றும் நக்ஷத்திர பலன்கள்'
+    },
+    'wedding-guide': {
+        id: 'wedding-guide',
+        labelTa: 'திருமண வழிகாட்டி',
+        labelEn: 'Wedding Guide',
+        icon: '💍',
+        description: 'மண்டபம், உணவு, அலங்காரம், புகைப்படக் கலைஞர் வழிகாட்டல்'
+    }
+};
+
+export function normalizeCategory(cat?: string): string {
+    if (!cat) return 'all';
+    const c = cat.toLowerCase().trim();
+    if (c === 'all') return 'all';
+    if (c === 'astrology') return 'astrology';
+    if (c === 'traditions') return 'traditions';
+    if (c === 'finance' || c === 'budget' || c === 'budget-planning') return 'budget-planning';
+    if (c === 'government-schemes' || c === 'govt-schemes') return 'government-schemes';
+    if (c === 'legal' || c === 'legal-documents') return 'legal-documents';
+    if (c === 'planning' || c === 'shopping' || c === 'decoration' || c === 'invitations' || c === 'photography' || c === 'wedding-guide') return 'wedding-guide';
+    return c;
+}
+
+export function getCategoryMeta(cat: string): BlogCategory {
+    const key = normalizeCategory(cat);
+    return BLOG_CATEGORIES[key] || {
+        id: key,
+        labelTa: cat,
+        labelEn: cat,
+        icon: '📌',
+        description: ''
+    };
+}
+
 export interface BlogPost {
     slug: string;
     title: string;
@@ -11,111 +95,111 @@ export interface BlogPost {
 export const BLOG_POSTS: BlogPost[] = [
     {
         slug: '/blog/subha-muhurtham-2026-january',
-        title: '2026 ஜனவரி சுப முகூர்த்த நாட்கள் | January 2026 Muhurtham Dates',
-        excerpt: '2026 ஜனவரி மாதத்திற்கான சிறந்த சுப முகூர்த்த நாட்கள் மற்றும் திருமண தேதிகள் வழிகாட்டி.',
-        date: 'Mar 01, 2026',
+        title: '2026 ஜனவரி சுப முகூர்த்த நாட்கள் — தை மாத திருமண தேதிகள் முழுவிவரம்',
+        excerpt: 'ஜனவரி 2026ல் திருமணம் திட்டமிடுவோருக்கு: தை மாத சுப தேதிகள், பவுர்ணமி, அஷ்டமி தவிர்க்க வேண்டிய நாட்கள், சிறந்த லக்னங்கள் மற்றும் நட்சத்திர விவரம்.',
+        date: 'Jan 05, 2026',
         category: 'Astrology',
-        image: 'https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?auto=format&fit=crop&q=80&w=1200',
-        author: 'சித்ரை செல்வன் & குழு'
+        image: 'https://images.unsplash.com/photo-1470225620780-dba8ba36b745?auto=format&fit=crop&q=80&w=1200',
+        author: 'ஜோதிடர் வேங்கடேஷ்'
     },
     {
         slug: '/blog/subha-muhurtham-2026-february',
-        title: '2026 பிப்ரவரி சுப முகூர்த்த நாட்கள் | February 2026 Muhurtham Dates',
-        excerpt: '2026 பிப்ரவரி மாதத்திற்கான சிறந்த சுப முகூர்த்த நாட்கள் மற்றும் திருமண தேதிகள் வழிகாட்டி.',
-        date: 'Mar 01, 2026',
+        title: '2026 பிப்ரவரி சுப முகூர்த்த நாட்கள் — மாசி மாத திருமண தேதிகள்',
+        excerpt: 'மாசி மாதம் 2026ல் திருமண முகூர்த்தம்: மஹா சிவராத்திரி தவிர்க்க வேண்டிய நாட்கள், Valentine வாரம் திருமணம் சரியா? நட்சத்திர பொருத்தம்.',
+        date: 'Feb 05, 2026',
         category: 'Astrology',
-        image: 'https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?auto=format&fit=crop&q=80&w=1200',
-        author: 'சித்ரை செல்வன் & குழு'
+        image: 'https://images.unsplash.com/photo-1563178406-4cdc2923acbc?auto=format&fit=crop&q=80&w=1200',
+        author: 'ஜோதிடர் வேங்கடேஷ்'
     },
     {
         slug: '/blog/subha-muhurtham-2026-march',
-        title: '2026 மார்ச் சுப முகூர்த்த நாட்கள் | March 2026 Muhurtham Dates',
-        excerpt: '2026 மார்ச் மாதத்திற்கான சிறந்த சுப முகூர்த்த நாட்கள் மற்றும் திருமண தேதிகள் வழிகாட்டி.',
-        date: 'Mar 01, 2026',
+        title: '2026 மார்ச் சுப முகூர்த்த நாட்கள் — பங்குனி மாத திருமண தேதிகள்',
+        excerpt: 'பங்குனி உத்திரம் 2026: இந்த மாதம் திருமணத்திற்கு சிறந்தது ஏன்? உகாதி பண்டிகை காலத்தில் திருமணம் சரியா? முழு தேதி விவரம்.',
+        date: 'Mar 05, 2026',
         category: 'Astrology',
-        image: 'https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?auto=format&fit=crop&q=80&w=1200',
-        author: 'சித்ரை செல்வன் & குழு'
+        image: 'https://images.unsplash.com/photo-1530103862676-de8c9debad1d?auto=format&fit=crop&q=80&w=1200',
+        author: 'ஜோதிடர் வேங்கடேஷ்'
     },
     {
         slug: '/blog/subha-muhurtham-2026-april',
-        title: '2026 ஏப்ரல் சுப முகூர்த்த நாட்கள் | April 2026 Muhurtham Dates',
-        excerpt: '2026 ஏப்ரல் மாதத்திற்கான சிறந்த சுப முகூர்த்த நாட்கள் மற்றும் திருமண தேதிகள் வழிகாட்டி.',
-        date: 'Mar 01, 2026',
+        title: '2026 ஏப்ரல் சுப முகூர்த்த நாட்கள் — சித்திரை புத்தாண்டு திருமண தேதிகள்',
+        excerpt: 'சித்திரை 2026 திருமண முகூர்த்தம்: தமிழ் புத்தாண்டு பிறகு முகூர்த்தம், Akshaya Tritiya அன்று திருமணம் சிறப்பா? சிறந்த 8 நாட்கள்.',
+        date: 'Apr 05, 2026',
         category: 'Astrology',
-        image: 'https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?auto=format&fit=crop&q=80&w=1200',
-        author: 'சித்ரை செல்வன் & குழு'
+        image: 'https://images.unsplash.com/photo-1583939003579-730e3918a45a?auto=format&fit=crop&q=80&w=1200',
+        author: 'ஜோதிடர் வேங்கடேஷ்'
     },
     {
         slug: '/blog/subha-muhurtham-2026-may',
-        title: '2026 மே சுப முகூர்த்த நாட்கள் | May 2026 Muhurtham Dates',
-        excerpt: '2026 மே மாதத்திற்கான சிறந்த சுப முகூர்த்த நாட்கள் மற்றும் திருமண தேதிகள் வழிகாட்டி.',
-        date: 'Mar 01, 2026',
+        title: '2026 மே சுப முகூர்த்த நாட்கள் — வைகாசி மாத திருமண தேதிகள்',
+        excerpt: 'வைகாசி விசாகம் 2026: வைகாசி மாதம் திருமணத்திற்கு ஏற்றதா? சிறந்த நட்சத்திர நாட்கள், கோடை திருமணம் திட்டமிடும் முறை.',
+        date: 'May 05, 2026',
         category: 'Astrology',
-        image: 'https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?auto=format&fit=crop&q=80&w=1200',
-        author: 'சித்ரை செல்வன் & குழு'
+        image: 'https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&q=80&w=1200',
+        author: 'ஜோதிடர் வேங்கடேஷ்'
     },
     {
         slug: '/blog/subha-muhurtham-2026-june',
-        title: '2026 ஜூன் சுப முகூர்த்த நாட்கள் | June 2026 Muhurtham Dates',
-        excerpt: '2026 ஜூன் மாதத்திற்கான சிறந்த சுப முகூர்த்த நாட்கள் மற்றும் திருமண தேதிகள் வழிகாட்டி.',
-        date: 'Mar 01, 2026',
+        title: '2026 ஜூன் சுப முகூர்த்த நாட்கள் — ஆனி மாத திருமண தேதிகள்',
+        excerpt: 'ஆனி மாதம் 2026 திருமண முகூர்த்தம்: மழைக்காலத்தில் திருமணம் சாத்தியமா? venue booking tips, ஆனி மாத சிறந்த தேதிகள் விவரம்.',
+        date: 'Jun 05, 2026',
         category: 'Astrology',
-        image: 'https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?auto=format&fit=crop&q=80&w=1200',
-        author: 'சித்ரை செல்வன் & குழு'
+        image: 'https://images.unsplash.com/photo-1532712938310-34cb3982ef74?auto=format&fit=crop&q=80&w=1200',
+        author: 'ஜோதிடர் வேங்கடேஷ்'
     },
     {
         slug: '/blog/subha-muhurtham-2026-july',
-        title: '2026 ஜூலை சுப முகூர்த்த நாட்கள் | July 2026 Muhurtham Dates',
-        excerpt: '2026 ஜூலை மாதத்திற்கான சிறந்த சுப முகூர்த்த நாட்கள் மற்றும் திருமண தேதிகள் வழிகாட்டி.',
-        date: 'Mar 01, 2026',
+        title: '2026 ஜூலை சுப முகூர்த்த நாட்கள் — ஆடி மாத திருமண தேதிகள்',
+        excerpt: 'ஆடி 2026: "ஆடி மாதம் திருமணம் வேண்டாம்" என்ற நம்பிக்கை சரியா? ஆடி 18 முக்கியத்துவம், அந்த மாதம் நல்ல தேதிகள் ஏதாவது உள்ளதா?',
+        date: 'Jul 05, 2026',
         category: 'Astrology',
-        image: 'https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?auto=format&fit=crop&q=80&w=1200',
-        author: 'சித்ரை செல்வன் & குழு'
+        image: 'https://images.unsplash.com/photo-1621112904887-419379ce6824?auto=format&fit=crop&q=80&w=1200',
+        author: 'ஜோதிடர் வேங்கடேஷ்'
     },
     {
         slug: '/blog/subha-muhurtham-2026-august',
-        title: '2026 ஆகஸ்ட் சுப முகூர்த்த நாட்கள் | August 2026 Muhurtham Dates',
-        excerpt: '2026 ஆகஸ்ட் மாதத்திற்கான சிறந்த சுப முகூர்த்த நாட்கள் மற்றும் திருமண தேதிகள் வழிகாட்டி.',
-        date: 'Mar 01, 2026',
+        title: '2026 ஆகஸ்ட் சுப முகூர்த்த நாட்கள் — ஆவணி மாத திருமண தேதிகள்',
+        excerpt: 'ஆவணி மாதம் 2026: கோகுலாஷ்டமி, ஓணம் காலத்தில் திருமணம் ஏற்றதா? ஆவணி மாத சிறந்த நட்சத்திர தேதிகள் முழுவிவரம்.',
+        date: 'Aug 05, 2026',
         category: 'Astrology',
-        image: 'https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?auto=format&fit=crop&q=80&w=1200',
-        author: 'சித்ரை செல்வன் & குழு'
+        image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=1200',
+        author: 'ஜோதிடர் வேங்கடேஷ்'
     },
     {
         slug: '/blog/subha-muhurtham-2026-september',
-        title: '2026 செப்டம்பர் சுப முகூர்த்த நாட்கள் | September 2026 Muhurtham Dates',
-        excerpt: '2026 செப்டம்பர் மாதத்திற்கான சிறந்த சுப முகூர்த்த நாட்கள் மற்றும் திருமண தேதிகள் வழிகாட்டி.',
-        date: 'Mar 01, 2026',
+        title: '2026 செப்டம்பர் சுப முகூர்த்த நாட்கள் — புரட்டாசி மாத திருமண தேதிகள்',
+        excerpt: 'புரட்டாசி 2026: "புரட்டாசி மாதம் திருமணம் ஆகாது" என்பது உண்மையா? நவராத்திரி பண்டிகை காலம், இந்த மாதம் சிறந்த நாட்கள்.',
+        date: 'Sep 05, 2026',
         category: 'Astrology',
-        image: 'https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?auto=format&fit=crop&q=80&w=1200',
-        author: 'சித்ரை செல்வன் & குழு'
+        image: 'https://images.unsplash.com/photo-1545232979-8bf68ee9b1af?auto=format&fit=crop&q=80&w=1200',
+        author: 'ஜோதிடர் வேங்கடேஷ்'
     },
     {
         slug: '/blog/subha-muhurtham-2026-october',
-        title: '2026 அக்டோபர் சுப முகூர்த்த நாட்கள் | October 2026 Muhurtham Dates',
-        excerpt: '2026 அக்டோபர் மாதத்திற்கான சிறந்த சுப முகூர்த்த நாட்கள் மற்றும் திருமண தேதிகள் வழிகாட்டி.',
-        date: 'Mar 01, 2026',
+        title: '2026 அக்டோபர் சுப முகூர்த்த நாட்கள் — ஐப்பசி மாத திருமண தேதிகள்',
+        excerpt: 'ஐப்பசி 2026 திருமண முகூர்த்தம்: தீபாவளிக்கு முன்பும் பின்பும் திருமணம் ஏற்றதா? ஐப்பசி மாதம் சிறந்த 10 திருமண தேதிகள்.',
+        date: 'Oct 03, 2026',
         category: 'Astrology',
-        image: 'https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?auto=format&fit=crop&q=80&w=1200',
-        author: 'சித்ரை செல்வன் & குழு'
+        image: 'https://images.unsplash.com/photo-1567789884554-0b844b597180?auto=format&fit=crop&q=80&w=1200',
+        author: 'ஜோதிடர் வேங்கடேஷ்'
     },
     {
         slug: '/blog/subha-muhurtham-2026-november',
-        title: '2026 நவம்பர் சுப முகூர்த்த நாட்கள் | November 2026 Muhurtham Dates',
-        excerpt: '2026 நவம்பர் மாதத்திற்கான சிறந்த சுப முகூர்த்த நாட்கள் மற்றும் திருமண தேதிகள் வழிகாட்டி.',
-        date: 'Mar 01, 2026',
+        title: '2026 நவம்பர் சுப முகூர்த்த நாட்கள் — கார்த்திகை மாத திருமண தேதிகள்',
+        excerpt: 'கார்த்திகை மாதம் 2026: திருக்கார்த்திகை தீபம் அன்று திருமணம் சிறப்பா? குளிர்காலத் திருமணம் திட்டமிடும் முறை, சிறந்த தேதிகள்.',
+        date: 'Nov 03, 2026',
         category: 'Astrology',
-        image: 'https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?auto=format&fit=crop&q=80&w=1200',
-        author: 'சித்ரை செல்வன் & குழு'
+        image: 'https://images.unsplash.com/photo-1524863479829-916d8e77f114?auto=format&fit=crop&q=80&w=1200',
+        author: 'ஜோதிடர் வேங்கடேஷ்'
     },
     {
         slug: '/blog/subha-muhurtham-2026-december',
-        title: '2026 டிசம்பர் சுப முகூர்த்த நாட்கள் | December 2026 Muhurtham Dates',
-        excerpt: '2026 டிசம்பர் மாதத்திற்கான சிறந்த சுப முகூர்த்த நாட்கள் மற்றும் திருமண தேதிகள் வழிகாட்டி.',
-        date: 'Mar 01, 2026',
+        title: '2026 டிசம்பர் சுப முகூர்த்த நாட்கள் — மார்கழி மாத திருமண தேதிகள்',
+        excerpt: 'மார்கழி 2026: மார்கழி மாதம் திருமணத்திற்கு தகாது என்பது ஏன்? ஆண்டின் இறுதியில் திருமணம் திட்டமிட்டால் எந்த தேதிகள் சரி?',
+        date: 'Dec 03, 2026',
         category: 'Astrology',
-        image: 'https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?auto=format&fit=crop&q=80&w=1200',
-        author: 'சித்ரை செல்வன் & குழு'
+        image: 'https://images.unsplash.com/photo-1512428813834-c702c7702b78?auto=format&fit=crop&q=80&w=1200',
+        author: 'ஜோதிடர் வேங்கடேஷ்'
     },
     {
         slug: '/blog/oonjal-ceremony',

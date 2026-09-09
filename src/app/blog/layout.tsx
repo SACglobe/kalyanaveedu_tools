@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { BLOG_POSTS } from '@/lib/blog-data';
+import { BLOG_POSTS, BLOG_CATEGORIES, getCategoryMeta } from '@/lib/blog-data';
 import { TOOLS_LIST } from '@/lib/constants';
 
 export default function BlogLayout({
@@ -28,36 +28,41 @@ export default function BlogLayout({
           </div>
           
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {recentPosts.map((post) => (
-              <Link 
-                key={post.slug} 
-                href={post.slug}
-                className="group bg-white p-6 rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition-all flex flex-col"
-              >
-                <span className="text-[10px] font-black text-gray-400 uppercase tracking-widest mb-3">
-                  {post.category}
-                </span>
-                <h3 className="font-bold text-gray-900 group-hover:text-primary transition-colors line-clamp-2 mb-2">
-                  {post.title}
-                </h3>
-                <p className="text-xs text-gray-500 line-clamp-2 mt-auto">
-                  {post.excerpt}
-                </p>
-              </Link>
-            ))}
+            {recentPosts.map((post) => {
+              const meta = getCategoryMeta(post.category);
+              return (
+                <Link 
+                  key={post.slug} 
+                  href={post.slug}
+                  className="group bg-white p-6 rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition-all flex flex-col"
+                >
+                  <span className="text-[11px] font-bold text-primary uppercase tracking-wider mb-3 flex items-center gap-1.5">
+                    <span>{meta.icon}</span>
+                    <span>{meta.labelTa}</span>
+                  </span>
+                  <h3 className="font-bold text-gray-900 group-hover:text-primary transition-colors line-clamp-2 mb-2">
+                    {post.title}
+                  </h3>
+                  <p className="text-xs text-gray-500 line-clamp-2 mt-auto">
+                    {post.excerpt}
+                  </p>
+                </Link>
+              );
+            })}
           </div>
           
           {/* Quick Links for Crawlers */}
           <div className="mt-12 pt-8 border-t border-gray-200">
-            <h3 className="text-xs font-black text-gray-400 uppercase tracking-widest mb-6">முக்கிய தலைப்புகள்</h3>
+            <h3 className="text-xs font-black text-gray-400 uppercase tracking-widest mb-6">முக்கிய பகுதிகள் (Categories)</h3>
             <div className="flex flex-wrap gap-3">
-              {Array.from(new Set(BLOG_POSTS.map(p => p.category))).map(category => (
+              {Object.values(BLOG_CATEGORIES).map(cat => (
                 <Link 
-                  key={category} 
-                  href={`/blog?category=${category}`}
-                  className="px-4 py-2 bg-white border border-gray-200 rounded-full text-sm font-bold text-gray-600 hover:border-primary hover:text-primary transition-colors"
+                  key={cat.id} 
+                  href={cat.id === 'all' ? '/blog' : `/blog?category=${cat.id}`}
+                  className="px-4 py-2 bg-white border border-gray-200 rounded-full text-sm font-bold text-gray-700 hover:border-primary hover:text-primary transition-all flex items-center gap-2 shadow-sm"
                 >
-                  {category}
+                  <span>{cat.icon}</span>
+                  <span>{cat.labelTa}</span>
                 </Link>
               ))}
             </div>
