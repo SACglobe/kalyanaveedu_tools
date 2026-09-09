@@ -1,0 +1,93 @@
+name: 🤖 Daily AI Blog Article Generator
+
+on:
+  schedule:
+    # Runs every day at 9:00 AM IST (3:30 AM UTC)
+    - cron: '30 3 * * *'
+  workflow_dispatch:
+    # Also allows manual trigger from GitHub Actions UI
+    inputs:
+      topic_index:
+        description: 'Topic index to generate (leave empty for next in queue)'
+        required: false
+        default: ''
+      dry_run:
+        description: 'Dry run (preview only, no commit)'
+        required: false
+        default: 'false'
+        type: boolean
+
+jobs:
+  generate-article:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: 📥 Checkout repository
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: 🟢 Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: 🎯 Generate Article with Gemini AI
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+        run: |
+          INDEX_ARG=""
+          DRY_ARG=""
+          
+          if [ -n "${{ github.event.inputs.topic_index }}" ]; then
+            INDEX_ARG="--index ${{ github.event.inputs.topic_index }}"
+          fi
+          
+          if [ "${{ github.event.inputs.dry_run }}" = "true" ]; then
+            DRY_ARG="--dry-run"
+          fi
+          
+          node scripts/generate-article.mjs $INDEX_ARG $DRY_ARG
+
+      - name: 🔍 Index new article with Google & Bing
+        if: ${{ github.event.inputs.dry_run != 'true' }}
+        env:
+          GSC_CLIENT_EMAIL: ${{ secrets.GSC_CLIENT_EMAIL }}
+          GSC_PRIVATE_KEY: ${{ secrets.GSC_PRIVATE_KEY }}
+          BING_API_KEY: ${{ secrets.BING_API_KEY }}
+        run: |
+          # Read the last generated slug from progress file
+          SLUG=$(node -e "
+            const p = require('./scripts/.article-progress.json');
+            const topics = require('./scripts/article-topics.json');
+            const last = p.generated[p.generated.length - 1];
+            console.log('https://www.kalyanaveedu.in/blog/' + last.slug);
+          " 2>/dev/null || echo "")
+          
+          if [ -n "$SLUG" ]; then
+            node scripts/index-url.mjs "$SLUG"
+          fi
+
+      - name: 📝 Commit and push new article
+        if: ${{ github.event.inputs.dry_run != 'true' }}
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "Kalyana Veedu Bot 🤖"
+          
+          git add src/app/blog/ src/lib/blog-data.ts scripts/.article-progress.json
+          
+          # Only commit if there are changes
+          if git diff --staged --quiet; then
+            echo "No new files to commit"
+          else
+            SLUG=$(node -e "
+              const p = require('./scripts/.article-progress.json');
+              console.log(p.generated[p.generated.length-1].slug);
+            " 2>/dev/null || echo "new-article")
+            
+            git commit -m "🤖 Auto-generate blog: $SLUG [skip ci]"
+            git push
+            echo "✅ Article committed and pushed — Vercel will auto-deploy"
+          fi

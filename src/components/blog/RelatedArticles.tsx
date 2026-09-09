@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { BLOG_POSTS, BlogPost } from '@/lib/blog-data';
+import { BLOG_POSTS, BlogPost, normalizeCategory, getCategoryMeta } from '@/lib/blog-data';
 import { SITE_CONFIG } from '@/lib/constants';
 
 interface RelatedArticlesProps {
@@ -18,8 +18,9 @@ export default function RelatedArticles({
 
     // If category is provided, prioritize articles in the same category
     if (category) {
-        const sameCategory = related.filter(post => post.category === category);
-        const differentCategory = related.filter(post => post.category !== category);
+        const normTarget = normalizeCategory(category);
+        const sameCategory = related.filter(post => normalizeCategory(post.category) === normTarget);
+        const differentCategory = related.filter(post => normalizeCategory(post.category) !== normTarget);
         
         // Combine them, putting same category first
         related = [...sameCategory, ...differentCategory];
@@ -36,23 +37,27 @@ export default function RelatedArticles({
                 <span className="text-primary text-3xl">📖</span> மேலும் படிக்கவும் (Related Articles)
             </h3>
             <div className="grid md:grid-cols-3 gap-6">
-                {displayedArticles.map((post) => (
-                    <Link
-                        key={post.slug}
-                        href={`${SITE_CONFIG.url}${post.slug}`}
-                        className="group bg-white p-6 rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition-all flex flex-col h-full"
-                    >
-                        <span className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-3">
-                            {post.category}
-                        </span>
-                        <h4 className="font-bold text-gray-900 group-hover:text-primary transition-colors leading-snug mb-3">
-                            {post.title}
-                        </h4>
-                        <p className="text-sm text-gray-500 line-clamp-2 leading-relaxed mt-auto">
-                            {post.excerpt}
-                        </p>
-                    </Link>
-                ))}
+                {displayedArticles.map((post) => {
+                    const meta = getCategoryMeta(post.category);
+                    return (
+                        <Link
+                            key={post.slug}
+                            href={`${SITE_CONFIG.url}${post.slug}`}
+                            className="group bg-white p-6 rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition-all flex flex-col h-full"
+                        >
+                            <span className="text-xs font-bold text-primary uppercase tracking-widest mb-3 flex items-center gap-1.5">
+                                <span>{meta.icon}</span>
+                                <span>{meta.labelTa}</span>
+                            </span>
+                            <h4 className="font-bold text-gray-900 group-hover:text-primary transition-colors leading-snug mb-3">
+                                {post.title}
+                            </h4>
+                            <p className="text-sm text-gray-500 line-clamp-2 leading-relaxed mt-auto">
+                                {post.excerpt}
+                            </p>
+                        </Link>
+                    );
+                })}
             </div>
         </section>
     );
