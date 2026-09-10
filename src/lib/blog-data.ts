@@ -381,4 +381,13 @@ export const BLOG_POSTS: BlogPost[] = [
         image: 'https://images.unsplash.com/photo-1554224155-16974a4ea2c5?auto=format&fit=crop&q=80&w=1200',
         author: 'சித்ரை செல்வன் & குழு'
     }
+    {
+        slug: '/blog/tn-pudhumai-penn-scheme-tamil',
+        title: 'தமிழ்நாடு புதுமை பெண் திட்டம் (Pudhumai Penn Scheme)',
+        excerpt: 'தமிழ்நாடு புதுமை பெண் திட்டம் (Pudhumai Penn Scheme) - ₹1000 மாதாந்திர உதவி, தகுதி, விண்ணப்பிக்கும் முறை.',
+        date: 'Sep 10, 2026',
+        category: 'government-schemes',
+        image: 'https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?auto=format&fit=crop&q=80&w=1200',
+        author: 'கார்த்திக் ராஜன்'
+    },
 ];
