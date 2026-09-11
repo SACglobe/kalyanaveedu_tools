@@ -390,4 +390,13 @@ export const BLOG_POSTS: BlogPost[] = [
         image: 'https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?auto=format&fit=crop&q=80&w=1200',
         author: 'கார்த்திக் ராஜன்'
     },
+    {
+        slug: '/blog/pm-vivah-shagun-yojana-tamil',
+        title: 'PM Vivah Shagun Yojana (பிரதமர் திருமண பரிசு திட்டம்)',
+        excerpt: 'PM Vivah Shagun Yojana (பிரதமர் திருமண பரிசு திட்டம்) - ₹51,000 மத்திய அரசு திருமண உதவி, SC/ST பெண்களுக்கான வழிகாட்டி.',
+        date: 'Sep 13, 2026',
+        category: 'government-schemes',
+        image: 'https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?auto=format&fit=crop&q=80&w=1200',
+        author: 'கார்த்திக் ராஜன்'
+    },
 ];
