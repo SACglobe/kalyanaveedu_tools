@@ -399,4 +399,13 @@ export const BLOG_POSTS: BlogPost[] = [
         image: 'https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?auto=format&fit=crop&q=80&w=1200',
         author: 'கார்த்திக் ராஜன்'
     },
+    {
+        slug: '/blog/tn-marriage-assistance-scheme-moovalur',
+        title: 'மூவலூர் ராமாமிர்தம் அம்மையார் திட்டம்',
+        excerpt: 'மூவலூர் ராமாமிர்தம் அம்மையார் திட்டம் - அரசு திருமண உதவி ₹50,000, விண்ணப்பிக்கும் முறை, தேவையான ஆவணங்கள்.',
+        date: 'Sep 16, 2026',
+        category: 'government-schemes',
+        image: 'https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?auto=format&fit=crop&q=80&w=1200',
+        author: 'கார்த்திக் ராஜன்'
+    },
 ];
