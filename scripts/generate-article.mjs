@@ -127,7 +127,7 @@ async function callGemini(prompt) {
       contents: [{ parts: [{ text: prompt }] }],
       generationConfig: {
         temperature: 0.7,
-        maxOutputTokens: 8192,
+        maxOutputTokens: 16384,
       },
     }),
   });
@@ -138,7 +138,20 @@ async function callGemini(prompt) {
   }
 
   const data = await response.json();
-  return data.candidates?.[0]?.content?.parts?.[0]?.text || '';
+  let text = data.candidates?.[0]?.content?.parts?.[0]?.text || '';
+  
+  // Clean markdown code blocks if present
+  text = text.replace(/^```(?:html|jsx|tsx)?\s*/i, '').replace(/\s*```\s*$/i, '').trim();
+
+  // Strip redundant outer <div className="prose..."> wrapper if generated
+  text = text.replace(/^<div\s+className=["'][^"']*prose[^"']*["']\s*>/i, '').trim();
+  const openDivs = (text.match(/<div\b[^>]*>/gi) || []).length;
+  const closeDivs = (text.match(/<\/div>/gi) || []).length;
+  if (closeDivs > openDivs) {
+    text = text.replace(/<\/div>\s*$/, '').trim();
+  }
+
+  return text;
 }
 
 // ── Generate article content ──
@@ -295,6 +308,8 @@ const newEntry = `    {
         author: '${author.name}'
     },`;
 
+// Ensure previous object ends with a comma before closing bracket
+blogData = blogData.replace(/(\}\s*)(\];\s*$)/, '$1,\n$2');
 // Insert before the closing ]; of BLOG_POSTS array
 blogData = blogData.replace(/(\];\s*$)/, `${newEntry}\n$1`);
 writeFileSync(blogDataPath, blogData, 'utf-8');

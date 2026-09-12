@@ -70,6 +70,13 @@ jobs:
             node scripts/index-url.mjs "$SLUG"
           fi
 
+      - name: 🛡️ Verify TypeScript compilation
+        if: ${{ github.event.inputs.dry_run != 'true' }}
+        run: |
+          echo "Verifying TypeScript compilation..."
+          npx tsc --noEmit
+          echo "✅ TypeScript check passed!"
+
       - name: 📝 Commit and push new article
         if: ${{ github.event.inputs.dry_run != 'true' }}
         run: |

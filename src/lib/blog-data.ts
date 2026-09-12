@@ -380,7 +380,7 @@ export const BLOG_POSTS: BlogPost[] = [
         category: 'Finance',
         image: 'https://images.unsplash.com/photo-1554224155-16974a4ea2c5?auto=format&fit=crop&q=80&w=1200',
         author: 'சித்ரை செல்வன் & குழு'
-    }
+    },
     {
         slug: '/blog/tn-pudhumai-penn-scheme-tamil',
         title: 'தமிழ்நாடு புதுமை பெண் திட்டம் (Pudhumai Penn Scheme)',
