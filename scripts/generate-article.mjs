@@ -323,12 +323,14 @@ writeFileSync(progressFile, JSON.stringify(progress, null, 2), 'utf-8');
 console.log(`\n🎉 Done! Article ${topicIndex + 1}/${topics.length} generated successfully.`);
 console.log(`   Next topic: ${topics[topicIndex + 1]?.slug || 'none (all done!)'}\n`);
 
-// ── Auto-Index with Google & Bing ──
-const fullUrl = `https://www.kalyanaveedu.in/blog/${topic.slug}`;
-console.log(`🔍 Automatically submitting new article to Google & Bing...`);
-try {
-  const { execSync } = await import('child_process');
-  execSync(`node "${join(__dirname, 'index-url.mjs')}" "${fullUrl}"`, { stdio: 'inherit' });
-} catch (err) {
-  // Continue even if indexer reports notice
+// ── Auto-Index with Google & Bing (local convenience only; in CI workflow handles it) ──
+if (!process.env.CI) {
+  const fullUrl = `https://www.kalyanaveedu.in/blog/${topic.slug}`;
+  console.log(`🔍 Automatically submitting new article to Google & Bing...`);
+  try {
+    const { execSync } = await import('child_process');
+    execSync(`node "${join(__dirname, 'index-url.mjs')}" "${fullUrl}"`, { stdio: 'inherit' });
+  } catch (err) {
+    // Continue even if indexer reports notice
+  }
 }

@@ -22,6 +22,11 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: write
+    env:
+      GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+      GSC_CLIENT_EMAIL: ${{ secrets.GSC_CLIENT_EMAIL }}
+      GSC_PRIVATE_KEY: ${{ secrets.GSC_PRIVATE_KEY }}
+      BING_API_KEY: ${{ secrets.BING_API_KEY }}
 
     steps:
       - name: 📥 Checkout repository
@@ -33,10 +38,12 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: '20'
+          cache: 'npm'
+
+      - name: 📦 Install dependencies
+        run: npm ci --prefer-offline --no-audit
 
       - name: 🎯 Generate Article with Gemini AI
-        env:
-          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
         run: |
           INDEX_ARG=""
           DRY_ARG=""
@@ -50,25 +57,6 @@ jobs:
           fi
           
           node scripts/generate-article.mjs $INDEX_ARG $DRY_ARG
-
-      - name: 🔍 Index new article with Google & Bing
-        if: ${{ github.event.inputs.dry_run != 'true' }}
-        env:
-          GSC_CLIENT_EMAIL: ${{ secrets.GSC_CLIENT_EMAIL }}
-          GSC_PRIVATE_KEY: ${{ secrets.GSC_PRIVATE_KEY }}
-          BING_API_KEY: ${{ secrets.BING_API_KEY }}
-        run: |
-          # Read the last generated slug from progress file
-          SLUG=$(node -e "
-            const p = require('./scripts/.article-progress.json');
-            const topics = require('./scripts/article-topics.json');
-            const last = p.generated[p.generated.length - 1];
-            console.log('https://www.kalyanaveedu.in/blog/' + last.slug);
-          " 2>/dev/null || echo "")
-          
-          if [ -n "$SLUG" ]; then
-            node scripts/index-url.mjs "$SLUG"
-          fi
 
       - name: 🛡️ Verify TypeScript compilation
         if: ${{ github.event.inputs.dry_run != 'true' }}
@@ -97,4 +85,18 @@ jobs:
             git commit -m "🤖 Auto-generate blog: $SLUG [skip ci]"
             git push
             echo "✅ Article committed and pushed — Vercel will auto-deploy"
+          fi
+
+      - name: 🔍 Index new article with Google & Bing
+        if: ${{ github.event.inputs.dry_run != 'true' }}
+        run: |
+          # Read the last generated slug from progress file
+          SLUG=$(node -e "
+            const p = require('./scripts/.article-progress.json');
+            const last = p.generated[p.generated.length - 1];
+            console.log('https://www.kalyanaveedu.in/blog/' + last.slug);
+          " 2>/dev/null || echo "")
+          
+          if [ -n "$SLUG" ]; then
+            node scripts/index-url.mjs "$SLUG"
           fi
