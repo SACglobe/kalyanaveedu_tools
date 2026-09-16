@@ -408,4 +408,13 @@ export const BLOG_POSTS: BlogPost[] = [
         image: 'https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?auto=format&fit=crop&q=80&w=1200',
         author: 'கார்த்திக் ராஜன்'
     },
+    {
+        slug: '/blog/dr-muthulakshmi-reddy-scheme',
+        title: 'டாக்டர் முத்துலக்ஷ்மி ரெட்டி நலத் திட்டம்',
+        excerpt: 'டாக்டர் முத்துலக்ஷ்மி ரெட்டி நலத் திட்டம் - விதவை மறுமணம், BPL குடும்பங்களுக்கான திருமண உதவி.',
+        date: 'Sep 19, 2026',
+        category: 'government-schemes',
+        image: 'https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?auto=format&fit=crop&q=80&w=1200',
+        author: 'கார்த்திக் ராஜன்'
+    },
 ];
