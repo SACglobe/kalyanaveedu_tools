@@ -417,4 +417,13 @@ export const BLOG_POSTS: BlogPost[] = [
         image: 'https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?auto=format&fit=crop&q=80&w=1200',
         author: 'கார்த்திக் ராஜன்'
     },
+    {
+        slug: '/blog/tn-intercaste-marriage-incentive',
+        title: 'சாதிகளுக்கிடையேயான திருமண ஊக்கத் திட்டம்',
+        excerpt: 'சாதிகளுக்கிடையேயான திருமண ஊக்கத் திட்டம் - ₹1 லட்சம் (SC-OC திருமணம்), தகுதி, விண்ணப்பம்.',
+        date: 'Sep 22, 2026',
+        category: 'government-schemes',
+        image: 'https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?auto=format&fit=crop&q=80&w=1200',
+        author: 'கார்த்திக் ராஜன்'
+    },
 ];
