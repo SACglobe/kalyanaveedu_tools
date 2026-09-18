@@ -426,4 +426,13 @@ export const BLOG_POSTS: BlogPost[] = [
         image: 'https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?auto=format&fit=crop&q=80&w=1200',
         author: 'கார்த்திக் ராஜன்'
     },
+    {
+        slug: '/blog/marriage-registration-tamilnadu-how-to',
+        title: 'தமிழ்நாட்டில் திருமண பதிவு செய்வது எப்படி?',
+        excerpt: 'தமிழ்நாட்டில் திருமண பதிவு செய்வது எப்படி? - Hindu Marriage Act, Special Marriage Act, தேவையான ஆவணங்கள், கட்டணம்.',
+        date: 'Sep 25, 2026',
+        category: 'legal-documents',
+        image: 'https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?auto=format&fit=crop&q=80&w=1200',
+        author: 'அட்வகேட் சந்திரசேகர்'
+    },
 ];
