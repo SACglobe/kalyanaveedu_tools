@@ -435,4 +435,13 @@ export const BLOG_POSTS: BlogPost[] = [
         image: 'https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?auto=format&fit=crop&q=80&w=1200',
         author: 'அட்வகேட் சந்திரசேகர்'
     },
+    {
+        slug: '/blog/aadhaar-marriage-update-process',
+        title: 'திருமணத்திற்கு பிறகு ஆதார் அட்டையில் பெயர் மாற்றம்',
+        excerpt: 'திருமணத்திற்கு பிறகு ஆதார் அட்டையில் பெயர் மாற்றம் - UIDAI portal step-by-step guide in Tamil.',
+        date: 'Sep 28, 2026',
+        category: 'legal-documents',
+        image: 'https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?auto=format&fit=crop&q=80&w=1200',
+        author: 'அட்வகேட் சந்திரசேகர்'
+    },
 ];
