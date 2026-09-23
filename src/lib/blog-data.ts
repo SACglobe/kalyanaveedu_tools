@@ -444,4 +444,13 @@ export const BLOG_POSTS: BlogPost[] = [
         image: 'https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?auto=format&fit=crop&q=80&w=1200',
         author: 'அட்வகேட் சந்திரசேகர்'
     },
+    {
+        slug: '/blog/brahmin-wedding-traditions-tamil',
+        title: 'தமிழ் பார்ப்பனர் திருமண சடங்குகள்',
+        excerpt: 'தமிழ் பார்ப்பனர் திருமண சடங்குகள் - ஐயர் மற்றும் ஐயங்கார் திருமண முறைகளின் முழுமையான வழிகாட்டி, சப்தபதி, மங்கல்ய தாரணம்.',
+        date: 'Oct 01, 2026',
+        category: 'traditions',
+        image: 'https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?auto=format&fit=crop&q=80&w=1200',
+        author: 'மீனாட்சி சுந்தரம்'
+    },
 ];
