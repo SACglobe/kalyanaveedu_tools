@@ -453,4 +453,13 @@ export const BLOG_POSTS: BlogPost[] = [
         image: 'https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?auto=format&fit=crop&q=80&w=1200',
         author: 'மீனாட்சி சுந்தரம்'
     },
+    {
+        slug: '/blog/mudaliar-wedding-traditions-tamil',
+        title: 'முதலியார் திருமண சடங்குகள்',
+        excerpt: 'முதலியார் திருமண சடங்குகள் - வேளாளர், கவுண்டர் சமுதாயத்தின் பாரம்பரிய திருமண நடைமுறைகள், தனிப்பட்ட சடங்குகள்.',
+        date: 'Oct 04, 2026',
+        category: 'traditions',
+        image: 'https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?auto=format&fit=crop&q=80&w=1200',
+        author: 'மீனாட்சி சுந்தரம்'
+    },
 ];
