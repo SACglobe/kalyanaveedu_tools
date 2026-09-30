@@ -462,4 +462,13 @@ export const BLOG_POSTS: BlogPost[] = [
         image: 'https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?auto=format&fit=crop&q=80&w=1200',
         author: 'மீனாட்சி சுந்தரம்'
     },
+    {
+        slug: '/blog/nadar-wedding-traditions-tamil',
+        title: 'நாடார் சமுதாய திருமண சடங்குகள்',
+        excerpt: 'நாடார் சமுதாய திருமண சடங்குகள் - தென் தமிழகத்தின் தனித்துவமான திருமண பாரம்பரியங்கள், ஆடை, நகை, சடங்கு முறை.',
+        date: 'Oct 07, 2026',
+        category: 'traditions',
+        image: 'https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?auto=format&fit=crop&q=80&w=1200',
+        author: 'மீனாட்சி சுந்தரம்'
+    },
 ];
