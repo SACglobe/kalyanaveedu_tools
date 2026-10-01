@@ -471,4 +471,13 @@ export const BLOG_POSTS: BlogPost[] = [
         image: 'https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?auto=format&fit=crop&q=80&w=1200',
         author: 'மீனாட்சி சுந்தரம்'
     },
+    {
+        slug: '/blog/thevar-maravar-wedding-traditions',
+        title: 'தேவர் / முக்குலத்தோர் திருமண சடங்குகள்',
+        excerpt: 'தேவர் / முக்குலத்தோர் திருமண சடங்குகள் - மறவர், கள்ளர், அகம்படியர் சமூகத்தின் தனிப்பட்ட திருமண பாரம்பரியங்கள்.',
+        date: 'Oct 10, 2026',
+        category: 'traditions',
+        image: 'https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?auto=format&fit=crop&q=80&w=1200',
+        author: 'மீனாட்சி சுந்தரம்'
+    },
 ];
