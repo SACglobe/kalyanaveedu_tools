@@ -408,4 +408,76 @@ export const BLOG_POSTS: BlogPost[] = [
         image: 'https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?auto=format&fit=crop&q=80&w=1200',
         author: 'கார்த்திக் ராஜன்'
     },
+    {
+        slug: '/blog/dr-muthulakshmi-reddy-scheme',
+        title: 'டாக்டர் முத்துலக்ஷ்மி ரெட்டி நலத் திட்டம்',
+        excerpt: 'டாக்டர் முத்துலக்ஷ்மி ரெட்டி நலத் திட்டம் - விதவை மறுமணம், BPL குடும்பங்களுக்கான திருமண உதவி.',
+        date: 'Sep 19, 2026',
+        category: 'government-schemes',
+        image: 'https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?auto=format&fit=crop&q=80&w=1200',
+        author: 'கார்த்திக் ராஜன்'
+    },
+    {
+        slug: '/blog/tn-intercaste-marriage-incentive',
+        title: 'சாதிகளுக்கிடையேயான திருமண ஊக்கத் திட்டம்',
+        excerpt: 'சாதிகளுக்கிடையேயான திருமண ஊக்கத் திட்டம் - ₹1 லட்சம் (SC-OC திருமணம்), தகுதி, விண்ணப்பம்.',
+        date: 'Sep 22, 2026',
+        category: 'government-schemes',
+        image: 'https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?auto=format&fit=crop&q=80&w=1200',
+        author: 'கார்த்திக் ராஜன்'
+    },
+    {
+        slug: '/blog/marriage-registration-tamilnadu-how-to',
+        title: 'தமிழ்நாட்டில் திருமண பதிவு செய்வது எப்படி?',
+        excerpt: 'தமிழ்நாட்டில் திருமண பதிவு செய்வது எப்படி? - Hindu Marriage Act, Special Marriage Act, தேவையான ஆவணங்கள், கட்டணம்.',
+        date: 'Sep 25, 2026',
+        category: 'legal-documents',
+        image: 'https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?auto=format&fit=crop&q=80&w=1200',
+        author: 'அட்வகேட் சந்திரசேகர்'
+    },
+    {
+        slug: '/blog/aadhaar-marriage-update-process',
+        title: 'திருமணத்திற்கு பிறகு ஆதார் அட்டையில் பெயர் மாற்றம்',
+        excerpt: 'திருமணத்திற்கு பிறகு ஆதார் அட்டையில் பெயர் மாற்றம் - UIDAI portal step-by-step guide in Tamil.',
+        date: 'Sep 28, 2026',
+        category: 'legal-documents',
+        image: 'https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?auto=format&fit=crop&q=80&w=1200',
+        author: 'அட்வகேட் சந்திரசேகர்'
+    },
+    {
+        slug: '/blog/brahmin-wedding-traditions-tamil',
+        title: 'தமிழ் பார்ப்பனர் திருமண சடங்குகள்',
+        excerpt: 'தமிழ் பார்ப்பனர் திருமண சடங்குகள் - ஐயர் மற்றும் ஐயங்கார் திருமண முறைகளின் முழுமையான வழிகாட்டி, சப்தபதி, மங்கல்ய தாரணம்.',
+        date: 'Oct 01, 2026',
+        category: 'traditions',
+        image: 'https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?auto=format&fit=crop&q=80&w=1200',
+        author: 'மீனாட்சி சுந்தரம்'
+    },
+    {
+        slug: '/blog/mudaliar-wedding-traditions-tamil',
+        title: 'முதலியார் திருமண சடங்குகள்',
+        excerpt: 'முதலியார் திருமண சடங்குகள் - வேளாளர், கவுண்டர் சமுதாயத்தின் பாரம்பரிய திருமண நடைமுறைகள், தனிப்பட்ட சடங்குகள்.',
+        date: 'Oct 04, 2026',
+        category: 'traditions',
+        image: 'https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?auto=format&fit=crop&q=80&w=1200',
+        author: 'மீனாட்சி சுந்தரம்'
+    },
+    {
+        slug: '/blog/nadar-wedding-traditions-tamil',
+        title: 'நாடார் சமுதாய திருமண சடங்குகள்',
+        excerpt: 'நாடார் சமுதாய திருமண சடங்குகள் - தென் தமிழகத்தின் தனித்துவமான திருமண பாரம்பரியங்கள், ஆடை, நகை, சடங்கு முறை.',
+        date: 'Oct 07, 2026',
+        category: 'traditions',
+        image: 'https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?auto=format&fit=crop&q=80&w=1200',
+        author: 'மீனாட்சி சுந்தரம்'
+    },
+    {
+        slug: '/blog/thevar-maravar-wedding-traditions',
+        title: 'தேவர் / முக்குலத்தோர் திருமண சடங்குகள்',
+        excerpt: 'தேவர் / முக்குலத்தோர் திருமண சடங்குகள் - மறவர், கள்ளர், அகம்படியர் சமூகத்தின் தனிப்பட்ட திருமண பாரம்பரியங்கள்.',
+        date: 'Oct 10, 2026',
+        category: 'traditions',
+        image: 'https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?auto=format&fit=crop&q=80&w=1200',
+        author: 'மீனாட்சி சுந்தரம்'
+    },
 ];
