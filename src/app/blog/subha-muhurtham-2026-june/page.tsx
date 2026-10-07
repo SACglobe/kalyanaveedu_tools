@@ -8,7 +8,7 @@ import { SITE_CONFIG } from '@/lib/constants';
 import RelatedArticles from '@/components/blog/RelatedArticles';
 
 export const metadata: Metadata = {
-    title: '2026 ஜூன் சுப முகூர்த்த நாட்கள் — ஆனி மாத திருமண தேதிகள் | கல்யாண வீடு',
+    title: '2026 ஜூன் சுப முகூர்த்த நாட்கள் — ஆனி மாத திருமண தேதிகள்',
     description: '2026 ஜூன் மாதத்திற்கான 6 சுப முகூர்த்த நாட்கள், ஆனி திருமஞ்சனம் சிறப்பு, பருவமழை தொடக்கம் மற்றும் திருமண திட்டமிடல் குறிப்புகள்.',
     keywords: ['2026 சுப முகூர்த்த நாட்கள்', 'ஆனி மாதம் திருமண தேதிகள்', 'Tamil muhurtham dates 2026', 'june wedding dates Tamil Nadu'],
     alternates: {

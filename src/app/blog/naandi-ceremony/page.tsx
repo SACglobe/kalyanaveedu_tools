@@ -15,7 +15,7 @@ import RelatedArticles from '@/components/blog/RelatedArticles';
 
 
 export const metadata: Metadata = {
-    title: 'நாந்தி சடங்கு: முன்னோர் ஆசியில் தொடங்கும் திருமணம் | கல்யாண வீடு',
+    title: 'நாந்தி சடங்கு: முன்னோர் ஆசியில் தொடங்கும் திருமணம்',
     description: 'நாந்தி சடங்கு என்றால் என்ன, எப்போது, எப்படி செய்வார்கள், முன்னோர்களை ஏன் வழிபடுகிறோம் — திருமணத்தின் புனித தொடக்க சடங்கை விரிவாக அறியுங்கள்.',
     keywords: ['நாந்தி சடங்கு', 'naandi ceremony', 'naandi sradham', 'tamil wedding ritual', 'pre-wedding ceremony', 'pitru tharpanam', 'முன்னோர் வழிபாடு'],
     alternates: {
@@ -29,7 +29,7 @@ export default function NaandiCeremony() {
             <Schema 
                 type="BlogPosting"
                 data={{
-                    title: 'நாந்தி சடங்கு: முன்னோர் ஆசியில் தொடங்கும் திருமணம் | கல்யாண வீடு',
+                    title: 'நாந்தி சடங்கு: முன்னோர் ஆசியில் தொடங்கும் திருமணம்',
                     description: 'நாந்தி சடங்கு என்றால் என்ன, எப்போது, எப்படி செய்வார்கள், முன்னோர்களை ஏன் வழிபடுகிறோம் — திருமணத்தின் புனித தொடக்க சடங்கை விரிவாக அறியுங்கள்.',
                     author: 'சித்ரை செல்வன்',
                     datePublished: '2026-02-25',

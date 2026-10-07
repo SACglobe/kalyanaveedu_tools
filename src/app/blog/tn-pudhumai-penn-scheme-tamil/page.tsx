@@ -8,7 +8,7 @@ import RelatedArticles from '@/components/blog/RelatedArticles';
 import { SITE_CONFIG } from '@/lib/constants';
 
 export const metadata: Metadata = {
-    title: 'தமிழ்நாடு புதுமை பெண் திட்டம் (Pudhumai Penn Scheme) | கல்யாண வீடு',
+    title: 'தமிழ்நாடு புதுமை பெண் திட்டம் (Pudhumai Penn Scheme)',
     description: 'தமிழ்நாடு புதுமை பெண் திட்டம் (Pudhumai Penn Scheme) - ₹1000 மாதாந்திர உதவி, தகுதி, விண்ணப்பிக்கும் முறை',
     keywords: ['tn', 'pudhumai', 'penn', 'scheme', 'tamil', 'தமிழ் திருமணம்', 'kalyanaveedu'],
     alternates: {

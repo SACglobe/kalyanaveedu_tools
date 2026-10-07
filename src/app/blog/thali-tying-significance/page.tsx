@@ -15,7 +15,7 @@ import RelatedArticles from '@/components/blog/RelatedArticles';
 
 
 export const metadata: Metadata = {
-    title: 'தாலி கட்டுவதன் அர்த்தம்: மூன்று முடிச்சுகளின் தத்துவம் | கல்யாண வீடு',
+    title: 'தாலி கட்டுவதன் அர்த்தம்: மூன்று முடிச்சுகளின் தத்துவம்',
     description: 'தாலி கட்டும் தருணத்தில் என்ன நடக்கிறது, மூன்று முடிச்சுகளின் அர்த்தம் என்ன, மந்திரங்கள் ஏன் சொல்லப்படுகின்றன — கலாச்சார விளக்கம்.',
     keywords: ['தாலி கட்டுவதன் அர்த்தம்', 'thali ceremony meaning', 'mangalsutra significance', 'tamil wedding thali', 'மூன்று முடிச்சு அர்த்தம்', 'thirumaangalyam'],
     alternates: {
@@ -29,7 +29,7 @@ export default function ThaliTyingSignificance() {
             <Schema 
                 type="BlogPosting"
                 data={{
-                    title: 'தாலி கட்டுவதன் அர்த்தம்: மூன்று முடிச்சுகளின் தத்துவம் | கல்யாண வீடு',
+                    title: 'தாலி கட்டுவதன் அர்த்தம்: மூன்று முடிச்சுகளின் தத்துவம்',
                     description: 'தாலி கட்டும் தருணத்தில் என்ன நடக்கிறது, மூன்று முடிச்சுகளின் அர்த்தம் என்ன, மந்திரங்கள் ஏன் சொல்லப்படுகின்றன — கலாச்சார விளக்கம்.',
                     author: 'சித்ரை செல்வன்',
                     datePublished: '2026-02-25',

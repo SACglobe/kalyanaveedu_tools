@@ -5,10 +5,13 @@ import { SITE_CONFIG } from '@/lib/constants';
 import Link from 'next/link';
 
 interface PageProps {
-  params: {
+  params: Promise<{
     slug: string;
-  };
+  }>;
 }
+
+export const dynamic = 'force-static';
+export const revalidate = 604800; // 7 days
 
 // Statically generate all regional routes
 export function generateStaticParams() {
@@ -18,8 +21,9 @@ export function generateStaticParams() {
 }
 
 // Generate dynamic metadata for SEO
-export function generateMetadata({ params }: PageProps): Metadata {
-  const guide = regionalGuides.find((g) => g.slug === params.slug);
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+  const { slug } = await params;
+  const guide = regionalGuides.find((g) => g.slug === slug);
 
   if (!guide) {
     return { title: 'Guide Not Found' };
@@ -35,8 +39,9 @@ export function generateMetadata({ params }: PageProps): Metadata {
   };
 }
 
-export default function RegionalRegistrationPage({ params }: PageProps) {
-  const guide = regionalGuides.find((g) => g.slug === params.slug);
+export default async function RegionalRegistrationPage({ params }: PageProps) {
+  const { slug } = await params;
+  const guide = regionalGuides.find((g) => g.slug === slug);
 
   if (!guide) {
     notFound();
@@ -44,19 +49,19 @@ export default function RegionalRegistrationPage({ params }: PageProps) {
 
   const jsonLd = {
     '@context': 'https://schema.org',
-    '@type': 'HowTo',
-    name: guide.meta.title,
+    '@type': 'Article',
+    headline: guide.meta.title,
     description: guide.meta.description,
-    estimatedCost: {
-      '@type': 'MonetaryAmount',
-      currency: 'INR',
-      value: '150',
+    author: {
+      '@type': 'Organization',
+      name: SITE_CONFIG.name,
+      url: SITE_CONFIG.url,
     },
-    step: guide.process.map((step) => ({
-      '@type': 'HowToStep',
-      name: step.title.en,
-      text: step.description.en,
-    })),
+    publisher: {
+      '@type': 'Organization',
+      name: SITE_CONFIG.name,
+      url: SITE_CONFIG.url,
+    },
   };
 
   return (

@@ -8,7 +8,7 @@ import { SITE_CONFIG } from '@/lib/constants';
 import RelatedArticles from '@/components/blog/RelatedArticles';
 
 export const metadata: Metadata = {
-    title: '2026 பிப்ரவரி சுப முகூர்த்த நாட்கள் — மாசி மாத திருமண தேதிகள் | கல்யாண வீடு',
+    title: '2026 பிப்ரவரி சுப முகூர்த்த நாட்கள் — மாசி மாத திருமண தேதிகள்',
     description: '2026 பிப்ரவரி மாதத்திற்கான 6 சிறந்த சுப முகூர்த்த நாட்கள், மாசி மகம் சிறப்பு, ஜோதிட பலன்கள் மற்றும் திருமண பட்ஜெட் வழிகாட்டி.',
     keywords: ['2026 சுப முகூர்த்த நாட்கள்', 'மாசி மாதம் திருமண தேதிகள்', 'Tamil muhurtham dates 2026', 'february wedding dates Tamil Nadu'],
     alternates: {

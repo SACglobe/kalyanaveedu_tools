@@ -8,7 +8,7 @@ import RelatedArticles from '@/components/blog/RelatedArticles';
 import { SITE_CONFIG } from '@/lib/constants';
 
 export const metadata: Metadata = {
-    title: 'மூவலூர் ராமாமிர்தம் அம்மையார் திட்டம் | கல்யாண வீடு',
+    title: 'மூவலூர் ராமாமிர்தம் அம்மையார் திட்டம்',
     description: 'மூவலூர் ராமாமிர்தம் அம்மையார் திட்டம் - அரசு திருமண உதவி ₹50,000, விண்ணப்பிக்கும் முறை, தேவையான ஆவணங்கள்',
     keywords: ['tn', 'marriage', 'assistance', 'scheme', 'moovalur', 'தமிழ் திருமணம்', 'kalyanaveedu'],
     alternates: {

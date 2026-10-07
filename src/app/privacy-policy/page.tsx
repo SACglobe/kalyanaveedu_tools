@@ -3,7 +3,7 @@ import { SITE_CONFIG } from '@/lib/constants';
 import Link from 'next/link';
 
 export const metadata: Metadata = {
-    title: 'தனியுரிமை கொள்கை | Privacy Policy - Kalyana Veedu',
+    title: 'தனியுரிமை கொள்கை | Privacy Policy',
     description: 'கல்யாண வீடு தனியுரிமை கொள்கை. உங்கள் தகவல்கள் எவ்வாறு சேகரிக்கப்படுகின்றன, பயன்படுத்தப்படுகின்றன மற்றும் பாதுகாக்கப்படுகின்றன என்பதை அறிந்து கொள்ளுங்கள்.',
     alternates: {
         canonical: `${SITE_CONFIG.url}/privacy-policy`,
@@ -88,7 +88,7 @@ export default function PrivacyPage() {
                 <div className="bg-yellow-50 p-6 rounded-xl border border-yellow-200 my-4">
                     <p className="font-bold mb-3 text-yellow-900">🔔 விளம்பர வெளிப்படைத்தன்மை அறிவிப்பு:</p>
                     <p className="mb-3">
-                        எங்கள் இணையதளத்தில் <strong>Google AdSense</strong> மூலம் விளம்பரங்கள் காட்டப்படுகின்றன.
+                        எங்கள் இணையதளத்தில் <strong>Google AdSense</strong> மற்றும் அங்கீகரிக்கப்பட்ட விளம்பர கூட்டாளர்கள் மூலம் விளம்பரங்கள் காட்டப்படலாம்.
                         Google மற்றும் அதன் கூட்டாளர்கள் பின்வரும் தொழில்நுட்பங்களைப் பயன்படுத்துகிறார்கள்:
                     </p>
                     <ul className="list-disc pl-6 space-y-2 text-sm">
@@ -111,8 +111,8 @@ export default function PrivacyPage() {
                 <div className="bg-gray-50 p-6 rounded-xl border border-gray-200 my-4">
                     <h4 className="font-bold text-gray-900 mb-3">Google AdSense & குக்கீகள்</h4>
                     <p className="mb-3">
-                        இந்த இணையதளம் Google AdSense விளம்பர சேவையைப் பயன்படுத்துகிறது.
-                        Google AdSense, விளம்பரங்களை வழங்குவதற்காக குக்கீகளைப் பயன்படுத்துகிறது.
+                        இந்த இணையதளம் விளம்பரங்களை வழங்குவதற்காக Google AdSense போன்ற மூன்றாம் தரப்பு சேவைகளைப் பயன்படுத்தலாம்.
+                        Google, பயனர்களுக்கு ஏற்ற விளம்பரங்களை வழங்குவதற்காக குக்கீகளைப் பயன்படுத்துகிறது.
                         Google AdSense-இன் தனியுரிமைக் கொள்கையை இங்கே படிக்கலாம்:
                         <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline ml-1">
                             https://policies.google.com/privacy
@@ -195,8 +195,8 @@ export default function PrivacyPage() {
                 </div>
                 <p>
                     இந்த உரிமைகளை பயன்படுத்த, எங்களை தொடர்பு கொள்ளுங்கள்:
-                    <a href="mailto:myutilitybox.helpdesk@gmail.com" className="text-primary hover:underline ml-1">
-                        myutilitybox.helpdesk@gmail.com
+                    <a href="mailto:kalyanaveedu.helpdesk@gmail.com" className="text-primary hover:underline ml-1">
+                        kalyanaveedu.helpdesk@gmail.com
                     </a>
                 </p>
 
@@ -232,8 +232,8 @@ export default function PrivacyPage() {
                     </p>
                     <div className="space-y-2 text-sm">
                         <p><strong>📧 Email:</strong>
-                            <a href="mailto:myutilitybox.helpdesk@gmail.com" className="text-primary hover:underline ml-1">
-                                myutilitybox.helpdesk@gmail.com
+                            <a href="mailto:kalyanaveedu.helpdesk@gmail.com" className="text-primary hover:underline ml-1">
+                                kalyanaveedu.helpdesk@gmail.com
                             </a>
                         </p>
                         <p><strong>🌐 Website:</strong>

@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { SITE_CONFIG } from '@/lib/constants';
 
 export const metadata: Metadata = {
-    title: 'அடிக்கடி கேட்கப்படும் கேள்விகள் (FAQ) | Kalyana Veedu',
+    title: 'அடிக்கடி கேட்கப்படும் கேள்விகள் (FAQ)',
     description: 'கல்யாண வீடு தளம், அதன் கருவிகள் மற்றும் தமிழ் திருமண சடங்குகள் குறித்த அடிக்கடி கேட்கப்படும் கேள்விகளுக்கான பதில்கள்.',
     alternates: {
         canonical: `${SITE_CONFIG.url}/faq`,

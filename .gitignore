@@ -42,3 +42,10 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# audit & report dumps
+SEO-REPORT*
+seo-report*
+homepage_*
+sitemap_*
+build_error.txt

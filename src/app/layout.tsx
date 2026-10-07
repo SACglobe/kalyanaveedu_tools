@@ -28,9 +28,6 @@ export const metadata: Metadata = {
   },
   alternates: {
     canonical: SITE_CONFIG.url,
-    languages: {
-      'ta-IN': '/',
-    },
   },
   openGraph: {
     title: SITE_CONFIG.name,
@@ -58,6 +55,9 @@ export const metadata: Metadata = {
 export const viewport = {
   themeColor: '#8B1A1A',
 };
+
+export const dynamic = 'force-static';
+export const revalidate = 604800; // 7 days (weekly cache)
 
 import PWAProvider from '@/components/providers/PWAProvider';
 

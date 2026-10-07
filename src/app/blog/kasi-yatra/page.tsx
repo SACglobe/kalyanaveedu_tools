@@ -15,7 +15,7 @@ import RelatedArticles from '@/components/blog/RelatedArticles';
 
 
 export const metadata: Metadata = {
-    title: 'காசி யாத்திரை: திருமணத்தின் சுவாரஸ்யமான பண்பாட்டு சடங்கு | கல்யாண வீடு',
+    title: 'காசி யாத்திரை: திருமணத்தின் சுவாரஸ்யமான பண்பாட்டு சடங்கு',
     description: 'காசி யாத்திரை சடங்கு என்றால் என்ன, குடை, கம்பு, விசிறி ஏன் பிடிக்கிறார்கள் — தமிழ் திருமணத்தின் முக்கிய நிகழ்வை விரிவாக அறிந்துகொள்ளுங்கள்.',
     keywords: ['காசி யாத்திரை', 'Kasi Yatra ritual', 'Tamil wedding ceremony', 'Kasi Yatra significance', 'மாப்பிள்ளை அழைப்பு', 'wedding traditions'],
     alternates: {

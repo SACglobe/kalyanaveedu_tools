@@ -8,7 +8,7 @@ import { SITE_CONFIG } from '@/lib/constants';
 import RelatedArticles from '@/components/blog/RelatedArticles';
 
 export const metadata: Metadata = {
-    title: '2026 ஆகஸ்ட் சுப முகூர்த்த நாட்கள் — ஆவணி மாத திருமண தேதிகள் | கல்யாண வீடு',
+    title: '2026 ஆகஸ்ட் சுப முகூர்த்த நாட்கள் — ஆவணி மாத திருமண தேதிகள்',
     description: '2026 ஆகஸ்ட் மாதத்திற்கான 3 சிறந்த சுப முகூர்த்த நாட்கள், ஆவணி ஞாயிறு சிறப்பு, சிம்ம சூரியன் பலன்கள் மற்றும் திருமண பட்ஜெட் ஆலோசனை.',
     keywords: ['2026 சுப முகூர்த்த நாட்கள்', 'ஆவணி மாதம் திருமண தேதிகள்', 'Tamil muhurtham dates 2026', 'august wedding dates Tamil Nadu'],
     alternates: {

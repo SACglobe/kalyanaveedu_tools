@@ -8,7 +8,7 @@ import { SITE_CONFIG } from '@/lib/constants';
 import RelatedArticles from '@/components/blog/RelatedArticles';
 
 export const metadata: Metadata = {
-    title: '2026 ஜனவரி சுப முகூர்த்த நாட்கள் — தை மாத திருமண தேதிகள் முழுவிவரம் | கல்யாண வீடு',
+    title: '2026 ஜனவரி சுப முகூர்த்த நாட்கள் — தை மாத திருமண தேதிகள் முழுவிவரம்',
     description: '2026 ஜனவரி மாதத்திற்கான சிறந்த சுப முகூர்த்த நாட்கள், தை மாத திருமண தேதிகள், நக்ஷத்திர விவரங்கள் மற்றும் திருமண திட்டமிடல் வழிகாட்டி.',
     keywords: ['2026 சுப முகூர்த்த நாட்கள்', 'தை மாதம் திருமண தேதிகள்', 'Tamil muhurtham dates 2026', 'january wedding dates Tamil Nadu'],
     alternates: {

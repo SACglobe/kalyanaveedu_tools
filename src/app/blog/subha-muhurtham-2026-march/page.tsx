@@ -8,7 +8,7 @@ import { SITE_CONFIG } from '@/lib/constants';
 import RelatedArticles from '@/components/blog/RelatedArticles';
 
 export const metadata: Metadata = {
-    title: '2026 மார்ச் சுப முகூர்த்த நாட்கள் — பங்குனி மாத திருமண தேதிகள் | கல்யாண வீடு',
+    title: '2026 மார்ச் சுப முகூர்த்த நாட்கள் — பங்குனி மாத திருமண தேதிகள்',
     description: '2026 மார்ச் மாதத்திற்கான 5 சுப முகூர்த்த தேதிகள், பங்குனி உத்திரம் தெய்வீக திருமண மகத்துவம் மற்றும் திருமண ஏற்பாடுகள் வழிகாட்டி.',
     keywords: ['2026 சுப முகூர்த்த நாட்கள்', 'பங்குனி மாதம் திருமண தேதிகள்', 'Tamil muhurtham dates 2026', 'march wedding dates Tamil Nadu'],
     alternates: {

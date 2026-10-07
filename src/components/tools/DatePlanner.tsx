@@ -19,11 +19,14 @@ export default function DatePlanner() {
         setSelectedDate(newDate);
 
         if (newDate) {
-            const target = new Date(newDate);
+            const [y, m, d] = newDate.split('-').map(Number);
+            const target = new Date(y, m - 1, d);
             const today = new Date();
+            today.setHours(0, 0, 0, 0);
+            target.setHours(0, 0, 0, 0);
 
             const diffTime = target.getTime() - today.getTime();
-            const daysLeft = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+            const daysLeft = Math.round(diffTime / (1000 * 60 * 60 * 24));
 
             const dayIndex = target.getDay();
 

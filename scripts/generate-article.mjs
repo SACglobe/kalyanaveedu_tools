@@ -183,7 +183,7 @@ import RelatedArticles from '@/components/blog/RelatedArticles';
 import { SITE_CONFIG } from '@/lib/constants';
 
 export const metadata: Metadata = {
-    title: '${topic.topic.split(' - ')[0].substring(0, 70)} | கல்யாண வீடு',
+    title: '${topic.topic.split(' - ')[0].substring(0, 50)}',
     description: '${topic.topic.substring(0, 155)}',
     keywords: ['${topic.slug.split('-').join("', '")}', 'தமிழ் திருமணம்', 'kalyanaveedu'],
     alternates: {

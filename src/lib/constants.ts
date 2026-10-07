@@ -3,6 +3,8 @@ export const SITE_CONFIG = {
     domain: 'www.kalyanaveedu.in',
     description: 'தமிழர்களின் நம்பகமான திருமண திட்டமிடல் தளம். வயது வரம்பு, பட்ஜெட் மற்றும் திருமண தேதி கணிப்பான்கள்.',
     url: 'https://www.kalyanaveedu.in',
+    email: 'contact@kalyanaveedu.in',
+    supportEmail: 'kalyanaveedu.helpdesk@gmail.com',
     metaDescription: 'தமிழ் குடும்பங்களுக்கான நம்பகமான திருமண திட்டமிடல் தளம். சுப முகூர்த்த தேதிகள், வயது தகுதி, பட்ஜெட் கணிப்பான் மற்றும் விரிவான திருமண வழிகாட்டிகள் அனைத்தும் ஒரே இடத்தில். ',
     social: {
         twitter: 'https://x.com/kalyanaveedu',

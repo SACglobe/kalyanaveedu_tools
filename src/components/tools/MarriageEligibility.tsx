@@ -26,7 +26,8 @@ export default function MarriageEligibility() {
         e.preventDefault();
         if (!dob) return;
 
-        const birthDate = new Date(dob);
+        const [y, m, d] = dob.split('-').map(Number);
+        const birthDate = new Date(y, m - 1, d);
         const today = new Date();
 
         // Calculate exact age

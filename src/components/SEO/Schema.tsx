@@ -1,5 +1,3 @@
-'use client';
-
 import { SITE_CONFIG } from '@/lib/constants';
 
 interface SchemaProps {
@@ -67,12 +65,7 @@ export default function Schema({ type, data }: SchemaProps) {
                 '@context': 'https://schema.org',
                 '@type': 'WebSite',
                 'name': data.name || SITE_CONFIG.name,
-                'url': data.url || SITE_CONFIG.url,
-                'potentialAction': {
-                    '@type': 'SearchAction',
-                    'target': `${data.url || SITE_CONFIG.url}/search?q={search_term_string}`,
-                    'query-input': 'required name=search_term_string'
-                }
+                'url': data.url || SITE_CONFIG.url
             };
             break;
 
@@ -88,7 +81,7 @@ export default function Schema({ type, data }: SchemaProps) {
                 },
                 'datePublished': data.datePublished,
                 'dateModified': data.dateModified || data.datePublished,
-                'image': data.image || `${SITE_CONFIG.url}/og-image.jpg`,
+                'image': data.image || `${SITE_CONFIG.url}/logo-v2.png`,
                 'publisher': {
                     '@type': 'Organization',
                     'name': SITE_CONFIG.name,

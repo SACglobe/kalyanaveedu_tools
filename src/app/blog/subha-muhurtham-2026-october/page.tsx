@@ -8,7 +8,7 @@ import { SITE_CONFIG } from '@/lib/constants';
 import RelatedArticles from '@/components/blog/RelatedArticles';
 
 export const metadata: Metadata = {
-    title: '2026 அக்டோபர் சுப முகூர்த்த நாட்கள் — ஐப்பசி மாத திருமண தேதிகள் | கல்யாண வீடு',
+    title: '2026 அக்டோபர் சுப முகூர்த்த நாட்கள் — ஐப்பசி மாத திருமண தேதிகள்',
     description: '2026 அக்டோபர் மாதத்திற்கான 2 சுப முகூர்த்த நாட்கள், தீபாவளி பண்டிகை சிறப்பு, துலா ஸ்நானம் மகத்துவம் மற்றும் மழைக்கால திருமண வழிகாட்டி.',
     keywords: ['2026 சுப முகூர்த்த நாட்கள்', 'ஐப்பசி மாதம் திருமண தேதிகள்', 'Tamil muhurtham dates 2026', 'october wedding dates Tamil Nadu'],
     alternates: {

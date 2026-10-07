@@ -6,6 +6,7 @@ import { MetadataRoute } from 'next';
 import fs from 'fs';
 import path from 'path';
 import { VALUABLE_MARRIAGE_DATES } from '@/lib/tamil-calendar-data';
+import { regionalGuides } from '@/data/regionalGuides';
 
 const BASE_URL = 'https://www.kalyanaveedu.in';
 
@@ -67,10 +68,19 @@ export default function sitemap(): MetadataRoute.Sitemap {
         priority: 0.7,
     }));
 
+    // ── TYPE E: Regional Registration Legal Guides ──
+    const regionalPages: MetadataRoute.Sitemap = regionalGuides.map(guide => ({
+        url: `${BASE_URL}/registration/${guide.slug}`,
+        lastModified: new Date(),
+        changeFrequency: 'monthly',
+        priority: 0.8,
+    }));
+
     return [
         ...staticPages,
         ...articlePages,
         ...toolPages,
         ...muhurthamPages,
+        ...regionalPages,
     ];
 }

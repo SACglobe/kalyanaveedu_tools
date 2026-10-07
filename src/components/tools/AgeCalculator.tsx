@@ -22,8 +22,10 @@ export default function AgeCalculator() {
         e.preventDefault();
         if (!dob) return;
 
-        const birthDate = new Date(dob);
-        const targetDate = new Date(todayDate);
+        const [by, bm, bd] = dob.split('-').map(Number);
+        const birthDate = new Date(by, bm - 1, bd);
+        const [ty, tm, td] = todayDate.split('-').map(Number);
+        const targetDate = new Date(ty, tm - 1, td);
 
         let years = targetDate.getFullYear() - birthDate.getFullYear();
         let months = targetDate.getMonth() - birthDate.getMonth();

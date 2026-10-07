@@ -15,7 +15,7 @@ import RelatedArticles from '@/components/blog/RelatedArticles';
 
 
 export const metadata: Metadata = {
-    title: 'மாலை மாற்றுதல்: திருமணத்தின் மகிழ்ச்சியான முதல் சங்கமம் | கல்யாண வீடு',
+    title: 'மாலை மாற்றுதல்: திருமணத்தின் மகிழ்ச்சியான முதல் சங்கமம்',
     description: 'மாலை மாற்றுதல் சடங்கு ஏன் செய்யப்படுகிறது, அதன் தத்துவம் என்ன, தோளில் தூக்குவது ஏன் — தமிழ் திருமணத்தின் உற்சாகமான சடங்கை விவரிக்கும் கட்டுரை.',
     keywords: ['மாலை மாற்றுதல்', 'Malai Matruthel significance', 'Tamil wedding garlands', 'wedding flower exchange', 'garland ceremony meaning'],
     alternates: {

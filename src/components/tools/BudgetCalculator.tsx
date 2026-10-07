@@ -11,7 +11,7 @@ type BudgetCategory = {
 
 const INITIAL_CATEGORIES = [
     { id: 'gold', label: 'தங்கம் & நகை (Gold & Jewelry)', amount: 0, icon: '👑' },
-    { id: 'venue', label: 'மண்டபம் & வாடகை (Venue)', amount: 0, icon: 'uD83C\uDFDB️' },
+    { id: 'venue', label: 'மண்டபம் & வாடகை (Venue)', amount: 0, icon: '🏛️' },
     { id: 'food', label: 'உணவு & கேட்டரிங் (Food)', amount: 0, icon: '🍱' },
     { id: 'clothes', label: 'ஆடைகள் & பட்டுப்புடவை (Clothes)', amount: 0, icon: '👗' },
     { id: 'photo', label: 'புகைப்படம் & வீடியோ (Photography)', amount: 0, icon: '📸' },

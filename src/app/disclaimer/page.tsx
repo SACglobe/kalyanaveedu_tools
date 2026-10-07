@@ -3,7 +3,7 @@ import { SITE_CONFIG } from '@/lib/constants';
 import Link from 'next/link';
 
 export const metadata: Metadata = {
-    title: 'பொறுப்புத் துறப்பு | Disclaimer - Kalyanaveedu.in',
+    title: 'பொறுப்புத் துறப்பு | Disclaimer',
     description: 'கல்யாண வீடு தளத்தின் தகவல் துல்லியம், சட்ட பொறுப்புத் துறப்பு, ஜோதிட மற்றும் கணக்கீட்டு கருவிகள் பொறுப்புத் துறப்பு, மூன்றாம் தரப்பு இணை விதிமுறைகள்.',
     alternates: {
         canonical: `${SITE_CONFIG.url}/disclaimer`,
@@ -273,7 +273,7 @@ export default function DisclaimerPage() {
 
                 <div className="bg-gray-50 p-6 rounded-xl my-6">
                     <ul className="space-y-2 text-sm mb-0">
-                        <li><strong>மின்னஞ்சல்:</strong> <a href="mailto:myutilitybox.helpdesk@gmail.com" className="text-primary hover:underline">myutilitybox.helpdesk@gmail.com</a></li>
+                        <li><strong>மின்னஞ்சல்:</strong> <a href="mailto:kalyanaveedu.helpdesk@gmail.com" className="text-primary hover:underline">kalyanaveedu.helpdesk@gmail.com</a></li>
                         <li><strong>தொடர்பு படிவம்:</strong> <Link href="/contact" className="text-primary hover:underline">kalyanaveedu.in/contact</Link></li>
                         <li><strong>இணையதளம்:</strong> <a href="https://www.kalyanaveedu.in" className="text-primary hover:underline">www.kalyanaveedu.in</a></li>
                         <li><strong>நிறுவனர்:</strong> Chithrai Selvan (<a href="https://selvan.dev" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">selvan.dev</a>)</li>

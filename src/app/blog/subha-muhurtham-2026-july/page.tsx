@@ -8,7 +8,7 @@ import { SITE_CONFIG } from '@/lib/constants';
 import RelatedArticles from '@/components/blog/RelatedArticles';
 
 export const metadata: Metadata = {
-    title: '2026 ஜூலை சுப முகூர்த்த நாட்கள் — ஆடி மாத திருமண தேதிகள் | கல்யாண வீடு',
+    title: '2026 ஜூலை சுப முகூர்த்த நாட்கள் — ஆடி மாத திருமண தேதிகள்',
     description: '2026 ஜூலை மாதத்திற்கான 3 சுப முகூர்த்த நாட்கள், ஆடி மாத மரபு உண்மைகள், நிச்சயதார்த்தம் மற்றும் திருமண வழிகாட்டி.',
     keywords: ['2026 சுப முகூர்த்த நாட்கள்', 'ஆடி மாதம் திருமண தேதிகள்', 'Tamil muhurtham dates 2026', 'july wedding dates Tamil Nadu'],
     alternates: {

@@ -163,9 +163,9 @@ export default function ContactPage() {
                                 </div>
                                 <div>
                                     <p className="font-bold text-gray-900 mb-1">மின்னஞ்சல் (Email)</p>
-                                    <a href="mailto:myutilitybox.helpdesk@gmail.com"
+                                    <a href="mailto:kalyanaveedu.helpdesk@gmail.com"
                                         className="text-primary hover:underline">
-                                        myutilitybox.helpdesk@gmail.com
+                                        kalyanaveedu.helpdesk@gmail.com
                                     </a>
                                 </div>
                             </div>

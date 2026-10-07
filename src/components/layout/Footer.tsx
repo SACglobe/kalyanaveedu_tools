@@ -7,11 +7,11 @@ export default function Footer() {
     return (
         <footer className="bg-gray-50 border-t border-gray-200 mt-auto">
             <div className="container mx-auto px-4 py-12">
-                <div className="grid md:grid-cols-4 gap-8">
+                <div className="grid grid-cols-2 md:grid-cols-5 gap-8">
                     {/* Brand */}
-                    <div className="md:col-span-2 space-y-4">
+                    <div className="col-span-2 md:col-span-1 space-y-4">
                         <h3 className="text-xl font-bold text-primary">{SITE_CONFIG.name}</h3>
-                        <p className="text-gray-600 max-w-sm leading-relaxed">
+                        <p className="text-gray-600 text-sm leading-relaxed">
                             {SITE_CONFIG.description}
                         </p>
                     </div>
@@ -19,7 +19,7 @@ export default function Footer() {
                     {/* Quick Links */}
                     <div>
                         <h4 className="font-bold text-gray-900 mb-4">கருவிகள் (Tools)</h4>
-                        <ul className="space-y-2">
+                        <ul className="space-y-2 text-sm">
                             <li><Link href="/tools/tamil-calendar" className="text-gray-600 hover:text-primary">📅 தமிழ் காலண்டர்</Link></li>
                             <li><Link href="/tools/vayathu-kanakku" className="text-gray-600 hover:text-primary">📅 வயது கணக்கிடுபவர்</Link></li>
                             <li><Link href="/tools" className="text-gray-600 font-bold hover:text-accent">அனைத்து கருவிகள் →</Link></li>
@@ -50,14 +50,25 @@ export default function Footer() {
                             <li><Link href="/blog/budget-planning-tips" className="text-gray-600 hover:text-primary">சிக்கன திருமண டிப்ஸ்</Link></li>
                             <li><Link href="/blog/gold-jewelry-buying-guide" className="text-gray-600 hover:text-primary">தங்க நகை வாங்கும் முறை</Link></li>
                             <li><Link href="/blog/wedding-invitation-guide" className="text-gray-600 hover:text-primary">அழைப்பிதழ் எழுதும் முறை</Link></li>
-                            <li><Link href="/privacy-policy" className="text-gray-600 hover:text-primary">Legal & Privacy</Link></li>
+                        </ul>
+                    </div>
+
+                    {/* Legal & Policy (Mandatory for AdSense) */}
+                    <div>
+                        <h4 className="font-bold text-gray-900 mb-4">சட்டம் & விதிகள் (Legal)</h4>
+                        <ul className="space-y-2 text-sm">
+                            <li><Link href="/privacy-policy" className="text-gray-600 hover:text-primary">தனியுரிமை கொள்கை (Privacy)</Link></li>
+                            <li><Link href="/terms" className="text-gray-600 hover:text-primary">விதிமுறைகள் (Terms)</Link></li>
+                            <li><Link href="/disclaimer" className="text-gray-600 hover:text-primary">பொறுப்பு துறப்பு (Disclaimer)</Link></li>
+                            <li><Link href="/cookie-policy" className="text-gray-600 hover:text-primary">குக்கீ கொள்கை (Cookie)</Link></li>
+                            <li><Link href="/contact" className="text-gray-600 hover:text-primary">தொடர்புக்கு (Contact)</Link></li>
                         </ul>
                     </div>
                 </div>
 
                 <div className="border-t border-gray-200 mt-12 pt-8 text-center text-gray-500 text-sm">
                     <p className="mb-2">© {currentYear} {SITE_CONFIG.name}. அனைத்து உரிமைகளும் பாதுகாக்கப்பட்டவை.</p>
-                    <p className="text-gray-400 font-medium tracking-wide">A Unit of Matrimony4U.com</p>
+                    <p className="text-gray-400 font-medium tracking-wide">தமிழ் திருமண திட்டமிடல் &amp; ஆவண வழிகாட்டி தளம்</p>
                 </div>
             </div>
         </footer>

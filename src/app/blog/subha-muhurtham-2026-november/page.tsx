@@ -8,7 +8,7 @@ import { SITE_CONFIG } from '@/lib/constants';
 import RelatedArticles from '@/components/blog/RelatedArticles';
 
 export const metadata: Metadata = {
-    title: '2026 நவம்பர் சுப முகூர்த்த நாட்கள் — கார்த்திகை மாத திருமண தேதிகள் | கல்யாண வீடு',
+    title: '2026 நவம்பர் சுப முகூர்த்த நாட்கள் — கார்த்திகை மாத திருமண தேதிகள்',
     description: '2026 நவம்பர் மாதத்திற்கான 7 சுப முகூர்த்த நாட்கள், திருக்கார்த்திகை தீபம் சிறப்பு, சோமவார விரத பலன்கள் மற்றும் திருமண வழிகாட்டி.',
     keywords: ['2026 சுப முகூர்த்த நாட்கள்', 'கார்த்திகை மாதம் திருமண தேதிகள்', 'Tamil muhurtham dates 2026', 'november wedding dates Tamil Nadu'],
     alternates: {

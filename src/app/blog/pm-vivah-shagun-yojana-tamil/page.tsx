@@ -8,7 +8,7 @@ import RelatedArticles from '@/components/blog/RelatedArticles';
 import { SITE_CONFIG } from '@/lib/constants';
 
 export const metadata: Metadata = {
-    title: 'PM Vivah Shagun Yojana (பிரதமர் திருமண பரிசு திட்டம்) | கல்யாண வீடு',
+    title: 'PM Vivah Shagun Yojana (பிரதமர் திருமண பரிசு திட்டம்)',
     description: 'PM Vivah Shagun Yojana (பிரதமர் திருமண பரிசு திட்டம்) - ₹51,000 மத்திய அரசு திருமண உதவி, SC/ST பெண்களுக்கான வழிகாட்டி',
     keywords: ['pm', 'vivah', 'shagun', 'yojana', 'tamil', 'தமிழ் திருமணம்', 'kalyanaveedu'],
     alternates: {

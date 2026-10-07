@@ -8,7 +8,7 @@ import { SITE_CONFIG } from '@/lib/constants';
 import RelatedArticles from '@/components/blog/RelatedArticles';
 
 export const metadata: Metadata = {
-    title: '2026 செப்டம்பர் சுப முகூர்த்த நாட்கள் — புரட்டாசி மாத திருமண தேதிகள் | கல்யாண வீடு',
+    title: '2026 செப்டம்பர் சுப முகூர்த்த நாட்கள் — புரட்டாசி மாத திருமண தேதிகள்',
     description: '2026 செப்டம்பர் மாதத்திற்கான 3 சுப முகூர்த்த நாட்கள், விநாயகர் சதுர்த்தி சிறப்பு, புரட்டாசி மாத வழிபாடுகள் மற்றும் திருமண வழிகாட்டி.',
     keywords: ['2026 சுப முகூர்த்த நாட்கள்', 'புரட்டாசி மாதம் திருமண தேதிகள்', 'Tamil muhurtham dates 2026', 'september wedding dates Tamil Nadu'],
     alternates: {

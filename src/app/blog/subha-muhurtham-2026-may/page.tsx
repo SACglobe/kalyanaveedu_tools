@@ -8,7 +8,7 @@ import { SITE_CONFIG } from '@/lib/constants';
 import RelatedArticles from '@/components/blog/RelatedArticles';
 
 export const metadata: Metadata = {
-    title: '2026 மே சுப முகூர்த்த நாட்கள் — வைகாசி மாத திருமண தேதிகள் | கல்யாண வீடு',
+    title: '2026 மே சுப முகூர்த்த நாட்கள் — வைகாசி மாத திருமண தேதிகள்',
     description: '2026 மே மாதத்திற்கான 6 சுப முகூர்த்த நாட்கள், வைகாசி விசாகம் சிறப்பு, கோடை விடுமுறை திருமண திட்டமிடல் மற்றும் செலவு கட்டுப்பாடு.',
     keywords: ['2026 சுப முகூர்த்த நாட்கள்', 'வைகாசி மாதம் திருமண தேதிகள்', 'Tamil muhurtham dates 2026', 'may wedding dates Tamil Nadu'],
     alternates: {
