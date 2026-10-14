@@ -34,8 +34,12 @@ if (!GEMINI_API_KEY) {
 }
 
 // ── Config ──
-const GEMINI_MODEL = 'gemini-3.6-flash';
-const GEMINI_ENDPOINT = `https://generativelanguage.googleapis.com/v1beta/models/${GEMINI_MODEL}:generateContent?key=${GEMINI_API_KEY}`;
+const GEMINI_MODELS = [
+  'gemini-3.6-flash',
+  'gemini-3.5-flash',
+  'gemini-flash-lite-latest',
+  'gemini-3.1-flash-lite'
+];
 
 const DRY_RUN = process.argv.includes('--dry-run');
 const INDEX_ARG = process.argv.indexOf('--index');
@@ -118,40 +122,84 @@ STRICT REQUIREMENTS:
 8. Do NOT use backticks or code blocks in your response — output pure JSX only
 9. Use &amp; for & in JSX, &quot; for quotes in Tamil text attributes`;
 
-// ── Call Gemini API ──
+// ── Call Gemini API with Retries and Model Fallback Cascade ──
 async function callGemini(prompt) {
-  const response = await fetch(GEMINI_ENDPOINT, {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({
-      contents: [{ parts: [{ text: prompt }] }],
-      generationConfig: {
-        temperature: 0.7,
-        maxOutputTokens: 16384,
-      },
-    }),
-  });
+  const maxRetriesPerModel = 3;
+  let lastError = null;
 
-  if (!response.ok) {
-    const err = await response.text();
-    throw new Error(`Gemini API error ${response.status}: ${err}`);
+  for (const model of GEMINI_MODELS) {
+    const endpoint = `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${GEMINI_API_KEY}`;
+    console.log(`📡 Trying Gemini model: ${model}...`);
+
+    for (let attempt = 1; attempt <= maxRetriesPerModel; attempt++) {
+      try {
+        const response = await fetch(endpoint, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            contents: [{ parts: [{ text: prompt }] }],
+            generationConfig: {
+              temperature: 0.7,
+              maxOutputTokens: 16384,
+            },
+            safetySettings: [
+              { category: 'HARM_CATEGORY_HARASSMENT', threshold: 'BLOCK_NONE' },
+              { category: 'HARM_CATEGORY_HATE_SPEECH', threshold: 'BLOCK_NONE' },
+              { category: 'HARM_CATEGORY_SEXUALLY_EXPLICIT', threshold: 'BLOCK_NONE' },
+              { category: 'HARM_CATEGORY_DANGEROUS_CONTENT', threshold: 'BLOCK_NONE' }
+            ]
+          }),
+        });
+
+        if (!response.ok) {
+          const errText = await response.text();
+          const isRetryable = response.status === 429 || response.status === 503 || response.status >= 500;
+          console.warn(`⚠️ [${model}] Attempt ${attempt} returned HTTP ${response.status}`);
+
+          if (isRetryable && attempt < maxRetriesPerModel) {
+            const waitTime = attempt * 5000;
+            console.log(`⏳ Waiting ${waitTime / 1000}s before retry...`);
+            await new Promise(r => setTimeout(r, waitTime));
+            continue;
+          }
+          throw new Error(`Gemini API error ${response.status}: ${errText}`);
+        }
+
+        const data = await response.json();
+        let text = data.candidates?.[0]?.content?.parts?.[0]?.text || '';
+
+        if (!text) {
+          const finishReason = data.candidates?.[0]?.finishReason;
+          throw new Error(`Empty response from Gemini (finishReason: ${finishReason || 'UNKNOWN'})`);
+        }
+
+        // Clean markdown code blocks if present
+        text = text.replace(/^```(?:html|jsx|tsx)?\s*/i, '').replace(/\s*```\s*$/i, '').trim();
+
+        // Strip redundant outer <div className="prose..."> wrapper if generated
+        text = text.replace(/^<div\s+className=["'][^"']*prose[^"']*["']\s*>/i, '').trim();
+        const openDivs = (text.match(/<div\b[^>]*>/gi) || []).length;
+        const closeDivs = (text.match(/<\/div>/gi) || []).length;
+        if (closeDivs > openDivs) {
+          text = text.replace(/<\/div>\s*$/, '').trim();
+        }
+
+        console.log(`✅ Successfully generated using model: ${model}`);
+        return text;
+      } catch (err) {
+        lastError = err;
+        console.warn(`⚠️ [${model}] Attempt ${attempt} failed: ${err.message.substring(0, 150)}`);
+        if (attempt < maxRetriesPerModel) {
+          const waitTime = attempt * 5000;
+          console.log(`⏳ Waiting ${waitTime / 1000}s before retry...`);
+          await new Promise(r => setTimeout(r, waitTime));
+        }
+      }
+    }
+    console.warn(`🔄 Model ${model} exhausted. Falling back to next model in pool...`);
   }
 
-  const data = await response.json();
-  let text = data.candidates?.[0]?.content?.parts?.[0]?.text || '';
-  
-  // Clean markdown code blocks if present
-  text = text.replace(/^```(?:html|jsx|tsx)?\s*/i, '').replace(/\s*```\s*$/i, '').trim();
-
-  // Strip redundant outer <div className="prose..."> wrapper if generated
-  text = text.replace(/^<div\s+className=["'][^"']*prose[^"']*["']\s*>/i, '').trim();
-  const openDivs = (text.match(/<div\b[^>]*>/gi) || []).length;
-  const closeDivs = (text.match(/<\/div>/gi) || []).length;
-  if (closeDivs > openDivs) {
-    text = text.replace(/<\/div>\s*$/, '').trim();
-  }
-
-  return text;
+  throw new Error(`All candidate Gemini models failed. Last error: ${lastError?.message || 'Unknown'}`);
 }
 
 // ── Generate article content ──
