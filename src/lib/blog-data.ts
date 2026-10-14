@@ -480,4 +480,13 @@ export const BLOG_POSTS: BlogPost[] = [
         image: 'https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?auto=format&fit=crop&q=80&w=1200',
         author: 'மீனாட்சி சுந்தரம்'
     },
+    {
+        slug: '/blog/pillai-vellala-wedding-traditions',
+        title: 'வெள்ளாள பிள்ளை திருமண சடங்குகள்',
+        excerpt: 'வெள்ளாள பிள்ளை திருமண சடங்குகள் - கார்க்கட்ட வெள்ளாளர், முதலியார் திருமண முறைகளும் சடங்குகளும்.',
+        date: 'Oct 13, 2026',
+        category: 'traditions',
+        image: 'https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?auto=format&fit=crop&q=80&w=1200',
+        author: 'மீனாட்சி சுந்தரம்'
+    },
 ];
