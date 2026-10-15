@@ -489,4 +489,13 @@ export const BLOG_POSTS: BlogPost[] = [
         image: 'https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?auto=format&fit=crop&q=80&w=1200',
         author: 'மீனாட்சி சுந்தரம்'
     },
+    {
+        slug: '/blog/christian-tamil-wedding-traditions',
+        title: 'தமிழ் கிறிஸ்துவ திருமண சடங்குகள்',
+        excerpt: 'தமிழ் கிறிஸ்துவ திருமண சடங்குகள் - Catholic, CSI திருமண நடைமுறைகள், தாலி கட்டல், ஆசி.',
+        date: 'Oct 16, 2026',
+        category: 'traditions',
+        image: 'https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?auto=format&fit=crop&q=80&w=1200',
+        author: 'மீனாட்சி சுந்தரம்'
+    },
 ];
