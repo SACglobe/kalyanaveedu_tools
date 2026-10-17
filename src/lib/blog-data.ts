@@ -507,4 +507,13 @@ export const BLOG_POSTS: BlogPost[] = [
         image: 'https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?auto=format&fit=crop&q=80&w=1200',
         author: 'மீனாட்சி சுந்தரம்'
     },
+    {
+        slug: '/blog/january-2026-muhurtham-detailed',
+        title: 'ஜனவரி 2026 சுப முகூர்த்த தேதிகள்',
+        excerpt: 'ஜனவரி 2026 சுப முகூர்த்த தேதிகள் - துஷ்டி திதி, நக்ஷத்திரம், லக்னம் விவரங்கள், ஏன் சிறந்தது?.',
+        date: 'Jan 05, 2026',
+        category: 'astrology',
+        image: 'https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?auto=format&fit=crop&q=80&w=1200',
+        author: 'ஜோதிடர் வேங்கடேஷ்'
+    },
 ];
