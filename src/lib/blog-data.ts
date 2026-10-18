@@ -516,4 +516,13 @@ export const BLOG_POSTS: BlogPost[] = [
         image: 'https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?auto=format&fit=crop&q=80&w=1200',
         author: 'ஜோதிடர் வேங்கடேஷ்'
     },
+    {
+        slug: '/blog/february-2026-muhurtham-detailed',
+        title: 'பிப்ரவரி 2026 சுப முகூர்த்த நாட்கள்',
+        excerpt: 'பிப்ரவரி 2026 சுப முகூர்த்த நாட்கள் - மாசி மாத முகூர்த்தம், மஹா சிவராத்திரி தவிர்க்க வேண்டிய நாட்கள், சிறந்த திருமண தேதி.',
+        date: 'Feb 05, 2026',
+        category: 'astrology',
+        image: 'https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?auto=format&fit=crop&q=80&w=1200',
+        author: 'ஜோதிடர் வேங்கடேஷ்'
+    },
 ];
