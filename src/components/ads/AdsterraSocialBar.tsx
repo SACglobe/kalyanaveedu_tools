@@ -19,6 +19,9 @@ export default function AdsterraSocialBar({ scriptUrl }: AdsterraSocialBarProps)
     script.type = 'text/javascript';
     script.src = activeUrl;
     script.async = true;
+    script.onerror = () => {
+      // Gracefully handle AdBlocker / client-side blocking without breaking the app
+    };
     document.body.appendChild(script);
 
     return () => {

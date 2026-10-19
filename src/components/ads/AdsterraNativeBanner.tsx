@@ -31,6 +31,9 @@ export default function AdsterraNativeBanner({
     script.async = true;
     script.setAttribute('data-cfasync', 'false');
     script.src = activeScript;
+    script.onerror = () => {
+      // Gracefully handle AdBlocker
+    };
     container.appendChild(script);
 
     return () => {
