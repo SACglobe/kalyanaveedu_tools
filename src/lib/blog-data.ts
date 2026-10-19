@@ -525,4 +525,13 @@ export const BLOG_POSTS: BlogPost[] = [
         image: 'https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?auto=format&fit=crop&q=80&w=1200',
         author: 'ஜோதிடர் வேங்கடேஷ்'
     },
+    {
+        slug: '/blog/march-2026-muhurtham-detailed',
+        title: 'மார்ச் 2026 சுப முகூர்த்த நாட்கள்',
+        excerpt: 'மார்ச் 2026 சுப முகூர்த்த நாட்கள் - பங்குனி உத்திரம் மாதம், உகாதி தவிர்க்க வேண்டிய நாட்கள், திருமண நேரங்கள்.',
+        date: 'Mar 05, 2026',
+        category: 'astrology',
+        image: 'https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?auto=format&fit=crop&q=80&w=1200',
+        author: 'ஜோதிடர் வேங்கடேஷ்'
+    },
 ];
