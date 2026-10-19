@@ -3,6 +3,7 @@ import { SITE_CONFIG } from '@/lib/constants';
 import Schema from '@/components/SEO/Schema';
 import { BLOG_POSTS, normalizeCategory } from '@/lib/blog-data';
 import BlogListClient from '@/components/blog/BlogListClient';
+import AdsterraBanner from '@/components/ads/AdsterraBanner';
 
 export const metadata = {
     title: 'திருமண வழிகாட்டி கட்டுரைகள் | Wedding Planning Blog - கல்யாண வீடு',
@@ -70,6 +71,12 @@ export default function BlogIndex() {
             }>
                 <BlogListClient posts={BLOG_POSTS} categoryCounts={categoryCounts} />
             </Suspense>
+
+            {/* Strategic Adsterra Banner */}
+            <div className="my-10">
+                <AdsterraBanner format="728x90" className="hidden md:flex" />
+                <AdsterraBanner format="300x250" className="flex md:hidden" />
+            </div>
 
             {/* Expanded blog details for SEO and AdSense */}
             <div className="max-w-4xl mx-auto mt-20 border-t border-gray-100 pt-12 text-gray-700 space-y-6">

@@ -1,1 +1,2 @@
-google.com, pub-8665355844991273, DIRECT, f08c47fec0942fa0
+# Adsterra / Advertising Partners
+# Add authorized digital sellers when provided by the ad network.

@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import AdsterraBanner from '@/components/ads/AdsterraBanner';
 
 type EligibilityResult = {
     isEligible: boolean;
@@ -176,6 +177,12 @@ export default function MarriageEligibility() {
                     )}
                 </div>
             )}
+
+            {/* Strategic Adsterra Banner Placement */}
+            <div className="mt-8 border-t border-gray-100 pt-6">
+                <AdsterraBanner format="728x90" className="hidden md:flex" />
+                <AdsterraBanner format="300x250" className="flex md:hidden" />
+            </div>
         </div>
     );
 }

@@ -78,51 +78,39 @@ export default function PrivacyPage() {
                     </div>
                     <div className="bg-gray-50 p-4 rounded-lg">
                         <p className="font-bold">விளம்பர குக்கீகள் (Advertising Cookies)</p>
-                        <p className="text-sm">உங்களுக்கு பொருத்தமான விளம்பரங்களை காட்ட மூன்றாம் தரப்பினர் (Google AdSense) பயன்படுத்தலாம்.</p>
+                        <p className="text-sm">உங்களுக்கு பொருத்தமான விளம்பரங்களை காட்ட மூன்றாம் தரப்பு விளம்பர கூட்டாளர்கள் (Adsterra & Partners) பயன்படுத்தலாம்.</p>
                     </div>
                 </div>
 
                 <h2 className="text-2xl font-bold text-gray-900 mt-8">3. மூன்றாம் தரப்பு சேவைகள் & விளம்பரங்கள்</h2>
 
-                <h3 className="text-xl font-bold text-gray-800">3.1. Google AdSense</h3>
-                <div className="bg-yellow-50 p-6 rounded-xl border border-yellow-200 my-4">
-                    <p className="font-bold mb-3 text-yellow-900">🔔 விளம்பர வெளிப்படைத்தன்மை அறிவிப்பு:</p>
+                <h3 className="text-xl font-bold text-gray-800">3.1. விளம்பர கூட்டாளர்கள் (Adsterra & Advertising Partners)</h3>
+                <div className="bg-blue-50 p-6 rounded-xl border border-blue-200 my-4">
+                    <p className="font-bold mb-3 text-blue-900">🔔 விளம்பர வெளிப்படைத்தன்மை அறிவிப்பு:</p>
                     <p className="mb-3">
-                        எங்கள் இணையதளத்தில் <strong>Google AdSense</strong> மற்றும் அங்கீகரிக்கப்பட்ட விளம்பர கூட்டாளர்கள் மூலம் விளம்பரங்கள் காட்டப்படலாம்.
-                        Google மற்றும் அதன் கூட்டாளர்கள் பின்வரும் தொழில்நுட்பங்களைப் பயன்படுத்துகிறார்கள்:
+                        எங்கள் இணையதளத்தில் <strong>Adsterra</strong> மற்றும் அங்கீகரிக்கப்பட்ட விளம்பர கூட்டாளர்கள் மூலம் விளம்பரங்கள் காட்டப்படலாம்.
+                        இவர்கள் பின்வரும் தொழில்நுட்பங்களைப் பயன்படுத்தலாம்:
                     </p>
                     <ul className="list-disc pl-6 space-y-2 text-sm">
-                        <li><strong>குக்கீகள்:</strong> உங்கள் ஆர்வங்கள் மற்றும் வலைத்தள பார்வை வரலாற்றின் அடிப்படையில் தனிப்பயனாக்கப்பட்ட விளம்பரங்களை காண்பிக்க</li>
-                        <li><strong>DoubleClick DART குக்கீ:</strong> Google இன் விளம்பர network முழுவதும் உங்கள் செயல்பாடுகளை கண்காணிக்க</li>
-                        <li><strong>Web Beacons:</strong> விளம்பர பயன்பாட்டை அளவிட</li>
+                        <li><strong>குக்கீகள்:</strong> பொருத்தமான விளம்பரங்களை காண்பிக்கவும், விளம்பர பதிவுகளை கண்காணிக்கவும்</li>
+                        <li><strong>Web Beacons / Scripts:</strong> விளம்பர செயல்திறனை அளவிட மற்றும் மோசடி நடவடிக்கைகளை தடுக்க</li>
                     </ul>
                     <p className="mt-4 text-sm">
-                        <strong>முக்கியம்:</strong> Google மற்றும் அதன் கூட்டாளர்கள் எவ்வாறு தரவைப் பயன்படுத்துகிறார்கள் என்பதை அறிய:
+                        <strong>முக்கியம்:</strong> Adsterra தனியுரிமைக் கொள்கை மற்றும் தரவு மேலாண்மை குறித்து அறிய:
                         <br />
-                        <a href="https://www.google.com/policies/technologies/partner-sites"
+                        <a href="https://adsterra.com/privacy-policy/"
                             target="_blank"
                             rel="noopener noreferrer"
                             className="text-primary hover:underline font-bold">
-                            https://www.google.com/policies/technologies/partner-sites
+                            https://adsterra.com/privacy-policy/
                         </a>
                     </p>
                 </div>
 
                 <div className="bg-gray-50 p-6 rounded-xl border border-gray-200 my-4">
-                    <h4 className="font-bold text-gray-900 mb-3">Google AdSense & குக்கீகள்</h4>
+                    <h4 className="font-bold text-gray-900 mb-3">விளம்பர குக்கீகளை நிர்வகிப்பது எப்படி?</h4>
                     <p className="mb-3">
-                        இந்த இணையதளம் விளம்பரங்களை வழங்குவதற்காக Google AdSense போன்ற மூன்றாம் தரப்பு சேவைகளைப் பயன்படுத்தலாம்.
-                        Google, பயனர்களுக்கு ஏற்ற விளம்பரங்களை வழங்குவதற்காக குக்கீகளைப் பயன்படுத்துகிறது.
-                        Google AdSense-இன் தனியுரிமைக் கொள்கையை இங்கே படிக்கலாம்:
-                        <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline ml-1">
-                            https://policies.google.com/privacy
-                        </a>
-                    </p>
-                    <p className="mb-3">
-                        விளம்பர விருப்பங்களை மாற்ற:
-                        <a href="https://adssettings.google.com" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline ml-1">
-                            https://adssettings.google.com
-                        </a>
+                        பயனர்கள் தங்கள் உலாவி அமைப்புகளில் (Browser Settings) குக்கீகளை முடக்கலாம் அல்லது மாற்றியமைக்கலாம்.
                     </p>
                     <p>
                         குக்கீகள் பற்றிய கூடுதல் தகவல்களுக்கு எங்கள் குக்கீ கொள்கையை படிக்கவும்:

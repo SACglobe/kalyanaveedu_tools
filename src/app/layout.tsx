@@ -23,9 +23,7 @@ export const metadata: Metadata = {
     shortcut: '/favicon-32.png',
     apple: '/icon-192.png',
   },
-  other: {
-    'google-adsense-account': 'ca-pub-8665355844991273',
-  },
+
   alternates: {
     canonical: SITE_CONFIG.url,
   },

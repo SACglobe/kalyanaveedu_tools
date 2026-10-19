@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { BLOG_POSTS, BLOG_CATEGORIES, getCategoryMeta } from '@/lib/blog-data';
 import { TOOLS_LIST } from '@/lib/constants';
+import AdsterraBanner from '@/components/ads/AdsterraBanner';
 
 export default function BlogLayout({
   children,
@@ -14,8 +15,14 @@ export default function BlogLayout({
     <div className="min-h-screen flex flex-col">
       <main className="flex-grow">{children}</main>
       
+      {/* Strategic Adsterra Banner for Blog Pages */}
+      <div className="container mx-auto px-4 mt-12">
+        <AdsterraBanner format="728x90" className="hidden md:flex" />
+        <AdsterraBanner format="300x250" className="flex md:hidden" />
+      </div>
+
       {/* Blog Global Footer / Crawler Highway */}
-      <section className="bg-gray-50 border-t border-gray-100 py-16 mt-16">
+      <section className="bg-gray-50 border-t border-gray-100 py-16 mt-12">
         <div className="container mx-auto px-4">
           <div className="flex flex-col md:flex-row justify-between items-end mb-12 gap-4">
             <div>
