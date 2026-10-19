@@ -25,7 +25,7 @@ const FORMAT_MAP: Record<BannerFormat, { width: number; height: number; defaultK
   '320x50': {
     width: 320,
     height: 50,
-    defaultKey: ADSTERRA_CONFIG.units.mobile_320x50.key,
+    defaultKey: ADSTERRA_CONFIG.units.banner_320x50.key,
   },
 };
 

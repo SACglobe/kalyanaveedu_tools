@@ -17,8 +17,7 @@ export default function BlogLayout({
       
       {/* Strategic Adsterra Banner for Blog Pages */}
       <div className="container mx-auto px-4 mt-12">
-        <AdsterraBanner format="728x90" className="hidden md:flex" />
-        <AdsterraBanner format="300x250" className="flex md:hidden" />
+        <AdsterraBanner format="320x50" />
       </div>
 
       {/* Blog Global Footer / Crawler Highway */}

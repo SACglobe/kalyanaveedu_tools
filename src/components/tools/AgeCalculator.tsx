@@ -148,8 +148,7 @@ export default function AgeCalculator() {
 
             {/* Strategic Adsterra Banner Placement */}
             <div className="mt-8 border-t border-gray-100 pt-6">
-                <AdsterraBanner format="728x90" className="hidden md:flex" />
-                <AdsterraBanner format="300x250" className="flex md:hidden" />
+                <AdsterraBanner format="320x50" />
             </div>
         </div>
     );

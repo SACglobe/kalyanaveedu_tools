@@ -8,7 +8,7 @@ interface AdsterraSocialBarProps {
 }
 
 export default function AdsterraSocialBar({ scriptUrl }: AdsterraSocialBarProps) {
-  const activeUrl = scriptUrl || ADSTERRA_CONFIG.units.socialBarScriptUrl;
+  const activeUrl = scriptUrl || ADSTERRA_CONFIG.units.socialBar.scriptUrl;
 
   useEffect(() => {
     if (!ADSTERRA_CONFIG.enabled || !activeUrl) {

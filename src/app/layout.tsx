@@ -6,6 +6,7 @@ import Footer from '@/components/layout/Footer';
 import CookieConsent from '@/components/layout/CookieConsent';
 import { SITE_CONFIG } from '@/lib/constants';
 import Schema from '@/components/SEO/Schema';
+import AdsterraSocialBar from '@/components/ads/AdsterraSocialBar';
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter' });
 const notoTamil = Noto_Sans_Tamil({ subsets: ['tamil'], variable: '--font-noto-tamil', weight: ['400', '500', '700', '900'] });
@@ -104,6 +105,7 @@ export default function RootLayout({
             {children}
           </main>
           <CookieConsent />
+          <AdsterraSocialBar />
           <Footer />
         </PWAProvider>
       </body>
