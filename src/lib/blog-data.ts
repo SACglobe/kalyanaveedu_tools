@@ -534,4 +534,13 @@ export const BLOG_POSTS: BlogPost[] = [
         image: 'https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?auto=format&fit=crop&q=80&w=1200',
         author: 'ஜோதிடர் வேங்கடேஷ்'
     },
+    {
+        slug: '/blog/wedding-budget-5-lakhs-guide',
+        title: '₹5 லட்சத்தில் அழகான திருமணம்',
+        excerpt: '₹5 லட்சத்தில் அழகான திருமணம் - தமிழ்நாட்டில் சிக்கன திருமணம் நடத்துவது எப்படி? Hall, Catering, Photographer cost breakdo.',
+        date: 'Oct 22, 2026',
+        category: 'budget-planning',
+        image: 'https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?auto=format&fit=crop&q=80&w=1200',
+        author: 'சித்ரை செல்வன்'
+    },
 ];
