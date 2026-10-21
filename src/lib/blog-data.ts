@@ -543,4 +543,13 @@ export const BLOG_POSTS: BlogPost[] = [
         image: 'https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?auto=format&fit=crop&q=80&w=1200',
         author: 'சித்ரை செல்வன்'
     },
+    {
+        slug: '/blog/wedding-photography-tips-tamil',
+        title: 'திருமண புகைப்படக் கலைஞரை தேர்ந்தெடுப்பது எப்படி?',
+        excerpt: 'திருமண புகைப்படக் கலைஞரை தேர்ந்தெடுப்பது எப்படி? - விலை, போர்ட்ஃபோலியோ சோதனை, கேட்க வேண்டிய கேள்விகள்.',
+        date: 'Oct 25, 2026',
+        category: 'wedding-guide',
+        image: 'https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?auto=format&fit=crop&q=80&w=1200',
+        author: 'சித்ரை செல்வன்'
+    },
 ];
