@@ -552,4 +552,13 @@ export const BLOG_POSTS: BlogPost[] = [
         image: 'https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?auto=format&fit=crop&q=80&w=1200',
         author: 'சித்ரை செல்வன்'
     },
+    {
+        slug: '/blog/wedding-catering-planning-guide',
+        title: 'திருமண விருந்து திட்டமிடல்',
+        excerpt: 'திருமண விருந்து திட்டமிடல் - ஒரு ஆளுக்கு எவ்வளவு? சாப்பாடு வகைகள், caterer தேர்வு, food waste தவிர்ப்பது.',
+        date: 'Oct 28, 2026',
+        category: 'wedding-guide',
+        image: 'https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?auto=format&fit=crop&q=80&w=1200',
+        author: 'சித்ரை செல்வன்'
+    },
 ];
