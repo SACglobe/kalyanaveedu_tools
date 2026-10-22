@@ -5,7 +5,7 @@ export default function Footer() {
     const currentYear = new Date().getFullYear();
 
     return (
-        <footer className="bg-gray-50 border-t border-gray-200 mt-auto">
+        <footer className="bg-gray-50 border-t border-gray-200 mt-auto pb-16 md:pb-0">
             <div className="container mx-auto px-4 py-12">
                 <div className="grid grid-cols-2 md:grid-cols-5 gap-8">
                     {/* Brand */}
@@ -20,11 +20,13 @@ export default function Footer() {
                     <div>
                         <h4 className="font-bold text-gray-900 mb-4">கருவிகள் (Tools)</h4>
                         <ul className="space-y-2 text-sm">
-                            <li><Link href="/tools/tamil-calendar" className="text-gray-600 hover:text-primary">📅 தமிழ் காலண்டர்</Link></li>
-                            <li><Link href="/tools/vayathu-kanakku" className="text-gray-600 hover:text-primary">📅 வயது கணக்கிடுபவர்</Link></li>
-                            <li><Link href="/tools" className="text-gray-600 font-bold hover:text-accent">அனைத்து கருவிகள் →</Link></li>
-                            <li><Link href="/faq" className="text-gray-600 hover:text-primary">கேள்வி-பதில் (FAQ)</Link></li>
-                            <li><Link href="/about" className="text-gray-600 hover:text-primary">நாங்கள் யார் (About)</Link></li>
+                            <li><Link href="/tools/tamil-calendar" className="text-gray-600 hover:text-primary">📅 தமிழ் காலண்டர் (Tamil Calendar)</Link></li>
+                            <li><Link href="/tools/subha-muhurtham" className="text-gray-600 hover:text-primary">💍 சுப முகூர்த்த தேதிகள் (Muhurtham Dates)</Link></li>
+                            <li><Link href="/tools/thirumana-vayathu" className="text-gray-600 hover:text-primary">⚖️ திருமண வயது தகுதி (Marriage Age)</Link></li>
+                            <li><Link href="/tools/thirumana-selavu" className="text-gray-600 hover:text-primary">💰 திருமண பட்ஜெட் கணிப்பான் (Budget)</Link></li>
+                            <li><Link href="/tools/thirumana-thayaripu" className="text-gray-600 hover:text-primary">📝 திருமண வேலைகள் பட்டியல் (Checklist)</Link></li>
+                            <li><Link href="/tools/vayathu-kanakku" className="text-gray-600 hover:text-primary">🎂 வயது கணக்கிடுபவர் (Age Calculator)</Link></li>
+                            <li><Link href="/tools" className="text-primary font-bold hover:underline">அனைத்து திருமண கருவிகள் →</Link></li>
                         </ul>
                     </div>
 
