@@ -1,9 +1,9 @@
-name: 🤖 Daily AI Blog Article Generator
+name: 🤖 Weekly AI Blog Article Generator
 
 on:
   schedule:
-    # Runs every day at 9:00 AM IST (3:30 AM UTC)
-    - cron: '30 3 * * *'
+    # Runs once per week every Monday at 9:00 AM IST (3:30 AM UTC)
+    - cron: '30 3 * * 1'
   workflow_dispatch:
     # Also allows manual trigger from GitHub Actions UI
     inputs:
@@ -24,6 +24,7 @@ jobs:
       contents: write
     env:
       GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+      GEMINI_BACKUP_API_KEY: ${{ secrets.GEMINI_BACKUP_API_KEY }}
       GSC_CLIENT_EMAIL: ${{ secrets.GSC_CLIENT_EMAIL }}
       GSC_PRIVATE_KEY: ${{ secrets.GSC_PRIVATE_KEY }}
       BING_API_KEY: ${{ secrets.BING_API_KEY }}

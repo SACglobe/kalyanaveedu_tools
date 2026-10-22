@@ -1,44 +1,43 @@
-#!/usr/bin/env node
-// ─────────────────────────────────────────────────────────────────────────────
-// generate-article.mjs — AI Blog Article Generator for kalyanaveedu.in
-// Uses Gemini API to write 800-1200 word Tamil articles as Next.js page.tsx
-//
-// Usage:
-//   node scripts/generate-article.mjs                  # picks next topic from queue
-//   node scripts/generate-article.mjs --dry-run        # preview only, no file write
-//   node scripts/generate-article.mjs --index 5        # pick specific topic by index
-// ─────────────────────────────────────────────────────────────────────────────
-
-import { readFileSync, writeFileSync, existsSync, mkdirSync } from 'fs';
+import { readFileSync, writeFileSync, existsSync } from 'fs';
 import { join, dirname } from 'path';
 import { fileURLToPath } from 'url';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, '..');
 
-// ── Load .env.local if present ──
-let GEMINI_API_KEY = process.env.GEMINI_API_KEY;
-if (!GEMINI_API_KEY && existsSync(join(ROOT, '.env.local'))) {
+// ── Multi-Key Auto-Failover (Reads from process.env or .env.local) ──
+let primaryKey = process.env.GEMINI_API_KEY;
+let backupKey = process.env.GEMINI_BACKUP_API_KEY;
+
+if (existsSync(join(ROOT, '.env.local'))) {
   const envContent = readFileSync(join(ROOT, '.env.local'), 'utf8');
   for (const line of envContent.split('\n')) {
     const trimmed = line.trim();
-    if (trimmed.startsWith('GEMINI_API_KEY=')) {
-      GEMINI_API_KEY = trimmed.substring('GEMINI_API_KEY='.length).trim().replace(/^["']|["']$/g, '');
+    if (!primaryKey && trimmed.startsWith('GEMINI_API_KEY=')) {
+      primaryKey = trimmed.substring('GEMINI_API_KEY='.length).trim().replace(/^["']|["']$/g, '');
+    }
+    if (!backupKey && trimmed.startsWith('GEMINI_BACKUP_API_KEY=')) {
+      backupKey = trimmed.substring('GEMINI_BACKUP_API_KEY='.length).trim().replace(/^["']|["']$/g, '');
     }
   }
 }
 
-if (!GEMINI_API_KEY) {
-  console.error('❌ GEMINI_API_KEY is not set in environment or .env.local');
+// Ensure unique keys in priority order: Primary first, Backup second
+const API_KEYS = Array.from(new Set([primaryKey, backupKey])).filter(Boolean);
+
+if (API_KEYS.length === 0) {
+  console.error('❌ Neither GEMINI_API_KEY nor GEMINI_BACKUP_API_KEY is configured in environment or .env.local.');
   process.exit(1);
 }
 
-// ── Config ──
+// ── Config: High-Quota 15 RPM / 500 RPD models first ──
 const GEMINI_MODELS = [
-  'gemini-3.6-flash',
-  'gemini-3.5-flash',
+  'gemini-2.5-flash-lite',
   'gemini-flash-lite-latest',
-  'gemini-3.1-flash-lite'
+  'gemini-3.1-flash-lite',
+  'gemini-2.5-flash',
+  'gemini-3.6-flash',
+  'gemini-3.5-flash'
 ];
 
 const DRY_RUN = process.argv.includes('--dry-run');
@@ -68,45 +67,39 @@ console.log(`   Topic: ${topic.topic}\n`);
 const CATEGORY_META = {
   'government-schemes': { label: 'அரசு திட்டங்கள்', english: 'Government Schemes', icon: '🏛️' },
   'traditions': { label: 'திருமண சடங்குகள்', english: 'Wedding Traditions', icon: '🪔' },
-  'legal-documents': { label: 'சட்டம் & ஆவணங்கள்', english: 'Legal & Documents', icon: '⚖️' },
-  'budget-planning': { label: 'பட்ஜெட் திட்டமிடல்', english: 'Budget Planning', icon: '💰' },
-  'astrology': { label: 'சுப முகூர்த்தம்', english: 'Auspicious Dates', icon: '🌟' },
-  'wedding-guide': { label: 'திருமண வழிகாட்டி', english: 'Wedding Guide', icon: '💍' },
+  'planning': { label: 'திருமண திட்டமிடல்', english: 'Wedding Planning', icon: '📋' },
+  'muhurtham': { label: 'சுப முகூர்த்தம்', english: 'Subha Muhurtham', icon: '💍' },
+  'budget': { label: 'பட்ஜெட் & நிதி', english: 'Budget & Finance', icon: '💰' },
+  'jewelry': { label: 'தங்க நகை', english: 'Gold & Jewelry', icon: '👑' },
+  'photography': { label: 'புகைப்படம்', english: 'Photography', icon: '📸' },
+  'decoration': { label: 'மண்டப அலங்காரம்', english: 'Mandapam & Decor', icon: '🌸' },
+  'legal': { label: 'சட்ட வழிகாட்டி', english: 'Legal & Registration', icon: '⚖️' },
+  'invitations': { label: 'அழைப்பிதழ்', english: 'Invitations', icon: '💌' },
+  'catering': { label: 'உணவு & கேட்டரிங்', english: 'Food & Catering', icon: '🍱' },
+  'astrology': { label: 'ஜோதிடம் & நட்சத்திரம்', english: 'Astrology & Nakshatras', icon: '⭐' }
 };
 
-const catMeta = CATEGORY_META[topic.category] || CATEGORY_META['wedding-guide'];
+const meta = CATEGORY_META[topic.category] || { label: 'திருமண வழிகாட்டி', english: 'Wedding Guide', icon: '📖' };
 
-// ── Unsplash image URL ──
-const imageUrl = `https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?auto=format&fit=crop&q=80&w=1200`;
-// Note: In production, you could use Unsplash API to search for topic.image_query
+// ── Prompt for Gemini ──
+const prompt = `You are an expert Tamil wedding planner, cultural researcher, and writer for kalyanaveedu.in (கல்யாண வீடு), Tamil Nadu's leading wedding portal.
 
-// ── Author mapping by category ──
-const AUTHOR_BY_CATEGORY = {
-  'government-schemes': { name: 'கார்த்திக் ராஜன்', nameEn: 'Karthik Rajan', role: 'Government Policy Researcher', bio: 'கார்த்திக் ராஜன் தமிழ்நாடு மற்றும் மத்திய அரசு நலத் திட்டங்கள் குறித்து ஆராய்ச்சி செய்து வருகிறார். பல ஆண்டுகளாக குடும்பங்களுக்கு அரசு திட்டங்களில் விண்ணப்பிக்க உதவி வருகிறார்.' },
-  'traditions': { name: 'மீனாட்சி சுந்தரம்', nameEn: 'Meenakshi Sundaram', role: 'Tamil Cultural Historian', bio: 'மீனாட்சி சுந்தரம் தமிழ் திருமண மரபுகள் மற்றும் சடங்குகள் குறித்த நீண்ட அனுபவம் கொண்டவர். பண்பாட்டுத் தரவுகளைத் தொகுத்து, இன்றைய தலைமுறைக்கு எளிய தமிழில் விளக்குவதில் ஆர்வம் கொண்டவர்.' },
-  'legal-documents': { name: 'அட்வகேட் சந்திரசேகர்', nameEn: 'Adv. Chandrasekhar', role: 'Family Law Specialist', bio: 'சந்திரசேகர் சென்னை உயர் நீதிமன்றத்தில் குடும்பச் சட்ட வழக்கறிஞராக பணியாற்றுகிறார். திருமண பதிவு, வரதட்சணை சட்டம் மற்றும் பெண்கள் உரிமைகள் குறித்த கட்டுரைகள் எழுதி வருகிறார்.' },
-  'budget-planning': { name: 'சித்ரை செல்வன்', nameEn: 'Chithrai Selvan', role: 'Founder & Lead Developer', bio: 'சித்ரை செல்வன் கல்யாண வீடு தளத்தின் நிறுவனர். திருமண திட்டமிடலை எளிமையாக்குவதும், தமிழ் குடும்பங்களுக்கு நிதி சேமிப்பு ஆலோசனை வழங்குவதும் அவரின் முக்கியப் பணி.' },
-  'astrology': { name: 'ஜோதிடர் வேங்கடேஷ்', nameEn: 'Jothidar Venkatesh', role: 'Tamil Panchangam Expert', bio: 'வேங்கடேஷ் பஞ்சாங்க கணிப்பு மற்றும் சுப முகூர்த்த தேர்வில் 20 ஆண்டுகள் அனுபவம் கொண்டவர். ஜோதிட சாஸ்திரப்படி திருமண நாட்கள் தேர்வு செய்வதில் நிபுணர்.' },
-  'wedding-guide': { name: 'சித்ரை செல்வன்', nameEn: 'Chithrai Selvan', role: 'Founder & Lead Developer', bio: 'சித்ரை செல்வன் கல்யாண வீடு தளத்தின் நிறுவனர். திருமண திட்டமிடலை எளிமையாக்குவதும், தமிழ் குடும்பங்களுக்கு பயனுள்ள வழிகாட்டுதல் வழங்குவதும் அவரின் நோக்கம்.' },
-};
+Write a comprehensive, authoritative, SEO-optimized blog article in pure Tamil about:
+"${topic.topic}"
 
-const author = AUTHOR_BY_CATEGORY[topic.category] || AUTHOR_BY_CATEGORY['wedding-guide'];
+Target keyword: "${topic.tamilTitle}"
+Category: ${meta.label} (${meta.english})
+Audience: Tamil families planning a wedding in Tamil Nadu or abroad.
 
-// ── Build Gemini prompt ──
-const SYSTEM_PROMPT = `You are an expert Tamil content writer for kalyanaveedu.in, a trusted Tamil wedding planning website.
-
-Write a comprehensive, 100% original Tamil blog article as a Next.js React component (page.tsx).
-
-TOPIC: ${topic.topic}
-CATEGORY: ${catMeta.english} (${catMeta.label})
-SLUG: /blog/${topic.slug}
-AUTHOR: ${author.name} (${author.role})
-DATE: ${topic.date}
-
-STRICT REQUIREMENTS:
-1. Write ONLY the React component JSX body content — the stuff inside <div className="prose prose-lg...">
-2. Write in Tamil (script: தமிழ்), minimum 800 words of body content
-3. For government schemes: Include ACTUAL scheme names, eligibility criteria, required documents list, step-by-step application process, official website URLs
+REQUIREMENTS:
+1. Language: High quality, natural, grammatically correct Tamil (தமிழ்). Professional yet warm tone.
+2. Word count: 1200 - 2000 words. Comprehensive and detailed.
+3. Include real, practical details:
+   - Specific costs in rupees (₹) where relevant
+   - Tamil calendar months (சித்திரை, வைகாசி, ஐப்பசி, கார்த்திகை, தை, etc.)
+   - Real procedures, required documents, government portal steps (if applicable)
+   - Do's and Don'ts
+   - Frequently asked questions with answers (FAQ section)
 4. For traditions: Include cultural origin, step-by-step ritual, regional/caste variations, modern adaptations
 5. Use these JSX components (already imported):
    - <h2 className="text-2xl font-bold text-gray-900 mt-12 mb-4">Section Title</h2>
@@ -122,263 +115,347 @@ STRICT REQUIREMENTS:
 8. Do NOT use backticks or code blocks in your response — output pure JSX only
 9. Use &amp; for & in JSX, &quot; for quotes in Tamil text attributes`;
 
-// ── Call Gemini API with Retries and Model Fallback Cascade ──
+// ── Call Gemini API with Multi-Key Failover and Model Cascade ──
 async function callGemini(prompt) {
-  const maxRetriesPerModel = 3;
+  const maxRetriesPerModel = 2;
   let lastError = null;
 
-  for (const model of GEMINI_MODELS) {
-    const endpoint = `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${GEMINI_API_KEY}`;
-    console.log(`📡 Trying Gemini model: ${model}...`);
+  for (let keyIdx = 0; keyIdx < API_KEYS.length; keyIdx++) {
+    const currentKey = API_KEYS[keyIdx];
+    const keyLabel = keyIdx === 0 ? 'Primary' : `Backup-${keyIdx}`;
 
-    for (let attempt = 1; attempt <= maxRetriesPerModel; attempt++) {
-      try {
-        const response = await fetch(endpoint, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({
-            contents: [{ parts: [{ text: prompt }] }],
-            generationConfig: {
-              temperature: 0.7,
-              maxOutputTokens: 16384,
-            },
-            safetySettings: [
-              { category: 'HARM_CATEGORY_HARASSMENT', threshold: 'BLOCK_NONE' },
-              { category: 'HARM_CATEGORY_HATE_SPEECH', threshold: 'BLOCK_NONE' },
-              { category: 'HARM_CATEGORY_SEXUALLY_EXPLICIT', threshold: 'BLOCK_NONE' },
-              { category: 'HARM_CATEGORY_DANGEROUS_CONTENT', threshold: 'BLOCK_NONE' }
-            ]
-          }),
-        });
+    for (const model of GEMINI_MODELS) {
+      const endpoint = `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${currentKey}`;
+      console.log(`📡 [${keyLabel} Key] Trying model: ${model}...`);
 
-        if (!response.ok) {
-          const errText = await response.text();
-          const isRetryable = response.status === 429 || response.status === 503 || response.status >= 500;
-          console.warn(`⚠️ [${model}] Attempt ${attempt} returned HTTP ${response.status}`);
+      for (let attempt = 1; attempt <= maxRetriesPerModel; attempt++) {
+        try {
+          const response = await fetch(endpoint, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              contents: [{ parts: [{ text: prompt }] }],
+              generationConfig: {
+                temperature: 0.7,
+                maxOutputTokens: 16384,
+              },
+              safetySettings: [
+                { category: 'HARM_CATEGORY_HARASSMENT', threshold: 'BLOCK_NONE' },
+                { category: 'HARM_CATEGORY_HATE_SPEECH', threshold: 'BLOCK_NONE' },
+                { category: 'HARM_CATEGORY_SEXUALLY_EXPLICIT', threshold: 'BLOCK_NONE' },
+                { category: 'HARM_CATEGORY_DANGEROUS_CONTENT', threshold: 'BLOCK_NONE' }
+              ]
+            }),
+          });
 
-          if (isRetryable && attempt < maxRetriesPerModel) {
+          if (!response.ok) {
+            const errText = await response.text();
+            const isRateLimit = response.status === 429;
+            console.warn(`⚠️ [${keyLabel} / ${model}] Attempt ${attempt} returned HTTP ${response.status}`);
+
+            // If rate limit (429) and we have another key, failover immediately
+            if (isRateLimit && keyIdx < API_KEYS.length - 1) {
+              console.log(`🔄 Rate limit on ${keyLabel} key. Failing over to backup API key...`);
+              break; // breaks out of retry loop to next key
+            }
+
+            if (attempt < maxRetriesPerModel) {
+              const waitTime = attempt * 6000;
+              console.log(`⏳ Waiting ${waitTime / 1000}s before retry...`);
+              await new Promise(r => setTimeout(r, waitTime));
+              continue;
+            }
+            throw new Error(`Gemini API error ${response.status}: ${errText}`);
+          }
+
+          const data = await response.json();
+          let text = data.candidates?.[0]?.content?.parts?.[0]?.text || '';
+
+          if (!text) {
+            const finishReason = data.candidates?.[0]?.finishReason;
+            throw new Error(`Empty response from Gemini (finishReason: ${finishReason || 'UNKNOWN'})`);
+          }
+
+          // Clean markdown code blocks if present
+          text = text.replace(/^```(?:html|jsx|tsx)?\s*/i, '').replace(/\s*```\s*$/i, '').trim();
+
+          // Strip redundant outer <div className="prose..."> wrapper if generated
+          text = text.replace(/^<div\s+className=["'][^"']*prose[^"']*["']\s*>/i, '').trim();
+          const openDivs = (text.match(/<div\b[^>]*>/gi) || []).length;
+          const closeDivs = (text.match(/<\/div>/gi) || []).length;
+          if (closeDivs > openDivs) {
+            text = text.replace(/<\/div>\s*$/, '').trim();
+          }
+
+          console.log(`✅ Successfully generated using ${keyLabel} Key / model: ${model}`);
+          return text;
+        } catch (err) {
+          lastError = err;
+          console.warn(`⚠️ [${keyLabel} / ${model}] Attempt ${attempt} failed: ${err.message.substring(0, 150)}`);
+          if (attempt < maxRetriesPerModel) {
             const waitTime = attempt * 5000;
             console.log(`⏳ Waiting ${waitTime / 1000}s before retry...`);
             await new Promise(r => setTimeout(r, waitTime));
-            continue;
           }
-          throw new Error(`Gemini API error ${response.status}: ${errText}`);
-        }
-
-        const data = await response.json();
-        let text = data.candidates?.[0]?.content?.parts?.[0]?.text || '';
-
-        if (!text) {
-          const finishReason = data.candidates?.[0]?.finishReason;
-          throw new Error(`Empty response from Gemini (finishReason: ${finishReason || 'UNKNOWN'})`);
-        }
-
-        // Clean markdown code blocks if present
-        text = text.replace(/^```(?:html|jsx|tsx)?\s*/i, '').replace(/\s*```\s*$/i, '').trim();
-
-        // Strip redundant outer <div className="prose..."> wrapper if generated
-        text = text.replace(/^<div\s+className=["'][^"']*prose[^"']*["']\s*>/i, '').trim();
-        const openDivs = (text.match(/<div\b[^>]*>/gi) || []).length;
-        const closeDivs = (text.match(/<\/div>/gi) || []).length;
-        if (closeDivs > openDivs) {
-          text = text.replace(/<\/div>\s*$/, '').trim();
-        }
-
-        console.log(`✅ Successfully generated using model: ${model}`);
-        return text;
-      } catch (err) {
-        lastError = err;
-        console.warn(`⚠️ [${model}] Attempt ${attempt} failed: ${err.message.substring(0, 150)}`);
-        if (attempt < maxRetriesPerModel) {
-          const waitTime = attempt * 5000;
-          console.log(`⏳ Waiting ${waitTime / 1000}s before retry...`);
-          await new Promise(r => setTimeout(r, waitTime));
         }
       }
     }
-    console.warn(`🔄 Model ${model} exhausted. Falling back to next model in pool...`);
   }
 
-  throw new Error(`All candidate Gemini models failed. Last error: ${lastError?.message || 'Unknown'}`);
+  throw new Error(`All Gemini models and API keys failed. Last error: ${lastError?.message}`);
 }
 
-// ── Generate article content ──
-console.log('📡 Calling Gemini API...');
-let articleBody;
-try {
-  articleBody = await callGemini(SYSTEM_PROMPT);
-  console.log(`✅ Generated ${articleBody.length} characters of content`);
-} catch (err) {
-  console.error('❌ Gemini API failed:', err.message);
-  process.exit(1);
-}
+// ── Generate the article content ──
+console.log('🤖 Sending prompt to Gemini AI...');
+const articleContent = await callGemini(prompt);
 
 if (DRY_RUN) {
-  console.log('\n── DRY RUN — Generated Content Preview ──\n');
-  console.log(articleBody.substring(0, 1000) + '...\n');
-  console.log('── No files written (dry-run mode) ──');
+  console.log('\n📄 [DRY RUN] Generated JSX preview (first 500 chars):');
+  console.log(articleContent.substring(0, 500));
+  console.log('\n... preview truncated. Exiting dry run.');
   process.exit(0);
 }
 
-// ── Build full page.tsx ──
-const pageContent = `import type { Metadata } from 'next';
-import Link from 'next/link';
-import OptimizedImage from '@/components/common/OptimizedImage';
-import TrustBlock from '@/components/TrustBlock';
-import Schema from '@/components/SEO/Schema';
-import AuthorBio from '@/components/blog/AuthorBio';
-import RelatedArticles from '@/components/blog/RelatedArticles';
+// ── Generate page.tsx ──
+const pageCode = `import Link from 'next/link';
 import { SITE_CONFIG } from '@/lib/constants';
+import Schema from '@/components/SEO/Schema';
+import RelatedArticles from '@/components/blog/RelatedArticles';
 
-export const metadata: Metadata = {
-    title: '${topic.topic.split(' - ')[0].substring(0, 50)}',
-    description: '${topic.topic.substring(0, 155)}',
-    keywords: ['${topic.slug.split('-').join("', '")}', 'தமிழ் திருமணம்', 'kalyanaveedu'],
+export const metadata = {
+    title: '${topic.tamilTitle} | கல்யாண வீடு வழிகாட்டி',
+    description: '${topic.excerpt.replace(/'/g, "\\'")}',
     alternates: {
         canonical: \`\${SITE_CONFIG.url}/blog/${topic.slug}\`,
     },
+    openGraph: {
+        title: '${topic.tamilTitle}',
+        description: '${topic.excerpt.replace(/'/g, "\\'")}',
+        url: \`\${SITE_CONFIG.url}/blog/${topic.slug}\`,
+        siteName: SITE_CONFIG.name,
+        locale: 'ta_IN',
+        type: 'article',
+    },
 };
 
-export default function Article() {
+export const dynamic = 'force-static';
+export const revalidate = 604800; // 7 days
+
+export default function BlogPost() {
     return (
         <article className="container mx-auto px-4 py-12 max-w-4xl">
-
-            <Schema 
-                type="BlogPosting" 
+            {/* Schema.org BlogPosting */}
+            <Schema
+                type="BlogPosting"
                 data={{
-                    title: '${topic.topic.split(' - ')[0].substring(0, 100)}',
-                    description: '${topic.topic.substring(0, 155)}',
-                    author: '${author.name}',
-                    datePublished: '${topic.date}',
-                    slug: '/blog/${topic.slug}'
-                }} 
+                    title: '${topic.tamilTitle}',
+                    description: '${topic.excerpt.replace(/'/g, "\\'")}',
+                    slug: '/blog/${topic.slug}',
+                    datePublished: '${new Date().toISOString().split('T')[0]}',
+                    author: 'சித்ரை செல்வன் & குழு'
+                }}
             />
-            <Schema 
-                type="BreadcrumbList" 
+
+            {/* Breadcrumb Schema */}
+            <Schema
+                type="BreadcrumbList"
                 data={{
                     items: [
                         { name: 'முகப்பு', item: '/' },
                         { name: 'கட்டுரைகள்', item: '/blog' },
-                        { name: '${catMeta.label}', item: '/blog?category=${topic.category}' },
+                        { name: '${topic.tamilTitle}', item: '/blog/${topic.slug}' }
                     ]
-                }} 
+                }}
             />
 
-            <div className="text-center mb-4">
-                <span className="text-xs text-gray-400 uppercase tracking-widest font-medium">
-                    ${catMeta.icon} ${catMeta.label}
-                </span>
-            </div>
+            {/* Breadcrumb Navigation */}
+            <nav className="text-sm text-gray-500 mb-8 flex items-center gap-2 flex-wrap">
+                <Link href="/" className="hover:text-primary transition-colors">முகப்பு</Link>
+                <span>›</span>
+                <Link href="/blog" className="hover:text-primary transition-colors">கட்டுரைகள்</Link>
+                <span>›</span>
+                <span className="text-gray-900 font-medium">${topic.tamilTitle}</span>
+            </nav>
 
-            <header className="mb-10 text-center">
-                <h1 className="text-3xl md:text-5xl font-bold text-gray-900 mb-6 leading-tight">
-                    ${topic.topic.split(' - ')[0]}
-                </h1>
-                <div className="relative h-[300px] md:h-[450px] w-full mb-10 rounded-3xl overflow-hidden shadow-2xl">
-                    <OptimizedImage
-                        src="${imageUrl}"
-                        alt="${topic.topic.split(' - ')[0]}"
-                        fill
-                        className="object-cover"
-                        priority
-                    />
+            {/* Article Header */}
+            <header className="mb-12 border-b border-gray-100 pb-8">
+                <div className="flex items-center gap-2 mb-4">
+                    <span className="text-xs font-bold text-primary bg-primary/10 px-3 py-1 rounded-full uppercase tracking-wider flex items-center gap-1.5">
+                        <span>${meta.icon}</span>
+                        <span>${meta.label}</span>
+                    </span>
+                    <span className="text-xs text-gray-400">•</span>
+                    <span className="text-xs text-gray-500">${new Date().toLocaleDateString('ta-IN', { year: 'numeric', month: 'long', day: 'numeric' })}</span>
+                    <span className="text-xs text-gray-400">•</span>
+                    <span className="text-xs text-gray-500">6 நிமிட வாசிப்பு</span>
                 </div>
-                <TrustBlock
-                    author="${author.name}"
-                    updatedDate="${new Date(topic.date).toLocaleDateString('ta-IN', { year: 'numeric', month: 'long' })}"
-                />
+                <h1 className="text-3xl md:text-5xl font-black text-gray-900 mb-6 leading-tight">
+                    ${topic.tamilTitle}
+                </h1>
+                <p className="text-lg md:text-xl text-gray-600 leading-relaxed font-normal">
+                    ${topic.excerpt}
+                </p>
+                <div className="flex items-center gap-3 mt-6 pt-6 border-t border-gray-100 text-xs text-gray-500">
+                    <span className="font-bold text-gray-800">எழுதியவர்:</span>
+                    <span>சித்ரை செல்வன் &amp; கல்யாண வீடு பண்பாட்டு ஆய்வுக் குழு</span>
+                </div>
             </header>
 
-            <div className="prose prose-lg max-w-none text-gray-800 space-y-8 leading-relaxed">
-
-${articleBody}
-
-                <div className="bg-primary/5 p-8 rounded-3xl border border-primary/10 my-12">
-                    <h3 className="text-xl font-bold text-gray-900 mb-4 flex items-center gap-2">
-                        <span className="text-2xl">🛠️</span> எங்களின் இலவச திருமண கருவிகள்
-                    </h3>
-                    <p className="text-gray-700 mb-6">
-                        திருமண ஏற்பாடுகளை எளிமையாக்க நாங்கள் வழங்கும் இலவச டிஜிட்டல் கருவிகளைப் பயன்படுத்தி மகிழுங்கள்.
-                    </p>
-                    <div className="grid sm:grid-cols-2 gap-4">
-                        <Link href="/tools/thirumana-selavu" className="flex items-center gap-3 p-4 bg-white rounded-xl shadow-sm hover:shadow-md transition-all group">
-                            <span className="text-2xl group-hover:scale-110 transition-transform">💰</span>
-                            <div>
-                                <div className="font-bold text-gray-900">பட்ஜெட் பிளானர்</div>
-                                <div className="text-xs text-gray-500">செலவுகளைத் திட்டமிட</div>
-                            </div>
-                        </Link>
-                        <Link href="/tools/subha-muhurtham" className="flex items-center gap-3 p-4 bg-white rounded-xl shadow-sm hover:shadow-md transition-all group">
-                            <span className="text-2xl group-hover:scale-110 transition-transform">🌟</span>
-                            <div>
-                                <div className="font-bold text-gray-900">சுப முகூர்த்தம்</div>
-                                <div className="text-xs text-gray-500">நல்ல நாள் தேர்வு</div>
-                            </div>
-                        </Link>
-                    </div>
-                </div>
-
-                <AuthorBio 
-                    name="${author.name}"
-                    role="${author.role}"
-                    bio="${author.bio}"
-                />
-                <RelatedArticles 
-                    currentSlug="/blog/${topic.slug}" 
-                    category="${topic.category}" 
-                />
+            {/* Article Body */}
+            <div className="prose prose-lg max-w-none text-gray-700 leading-relaxed space-y-6">
+${articleContent}
             </div>
+
+            {/* Call to Action: Tools */}
+            <div className="bg-primary/5 p-8 rounded-3xl border border-primary/10 my-12">
+                <h3 className="text-xl font-bold text-gray-900 mb-4 flex items-center gap-2">
+                    <span className="text-2xl">🛠️</span> எங்களின் இலவச திருமண கருவிகள்
+                </h3>
+                <p className="text-gray-600 mb-6 text-sm">
+                    உங்கள் திருமண திட்டமிடலை மேலும் எளிதாக்க எங்களின் பிரத்யேக கருவிகளைப் பயன்படுத்துங்கள்:
+                </p>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <Link
+                        href="/tools/subha-muhurtham"
+                        className="bg-white p-4 rounded-xl border border-gray-100 hover:border-primary transition-all flex items-center gap-3 shadow-sm hover:shadow"
+                    >
+                        <span className="text-2xl">💍</span>
+                        <div>
+                            <div className="font-bold text-sm text-gray-900">சுப முகூர்த்த நாட்கள் 2026</div>
+                            <div className="text-xs text-gray-500">அனைத்து சுப முகூர்த்த தேதிகள்</div>
+                        </div>
+                    </Link>
+                    <Link
+                        href="/tools/thirumana-selavu"
+                        className="bg-white p-4 rounded-xl border border-gray-100 hover:border-primary transition-all flex items-center gap-3 shadow-sm hover:shadow"
+                    >
+                        <span className="text-2xl">💰</span>
+                        <div>
+                            <div className="font-bold text-sm text-gray-900">திருமண செலவு கணிப்பான்</div>
+                            <div className="text-xs text-gray-500">பட்ஜெட் திட்டம் உருவாக்குங்கள்</div>
+                        </div>
+                    </Link>
+                </div>
+            </div>
+
+            {/* Related Articles */}
+            <RelatedArticles currentSlug="/blog/${topic.slug}" category="${topic.category}" />
         </article>
     );
 }
 `;
 
 // ── Write page.tsx ──
-const outputDir = join(ROOT, 'src', 'app', 'blog', topic.slug);
-if (!existsSync(outputDir)) {
-  mkdirSync(outputDir, { recursive: true });
-}
-const outputPath = join(outputDir, 'page.tsx');
-writeFileSync(outputPath, pageContent, 'utf-8');
-console.log(`✅ Written: src/app/blog/${topic.slug}/page.tsx`);
+const articleDir = join(ROOT, 'src/app/blog', topic.slug);
+const pageFile = join(articleDir, 'page.tsx');
+writeFileSync(pageFile, pageCode, 'utf-8');
+console.log(`\n✅ Created: src/app/blog/${topic.slug}/page.tsx`);
 
-// ── Update blog-data.ts ──
-const blogDataPath = join(ROOT, 'src', 'lib', 'blog-data.ts');
-let blogData = readFileSync(blogDataPath, 'utf-8');
+// ── Update src/lib/blog-data.ts ──
+const blogDataFile = join(ROOT, 'src/lib/blog-data.ts');
+let blogData = readFileSync(blogDataFile, 'utf-8');
 
 const newEntry = `    {
         slug: '/blog/${topic.slug}',
-        title: '${topic.topic.split(' - ')[0].replace(/'/g, "\\'")}',
-        excerpt: '${topic.topic.substring(0, 120).replace(/'/g, "\\'")}.',
-        date: '${new Date(topic.date).toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: '2-digit' })}',
+        title: '${topic.tamilTitle.replace(/'/g, "\\'")}',
+        excerpt: '${topic.excerpt.replace(/'/g, "\\'")}',
         category: '${topic.category}',
-        image: '${imageUrl}',
-        author: '${author.name}'
+        date: '${new Date().toISOString().split('T')[0]}',
+        readTime: '6 நிமிடம்',
+        author: 'சித்ரை செல்வன் & குழு'
     },`;
 
-// Ensure previous object ends with a comma before closing bracket
-blogData = blogData.replace(/(\}\s*)(\];\s*$)/, '$1,\n$2');
-// Insert before the closing ]; of BLOG_POSTS array
-blogData = blogData.replace(/(\];\s*$)/, `${newEntry}\n$1`);
-writeFileSync(blogDataPath, blogData, 'utf-8');
-console.log(`✅ Updated: src/lib/blog-data.ts`);
+// Insert after the opening "export const BLOG_POSTS: BlogPost[] = ["
+blogData = blogData.replace(
+  'export const BLOG_POSTS: BlogPost[] = [',
+  `export const BLOG_POSTS: BlogPost[] = [\n${newEntry}`
+);
+writeFileSync(blogDataFile, blogData, 'utf-8');
+console.log('✅ Updated: src/lib/blog-data.ts');
 
-// ── Save progress ──
+// ── Update progress file ──
 progress.lastIndex = topicIndex;
-progress.generated.push({ slug: topic.slug, date: new Date().toISOString() });
+progress.generated.push({
+  slug: topic.slug,
+  date: new Date().toISOString()
+});
 writeFileSync(progressFile, JSON.stringify(progress, null, 2), 'utf-8');
+console.log(`✅ Updated: scripts/.article-progress.json (lastIndex: ${topicIndex})`);
 
-console.log(`\n🎉 Done! Article ${topicIndex + 1}/${topics.length} generated successfully.`);
-console.log(`   Next topic: ${topics[topicIndex + 1]?.slug || 'none (all done!)'}\n`);
+// ── Submit URL to Search Engines (IndexNow / Bing / Google) ──
+console.log('\n🚀 Triggering instant search engine indexing...');
+const articleUrl = `https://www.kalyanaveedu.in/blog/${topic.slug}`;
 
-// ── Auto-Index with Google & Bing (local convenience only; in CI workflow handles it) ──
-if (!process.env.CI) {
-  const fullUrl = `https://www.kalyanaveedu.in/blog/${topic.slug}`;
-  console.log(`🔍 Automatically submitting new article to Google & Bing...`);
-  try {
-    const { execSync } = await import('child_process');
-    execSync(`node "${join(__dirname, 'index-url.mjs')}" "${fullUrl}"`, { stdio: 'inherit' });
-  } catch (err) {
-    // Continue even if indexer reports notice
+async function indexUrls() {
+  // 1. Bing / IndexNow
+  const BING_KEY = process.env.BING_API_KEY;
+  if (BING_KEY) {
+    try {
+      const res = await fetch("https://www.bing.com/webmaster/api.svc/json/SubmitUrl?apikey=" + BING_KEY, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          siteUrl: 'https://www.kalyanaveedu.in',
+          url: articleUrl
+        })
+      });
+      console.log("📡 Bing Indexing API response: " + res.status);
+    } catch (e) {
+      console.warn("⚠️ Bing Indexing failed: " + e.message);
+    }
+  }
+
+  // 2. Google Indexing API (Service Account JWT)
+  const clientEmail = process.env.GSC_CLIENT_EMAIL;
+  let privateKey = process.env.GSC_PRIVATE_KEY;
+  if (clientEmail && privateKey) {
+    try {
+      // Unescape newlines if passed via environment variables
+      privateKey = privateKey.replace(/\\n/g, '\n');
+      const { createSign } = await import('crypto');
+
+      const now = Math.floor(Date.now() / 1000);
+      const header = Buffer.from(JSON.stringify({ alg: 'RS256', typ: 'JWT' })).toString('base64url');
+      const claimSet = Buffer.from(JSON.stringify({
+        iss: clientEmail,
+        scope: 'https://www.googleapis.com/auth/indexing',
+        aud: 'https://oauth2.googleapis.com/token',
+        exp: now + 3600,
+        iat: now
+      })).toString('base64url');
+
+      const signer = createSign('RSA-SHA256');
+      signer.update(header + "." + claimSet);
+      const signature = signer.sign(privateKey, 'base64url');
+      const jwt = header + "." + claimSet + "." + signature;
+
+      const tokenRes = await fetch('https://oauth2.googleapis.com/token', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: "grant_type=urn%3Aietf%3Aparams%3Aoauth%3Agrant-type%3Ajwt-bearer&assertion=" + jwt
+      });
+
+      const tokenData = await tokenRes.json();
+      if (tokenData.access_token) {
+        const indexRes = await fetch('https://indexing.googleapis.com/v3/urlNotifications:publish', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': "Bearer " + tokenData.access_token
+          },
+          body: JSON.stringify({
+            url: articleUrl,
+            type: 'URL_UPDATED'
+          })
+        });
+        console.log("📡 Google Indexing API response: " + indexRes.status);
+      }
+    } catch (e) {
+      console.warn("⚠️ Google Indexing API failed: " + e.message);
+    }
   }
 }
+
+await indexUrls();
+
+console.log(`\n🎉 Successfully published and indexed article: ${topic.slug}\n`);
