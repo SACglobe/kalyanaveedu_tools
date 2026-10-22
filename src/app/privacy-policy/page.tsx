@@ -183,9 +183,7 @@ export default function PrivacyPage() {
                 </div>
                 <p>
                     இந்த உரிமைகளை பயன்படுத்த, எங்களை தொடர்பு கொள்ளுங்கள்:
-                    <a href="mailto:kalyanaveedu.helpdesk@gmail.com" className="text-primary hover:underline ml-1">
-                        kalyanaveedu.helpdesk@gmail.com
-                    </a>
+                    <Link href="/contact" className="text-primary hover:underline ml-1 font-bold">எங்கள் தொடர்பு படிவம் (Contact Form)</Link>
                 </p>
 
                 <h2 className="text-2xl font-bold text-gray-900 mt-8">8. குழந்தைகளின் தனியுரிமை</h2>
@@ -220,9 +218,7 @@ export default function PrivacyPage() {
                     </p>
                     <div className="space-y-2 text-sm">
                         <p><strong>📧 Email:</strong>
-                            <a href="mailto:kalyanaveedu.helpdesk@gmail.com" className="text-primary hover:underline ml-1">
-                                kalyanaveedu.helpdesk@gmail.com
-                            </a>
+                            <Link href="/contact" className="text-primary hover:underline ml-1 font-bold">எங்கள் தொடர்பு படிவம் (Contact Form)</Link>
                         </p>
                         <p><strong>🌐 Website:</strong>
                             <a href="https://www.kalyanaveedu.in" className="text-primary hover:underline ml-1">
