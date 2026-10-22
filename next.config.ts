@@ -36,7 +36,7 @@ const nextConfig: NextConfig = {
           },
           {
             key: 'Content-Security-Policy',
-            value: "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://bauval.org https://abscloud.org https://araplhn.org https://*.adsterra.com https://*.profitablecreativeformat.com https://*.highperformanceformat.com https://*.alwingulla.com https://*.effectivecreativeformat.com https://www.highcpmgate.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' data: https://images.unsplash.com https://bauval.org https://abscloud.org https://araplhn.org https://*.adsterra.com https://*.profitablecreativeformat.com https://*.highperformanceformat.com https://*.alwingulla.com; font-src 'self' https://fonts.gstatic.com; connect-src 'self' https://bauval.org https://abscloud.org https://araplhn.org https://*.adsterra.com https://*.profitablecreativeformat.com https://*.highperformanceformat.com https://*.alwingulla.com https://www.highcpmgate.com; frame-src 'self' https://bauval.org https://abscloud.org https://araplhn.org https://*.adsterra.com https://*.profitablecreativeformat.com https://*.highperformanceformat.com https://*.alwingulla.com https://www.highcpmgate.com;",
+            value: "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https: http:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' data: blob: https: http:; font-src 'self' https://fonts.gstatic.com; connect-src 'self' https: http:; frame-src 'self' https: http:;",
           },
         ],
       },
