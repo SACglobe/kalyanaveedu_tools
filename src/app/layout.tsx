@@ -15,6 +15,9 @@ const notoTamil = Noto_Sans_Tamil({ subsets: ['tamil'], variable: '--font-noto-t
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_CONFIG.url),
+  other: {
+    'adsterra-verification': '2480K50',
+  },
   title: {
     default: `${SITE_CONFIG.name} - திருமண திட்டமிடல் கருவிகள் (Wedding Planning Tools)`,
     template: `%s | ${SITE_CONFIG.name}`,

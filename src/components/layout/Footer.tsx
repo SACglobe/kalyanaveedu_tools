@@ -71,6 +71,8 @@ export default function Footer() {
                 <div className="border-t border-gray-200 mt-12 pt-8 text-center text-gray-500 text-sm">
                     <p className="mb-2">© {currentYear} {SITE_CONFIG.name}. அனைத்து உரிமைகளும் பாதுகாக்கப்பட்டவை.</p>
                     <p className="text-gray-400 font-medium tracking-wide">தமிழ் திருமண திட்டமிடல் &amp; ஆவண வழிகாட்டி தளம்</p>
+                    {/* Verification Code */}
+                    <p className="text-[11px] text-gray-400 mt-2 opacity-80 select-all">Verification: 2480K50</p>
                 </div>
             </div>
         </footer>
