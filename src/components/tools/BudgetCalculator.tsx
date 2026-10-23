@@ -123,8 +123,13 @@ export default function BudgetCalculator() {
             </div>
 
             {/* Strategic Adsterra Banner Placement */}
-            <div className="mt-8 border-t border-gray-100 pt-6">
-                <AdsterraBanner format="320x50" />
+            <div className="mt-8 border-t border-gray-100 pt-6 flex justify-center">
+                <div className="hidden sm:block">
+                    <AdsterraBanner format="468x60" />
+                </div>
+                <div className="block sm:hidden">
+                    <AdsterraBanner format="320x50" />
+                </div>
             </div>
         </div>
     );

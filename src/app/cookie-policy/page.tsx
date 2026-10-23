@@ -76,26 +76,26 @@ export default function CookiePolicyPage() {
                             </p>
                         </div>
 
-                        {/* Google AdSense */}
+                        {/* Adsterra Advertising Cookies */}
                         <div className="bg-yellow-50 p-6 rounded-xl border border-yellow-200">
                             <h3 className="text-lg font-bold text-gray-900 mb-3">
-                                3. Google AdSense குக்கீகள்
+                                3. விளம்பர நெட்வொர்க் (Adsterra) குக்கீகள்
                             </h3>
                             <p className="text-gray-700 leading-relaxed mb-3">
-                                kalyanaveedu.com, Google AdSense விளம்பர சேவையைப் பயன்படுத்துகிறது.
-                                Google AdSense, வாசகர்களின் ஆர்வங்களுக்கு தகுந்த விளம்பரங்களை காட்டுவதற்காக
-                                குக்கீகளைப் பயன்படுத்துகிறது.
+                                kalyanaveedu.in, Adsterra விளம்பர நெட்வொர்க் சேவையைப் பயன்படுத்துகிறது.
+                                Adsterra, வாசகர்களின் ஆர்வங்களுக்கு தகுந்த விளம்பரங்களை காட்டுவதற்காக
+                                குக்கீகளைப் பயன்படுத்தலாம்.
                             </p>
                             <div className="space-y-2 text-sm text-gray-600">
                                 <p>
                                     மேலும் அறிய:{' '}
                                     <a
-                                        href="https://policies.google.com/technologies/ads"
+                                        href="https://adsterra.com/privacy-policy/"
                                         target="_blank"
                                         rel="noopener noreferrer"
                                         className="text-primary hover:underline"
                                     >
-                                        https://policies.google.com/technologies/ads
+                                        https://adsterra.com/privacy-policy/
                                     </a>
                                 </p>
                                 <p>

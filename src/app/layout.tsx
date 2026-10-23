@@ -7,6 +7,7 @@ import CookieConsent from '@/components/layout/CookieConsent';
 import { SITE_CONFIG } from '@/lib/constants';
 import Schema from '@/components/SEO/Schema';
 import AdsterraSocialBar from '@/components/ads/AdsterraSocialBar';
+import AdsterraPopunder from '@/components/ads/AdsterraPopunder';
 import AdBlockDetector from '@/components/layout/AdBlockDetector';
 import MobileDock from '@/components/layout/MobileDock';
 
@@ -111,6 +112,7 @@ export default function RootLayout({
           </main>
           <CookieConsent />
           <AdsterraSocialBar />
+          <AdsterraPopunder />
           <AdBlockDetector />
           <MobileDock />
           <Footer />

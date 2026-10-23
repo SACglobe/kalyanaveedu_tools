@@ -168,10 +168,10 @@ export default function DisclaimerPage() {
 
                 <h3 className="text-xl font-bold text-gray-800 mt-6 mb-3">4.2 விளம்பரங்கள் (Advertisements)</h3>
                 <p>
-                    எங்கள் தளம் Google AdSense மூலம் விளம்பரங்களை காட்டுகிறது:
+                    எங்கள் தளம் Adsterra விளம்பர நெட்வொர்க் மூலம் விளம்பரங்களை காட்டுகிறது:
                 </p>
                 <ul className="list-disc pl-6 space-y-2">
-                    <li><strong>Automated Ads:</strong> விளம்பரங்கள் Google-ன் algorithm மூலம் automated-ஆக காட்டப்படுகின்றன</li>
+                    <li><strong>Automated Ads:</strong> விளம்பரங்கள் Adsterra-வின் algorithm மூலம் automated-ஆக காட்டப்படுகின்றன</li>
                     <li><strong>நாங்கள் தேர்ந்தெடுப்பதில்லை:</strong> எந்த விளம்பரங்கள் காட்டப்படும் என்பதை நாங்கள் கட்டுப்படுத்துவதில்லை</li>
                     <li><strong>பொறுப்பு இல்லை:</strong> விளம்பரங்களில் உள்ள தயாரிப்புகள்/சேவைகளுக்கு நாங்கள் பொறுப்பல்ல</li>
                     <li><strong>வாங்குபவர் எச்சரிக்கை:</strong> விளம்பரதாரர்களின் தயாரிப்புகளை வாங்கும் முன் ஆராய்ச்சி செய்யுங்கள்</li>

@@ -8,20 +8,24 @@ export default function AdBlockDetector() {
   const checkAdBlock = async () => {
     let isBlocked = false;
 
-    // Test 1: Fetch a known common ad script URL that ad-blockers always block
+    // Test 1: Fetch known common ad script & network URLs that all ad-blockers block
     try {
-      const response = await fetch(
+      const adUrls = [
         'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js',
-        {
-          method: 'HEAD',
-          mode: 'no-cors',
-          cache: 'no-store',
-        }
-      ).catch(() => {
-        isBlocked = true;
-      });
+        'https://bauval.org/22/063314ca000add0f3b5f0ec9b0d4e4ae',
+        'https://abscloud.org/1/941cfbfc47699ece2bf1590d28fc816e',
+      ];
 
-      if (!response && isBlocked) {
+      for (const url of adUrls) {
+        try {
+          await fetch(url, { method: 'HEAD', mode: 'no-cors', cache: 'no-store' });
+        } catch {
+          isBlocked = true;
+          break;
+        }
+      }
+
+      if (isBlocked) {
         setAdBlockDetected(true);
         return;
       }

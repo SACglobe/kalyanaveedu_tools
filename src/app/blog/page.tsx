@@ -74,8 +74,13 @@ export default function BlogIndex() {
             </Suspense>
 
             {/* Strategic Adsterra Banner */}
-            <div className="my-10">
-                <AdsterraBanner format="320x50" />
+            <div className="my-10 flex justify-center">
+                <div className="hidden md:block">
+                    <AdsterraBanner format="728x90" />
+                </div>
+                <div className="block md:hidden">
+                    <AdsterraBanner format="300x250" />
+                </div>
             </div>
 
             {/* Adsterra Native Banner (Sponsored Content) */}

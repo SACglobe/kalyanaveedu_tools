@@ -110,9 +110,9 @@ export default function TermsPage() {
 
                 <h2 className="text-2xl font-bold text-gray-900 mt-12 mb-4">3. விளம்பரங்கள் (Advertising)</h2>
 
-                <h3 className="text-xl font-bold text-gray-800 mt-6 mb-3">3.1 Google AdSense</h3>
+                <h3 className="text-xl font-bold text-gray-800 mt-6 mb-3">3.1 விளம்பர கூட்டாளர் (Adsterra Advertising Network)</h3>
                 <p>
-                    Kalyanaveedu.in தளம் <strong>Google AdSense</strong> மூலம் விளம்பரங்களை காட்டுகிறது.
+                    Kalyanaveedu.in தளம் <strong>Adsterra</strong> விளம்பர நெட்வொர்க் மூலம் விளம்பரங்களை காட்டுகிறது.
                     இது தளத்தை இயக்குவதற்கான செலவுகளை ஈடுகட்ட உதவுகிறது மற்றும் உங்களுக்கு இலவச
                     சேவைகளை வழங்க உதவுகிறது.
                 </p>
@@ -120,7 +120,7 @@ export default function TermsPage() {
                 <div className="bg-yellow-50 p-5 rounded-xl border border-yellow-200 my-4">
                     <p className="text-sm text-yellow-900">
                         <strong>⚠️ விளம்பர கொள்கை:</strong> விளம்பரங்களில் காட்டப்படும் தயாரிப்புகள்
-                        அல்லது சேவைகளுக்கு நாங்கள் பொறுப்பல்ல. விளம்பரங்கள் Google-ன் automated system
+                        அல்லது சேவைகளுக்கு நாங்கள் பொறுப்பல்ல. விளம்பரங்கள் விளம்பர நெட்வொர்க்கின் automated system
                         மூலம் காட்டப்படுகின்றன. எந்த விளம்பரதாரரின் தயாரிப்பையும் வாங்குவதற்கு முன்
                         உங்கள் சொந்த ஆராய்ச்சி செய்யவும்.
                     </p>
@@ -190,7 +190,7 @@ export default function TermsPage() {
                     <ul className="text-sm text-purple-800 space-y-1 mb-0">
                         <li>• Calculator முடிவுகளை நாங்கள் சேமிப்பதில்லை</li>
                         <li>• Contact form தகவல்கள் மட்டும் email மூலம் அனுப்பப்படும்</li>
-                        <li>• Google Analytics & AdSense cookies பயன்படுத்தப்படுகின்றன</li>
+                        <li>• Google Analytics & Adsterra விளம்பர cookies பயன்படுத்தப்படுகின்றன</li>
                         <li>• உங்கள் IP address மற்றும் browser data சேகரிக்கப்படலாம் (analytics)</li>
                     </ul>
                 </div>

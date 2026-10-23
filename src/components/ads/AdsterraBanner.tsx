@@ -3,7 +3,7 @@
 import React, { useEffect, useRef } from 'react';
 import { ADSTERRA_CONFIG } from '@/lib/adsterra';
 
-type BannerFormat = '728x90' | '300x250' | '320x50';
+type BannerFormat = '728x90' | '300x250' | '320x50' | '468x60' | '160x300' | '160x600';
 
 interface AdsterraBannerProps {
   format?: BannerFormat;
@@ -26,6 +26,21 @@ const FORMAT_MAP: Record<BannerFormat, { width: number; height: number; defaultK
     width: 320,
     height: 50,
     defaultKey: ADSTERRA_CONFIG.units.banner_320x50.key,
+  },
+  '468x60': {
+    width: 468,
+    height: 60,
+    defaultKey: ADSTERRA_CONFIG.units.banner_468x60.key,
+  },
+  '160x300': {
+    width: 160,
+    height: 300,
+    defaultKey: ADSTERRA_CONFIG.units.skyscraper_160x300.key,
+  },
+  '160x600': {
+    width: 160,
+    height: 600,
+    defaultKey: ADSTERRA_CONFIG.units.skyscraper_160x600.key,
   },
 };
 

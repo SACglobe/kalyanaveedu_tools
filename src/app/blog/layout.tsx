@@ -16,8 +16,13 @@ export default function BlogLayout({
       <main className="flex-grow">{children}</main>
       
       {/* Strategic Adsterra Banner for Blog Pages */}
-      <div className="container mx-auto px-4 mt-12">
-        <AdsterraBanner format="320x50" />
+      <div className="container mx-auto px-4 mt-12 flex justify-center">
+        <div className="hidden md:block">
+          <AdsterraBanner format="728x90" />
+        </div>
+        <div className="block md:hidden">
+          <AdsterraBanner format="300x250" />
+        </div>
       </div>
 
       {/* Blog Global Footer / Crawler Highway */}
