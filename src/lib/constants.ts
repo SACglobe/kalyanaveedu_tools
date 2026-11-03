@@ -76,5 +76,47 @@ export const TOOLS_LIST = [
         title: 'ஜாதக பொருத்தம் (Marriage Compatibility)',
         description: '27 நட்சத்திர அடிப்படையில் 10 திருமண பொருத்தங்களை கணக்கிடுங்கள் (Nakshatra compatibility)',
         icon: '⭐'
+    },
+    {
+        path: '/tools/rahu-kalam',
+        title: 'இன்றைய ராகு காலம் (Rahu Kalam Today)',
+        description: 'உங்கள் ஊரின் சூரிய உதயப்படி இன்றைய ராகு கால நேரம் (City-based Rahu Kalam)',
+        icon: '⏰'
+    },
+    {
+        path: '/tools/gowri-nalla-neram',
+        title: 'கவுரி நல்ல நேரம் (Gowri Nalla Neram)',
+        description: 'பகல் மற்றும் இரவு சுப கவுரி நேர அட்டவணை (Day & Night Gowri Panchangam)',
+        icon: '✨'
+    },
+    {
+        path: '/tools/yamakandam',
+        title: 'யமகண்டம் & குளிகை (Yamakandam & Kuligai)',
+        description: 'இன்றைய யமகண்டம் மற்றும் குளிகை நேரங்கள் (Inauspicious & Repeating Timings)',
+        icon: '⏳'
+    },
+    {
+        path: '/tools/choghadiya',
+        title: 'சோகாதியம் அட்டவணை (Choghadiya Muhurat)',
+        description: 'பகல் மற்றும் இரவு சுப நேர சோகாதியம் கணிப்பான் (Day & Night Choghadiya)',
+        icon: '🧭'
+    },
+    {
+        path: '/tools/nakshatra-finder',
+        title: 'நட்சத்திரம் கண்டுபிடி (Nakshatra Finder)',
+        description: 'பிறந்த தேதி, நேரம் வைத்து நட்சத்திரம், பாதம், ராசி அறிய (Birth Star & Rasi)',
+        icon: '🌟'
+    },
+    {
+        path: '/tools/sevvai-dosham',
+        title: 'செவ்வாய் தோஷம் கணிப்பான் (Sevvai Dosha)',
+        description: 'செவ்வாய் தோஷம், விலக்குகள் மற்றும் திருமண வழிகாட்டல் (Mangal / Kuja Dosha)',
+        icon: '🛡️'
+    },
+    {
+        path: '/tools/thirumana-muhurtham',
+        title: 'திருமண முகூர்த்த தேதிகள் (Muhurtham 2025-2026)',
+        description: '2025 & 2026 ஆம் ஆண்டிற்கான சுப திருமண முகூர்த்த நாட்கள் (Auspicious Dates List)',
+        icon: '💍'
     }
 ];
