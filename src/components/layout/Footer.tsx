@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { SITE_CONFIG } from '@/lib/constants';
+import { SITE_CONFIG, COMPANY, NETWORK_SITES } from '@/lib/constants';
 
 export default function Footer() {
     const currentYear = new Date().getFullYear();
@@ -68,9 +68,27 @@ export default function Footer() {
                     </div>
                 </div>
 
-                <div className="border-t border-gray-200 mt-12 pt-8 text-center text-gray-500 text-sm">
+                {/* Sister sites */}
+                <div className="border-t border-gray-200 mt-10 pt-6 text-center">
+                    <h4 className="font-bold text-gray-900 mb-3 text-sm">எங்கள் மற்ற தளங்கள் (Our Network)</h4>
+                    <ul className="flex flex-wrap justify-center gap-x-6 gap-y-2 text-sm">
+                        {NETWORK_SITES.map((site) => (
+                            <li key={site.url}>
+                                <a href={site.url} target="_blank" rel="noopener" title={site.desc} className="text-gray-600 hover:text-primary font-medium">
+                                    {site.name}
+                                </a>
+                            </li>
+                        ))}
+                    </ul>
+                </div>
+
+                <div className="border-t border-gray-200 mt-6 pt-8 text-center text-gray-500 text-sm">
                     <p className="mb-2">© {currentYear} {SITE_CONFIG.name}. அனைத்து உரிமைகளும் பாதுகாக்கப்பட்டவை.</p>
                     <p className="text-gray-400 font-medium tracking-wide">தமிழ் திருமண திட்டமிடல் &amp; ஆவண வழிகாட்டி தளம்</p>
+                    <p className="mt-2">
+                        Powered by{' '}
+                        <a href={COMPANY.url} target="_blank" rel="noopener" className="font-bold text-gray-600 hover:text-primary">{COMPANY.name}</a>
+                    </p>
                     {/* Verification Code */}
                     <p className="text-[11px] text-gray-400 mt-2 opacity-80 select-all">Verification: 2480K50</p>
                 </div>

@@ -4,12 +4,13 @@ import './globals.css';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 import CookieConsent from '@/components/layout/CookieConsent';
-import { SITE_CONFIG } from '@/lib/constants';
+import { SITE_CONFIG, COMPANY, NETWORK_SITES } from '@/lib/constants';
 import Schema from '@/components/SEO/Schema';
 import AdsterraSocialBar from '@/components/ads/AdsterraSocialBar';
 import AdsterraPopunder from '@/components/ads/AdsterraPopunder';
 import AdBlockDetector from '@/components/layout/AdBlockDetector';
 import MobileDock from '@/components/layout/MobileDock';
+import TitleGuard from '@/components/layout/TitleGuard';
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter' });
 const notoTamil = Noto_Sans_Tamil({ subsets: ['tamil'], variable: '--font-noto-tamil', weight: ['400', '500', '700', '900'] });
@@ -31,29 +32,17 @@ export const metadata: Metadata = {
     apple: '/icon-192.png',
   },
 
-  alternates: {
-    canonical: SITE_CONFIG.url,
-  },
   openGraph: {
     title: SITE_CONFIG.name,
     description: SITE_CONFIG.metaDescription,
     siteName: SITE_CONFIG.name,
     locale: 'ta_IN',
     type: 'website',
-    images: [
-      {
-        url: '/logo-v2.png',
-        width: 1200,
-        height: 630,
-        alt: SITE_CONFIG.name,
-      },
-    ],
   },
   twitter: {
     card: 'summary_large_image',
     title: SITE_CONFIG.name,
     description: SITE_CONFIG.metaDescription,
-    images: ['/logo-v2.png'],
   },
 };
 
@@ -83,7 +72,9 @@ export default function RootLayout({
               logo: `${SITE_CONFIG.url}/icon-v2.png`,
               sameAs: [
                 ...Object.values(SITE_CONFIG.social || {}),
-                SITE_CONFIG.founder.url
+                SITE_CONFIG.founder.url,
+                COMPANY.url,
+                ...NETWORK_SITES.map((s) => s.url),
               ]
             }} 
           />
@@ -114,6 +105,7 @@ export default function RootLayout({
           <AdsterraSocialBar />
           <AdsterraPopunder />
           <AdBlockDetector />
+          <TitleGuard />
           <MobileDock />
           <Footer />
         </PWAProvider>

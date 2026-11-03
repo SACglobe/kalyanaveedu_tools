@@ -8,6 +8,11 @@ export interface RelatedTool {
 }
 
 export const ALL_TOOLS_INDEX: Record<string, RelatedTool> = {
+  'free-jathagam': { path: '/tools/free-jathagam', titleTa: 'இலவச ஜாதகம்', titleEn: 'Free Jathagam', icon: '📜', descriptionTa: 'லக்னம், ராசி கட்டம், நவாம்சம், தசை.' },
+  panchangam: { path: '/panchangam', titleTa: 'இன்றைய பஞ்சாங்கம்', titleEn: 'Today Panchangam', icon: '🪔', descriptionTa: 'இன்றைய திதி, நட்சத்திரம், யோகம், ராகு காலம், நல்ல நேரம்.' },
+  'rasi-palan': { path: '/rasi-palan', titleTa: 'இன்றைய ராசி பலன்', titleEn: 'Rasi Palan', icon: '♈', descriptionTa: '12 ராசிகளுக்கும் இன்றைய பலன்.' },
+  viratham: { path: '/tools/viratham', titleTa: 'விரத நாட்கள்', titleEn: 'Viratham Calendar', icon: '🌕', descriptionTa: 'அமாவாசை, பௌர்ணமி, ஏகாதசி, சஷ்டி தேதிகள்.' },
+  'baby-names': { path: '/tools/baby-names', titleTa: 'குழந்தை பெயர்கள்', titleEn: 'Baby Names by Star', icon: '👶', descriptionTa: 'நட்சத்திரப்படி பெயர் எழுத்துகள் & பெயர்கள்.' },
   'rahu-kalam': {
     path: '/tools/rahu-kalam',
     titleTa: 'இன்றைய ராகு காலம்',
@@ -82,14 +87,15 @@ export const ALL_TOOLS_INDEX: Record<string, RelatedTool> = {
 
 // Map each tool key to 3 contextually relevant tools
 export const TOOL_RELATIONS: Record<string, string[]> = {
-  'rahu-kalam': ['gowri-nalla-neram', 'yamakandam', 'choghadiya'],
+  'rahu-kalam': ['panchangam', 'gowri-nalla-neram', 'yamakandam'],
   'gowri-nalla-neram': ['rahu-kalam', 'yamakandam', 'thirumana-muhurtham'],
   'yamakandam': ['rahu-kalam', 'gowri-nalla-neram', 'choghadiya'],
   'choghadiya': ['rahu-kalam', 'gowri-nalla-neram', 'nakshatra-finder'],
-  'nakshatra-finder': ['jathagam-porutham', 'sevvai-dosham', 'thirumana-muhurtham'],
+  'nakshatra-finder': ['free-jathagam', 'baby-names', 'jathagam-porutham'],
+  'free-jathagam': ['jathagam-porutham', 'sevvai-dosham', 'baby-names'],
   'sevvai-dosham': ['jathagam-porutham', 'nakshatra-finder', 'thirumana-muhurtham'],
   'thirumana-muhurtham': ['jathagam-porutham', 'gowri-nalla-neram', 'thirumana-selavu'],
-  'jathagam-porutham': ['nakshatra-finder', 'sevvai-dosham', 'thirumana-muhurtham'],
+  'jathagam-porutham': ['free-jathagam', 'nakshatra-finder', 'sevvai-dosham'],
 };
 
 export function getRelatedTools(currentToolSlug: string): RelatedTool[] {

@@ -5,6 +5,9 @@ import { BLOG_POSTS } from '@/lib/blog-data';
 import type { Metadata } from 'next';
 import Schema from '@/components/SEO/Schema';
 import UpcomingMuhurtham from '@/components/tools/UpcomingMuhurtham';
+import TodayStrip from '@/components/home/TodayStrip';
+
+export const revalidate = 1800;
 
 export const metadata: Metadata = {
   title: 'கல்யாண வீடு | Tamil Wedding Planner & Subha Muhurtham Dates',
@@ -30,7 +33,7 @@ export default function Home() {
         type="ItemList"
         data={{
           name: "திருமண திட்டமிடல் கருவிகள்",
-          description: "தமிழர்களின் திருமணத்தை எளிமையாக்கும் 7 இலவச கருவிகள்",
+          description: `தமிழர்களின் திருமணத்தை எளிமையாக்கும் ${TOOLS_LIST.length} இலவச கருவிகள்`,
           items: TOOLS_LIST
         }}
       />
@@ -135,6 +138,8 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      <TodayStrip />
 
       {/* Upcoming Muhurtham Dates (Crawler Highway) */}
       <UpcomingMuhurtham />

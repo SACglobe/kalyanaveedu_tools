@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import RahuKalam from '@/components/tools/RahuKalam';
+import CityLinks from '@/components/tools/CityLinks';
 import { SITE_CONFIG } from '@/lib/constants';
 import { generateToolJsonLd } from '@/lib/seo/tool-schema';
 
@@ -28,7 +29,7 @@ export const metadata: Metadata = {
   },
 };
 
-export const dynamic = 'force-static';
+export const revalidate = 1800;
 
 export default function RahuKalamPage() {
   const jsonLd = generateToolJsonLd({
@@ -57,7 +58,7 @@ export default function RahuKalamPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
-      <main className="min-h-screen bg-gradient-to-b from-orange-50 to-white">
+      <div className="min-h-screen bg-gradient-to-b from-orange-50 to-white">
         {/* Breadcrumb */}
         <div className="container mx-auto px-4 pt-4">
           <nav aria-label="breadcrumb" className="text-sm text-gray-500 mb-4">
@@ -91,7 +92,8 @@ export default function RahuKalamPage() {
 
         {/* Tool */}
         <RahuKalam />
-      </main>
+        <CityLinks basePath="/tools/rahu-kalam" title="ஊர் வாரியாக ராகு காலம்" />
+      </div>
     </>
   );
 }

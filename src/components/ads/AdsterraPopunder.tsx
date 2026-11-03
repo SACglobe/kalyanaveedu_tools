@@ -15,6 +15,14 @@ export default function AdsterraPopunder({ scriptUrl }: AdsterraPopunderProps) {
       return;
     }
 
+    // Frequency cap: one popunder per browser session keeps return visits and session depth healthy
+    try {
+      if (sessionStorage.getItem('kv_popunder_shown')) return;
+      sessionStorage.setItem('kv_popunder_shown', '1');
+    } catch {
+      // storage unavailable: fall through and load normally
+    }
+
     const script = document.createElement('script');
     script.type = 'text/javascript';
     script.src = activeUrl;

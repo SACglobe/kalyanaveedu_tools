@@ -1,4 +1,7 @@
-import { TAMIL_MONTHS, TAMIL_YEARS, SANKRANTI_DATA, AMAVASAI_DATES_2026, POURNAMI_DATES_2026 } from './tamil-calendar-data';
+import { TAMIL_MONTHS, TAMIL_YEARS, SANKRANTI_DATA } from './tamil-calendar-data';
+import { TAMIL_CITIES, NAKSHATRAS_LIST, RASIS_LIST } from './astro-core/constants';
+import { computePanchangLite, tithiName } from './astro-core/panchang-day';
+import { isViratham } from './viratham';
 
 export interface TamilDateResult {
     tamilDay: number;
@@ -137,115 +140,53 @@ const YOGAS = [
     "பரிகம்", "சிவம்", "சித்தம்", "சாத்தியம்", "சுபம்", "சுப்பிரம்", "பிராமியம்", "ஐந்தரம்", "வைதிருதி"
 ];
 
+const panchangamCache = new Map<string, PanchangamResult>();
+
+// Panchangam for a calendar day (Chennai, values at sunrise with end times), computed by the same engine as the
+// /panchangam pages so every page agrees. Cached because the month grids call this for every visible day.
 export function getPanchangam(date: Date): PanchangamResult {
-    // We calculate values for 'Today' (at the given time, or midnight if we want the day's start)
-    // To find end times, we sample across the day starting from midnight
-    const startOfDay = new Date(date.getFullYear(), date.getMonth(), date.getDate());
+    const y = date.getFullYear();
+    const m = date.getMonth() + 1;
+    const d = date.getDate();
+    const key = `${y}-${m}-${d}`;
+    const hit = panchangamCache.get(key);
+    if (hit) return hit;
 
-    const getValuesAt = (d: Date) => {
-        const jd = getJulianDay(d);
-        const ayanamsa = ((d.getFullYear() - 285) * 50.29) / 3600;
-        const moonLong = (getMoonLongitude(jd) - ayanamsa + 360) % 360;
-        const sunLong = (getSunLongitude(jd) - ayanamsa + 360) % 360;
+    const p = computePanchangLite(y, m, d, TAMIL_CITIES[0]);
+    const dateStr = p.dateStr;
+    const endText = (end: string, nextDay: boolean) => `${end}${nextDay ? ' (அடுத்த நாள்)' : ''}`;
 
-        const tithiVal = ((moonLong - sunLong + 360) % 360) / 12;
-        const naksVal = moonLong / (360 / 27);
-        const yogaVal = ((moonLong + sunLong + 360) % 360) / (360 / 27);
+    const isAmavasai = isViratham('amavasai', dateStr);
+    const isPournami = isViratham('pournami', dateStr);
 
-        return {
-            tithiNum: Math.floor(tithiVal) + 1,
-            naksIdx: Math.floor(naksVal),
-            yogaIdx: Math.floor(yogaVal),
-            moonLong
-        };
-    };
+    const t0 = p.tithiSegments[0];
+    const pakshaLabel = t0.name.paksha === 'krishna' ? 'தேய்பிறை (Krishna Paksham)' : 'வளர்பிறை (Sukla Paksham)';
+    let tithi = `${t0.name.ta} - ${pakshaLabel}`;
+    if (isAmavasai) tithi = 'அமாவாசை (Amavasai) - தேய்பிறை (Krishna Paksham)';
+    else if (isPournami) tithi = 'பௌர்ணமி (Pournami) - வளர்பிறை (Sukla Paksham)';
 
-    const initial = getValuesAt(date);
+    const nextTithiNum = p.tithiSegments[1] ? p.tithiSegments[1].num : (t0.num % 30) + 1;
+    const n0 = p.nakshatraSegments[0];
+    const nextNak = p.nakshatraSegments[1] ? p.nakshatraSegments[1] : null;
 
-    // Simple iterative search for end times (15-min precision)
-    let tithiEndTime = "";
-    let nextTithi = "";
-    let nakshatraEndTime = "";
-    let nextNakshatra = "";
+    // Chandrashtamam: janma rasi for which today's Moon is the 8th house
+    const janmaRasiIdx = (p.moonRasiIndexAtSunrise - 7 + 12) % 12;
+    const janmaRasiTa = RASIS_LIST[janmaRasiIdx].nameTa;
+    const chandrashtamam = NAKSHATRAS_LIST.filter((n) => n.rasiTa.split('/').includes(janmaRasiTa)).map((n) => n.nameTa).join(', ');
 
-    // Search forward from current time up to 28 hours
-    for (let i = 0; i < 28 * 4; i++) {
-        const checkDate = new Date(date.getTime() + i * 15 * 60 * 1000);
-        const current = getValuesAt(checkDate);
-
-        if (!tithiEndTime && current.tithiNum !== initial.tithiNum) {
-            tithiEndTime = checkDate.toLocaleTimeString('ta-IN', { hour: '2-digit', minute: '2-digit', hour12: true });
-            const idx = (current.tithiNum - 1) % 15;
-            nextTithi = TITHIS[idx].split(' ')[0];
-        }
-
-        if (!nakshatraEndTime && current.naksIdx !== initial.naksIdx) {
-            nakshatraEndTime = checkDate.toLocaleTimeString('ta-IN', { hour: '2-digit', minute: '2-digit', hour12: true });
-            nextNakshatra = NAKSHATRAS[current.naksIdx].split(' ')[0];
-        }
-
-        if (tithiEndTime && nakshatraEndTime) break;
-    }
-
-    const isWaning = initial.tithiNum > 15;
-    const tithiIdx = (initial.tithiNum - 1) % 15;
-    let tithiName = initial.tithiNum === 15 ? "பௌர்ணமி (Pournami)" : initial.tithiNum === 30 ? "அமாவாசை (Amavasai)" : TITHIS[tithiIdx].split(' ')[0];
-    const paksham = isWaning ? "தேய்பிறை (Krishna Paksham)" : "வளர்பிறை (Sukla Paksham)";
-
-    // Chandrashtamam calculation
-    // Today's Moon Rasi index (0-11)
-    const moonRasiIdx = Math.floor(initial.moonLong / 30);
-    // Chandrashtamam is for the Rasi which is 8th from the Moon's current Rasi? 
-    // No, it's for people whose Janma Rasi is such that today's Moon is in their 8th house.
-    // So Janma Rasi = (moonRasiIdx - 7 + 12) % 12
-    const janmaRasiIdx = (moonRasiIdx - 7 + 12) % 12;
-    // Get Nakshatras for that Rasi (Approx)
-    // 2.25 Nakshatras per Rasi.
-    const startNaks = Math.floor(janmaRasiIdx * 2.25);
-    const endNaks = Math.floor((janmaRasiIdx + 1) * 2.25 - 0.1);
-    const chandrashtamam = NAKSHATRAS.slice(startNaks, endNaks + 1).map(n => n.split(' ')[0]).join(', ');
-
-    let result: PanchangamResult = {
-        tithi: `${tithiName} - ${paksham}`,
-        tithiEndTime: tithiEndTime || "நாள் முழுவதும்",
-        nextTithi: nextTithi,
-        nakshatra: NAKSHATRAS[initial.naksIdx],
-        nakshatraEndTime: nakshatraEndTime || "நாள் முழுவதும்",
-        nextNakshatra: nextNakshatra,
-        yoga: YOGAS[initial.yogaIdx],
+    const result: PanchangamResult = {
+        tithi,
+        tithiEndTime: endText(t0.endFormatted, t0.endsNextDay),
+        nextTithi: tithiName(nextTithiNum).ta,
+        nakshatra: `${n0.nameTa} (${n0.nameEn})`,
+        nakshatraEndTime: endText(n0.endFormatted, n0.endsNextDay),
+        nextNakshatra: nextNak ? nextNak.nameTa : NAKSHATRAS_LIST[(n0.index + 1) % 27].nameTa,
+        yoga: p.yogaSegments[0].nameTa,
         chandrashtamam,
-        isPournami: initial.tithiNum === 15,
-        isAmavasai: initial.tithiNum === 30
+        isPournami,
+        isAmavasai,
     };
-
-    // Hardcoded Overrides for Moon Phases (2026)
-    if (date.getFullYear() === 2026) {
-        const fullDateStr = `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, '0')}-${String(date.getDate()).padStart(2, '0')}`;
-        const isAmavasai = AMAVASAI_DATES_2026.includes(fullDateStr);
-        const isPournami = POURNAMI_DATES_2026.includes(fullDateStr);
-
-        // Reset both first to ensure no spillover from astronomical calculation
-        result.isAmavasai = false;
-        result.isPournami = false;
-
-        if (isAmavasai) {
-            result.isAmavasai = true;
-            result.tithi = "அமாவாசை (Amavasai) - தேய்பிறை (Krishna Paksham)";
-        } else if (isPournami) {
-            result.isPournami = true;
-            result.tithi = "பௌர்ணமி (Pournami) - வளர்பிறை (Sukla Paksham)";
-        } else {
-            // If it's not our hardcoded moon phase day, but astronomical calculation says it is, 
-            // we must change the tithi name to avoid confusion (e.g., Feb 2 morning still being Pournami)
-            if (result.tithi.includes("பௌர்ணமி")) {
-                result.tithi = result.tithi.replace("பௌர்ணமி", "துவிதியை"); // Shift to next tithi name
-            }
-            if (result.tithi.includes("அமாவாசை")) {
-                result.tithi = result.tithi.replace("அமாவாசை", "பிரதமை"); // Shift to next tithi name
-            }
-        }
-    }
-
+    panchangamCache.set(key, result);
     return result;
 }
 

@@ -13,7 +13,7 @@ export default function BlogLayout({
 
   return (
     <div className="min-h-screen flex flex-col">
-      <main className="flex-grow">{children}</main>
+      <div className="flex-grow">{children}</div>
       
       {/* Strategic Adsterra Banner for Blog Pages */}
       <div className="container mx-auto px-4 mt-12 flex justify-center">

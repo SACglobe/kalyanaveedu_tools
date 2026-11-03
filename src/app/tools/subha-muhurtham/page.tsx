@@ -6,6 +6,7 @@ import RelevantTools from '@/components/RelevantTools';
 import { VALUABLE_MARRIAGE_DATES } from '@/lib/tamil-calendar-data';
 import { getTamilDate, getTamilDayName } from '@/lib/tamil-calendar-utils';
 import MuhurthamMasterIndex from '@/components/tools/MuhurthamMasterIndex';
+import { cityNow, cityTodayStr } from '@/lib/astro-core/sunrise';
 
 export const metadata: Metadata = {
     title: 'Subha Muhurtham Today | இன்றைய சுப முகூர்த்தம் – Tamil Calendar',
@@ -16,9 +17,12 @@ export const metadata: Metadata = {
     },
 };
 
+export const revalidate = 3600;
+
 export default function SubhaMuhurthamPage() {
-    const today = new Date();
-    const todayStr = today.toISOString().split('T')[0];
+    // IST "today" (the server runs in UTC)
+    const today = cityNow();
+    const todayStr = cityTodayStr();
     const year = today.getFullYear();
     const englishDateStr = today.toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' });
 
@@ -41,7 +45,7 @@ export default function SubhaMuhurthamPage() {
     }
 
     return (
-        <main className="min-h-screen bg-gray-50 pt-12 pb-24">
+        <div className="min-h-screen bg-gray-50 pt-12 pb-24">
             <div className="container mx-auto px-1 md:px-4">
                 {/* SEO Header: Today Intent Extraction Layer */}
                 <div className="text-center max-w-3xl mx-auto mb-12">
@@ -312,6 +316,6 @@ export default function SubhaMuhurthamPage() {
                     }}
                 />
             </div>
-        </main>
+        </div>
     );
 }

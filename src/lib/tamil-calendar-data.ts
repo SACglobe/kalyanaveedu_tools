@@ -57,49 +57,7 @@ export const SANKRANTI_DATA: { [key: number]: number[] } = {
     2036: [15, 13, 14, 13, 14, 15, 16, 16, 16, 17, 16, 15]
 };
 
-export const FESTIVALS: { [key: string]: string } = {
-    "01-14": "போகி (Bhogi)",
-    "01-15": "தைப்பொங்கல் (Thai Pongal)",
-    "01-16": "மாட்டுப் பொங்கல் (Maattu Pongal)",
-    "01-17": "காணும் பொங்கல் (Kaanum Pongal)",
-    "04-14": "தமிழ் புத்தாண்டு (Tamil New Year / Puthandu)",
-    "05-01": "உழைப்பாளர் தினம் (May Day)",
-    "08-15": "சுதந்திர தினம் (Independence Day)",
-    "10-02": "காந்தி ஜெயந்தி (Gandhi Jayanti)",
-    "12-25": "கிறிஸ்துமஸ் (Christmas)"
-};
-
-/**
- * More precise festival rules can be added here.
- * For now, focusing on fixed solar dates.
- */
-
-export const HOLIDAYS_2026: Record<string, string> = {
-    "01-01": "New Year's Day",
-    "01-14": "Bhogi Pongal",
-    "01-15": "Thai Pongal",
-    "01-16": "Thiruvalluvar Day",
-    "01-17": "Uzhavar Tirunal",
-    "01-26": "Republic Day",
-    "03-20": "Telugu New Year (Ugadi)",
-    "03-28": "Ramzan (Idul Fitr)",
-    "04-01": "Annual accounts closing for Banks",
-    "04-02": "Mahaveer Jayanthi",
-    "04-03": "Good Friday",
-    "04-14": "Tamil New Year / Dr.B.R. Ambedkar's Birthday",
-    "05-01": "May Day",
-    "06-05": "Bakrid",
-    "07-06": "Muharram",
-    "08-15": "Independence Day",
-    "08-27": "Krishna Jayanthi",
-    "09-03": "Vinayaka Chathurthi",
-    "09-15": "Milad-un-Nabi",
-    "10-02": "Gandhi Jayanthi",
-    "10-11": "Ayutha Pooja",
-    "10-12": "Vijaya Dasami",
-    "10-21": "Deepavali",
-    "12-25": "Christmas"
-};
+// Festivals and holidays are computed in lib/festivals.ts and lib/holidays.ts (the old fixed month-day lists were wrong for most years).
 
 export const VALUABLE_MARRIAGE_DATES: string[] = [
     // 2026 Marriage Dates (Synchronized with printed calendar reference)
@@ -115,14 +73,4 @@ export const VALUABLE_MARRIAGE_DATES: string[] = [
     "2026-10-25", "2026-10-30",
     "2026-11-01", "2026-11-11", "2026-11-13", "2026-11-15", "2026-11-16", "2026-11-20", "2026-11-29",
     "2026-12-04", "2026-12-06", "2026-12-10", "2026-12-13", "2026-12-14"
-];
-
-export const AMAVASAI_DATES_2026 = [
-    "2026-01-18", "2026-02-17", "2026-03-18", "2026-04-17", "2026-05-16", "2026-06-14",
-    "2026-07-14", "2026-08-12", "2026-09-10", "2026-10-10", "2026-11-08", "2026-12-08"
-];
-
-export const POURNAMI_DATES_2026 = [
-    "2026-01-03", "2026-02-01", "2026-03-03", "2026-04-01", "2026-05-01", "2026-05-31",
-    "2026-06-29", "2026-07-29", "2026-08-27", "2026-09-26", "2026-10-25", "2026-11-24", "2026-12-23"
 ];

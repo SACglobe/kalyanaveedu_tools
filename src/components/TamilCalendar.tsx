@@ -1,4 +1,5 @@
 "use client";
+import { toDateInputValue } from '@/lib/date-utils';
 
 import { useState, useEffect, useRef } from 'react';
 import {
@@ -8,7 +9,8 @@ import {
     getTamilDayNameEng,
     getMuhurthamTimes
 } from '@/lib/tamil-calendar-utils';
-import { TAMIL_MONTHS, FESTIVALS, HOLIDAYS_2026, VALUABLE_MARRIAGE_DATES, AMAVASAI_DATES_2026, POURNAMI_DATES_2026 } from '@/lib/tamil-calendar-data';
+import { TAMIL_MONTHS, VALUABLE_MARRIAGE_DATES } from '@/lib/tamil-calendar-data';
+import { getHolidayName } from '@/lib/holidays';
 
 export default function TamilCalendar() {
     const [mounted, setMounted] = useState(false);
@@ -80,7 +82,7 @@ export default function TamilCalendar() {
 
     const handleShare = (e: React.MouseEvent) => {
         e.stopPropagation();
-        const dateStr = selectedDate.toISOString().split('T')[0];
+        const dateStr = toDateInputValue(selectedDate);
         const url = `${window.location.origin}${window.location.pathname}?date=${dateStr}`;
         const text = `தமிழ் காலண்டர்: ${selectedTamil.tamilDay} ${selectedTamil.tamilMonth} (${getTamilDayName(selectedDate)}). நட்சத்திரம்: ${selectedPanchangam.nakshatra}. பாருங்கள்: `;
         const whatsappUrl = `https://wa.me/?text=${encodeURIComponent(text + url)}`;
@@ -100,7 +102,7 @@ export default function TamilCalendar() {
         for (let d = 1; d <= daysInMonth; d++) {
             const dateStr = `${String(month).padStart(2, '0')}-${String(d).padStart(2, '0')}`;
             const fullDateStr = `${year}-${String(month).padStart(2, '0')}-${String(d).padStart(2, '0')}`;
-            const holiday = HOLIDAYS_2026[dateStr];
+            const holiday = getHolidayName(year, dateStr);
             const isMarriage = VALUABLE_MARRIAGE_DATES.includes(fullDateStr);
 
             if (holiday || isMarriage) {
@@ -255,7 +257,7 @@ export default function TamilCalendar() {
                         const panchangam = getPanchangam(date);
                         const dateStr = `${String(viewDate.getMonth() + 1).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
                         const fullDateStr = `${viewDate.getFullYear()}-${String(viewDate.getMonth() + 1).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
-                        const isHoliday = !!HOLIDAYS_2026[dateStr];
+                        const isHoliday = !!getHolidayName(viewDate.getFullYear(), dateStr);
                         const isMarriage = VALUABLE_MARRIAGE_DATES.includes(fullDateStr);
 
                         const shortNaks = panchangam.nakshatra.includes('வரை') ? panchangam.nakshatra.split('வரை')[1].trim() : panchangam.nakshatra.split(' ')[0];
@@ -346,12 +348,12 @@ export default function TamilCalendar() {
                 </div>
 
                 <div className="p-6 space-y-6">
-                    {(HOLIDAYS_2026[`${String(selectedDate.getMonth() + 1).padStart(2, '0')}-${String(selectedDate.getDate()).padStart(2, '0')}`] ||
-                        VALUABLE_MARRIAGE_DATES.includes(selectedDate.toISOString().split('T')[0])) && (
+                    {(getHolidayName(selectedDate.getFullYear(), `${String(selectedDate.getMonth() + 1).padStart(2, '0')}-${String(selectedDate.getDate()).padStart(2, '0')}`) ||
+                        VALUABLE_MARRIAGE_DATES.includes(toDateInputValue(selectedDate))) && (
                             <div className="p-3 bg-orange-50 border-l-4 border-orange-500 rounded-r-xl">
                                 <p className="text-[10px] text-orange-600 font-extrabold uppercase mb-1">சிறப்பு தகவல் (Info)</p>
                                 <p className="text-gray-900 font-black text-sm">
-                                    {HOLIDAYS_2026[`${String(selectedDate.getMonth() + 1).padStart(2, '0')}-${String(selectedDate.getDate()).padStart(2, '0')}`] || 'இன்று சுப முகூர்த்த நாள் (Auspicious Wedding Day)'}
+                                    {getHolidayName(selectedDate.getFullYear(), `${String(selectedDate.getMonth() + 1).padStart(2, '0')}-${String(selectedDate.getDate()).padStart(2, '0')}`) || 'இன்று சுப முகூர்த்த நாள் (Auspicious Wedding Day)'}
                                 </p>
                             </div>
                         )}

@@ -65,7 +65,7 @@ export default async function MuhurthamDatePage({ params }: Props) {
     const dayNameEng = getTamilDayNameEng(d);
 
     return (
-        <main className="min-h-screen bg-gray-50 pt-12 pb-24">
+        <div className="min-h-screen bg-gray-50 pt-12 pb-24">
             <Schema 
                 type="BreadcrumbList"
                 data={{
@@ -192,6 +192,6 @@ export default async function MuhurthamDatePage({ params }: Props) {
                      </div>
                 </div>
             </div>
-        </main>
+        </div>
     );
 }

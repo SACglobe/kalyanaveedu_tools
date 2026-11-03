@@ -4,7 +4,8 @@ import type { Metadata } from 'next';
 import { SITE_CONFIG } from '@/lib/constants';
 
 import { getTamilDate, getPanchangam, getTamilDayName } from '@/lib/tamil-calendar-utils';
-import { HOLIDAYS_2026, FESTIVALS } from '@/lib/tamil-calendar-data';
+import { getHolidayName } from '@/lib/holidays';
+import { cityNow } from '@/lib/astro-core/sunrise';
 
 export const metadata: Metadata = {
     title: 'Tamil Calendar Today | இன்று தமிழ் தேதி – Tamil Calendar',
@@ -15,8 +16,11 @@ export const metadata: Metadata = {
     },
 };
 
+export const revalidate = 3600;
+
 export default function TamilCalendarPage() {
-    const today = new Date();
+    // IST "today" (the server runs in UTC)
+    const today = cityNow();
     const tamilDate = getTamilDate(today);
     const panchangam = getPanchangam(today);
     const weekday = getTamilDayName(today);
@@ -35,7 +39,7 @@ export default function TamilCalendarPage() {
     const tamilMonths = ["சித்திரை", "வைகாசி", "ஆனி", "ஆடி", "ஆவணி", "புரட்டாசி", "ஐப்பசி", "கார்த்திகை", "மார்கழி", "தை", "மாசி", "பங்குனி"];
 
     return (
-        <main className="min-h-screen bg-gray-50 pt-12 pb-24">
+        <div className="min-h-screen bg-gray-50 pt-12 pb-24">
             <div className="container mx-auto px-1 md:px-4">
                 {/* SEO Header: Today Intent Extraction Layer */}
                 <div className="text-center max-w-3xl mx-auto mb-12">
@@ -71,8 +75,8 @@ export default function TamilCalendarPage() {
                     <p className="text-gray-700 text-lg md:text-xl leading-relaxed">
                         {(() => {
                             const dateKey = `${String(today.getMonth() + 1).padStart(2, '0')}-${String(today.getDate()).padStart(2, '0')}`;
-                            const fest = FESTIVALS[dateKey];
-                            const holiday = HOLIDAYS_2026[dateKey];
+                            const fest = undefined;
+                            const holiday = getHolidayName(today.getFullYear(), dateKey);
 
                             // Collect unique festival names
                             const festivals = [fest, holiday]
@@ -345,6 +349,6 @@ export default function TamilCalendarPage() {
                     }}
                 />
             </div>
-        </main>
+        </div>
     );
 }

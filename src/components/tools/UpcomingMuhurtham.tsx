@@ -1,9 +1,10 @@
 import Link from 'next/link';
 import { VALUABLE_MARRIAGE_DATES } from '@/lib/tamil-calendar-data';
 import { getTamilDate, getTamilDayName } from '@/lib/tamil-calendar-utils';
+import { toDateInputValue } from '@/lib/date-utils';
 
 export default function UpcomingMuhurtham() {
-    const todayStr = new Date().toISOString().split('T')[0];
+    const todayStr = toDateInputValue(new Date());
     
     // Get next 6 upcoming dates
     const upcomingDates = VALUABLE_MARRIAGE_DATES

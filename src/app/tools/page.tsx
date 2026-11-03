@@ -19,7 +19,7 @@ export default function ToolsIndex() {
                 type="ItemList"
                 data={{
                     name: "திருமண திட்டமிடல் கருவிகள்",
-                    description: "தமிழர்களின் திருமணத்தை எளிமையாக்கும் 7 இலவச கருவிகள்",
+                    description: `தமிழர்களின் திருமணத்தை எளிமையாக்கும் ${TOOLS_LIST.length} இலவச கருவிகள்`,
                     items: TOOLS_LIST
                 }}
             />

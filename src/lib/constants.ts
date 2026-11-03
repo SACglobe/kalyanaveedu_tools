@@ -20,15 +20,65 @@ export const SITE_CONFIG = {
     }
 };
 
+// Sister sites of SAC GLOBE TECH (shown in the footer; this site is excluded)
+export const COMPANY = {
+    name: 'SAC GLOBE TECH',
+    url: 'https://tech.sacglobe.com/',
+};
+
+export const NETWORK_SITES = [
+    { name: 'MyUtilityBox', url: 'https://www.myutilitybox.com/', desc: 'Free online utility tools' },
+    { name: 'Matrimony4U', url: 'https://www.matrimony4u.com/', desc: 'Matrimony tools' },
+    { name: 'Karuvii', url: 'https://www.karuvii.com/', desc: 'Online tools' },
+    { name: 'Karuvigal', url: 'https://www.karuvigal.com/', desc: 'தமிழ் கருவிகள்' },
+];
+
 export const NAV_LINKS = [
     { label: 'முகப்பு (Home)', href: '/' },
+    { label: 'பஞ்சாங்கம் (Panchangam)', href: '/panchangam' },
+    { label: 'ராசிபலன் (Rasi Palan)', href: '/rasi-palan' },
     { label: 'கருவிகள் (Tools)', href: '/tools' },
     { label: 'கட்டுரைகள் (Articles)', href: '/blog' },
-    { label: 'எங்களை பற்றி (About)', href: '/about' },
     { label: 'தொடர்பு (Contact)', href: '/contact' },
 ];
 
 export const TOOLS_LIST = [
+    {
+        path: '/tools/festivals',
+        title: 'தமிழ் பண்டிகைகள் (Festival Calendar)',
+        description: 'பொங்கல், தீபாவளி, நவராத்திரி, கார்த்திகை தீபம் தேதிகள் (Tamil festival dates)',
+        icon: '🎆'
+    },
+    {
+        path: '/tools/free-jathagam',
+        title: 'இலவச ஜாதகம் (Free Jathagam / Kundli)',
+        description: 'லக்னம், ராசி கட்டம், நவாம்சம், கிரக நிலை, தசை, தோஷங்கள் (Birth chart, Navamsa, Dasha)',
+        icon: '📜'
+    },
+    {
+        path: '/panchangam',
+        title: 'இன்றைய பஞ்சாங்கம் (Today Panchangam)',
+        description: 'திதி, நட்சத்திரம், யோகம், கரணம், ராகு காலம், நல்ல நேரம் – 60+ ஊர்களுக்கு (Daily Tamil Panchangam)',
+        icon: '🪔'
+    },
+    {
+        path: '/rasi-palan',
+        title: 'இன்றைய ராசி பலன் (Rasi Palan)',
+        description: '12 ராசிகளுக்கும் சந்திர கோசார அடிப்படையிலான தினசரி பலன் (Daily Tamil Horoscope)',
+        icon: '♈'
+    },
+    {
+        path: '/tools/viratham',
+        title: 'விரத நாட்கள் (Viratham Calendar)',
+        description: 'அமாவாசை, பௌர்ணமி, ஏகாதசி, சஷ்டி, பிரதோஷம் தேதிகள் (Amavasai, Pournami, Ekadashi dates)',
+        icon: '🌕'
+    },
+    {
+        path: '/tools/baby-names',
+        title: 'குழந்தை பெயர்கள் (Baby Names by Star)',
+        description: '27 நட்சத்திரங்களுக்கும் பாதம் வாரியான பெயர் எழுத்துகள் (Tamil baby names by nakshatra)',
+        icon: '👶'
+    },
     {
         path: '/tools/vayathu-kanakku',
         title: 'வயது கணக்கிடுபவர் (Age Calculator)',

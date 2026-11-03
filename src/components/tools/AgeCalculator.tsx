@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import AdsterraBanner from '@/components/ads/AdsterraBanner';
+import { toDateInputValue } from '@/lib/date-utils';
 
 type AgeResult = {
     years: number;
@@ -16,7 +17,7 @@ type AgeResult = {
 
 export default function AgeCalculator() {
     const [dob, setDob] = useState('');
-    const [todayDate, setTodayDate] = useState(new Date().toISOString().split('T')[0]);
+    const [todayDate, setTodayDate] = useState(toDateInputValue(new Date()));
     const [result, setResult] = useState<AgeResult>(null);
 
     const calculateAge = (e: React.FormEvent) => {

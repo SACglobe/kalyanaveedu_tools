@@ -10,17 +10,17 @@ export default function MobileDock() {
 
   const navItems = [
     { label: 'முகப்பு', en: 'Home', href: '/', icon: '🏠' },
-    { label: 'காலண்டர்', en: 'Calendar', href: '/tools/tamil-calendar', icon: '📅' },
-    { label: 'முகூர்த்தம்', en: 'Muhurtham', href: '/tools/subha-muhurtham', icon: '💍' },
-    { label: 'பட்ஜெட்', en: 'Budget', href: '/tools/thirumana-selavu', icon: '💰' },
-    { label: 'கட்டுரைகள்', en: 'Blog', href: '/blog', icon: '📖' },
+    { label: 'பஞ்சாங்கம்', en: 'Panchangam', href: '/panchangam', icon: '🪔' },
+    { label: 'ராகு காலம்', en: 'Rahu Kalam', href: '/tools/rahu-kalam', icon: '⏰' },
+    { label: 'ராசி பலன்', en: 'Rasi Palan', href: '/rasi-palan', icon: '♈' },
+    { label: 'கருவிகள்', en: 'Tools', href: '/tools', icon: '🧰' },
   ];
 
   return (
     <div className="md:hidden fixed bottom-0 left-0 right-0 z-40 bg-white/95 backdrop-blur-lg border-t border-orange-100 shadow-[0_-4px_20px_rgba(0,0,0,0.06)] px-2 py-1.5 safe-area-bottom">
       <div className="flex items-center justify-around">
         {navItems.map((item) => {
-          const isActive = pathname === item.href;
+          const isActive = pathname === item.href || (item.href !== '/' && pathname.startsWith(item.href + '/'));
           return (
             <Link
               key={item.href}

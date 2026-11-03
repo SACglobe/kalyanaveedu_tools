@@ -6,7 +6,8 @@ export interface TamilCity {
   nameEn: string;
   lat: number;
   lon: number;
-  utcOffset: number;
+  utcOffset: number; // standard offset (hours); the real offset comes from tz when the city observes DST
+  tz?: string; // IANA time zone for cities with daylight saving
 }
 
 export const TAMIL_CITIES: TamilCity[] = [
@@ -30,7 +31,66 @@ export const TAMIL_CITIES: TamilCity[] = [
   { id: 'singapore', nameTa: 'சிங்கப்பூர்', nameEn: 'Singapore', lat: 1.3521, lon: 103.8198, utcOffset: 8 },
   { id: 'kuala_lumpur', nameTa: 'கோலாலம்பூர்', nameEn: 'Kuala Lumpur', lat: 3.139, lon: 101.6869, utcOffset: 8 },
   { id: 'colombo', nameTa: 'கொழும்பு', nameEn: 'Colombo', lat: 6.9271, lon: 79.8612, utcOffset: 5.5 },
+  { id: 'tiruppur', nameTa: 'திருப்பூர்', nameEn: 'Tiruppur', lat: 11.1085, lon: 77.3411, utcOffset: 5.5 },
+  { id: 'thoothukudi', nameTa: 'தூத்துக்குடி', nameEn: 'Thoothukudi', lat: 8.7642, lon: 78.1348, utcOffset: 5.5 },
+  { id: 'tiruvannamalai', nameTa: 'திருவண்ணாமலை', nameEn: 'Tiruvannamalai', lat: 12.2253, lon: 79.0747, utcOffset: 5.5 },
+  { id: 'villupuram', nameTa: 'விழுப்புரம்', nameEn: 'Villupuram', lat: 11.9401, lon: 79.4861, utcOffset: 5.5 },
+  { id: 'namakkal', nameTa: 'நாமக்கல்', nameEn: 'Namakkal', lat: 11.2189, lon: 78.1677, utcOffset: 5.5 },
+  { id: 'dharmapuri', nameTa: 'தர்மபுரி', nameEn: 'Dharmapuri', lat: 12.1211, lon: 78.1582, utcOffset: 5.5 },
+  { id: 'krishnagiri', nameTa: 'கிருஷ்ணகிரி', nameEn: 'Krishnagiri', lat: 12.5186, lon: 78.2138, utcOffset: 5.5 },
+  { id: 'hosur', nameTa: 'ஓசூர்', nameEn: 'Hosur', lat: 12.7409, lon: 77.8253, utcOffset: 5.5 },
+  { id: 'ramanathapuram', nameTa: 'ராமநாதபுரம்', nameEn: 'Ramanathapuram', lat: 9.3639, lon: 78.8395, utcOffset: 5.5 },
+  { id: 'rameswaram', nameTa: 'ராமேஸ்வரம்', nameEn: 'Rameswaram', lat: 9.2876, lon: 79.3129, utcOffset: 5.5 },
+  { id: 'theni', nameTa: 'தேனி', nameEn: 'Theni', lat: 10.0104, lon: 77.4768, utcOffset: 5.5 },
+  { id: 'virudhunagar', nameTa: 'விருதுநகர்', nameEn: 'Virudhunagar', lat: 9.568, lon: 77.9624, utcOffset: 5.5 },
+  { id: 'sivaganga', nameTa: 'சிவகங்கை', nameEn: 'Sivaganga', lat: 9.8433, lon: 78.4809, utcOffset: 5.5 },
+  { id: 'karaikudi', nameTa: 'காரைக்குடி', nameEn: 'Karaikudi', lat: 10.0735, lon: 78.78, utcOffset: 5.5 },
+  { id: 'nagapattinam', nameTa: 'நாகப்பட்டினம்', nameEn: 'Nagapattinam', lat: 10.7672, lon: 79.8449, utcOffset: 5.5 },
+  { id: 'mayiladuthurai', nameTa: 'மயிலாடுதுறை', nameEn: 'Mayiladuthurai', lat: 11.1018, lon: 79.652, utcOffset: 5.5 },
+  { id: 'tiruvarur', nameTa: 'திருவாரூர்', nameEn: 'Tiruvarur', lat: 10.7661, lon: 79.6344, utcOffset: 5.5 },
+  { id: 'kumbakonam', nameTa: 'கும்பகோணம்', nameEn: 'Kumbakonam', lat: 10.9602, lon: 79.3845, utcOffset: 5.5 },
+  { id: 'chidambaram', nameTa: 'சிதம்பரம்', nameEn: 'Chidambaram', lat: 11.3993, lon: 79.6934, utcOffset: 5.5 },
+  { id: 'ariyalur', nameTa: 'அரியலூர்', nameEn: 'Ariyalur', lat: 11.1401, lon: 79.0786, utcOffset: 5.5 },
+  { id: 'perambalur', nameTa: 'பெரம்பலூர்', nameEn: 'Perambalur', lat: 11.2342, lon: 78.8807, utcOffset: 5.5 },
+  { id: 'kallakurichi', nameTa: 'கள்ளக்குறிச்சி', nameEn: 'Kallakurichi', lat: 11.7384, lon: 78.9639, utcOffset: 5.5 },
+  { id: 'chengalpattu', nameTa: 'செங்கல்பட்டு', nameEn: 'Chengalpattu', lat: 12.6819, lon: 79.9888, utcOffset: 5.5 },
+  { id: 'tiruvallur', nameTa: 'திருவள்ளூர்', nameEn: 'Tiruvallur', lat: 13.1431, lon: 79.9086, utcOffset: 5.5 },
+  { id: 'ranipet', nameTa: 'ராணிப்பேட்டை', nameEn: 'Ranipet', lat: 12.9224, lon: 79.3326, utcOffset: 5.5 },
+  { id: 'tirupathur', nameTa: 'திருப்பத்தூர்', nameEn: 'Tirupathur', lat: 12.495, lon: 78.573, utcOffset: 5.5 },
+  { id: 'tenkasi', nameTa: 'தென்காசி', nameEn: 'Tenkasi', lat: 8.9594, lon: 77.3152, utcOffset: 5.5 },
+  { id: 'ooty', nameTa: 'ஊட்டி', nameEn: 'Ooty', lat: 11.4102, lon: 76.695, utcOffset: 5.5 },
+  { id: 'palani', nameTa: 'பழனி', nameEn: 'Palani', lat: 10.45, lon: 77.52, utcOffset: 5.5 },
+  { id: 'tiruchendur', nameTa: 'திருச்செந்தூர்', nameEn: 'Tiruchendur', lat: 8.4955, lon: 78.1202, utcOffset: 5.5 },
+  { id: 'kanyakumari', nameTa: 'கன்னியாகுமரி', nameEn: 'Kanyakumari', lat: 8.0883, lon: 77.5385, utcOffset: 5.5 },
+  { id: 'pollachi', nameTa: 'பொள்ளாச்சி', nameEn: 'Pollachi', lat: 10.6609, lon: 77.0048, utcOffset: 5.5 },
+  { id: 'puducherry', nameTa: 'புதுச்சேரி', nameEn: 'Puducherry', lat: 11.9416, lon: 79.8083, utcOffset: 5.5 },
+  { id: 'hyderabad', nameTa: 'ஹைதராபாத்', nameEn: 'Hyderabad', lat: 17.385, lon: 78.4867, utcOffset: 5.5 },
+  { id: 'mumbai', nameTa: 'மும்பை', nameEn: 'Mumbai', lat: 19.076, lon: 72.8777, utcOffset: 5.5 },
+  { id: 'delhi', nameTa: 'டெல்லி', nameEn: 'Delhi', lat: 28.6139, lon: 77.209, utcOffset: 5.5 },
+  { id: 'kochi', nameTa: 'கொச்சி', nameEn: 'Kochi', lat: 9.9312, lon: 76.2673, utcOffset: 5.5 },
+  { id: 'jaffna', nameTa: 'யாழ்ப்பாணம்', nameEn: 'Jaffna', lat: 9.6615, lon: 80.0255, utcOffset: 5.5 },
+  { id: 'dubai', nameTa: 'துபாய்', nameEn: 'Dubai', lat: 25.2048, lon: 55.2708, utcOffset: 4 },
+  { id: 'abu_dhabi', nameTa: 'அபுதாபி', nameEn: 'Abu Dhabi', lat: 24.4539, lon: 54.3773, utcOffset: 4 },
+  { id: 'doha', nameTa: 'தோஹா', nameEn: 'Doha', lat: 25.2854, lon: 51.531, utcOffset: 3 },
+  { id: 'kuwait_city', nameTa: 'குவைத்', nameEn: 'Kuwait City', lat: 29.3759, lon: 47.9774, utcOffset: 3 },
+  { id: 'riyadh', nameTa: 'ரியாத்', nameEn: 'Riyadh', lat: 24.7136, lon: 46.6753, utcOffset: 3 },
+  { id: 'mauritius', nameTa: 'மொரிஷியஸ்', nameEn: 'Port Louis (Mauritius)', lat: -20.1609, lon: 57.5012, utcOffset: 4 },
+  { id: 'london', nameTa: 'லண்டன்', nameEn: 'London', lat: 51.5072, lon: -0.1276, utcOffset: 0, tz: 'Europe/London' },
+  { id: 'paris', nameTa: 'பாரிஸ்', nameEn: 'Paris', lat: 48.8566, lon: 2.3522, utcOffset: 1, tz: 'Europe/Paris' },
+  { id: 'zurich', nameTa: 'சூரிச்', nameEn: 'Zurich', lat: 47.3769, lon: 8.5417, utcOffset: 1, tz: 'Europe/Zurich' },
+  { id: 'frankfurt', nameTa: 'பிராங்பேர்ட்', nameEn: 'Frankfurt', lat: 50.1109, lon: 8.6821, utcOffset: 1, tz: 'Europe/Berlin' },
+  { id: 'new_york', nameTa: 'நியூயார்க்', nameEn: 'New York', lat: 40.7128, lon: -74.006, utcOffset: -5, tz: 'America/New_York' },
+  { id: 'chicago', nameTa: 'சிகாகோ', nameEn: 'Chicago', lat: 41.8781, lon: -87.6298, utcOffset: -6, tz: 'America/Chicago' },
+  { id: 'san_francisco', nameTa: 'சான் பிரான்சிஸ்கோ', nameEn: 'San Francisco', lat: 37.7749, lon: -122.4194, utcOffset: -8, tz: 'America/Los_Angeles' },
+  { id: 'toronto', nameTa: 'டொரோண்டோ', nameEn: 'Toronto', lat: 43.6532, lon: -79.3832, utcOffset: -5, tz: 'America/Toronto' },
+  { id: 'sydney', nameTa: 'சிட்னி', nameEn: 'Sydney', lat: -33.8688, lon: 151.2093, utcOffset: 10, tz: 'Australia/Sydney' },
+  { id: 'melbourne', nameTa: 'மெல்பேர்ண்', nameEn: 'Melbourne', lat: -37.8136, lon: 144.9631, utcOffset: 10, tz: 'Australia/Melbourne' },
+  { id: 'auckland', nameTa: 'ஆக்லாந்து', nameEn: 'Auckland', lat: -36.8485, lon: 174.7633, utcOffset: 12, tz: 'Pacific/Auckland' },
 ];
+
+export function getCityById(id: string): TamilCity | undefined {
+  return TAMIL_CITIES.find((c) => c.id === id);
+}
 
 export interface NakshatraDetail {
   id: number;

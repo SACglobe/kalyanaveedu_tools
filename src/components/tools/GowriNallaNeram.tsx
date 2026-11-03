@@ -1,17 +1,22 @@
 'use client';
 
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useEffect } from 'react';
 import { TAMIL_CITIES, type TamilCity } from '@/lib/astro-core/constants';
 import { calculateGowriPanchangam, type GowriPanchangamResult, type GowriSegment } from '@/lib/astro-core/panchangam';
 import AdsterraBanner from '@/components/ads/AdsterraBanner';
 import RelatedTools from '@/components/tools/RelatedTools';
+import { cityTodayStr, cityNow } from '@/lib/astro-core/sunrise';
 
-export default function GowriNallaNeram() {
-  const [selectedCityId, setSelectedCityId] = useState<string>('chennai');
-  const [selectedDateStr, setSelectedDateStr] = useState<string>(() => {
-    const today = new Date();
-    return today.toISOString().split('T')[0];
-  });
+export default function GowriNallaNeram({ initialCityId = 'chennai', initialDate }: { initialCityId?: string; initialDate?: string }) {
+  const [selectedCityId, setSelectedCityId] = useState<string>(initialCityId);
+  const [selectedDateStr, setSelectedDateStr] = useState<string>(
+    () => initialDate ?? cityTodayStr(TAMIL_CITIES.find((c) => c.id === initialCityId) || TAMIL_CITIES[0])
+  );
+
+  // Static pages are rendered ahead of time, so sync to the visitor's real "today" (in the city's time zone) on load
+  useEffect(() => {
+    setSelectedDateStr(cityTodayStr(TAMIL_CITIES.find((c) => c.id === initialCityId) || TAMIL_CITIES[0]));
+  }, [initialCityId]);
   const [activeTab, setActiveTab] = useState<'day' | 'night'>('day');
 
   const selectedCity = useMemo(() => {
@@ -25,7 +30,7 @@ export default function GowriNallaNeram() {
   }, [selectedDateStr]);
 
   const result: GowriPanchangamResult = useMemo(() => {
-    return calculateGowriPanchangam(selectedDate, selectedCity);
+    return calculateGowriPanchangam(selectedDate, selectedCity, cityNow(selectedCity));
   }, [selectedDate, selectedCity]);
 
   return (

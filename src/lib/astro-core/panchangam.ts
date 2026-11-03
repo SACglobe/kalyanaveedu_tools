@@ -261,14 +261,20 @@ export function calculateKuligai(date: Date, city: TamilCity = TAMIL_CITIES[0]):
 }
 
 // 4. Calculate Gowri Panchangam
-export function calculateGowriPanchangam(date: Date, city: TamilCity = TAMIL_CITIES[0]): GowriPanchangamResult {
+// nowWall: wall-clock "now" in the city's time zone (see cityNow); highlights the running segment when it falls on `date`
+export function calculateGowriPanchangam(date: Date, city: TamilCity = TAMIL_CITIES[0], nowWall?: Date): GowriPanchangamResult {
   const solar = calculateSolarTimes(date, city);
   const weekday = date.getDay();
 
   const dayCycle = GOWRI_DAY_CYCLES[weekday];
   const nightCycle = GOWRI_NIGHT_CYCLES[weekday];
 
-  const nowMs = date.getTime();
+  const sameDay =
+    nowWall &&
+    nowWall.getFullYear() === date.getFullYear() &&
+    nowWall.getMonth() === date.getMonth() &&
+    nowWall.getDate() === date.getDate();
+  const nowMs = sameDay && nowWall ? nowWall.getTime() : date.getTime();
   let currentSegment: GowriSegment | undefined;
 
   const daySegments: GowriSegment[] = dayCycle.map((typeKey, idx) => {

@@ -52,7 +52,7 @@ export default function ThirumanaMuhurthamPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
-      <main className="min-h-screen bg-gradient-to-b from-orange-50 to-white">
+      <div className="min-h-screen bg-gradient-to-b from-orange-50 to-white">
         <div className="container mx-auto px-4 pt-4">
           <nav aria-label="breadcrumb" className="text-sm text-gray-500 mb-4">
             <ol className="flex flex-wrap gap-1 items-center">
@@ -75,7 +75,7 @@ export default function ThirumanaMuhurthamPage() {
         </div>
 
         <ThirumanaMuhurtham />
-      </main>
+      </div>
     </>
   );
 }

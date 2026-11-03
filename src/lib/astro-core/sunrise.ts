@@ -1,5 +1,6 @@
 // Solar calculation engine for Tamil Panchangam (Sunrise, Sunset, and 8-segment subdivisions)
 import { TAMIL_CITIES, type TamilCity } from './constants';
+import { cityOffsetOnDate, utcOffsetAt } from './tz';
 
 export interface SolarTimes {
   date: Date;
@@ -72,7 +73,7 @@ export function calculateSolarTimes(dateInput: Date, city: TamilCity = TAMIL_CIT
 
   // Solar Noon in local standard time (hours)
   // Standard meridian for India is 82.5° E (offset 5.5 hours)
-  const standardMeridian = city.utcOffset * 15;
+  const standardMeridian = cityOffsetOnDate(city, year, month, day) * 15;
   const longitudeCorrectionMinutes = 4 * (standardMeridian - city.lon);
   const solarNoonMinutes = 12 * 60 + longitudeCorrectionMinutes - eot;
 
@@ -140,4 +141,20 @@ export function getNighttimeSegment(solar: SolarTimes, segmentIndex1to8: number)
     startFormatted: formatTime12(start),
     endFormatted: formatTime12(end),
   };
+}
+
+// Wall-clock "now" in the city's own time zone, as a Date whose local fields read as city time.
+// Keeps current-time checks right for visitors outside the city's time zone (NRIs, servers in UTC).
+export function cityNow(city: TamilCity = TAMIL_CITIES[0], nowMs: number = Date.now()): Date {
+  const u = new Date(nowMs + utcOffsetAt(city, nowMs) * 3600000);
+  return new Date(u.getUTCFullYear(), u.getUTCMonth(), u.getUTCDate(), u.getUTCHours(), u.getUTCMinutes(), u.getUTCSeconds());
+}
+
+// YYYY-MM-DD of today in the city's time zone (works on UTC servers and in any visitor time zone)
+export function cityTodayStr(city: TamilCity = TAMIL_CITIES[0], nowMs: number = Date.now()): string {
+  const u = new Date(nowMs + utcOffsetAt(city, nowMs) * 3600000);
+  const y = u.getUTCFullYear();
+  const m = String(u.getUTCMonth() + 1).padStart(2, '0');
+  const d = String(u.getUTCDate()).padStart(2, '0');
+  return `${y}-${m}-${d}`;
 }

@@ -1,4 +1,5 @@
 "use client";
+import { toDateInputValue } from '@/lib/date-utils';
 
 import { useState, useEffect, useRef } from 'react';
 import {
@@ -8,7 +9,8 @@ import {
     getTamilDayNameEng,
     getMuhurthamTimes
 } from '@/lib/tamil-calendar-utils';
-import { TAMIL_MONTHS, HOLIDAYS_2026, VALUABLE_MARRIAGE_DATES } from '@/lib/tamil-calendar-data';
+import { TAMIL_MONTHS, VALUABLE_MARRIAGE_DATES } from '@/lib/tamil-calendar-data';
+import { getHolidayName } from '@/lib/holidays';
 
 export default function SubhaMuhurthamCalendar() {
     const [mounted, setMounted] = useState(false);
@@ -57,7 +59,7 @@ export default function SubhaMuhurthamCalendar() {
                 const holidayDate = monthMarriages.find(dateStr => {
                     const d = new Date(dateStr);
                     const dateKey = `${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
-                    return HOLIDAYS_2026[dateKey];
+                    return getHolidayName(d.getFullYear(), dateKey);
                 });
                 setSelectedDate(holidayDate ? new Date(holidayDate) : new Date(monthMarriages[0]));
 
@@ -100,7 +102,7 @@ export default function SubhaMuhurthamCalendar() {
             // Prioritize holidays
             const holidayDate = monthMarriages.find(d => {
                 const dateKey = `${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
-                return HOLIDAYS_2026[dateKey];
+                return getHolidayName(d.getFullYear(), dateKey);
             });
 
             setSelectedDate(holidayDate || monthMarriages[0]);
@@ -129,7 +131,7 @@ export default function SubhaMuhurthamCalendar() {
 
     const handleShare = (e: React.MouseEvent) => {
         e.stopPropagation();
-        const dateStr = selectedDate.toISOString().split('T')[0];
+        const dateStr = toDateInputValue(selectedDate);
         const url = `${window.location.origin}${window.location.pathname}?date=${dateStr}`;
         const text = `சுப முகூர்த்த நாட்காட்டி: ${selectedDate.getDate()} ${monthsEng[selectedDate.getMonth()]} (${getTamilDayName(selectedDate)}). முகூர்த்த தேதிகளைப் பாருங்கள்: `;
         const whatsappUrl = `https://wa.me/?text=${encodeURIComponent(text + url)}`;
@@ -148,7 +150,7 @@ export default function SubhaMuhurthamCalendar() {
 
     const getHolidayInfo = (date: Date) => {
         const dateKey = `${String(date.getMonth() + 1).padStart(2, '0')}-${String(date.getDate()).padStart(2, '0')}`;
-        return HOLIDAYS_2026[dateKey];
+        return getHolidayName(date.getFullYear(), dateKey);
     };
 
     return (
@@ -326,7 +328,7 @@ export default function SubhaMuhurthamCalendar() {
                     <div className="p-4 bg-orange-50 border-l-4 border-orange-500 rounded-r-xl shadow-sm">
                         <p className="text-[10px] text-orange-600 font-black uppercase mb-1 tracking-widest">தேர்வு செய்த நாள் (Selected)</p>
                         <p className="text-gray-900 font-bold text-sm leading-relaxed">
-                            {VALUABLE_MARRIAGE_DATES.includes(selectedDate.toISOString().split('T')[0])
+                            {VALUABLE_MARRIAGE_DATES.includes(toDateInputValue(selectedDate))
                                 ? 'இந்த நாள் பாரம்பரிய பஞ்சாங்கங்களில் முகூர்த்த நாளாகக் குறிப்பிடப்பட்டுள்ளது.'
                                 : 'இது ஒரு சாதாரண நாள். முகூர்த்த நாட்களைப் பட்டியலில் காணலாம்.'}
                         </p>

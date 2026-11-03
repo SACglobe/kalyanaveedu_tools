@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import Choghadiya from '@/components/tools/Choghadiya';
+import CityLinks from '@/components/tools/CityLinks';
 import { SITE_CONFIG } from '@/lib/constants';
 import { generateToolJsonLd } from '@/lib/seo/tool-schema';
 
@@ -25,7 +26,7 @@ export const metadata: Metadata = {
   },
 };
 
-export const dynamic = 'force-static';
+export const revalidate = 1800;
 
 export default function ChoghadiyaPage() {
   const jsonLd = generateToolJsonLd({
@@ -46,7 +47,7 @@ export default function ChoghadiyaPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
-      <main className="min-h-screen bg-gradient-to-b from-orange-50 to-white">
+      <div className="min-h-screen bg-gradient-to-b from-orange-50 to-white">
         <div className="container mx-auto px-4 pt-4">
           <nav aria-label="breadcrumb" className="text-sm text-gray-500 mb-4">
             <ol className="flex flex-wrap gap-1 items-center">
@@ -69,7 +70,8 @@ export default function ChoghadiyaPage() {
         </div>
 
         <Choghadiya />
-      </main>
+        <CityLinks basePath="/tools/choghadiya" title="ஊர் வாரியாக சோகாதியம்" />
+      </div>
     </>
   );
 }
