@@ -70,5 +70,11 @@ export const TOOLS_LIST = [
         title: 'சுப முகூர்த்த நாட்காட்டி (Subha Muhurtham)',
         description: 'பாரம்பரிய சுப முகூர்த்த தேதிகளின் பட்டியல் (Traditional auspicious dates list)',
         icon: '💍'
+    },
+    {
+        path: '/tools/jathagam-porutham',
+        title: 'ஜாதக பொருத்தம் (Marriage Compatibility)',
+        description: '27 நட்சத்திர அடிப்படையில் 10 திருமண பொருத்தங்களை கணக்கிடுங்கள் (Nakshatra compatibility)',
+        icon: '⭐'
     }
 ];
