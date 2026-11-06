@@ -7,3 +7,5 @@ export const alt = 'Subha Muhurtham - Auspicious wedding dates';
 export default function Image() {
   return renderOg('Subha Muhurtham', 'Auspicious wedding dates');
 }
+
+export const dynamic = 'force-static';

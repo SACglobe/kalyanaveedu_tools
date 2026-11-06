@@ -7,3 +7,5 @@ export const alt = 'Tamil Panchangam, Rasi Palan and Festivals';
 export default function Image() {
   return renderOg('Tamil Panchangam', 'Daily timings, rasi palan & festival dates');
 }
+
+export const dynamic = 'force-static';

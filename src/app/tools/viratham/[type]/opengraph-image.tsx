@@ -10,3 +10,6 @@ export default async function Image({ params }: { params: Promise<{ type: string
   const m = getVirathamMeta(value);
   return renderOg(`${m?.titleEn ?? 'Viratham'} Dates`, 'Upcoming dates with Tamil date and weekday');
 }
+
+export const dynamic = 'force-static';
+export { generateStaticParams } from './page';

@@ -7,3 +7,5 @@ export const alt = 'Tamil Wedding Guides - Traditions, Schemes & Planning Articl
 export default function Image() {
   return renderOg('Tamil Wedding Guides', 'Traditions, Schemes & Planning Articles');
 }
+
+export const dynamic = 'force-static';

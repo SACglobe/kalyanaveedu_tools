@@ -10,3 +10,6 @@ export default async function Image({ params }: { params: Promise<{ nakshatra: s
   const n = getNakshatraBySlug(value);
   return renderOg(`${n?.nameEn ?? 'Nakshatra'} Baby Names`, 'Naming letters by pada');
 }
+
+export const dynamic = 'force-static';
+export { generateStaticParams } from './page';

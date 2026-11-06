@@ -11,3 +11,6 @@ export default async function Image({ params }: { params: Promise<{ rasi: string
   const name = idx >= 0 ? rasiInfo(idx).nameEn : 'Rasi';
   return renderOg(`${name} Rasi Palan`, 'Today and the next 7 days');
 }
+
+export const dynamic = 'force-static';
+export { generateStaticParams } from './page';

@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { hasDatePage } from '@/lib/static-budget';
 import { computeDayPanchang, YOGA_NAMES_EN, karanaNameEn, TAMIL_MONTH_NAMES_EN, type DayPanchang } from '@/lib/astro-core/panchang-day';
 import { calculateRahuKalam, calculateYamakandam, calculateKuligai, calculateGowriPanchangam } from '@/lib/astro-core/panchangam';
 import { WEEKDAYS_TAMIL, type TamilCity } from '@/lib/astro-core/constants';
@@ -41,7 +42,7 @@ export default function PanchangViewEn({ city, dateStr, isToday, basePath, updat
   const good = [...gowri.daySegments, ...gowri.nightSegments].filter((s) => s.isAuspicious);
   const weekday = WEEKDAYS_TAMIL[p.weekdayIndex];
   const cityPath = `${basePath}/${city.id}`;
-  const strip = [-3, -2, -1, 0, 1, 2, 3].map((o) => addDays(dateStr, o));
+  const strip = [-3, -2, -1, 0, 1, 2, 3].map((o) => addDays(dateStr, o)).filter((d) => d === dateStr || hasDatePage('en', city.id, d));
 
   return (
     <div className="max-w-4xl mx-auto px-4 py-6">
@@ -53,11 +54,15 @@ export default function PanchangViewEn({ city, dateStr, isToday, basePath, updat
 
       <div className="bg-white rounded-3xl border border-gray-100 shadow-sm p-5 md:p-8 mb-6">
         <div className="grid md:grid-cols-2 gap-4 mb-6">
-          <CitySelect english basePath={basePath} currentId={city.id} suffix={isToday ? '' : `/${dateStr}`} />
+          <CitySelect english basePath={basePath} currentId={city.id} suffix="" />
           <div className="flex items-end gap-2">
-            <Link href={`${cityPath}/${addDays(dateStr, -1)}`} className="flex-1 text-center px-3 py-2.5 rounded-xl border border-gray-200 text-sm font-bold text-gray-700 hover:border-orange-300">← Previous day</Link>
+            {hasDatePage('en', city.id, addDays(dateStr, -1)) && (
+<Link href={`${cityPath}/${addDays(dateStr, -1)}`} className="flex-1 text-center px-3 py-2.5 rounded-xl border border-gray-200 text-sm font-bold text-gray-700 hover:border-orange-300">← Previous day</Link>
+)}
             {!isToday && <Link href={cityPath} className="px-3 py-2.5 rounded-xl bg-primary text-white text-sm font-bold">Today</Link>}
-            <Link href={`${cityPath}/${addDays(dateStr, 1)}`} className="flex-1 text-center px-3 py-2.5 rounded-xl border border-gray-200 text-sm font-bold text-gray-700 hover:border-orange-300">Next day →</Link>
+            {hasDatePage('en', city.id, addDays(dateStr, 1)) && (
+<Link href={`${cityPath}/${addDays(dateStr, 1)}`} className="flex-1 text-center px-3 py-2.5 rounded-xl border border-gray-200 text-sm font-bold text-gray-700 hover:border-orange-300">Next day →</Link>
+)}
           </div>
         </div>
         <dl>
@@ -109,7 +114,7 @@ export default function PanchangViewEn({ city, dateStr, isToday, basePath, updat
           </details>
         ))}
         <p className="text-xs text-gray-400">Computed from Sun and Moon positions (Lahiri ayanamsa); times may differ by a few minutes. Confirm important ceremonies with your family astrologer.</p>
-        <p className="text-sm"><Link href={`/panchangam/${city.id}${isToday ? '' : `/${dateStr}`}`} className="text-primary font-bold">தமிழில் பார்க்க →</Link></p>
+        <p className="text-sm"><Link href={`/panchangam/${city.id}${isToday || !hasDatePage('ta', city.id, dateStr) ? '' : `/${dateStr}`}`} className="text-primary font-bold">தமிழில் பார்க்க →</Link></p>
       </section>
 
       <CityLinks english basePath={basePath} title="Panchangam for other cities" currentId={city.id} />

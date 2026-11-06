@@ -7,3 +7,5 @@ export const alt = 'Kalyana Veedu - Tamil Panchangam, Rasi Palan & Wedding Tools
 export default function Image() {
   return renderOg('Kalyana Veedu', 'Tamil Panchangam, Rasi Palan & Wedding Tools');
 }
+
+export const dynamic = 'force-static';

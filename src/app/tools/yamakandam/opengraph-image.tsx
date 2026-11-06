@@ -7,3 +7,5 @@ export const alt = 'Yamakandam & Kuligai - Daily inauspicious timings';
 export default function Image() {
   return renderOg('Yamakandam & Kuligai', 'Daily inauspicious timings');
 }
+
+export const dynamic = 'force-static';

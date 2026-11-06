@@ -7,3 +7,5 @@ export const alt = 'Jathagam Porutham - 10 Poruthams across 27 nakshatras';
 export default function Image() {
   return renderOg('Jathagam Porutham', '10 Poruthams across 27 nakshatras');
 }
+
+export const dynamic = 'force-static';

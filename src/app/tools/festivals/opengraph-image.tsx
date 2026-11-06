@@ -7,3 +7,5 @@ export const alt = 'Tamil Festival Calendar';
 export default function Image() {
   return renderOg('Tamil Festivals', 'Pongal, Deepavali, Navaratri & more');
 }
+
+export const dynamic = 'force-static';

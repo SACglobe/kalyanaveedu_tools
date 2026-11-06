@@ -7,3 +7,5 @@ export const alt = 'Rahu Kalam Today - City-based timings';
 export default function Image() {
   return renderOg('Rahu Kalam Today', 'City-based timings');
 }
+
+export const dynamic = 'force-static';

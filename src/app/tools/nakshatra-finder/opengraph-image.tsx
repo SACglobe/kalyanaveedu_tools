@@ -7,3 +7,5 @@ export const alt = 'Nakshatra Finder - Birth star, pada and rasi';
 export default function Image() {
   return renderOg('Nakshatra Finder', 'Birth star, pada and rasi');
 }
+
+export const dynamic = 'force-static';

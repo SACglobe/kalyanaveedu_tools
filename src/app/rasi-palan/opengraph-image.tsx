@@ -7,3 +7,5 @@ export const alt = 'Today Rasi Palan - Daily Tamil Horoscope for all 12 Rasis';
 export default function Image() {
   return renderOg('Today Rasi Palan', 'Daily Tamil Horoscope for all 12 Rasis');
 }
+
+export const dynamic = 'force-static';

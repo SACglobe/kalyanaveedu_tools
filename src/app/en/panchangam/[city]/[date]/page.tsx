@@ -1,4 +1,5 @@
 import { notFound } from 'next/navigation';
+import { dateWindowParams } from '@/lib/static-budget';
 import PanchangViewEn, { panchangFaqsEn } from '@/components/panchang/PanchangViewEn';
 import Breadcrumbs from '@/components/SEO/Breadcrumbs';
 import { getCityById } from '@/lib/astro-core/constants';
@@ -8,11 +9,10 @@ import { isSupportedDate, parseDateStr, formatDateEn } from '@/lib/date-format';
 import { panchangMetadataEn } from '@/lib/panchang-meta-en';
 import { generateToolJsonLd } from '@/lib/seo/tool-schema';
 
-export const revalidate = 86400;
-export const dynamicParams = true;
+export const dynamicParams = false;
 
 export function generateStaticParams() {
-  return [];
+  return dateWindowParams('en');
 }
 
 type P = { params: Promise<{ city: string; date: string }> };

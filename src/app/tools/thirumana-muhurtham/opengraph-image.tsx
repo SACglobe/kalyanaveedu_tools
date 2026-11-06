@@ -7,3 +7,5 @@ export const alt = 'Thirumana Muhurtham - Wedding dates list';
 export default function Image() {
   return renderOg('Thirumana Muhurtham', 'Wedding dates list');
 }
+
+export const dynamic = 'force-static';

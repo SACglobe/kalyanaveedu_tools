@@ -7,3 +7,5 @@ export const alt = 'Wedding Checklist - Organise every wedding task';
 export default function Image() {
   return renderOg('Wedding Checklist', 'Organise every wedding task');
 }
+
+export const dynamic = 'force-static';

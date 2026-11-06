@@ -7,3 +7,5 @@ export const alt = 'Wedding Budget Calculator - Plan your wedding expenses';
 export default function Image() {
   return renderOg('Wedding Budget Calculator', 'Plan your wedding expenses');
 }
+
+export const dynamic = 'force-static';

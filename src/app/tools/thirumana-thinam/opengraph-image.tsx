@@ -7,3 +7,5 @@ export const alt = 'Wedding Date Planner - Days remaining to your wedding';
 export default function Image() {
   return renderOg('Wedding Date Planner', 'Days remaining to your wedding');
 }
+
+export const dynamic = 'force-static';

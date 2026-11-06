@@ -7,3 +7,5 @@ export const alt = 'Marriage Age Checker - Legal marriage age eligibility';
 export default function Image() {
   return renderOg('Marriage Age Checker', 'Legal marriage age eligibility');
 }
+
+export const dynamic = 'force-static';

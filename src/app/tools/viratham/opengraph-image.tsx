@@ -7,3 +7,5 @@ export const alt = 'Viratham Calendar - Amavasai, Pournami, Ekadashi & Sashti da
 export default function Image() {
   return renderOg('Viratham Calendar', 'Amavasai, Pournami, Ekadashi & Sashti dates');
 }
+
+export const dynamic = 'force-static';

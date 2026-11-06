@@ -1,0 +1,23 @@
+name: 🔄 Daily Cloudflare rebuild
+
+# The site is a static export with a rolling window of per-day panchangam pages
+# (see src/lib/static-budget.ts). Rebuild shortly after midnight IST so "today" is always in it.
+on:
+  schedule:
+    - cron: '35 18 * * *' # 00:05 IST
+  workflow_dispatch:
+
+jobs:
+  rebuild:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Trigger Cloudflare Pages deploy hook
+        env:
+          CF_DEPLOY_HOOK: ${{ secrets.CF_DEPLOY_HOOK }}
+        run: |
+          if [ -z "$CF_DEPLOY_HOOK" ]; then
+            echo "::error::Secret CF_DEPLOY_HOOK is not set (Cloudflare Pages -> Settings -> Builds -> Deploy hooks)"
+            exit 1
+          fi
+          curl -fsS -X POST "$CF_DEPLOY_HOOK"
+          echo "Rebuild triggered"

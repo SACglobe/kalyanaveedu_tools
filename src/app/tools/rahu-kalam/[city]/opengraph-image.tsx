@@ -10,3 +10,6 @@ export default async function Image({ params }: { params: Promise<{ city: string
   const city = getCityById(value);
   return renderOg(`Rahu Kalam ${city?.nameEn ?? ''}`, 'Exact timings for today');
 }
+
+export const dynamic = 'force-static';
+export { generateStaticParams } from './page';

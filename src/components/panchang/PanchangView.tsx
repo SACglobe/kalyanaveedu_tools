@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { hasDatePage } from '@/lib/static-budget';
 import { computeDayPanchang, type DayPanchang } from '@/lib/astro-core/panchang-day';
 import { calculateRahuKalam, calculateYamakandam, calculateKuligai, calculateGowriPanchangam } from '@/lib/astro-core/panchangam';
 import { WEEKDAYS_TAMIL, type TamilCity } from '@/lib/astro-core/constants';
@@ -66,7 +67,7 @@ export default function PanchangView({
   const tamilYear = getTamilDate(wall).tamilYear;
   const weekday = WEEKDAYS_TAMIL[p.weekdayIndex];
   const cityPath = `${basePath}/${city.id}`;
-  const strip = [-3, -2, -1, 0, 1, 2, 3].map((o) => addDays(dateStr, o));
+  const strip = [-3, -2, -1, 0, 1, 2, 3].map((o) => addDays(dateStr, o)).filter((d) => d === dateStr || hasDatePage('ta', city.id, d));
 
   return (
     <div className="max-w-4xl mx-auto px-4 py-6">
@@ -77,22 +78,26 @@ export default function PanchangView({
         <p className="text-gray-600">
           {isToday ? 'Today Panchangam' : 'Tamil Panchangam'} {city.nameEn} · {formatDateTa(dateStr)} ({weekday.nameTa}) · {formatDateEn(dateStr)}
         </p>
-        <p className="text-xs text-gray-400 mt-1">புதுப்பிக்கப்பட்டது (Updated): {updatedLabel} · <Link href={`/en/panchangam/${city.id}${isToday ? '' : `/${dateStr}`}`} className="text-primary font-bold">View in English →</Link></p>
+        <p className="text-xs text-gray-400 mt-1">புதுப்பிக்கப்பட்டது (Updated): {updatedLabel} · <Link href={`/en/panchangam/${city.id}${isToday || !hasDatePage('en', city.id, dateStr) ? '' : `/${dateStr}`}`} className="text-primary font-bold">View in English →</Link></p>
       </header>
 
       <div className="bg-white rounded-3xl border border-gray-100 shadow-sm p-5 md:p-8 mb-6">
         <div className="grid md:grid-cols-2 gap-4 mb-6">
-          <CitySelect basePath={basePath} currentId={city.id} suffix={isToday ? '' : `/${dateStr}`} />
+          <CitySelect basePath={basePath} currentId={city.id} suffix="" />
           <div className="flex items-end gap-2">
-            <Link href={`${cityPath}/${addDays(dateStr, -1)}`} className="flex-1 text-center px-3 py-2.5 rounded-xl border border-gray-200 text-sm font-bold text-gray-700 hover:border-orange-300">
+            {hasDatePage('ta', city.id, addDays(dateStr, -1)) && (
+<Link href={`${cityPath}/${addDays(dateStr, -1)}`} className="flex-1 text-center px-3 py-2.5 rounded-xl border border-gray-200 text-sm font-bold text-gray-700 hover:border-orange-300">
               ← முந்தைய நாள்
             </Link>
+)}
             {!isToday && (
               <Link href={cityPath} className="px-3 py-2.5 rounded-xl bg-primary text-white text-sm font-bold">இன்று</Link>
             )}
-            <Link href={`${cityPath}/${addDays(dateStr, 1)}`} className="flex-1 text-center px-3 py-2.5 rounded-xl border border-gray-200 text-sm font-bold text-gray-700 hover:border-orange-300">
+            {hasDatePage('ta', city.id, addDays(dateStr, 1)) && (
+<Link href={`${cityPath}/${addDays(dateStr, 1)}`} className="flex-1 text-center px-3 py-2.5 rounded-xl border border-gray-200 text-sm font-bold text-gray-700 hover:border-orange-300">
               அடுத்த நாள் →
             </Link>
+)}
           </div>
         </div>
 

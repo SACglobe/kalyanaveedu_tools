@@ -7,3 +7,5 @@ export const alt = 'Choghadiya - Day and night muhurat table';
 export default function Image() {
   return renderOg('Choghadiya', 'Day and night muhurat table');
 }
+
+export const dynamic = 'force-static';

@@ -7,3 +7,5 @@ export const alt = 'Tamil Calendar - Tamil date, tithi and nakshatra';
 export default function Image() {
   return renderOg('Tamil Calendar', 'Tamil date, tithi and nakshatra');
 }
+
+export const dynamic = 'force-static';

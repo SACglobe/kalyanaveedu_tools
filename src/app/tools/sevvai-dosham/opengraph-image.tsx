@@ -7,3 +7,5 @@ export const alt = 'Sevvai Dosham - Mangal dosha check';
 export default function Image() {
   return renderOg('Sevvai Dosham', 'Mangal dosha check');
 }
+
+export const dynamic = 'force-static';

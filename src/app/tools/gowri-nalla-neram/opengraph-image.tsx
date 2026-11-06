@@ -7,3 +7,5 @@ export const alt = 'Gowri Nalla Neram - Day and night auspicious timings';
 export default function Image() {
   return renderOg('Gowri Nalla Neram', 'Day and night auspicious timings');
 }
+
+export const dynamic = 'force-static';

@@ -136,3 +136,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
         ...regionalPages,
     ];
 }
+
+export const dynamic = 'force-static';

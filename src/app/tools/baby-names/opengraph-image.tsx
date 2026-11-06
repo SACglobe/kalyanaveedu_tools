@@ -7,3 +7,5 @@ export const alt = 'Tamil Baby Names - By Nakshatra and Pada';
 export default function Image() {
   return renderOg('Tamil Baby Names', 'By Nakshatra and Pada');
 }
+
+export const dynamic = 'force-static';

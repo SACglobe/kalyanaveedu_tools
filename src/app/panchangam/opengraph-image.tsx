@@ -7,3 +7,5 @@ export const alt = "Today's Panchangam - Tithi, Nakshatra, Rahu Kalam & Nalla Ne
 export default function Image() {
   return renderOg("Today's Panchangam", 'Tithi, Nakshatra, Rahu Kalam & Nalla Neram');
 }
+
+export const dynamic = 'force-static';

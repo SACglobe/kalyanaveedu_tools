@@ -10,3 +10,6 @@ export default async function Image({ params }: { params: Promise<{ city: string
   const city = getCityById(value);
   return renderOg(`Panchangam ${city?.nameEn ?? ''}`, 'Tithi, Nakshatra, Rahu Kalam & Nalla Neram');
 }
+
+export const dynamic = 'force-static';
+export { generateStaticParams } from './page';

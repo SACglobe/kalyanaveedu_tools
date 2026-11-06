@@ -10,3 +10,6 @@ export default async function Image({ params }: { params: Promise<{ slug: string
   const f = getFestival(slug);
   return renderOg(f?.nameEn ?? 'Tamil Festival', 'Date, day and Tamil date');
 }
+
+export const dynamic = 'force-static';
+export { generateStaticParams } from './page';

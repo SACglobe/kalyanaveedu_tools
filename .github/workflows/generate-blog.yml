@@ -83,10 +83,28 @@ jobs:
               console.log(p.generated[p.generated.length-1].slug);
             " 2>/dev/null || echo "new-article")
             
-            git commit -m "🤖 Auto-generate blog: $SLUG [skip ci]"
+            git commit -m "🤖 Auto-generate blog: $SLUG"
             git push
-            echo "✅ Article committed and pushed — Vercel will auto-deploy"
+            echo "✅ Article committed and pushed — Cloudflare Pages will auto-build and deploy"
           fi
+
+      - name: ⏳ Wait for the new article to go live
+        if: ${{ github.event.inputs.dry_run != 'true' }}
+        run: |
+          SLUG=$(node -e "
+            const p = require('./scripts/.article-progress.json');
+            console.log(p.generated[p.generated.length - 1].slug);
+          " 2>/dev/null || echo "")
+          [ -z "$SLUG" ] && exit 0
+          URL="https://www.kalyanaveedu.in/blog/$SLUG"
+          # Cloudflare needs a couple of minutes to build and deploy; poll up to ~20 min.
+          for i in $(seq 1 40); do
+            CODE=$(curl -s -o /dev/null -w "%{http_code}" "$URL")
+            echo "[$i] $URL -> $CODE"
+            [ "$CODE" = "200" ] && exit 0
+            sleep 30
+          done
+          echo "::warning::Article not live after 20 minutes; indexing will be attempted anyway"
 
       - name: 🔍 Index new article with Google & Bing
         if: ${{ github.event.inputs.dry_run != 'true' }}

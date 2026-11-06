@@ -7,3 +7,5 @@ export const alt = 'Free Tamil Tools - Panchangam, Muhurtham & Wedding Planning'
 export default function Image() {
   return renderOg('Free Tamil Tools', 'Panchangam, Muhurtham & Wedding Planning');
 }
+
+export const dynamic = 'force-static';
