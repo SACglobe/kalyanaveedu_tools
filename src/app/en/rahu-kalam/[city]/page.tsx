@@ -3,7 +3,7 @@ import Link from 'next/link';
 import type { Metadata } from 'next';
 import Breadcrumbs from '@/components/SEO/Breadcrumbs';
 import CityLinks from '@/components/tools/CityLinks';
-import AdsterraBanner from '@/components/ads/AdsterraBanner';
+import { ResultAd } from '@/components/ads/AdPlacements';
 import { TAMIL_CITIES, getCityById } from '@/lib/astro-core/constants';
 import { cityTodayStr } from '@/lib/astro-core/sunrise';
 import { calculateRahuKalam, calculateYamakandam, calculateKuligai, calculateGowriPanchangam } from '@/lib/astro-core/panchangam';
@@ -67,7 +67,7 @@ export default async function EnRahuKalamCityPage({ params }: { params: Promise<
             <p className="text-gray-700 bg-white border border-orange-100 rounded-2xl p-4">{answer}</p>
             <p className="text-xs text-gray-400 mt-2">Updated: {formatDateEn(today)} · Sunrise {rahu.sunriseFormatted}, sunset {rahu.sunsetFormatted}</p>
           </header>
-          <AdsterraBanner format="300x250" className="mb-6" />
+          <ResultAd className="mb-6" />
           <section className="grid md:grid-cols-2 gap-4 mb-6">
             <div className="bg-rose-50 rounded-2xl border border-rose-100 p-5">
               <h2 className="text-lg font-black text-rose-900 mb-3">Times to avoid</h2>

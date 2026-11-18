@@ -2,7 +2,7 @@ import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import type { Metadata } from 'next';
 import Breadcrumbs from '@/components/SEO/Breadcrumbs';
-import AdsterraBanner from '@/components/ads/AdsterraBanner';
+import { ResultAd } from '@/components/ads/AdPlacements';
 import { NAKSHATRAS_LIST } from '@/lib/astro-core/constants';
 import { NAKSHATRA_SLUGS, getNakshatraBySlug, nakshatraSlug, padaNames } from '@/lib/baby-names';
 import { SITE_CONFIG } from '@/lib/constants';
@@ -83,7 +83,7 @@ export default async function NakshatraNamesPage({ params }: { params: Promise<{
             ))}
           </div>
 
-          <AdsterraBanner format="300x250" className="mb-6" />
+          <ResultAd className="mb-6" />
 
           <nav className="flex items-center justify-between gap-3 mb-6 text-sm font-bold">
             <Link href={`/tools/baby-names/${nakshatraSlug(prev)}`} className="px-4 py-2 rounded-xl bg-white border border-gray-200 hover:border-orange-300">← {prev.nameTa}</Link>

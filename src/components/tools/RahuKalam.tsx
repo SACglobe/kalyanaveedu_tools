@@ -203,10 +203,6 @@ export default function RahuKalam({ initialCityId = 'chennai', initialDate }: { 
         </div>
       </div>
 
-      {/* Ad Banner 320x50 */}
-      <div className="flex justify-center mb-8">
-        <AdsterraBanner format="320x50" />
-      </div>
 
       <RelatedTools currentSlug="rahu-kalam" />
     </div>

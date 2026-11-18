@@ -36,6 +36,23 @@ The AI blog (`.github/workflows/generate-blog.yml`, daily 09:00 IST) commits a n
 Cloudflare builds it. Don't add `[skip ci]` to its commit message (Cloudflare would skip the build).
 The workflow waits for the article URL to return 200 before submitting it for indexing.
 
+## Ads layout (Adsterra)
+
+Ads sit in fixed, labelled, lazy-loaded slots; nothing overlays content and there are no popunders or social bars.
+
+| Slot | Where | Size |
+|---|---|---|
+| Sidebar (sticky) | right column on screens >= 1280px, tool + panchangam + rasi/festival pages (`AdRail.tsx`) | 300x600 (300x250 until the unit below exists) |
+| Result ad | directly under a tool's results (`ResultAd` in `AdPlacements.tsx`) | 728x90 on desktop, 300x250 on small screens |
+| Wide banner | below "related tools" on every tool page (`WideBanner`, rendered by `RelatedTools.tsx`) | 728x90 on tablet/desktop, 320x50 on phones |
+
+**300x600 half-page unit:** create a 300x600 banner unit for this site in the Adsterra dashboard, then set
+`NEXT_PUBLIC_ADSTERRA_BANNER_300x600` to its key in Cloudflare Pages (Settings -> Variables and secrets) and rebuild
+(it is baked in at build time). Until it is set the sidebar shows the 300x250 unit.
+
+Adding ads to a new tool page: use `ResultAd` under the results and render `RelatedTools` at the end; do not add
+extra banners. Keep it to about three ads per desktop page.
+
 ## Limits to respect
 
 - **20,000 files per deploy** (free plan). Current build ≈ **13,000 files**. Each page costs ~9 files (Next 16 emits

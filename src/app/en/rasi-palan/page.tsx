@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import type { Metadata } from 'next';
 import Breadcrumbs from '@/components/SEO/Breadcrumbs';
-import AdsterraBanner from '@/components/ads/AdsterraBanner';
+import { ResultAd } from '@/components/ads/AdPlacements';
 import { cityTodayStr } from '@/lib/astro-core/sunrise';
 import { dailyRasiPalan, rasiInfo, stars } from '@/lib/rasi-palan';
 import { HOUSE_PALAN_EN, RASI_SLUG_EN } from '@/lib/rasi-palan-en';
@@ -49,7 +49,7 @@ export default function EnRasiPalanPage() {
             );
           })}
         </div>
-        <AdsterraBanner format="300x250" className="my-8" />
+        <ResultAd className="my-8" />
         <p className="text-sm text-gray-600 bg-white rounded-2xl border border-gray-100 p-5 leading-relaxed">
           These forecasts use the Moon&apos;s house from your birth sign (Chandra gochara). They are general guidance and do not consider your full birth chart. Not a substitute for medical, legal or financial advice.
         </p>

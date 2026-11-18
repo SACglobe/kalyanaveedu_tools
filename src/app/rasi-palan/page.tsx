@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import type { Metadata } from 'next';
 import Breadcrumbs from '@/components/SEO/Breadcrumbs';
-import AdsterraBanner from '@/components/ads/AdsterraBanner';
+import { ResultAd } from '@/components/ads/AdPlacements';
 import { cityTodayStr } from '@/lib/astro-core/sunrise';
 import { dailyRasiPalan, rasiInfo, stars } from '@/lib/rasi-palan';
 import { formatDateEn, formatDateTa } from '@/lib/date-format';
@@ -72,7 +72,7 @@ export default function RasiPalanPage() {
             })}
           </div>
 
-          <AdsterraBanner format="300x250" className="my-8" />
+          <ResultAd className="my-8" />
 
           <section className="bg-white rounded-2xl border border-gray-100 p-6 text-sm text-gray-600 leading-relaxed">
             <h2 className="text-lg font-black text-gray-900 mb-2">இந்த பலன்கள் எப்படி கணிக்கப்படுகின்றன?</h2>

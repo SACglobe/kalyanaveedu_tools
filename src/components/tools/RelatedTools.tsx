@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { getRelatedTools } from '@/lib/tool-relations';
+import { WideBanner } from '@/components/ads/AdPlacements';
 
 export default function RelatedTools({ currentSlug }: { currentSlug: string }) {
   const related = getRelatedTools(currentSlug);
@@ -7,6 +8,7 @@ export default function RelatedTools({ currentSlug }: { currentSlug: string }) {
   if (!related || related.length === 0) return null;
 
   return (
+    <>
     <section className="mt-12 pt-8 border-t border-orange-100 max-w-4xl mx-auto">
       <div className="flex items-center gap-2 mb-4">
         <span className="text-xl">🔗</span>
@@ -28,5 +30,7 @@ export default function RelatedTools({ currentSlug }: { currentSlug: string }) {
         ))}
       </div>
     </section>
+    <WideBanner className="mt-8 mb-4" />
+    </>
   );
 }

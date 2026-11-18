@@ -4,7 +4,7 @@ import { useMemo, useState } from 'react';
 import { TAMIL_CITIES } from '@/lib/astro-core/constants';
 import { computeKundli, RASI_NAMES_TA, type KundliResult } from '@/lib/astro-core/kundli';
 import RasiChart from '@/components/tools/RasiChart';
-import AdsterraBanner from '@/components/ads/AdsterraBanner';
+import { ResultAd } from '@/components/ads/AdPlacements';
 import RelatedTools from '@/components/tools/RelatedTools';
 
 const fmtDeg = (d: number) => `${Math.floor(d)}° ${String(Math.floor((d % 1) * 60)).padStart(2, '0')}′`;
@@ -99,7 +99,7 @@ export default function FreeJathagam() {
             <p className="md:col-span-2 text-xs text-gray-500 text-center">ல = லக்னம் · (வ) = வக்ரம் · சூ சூரியன், சந் சந்திரன், செ செவ்வாய், பு புதன், கு குரு, சு சுக்கிரன், சனி, ரா ராகு, கே கேது</p>
           </section>
 
-          <AdsterraBanner format="300x250" />
+          <ResultAd />
 
           <section className="bg-white rounded-3xl border border-gray-100 shadow-sm p-6 overflow-x-auto">
             <h3 className="text-xl font-black text-gray-900 mb-4">கிரக நிலைகள்</h3>

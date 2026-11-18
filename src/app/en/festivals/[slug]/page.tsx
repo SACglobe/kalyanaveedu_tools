@@ -2,7 +2,7 @@ import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import type { Metadata } from 'next';
 import Breadcrumbs from '@/components/SEO/Breadcrumbs';
-import AdsterraBanner from '@/components/ads/AdsterraBanner';
+import { ResultAd } from '@/components/ads/AdPlacements';
 import { cityTodayStr } from '@/lib/astro-core/sunrise';
 import { FESTIVALS, festivalsForYear, getFestival } from '@/lib/festivals';
 import { FESTIVAL_BLURB_EN } from '@/lib/festivals-en';
@@ -80,7 +80,7 @@ export default async function EnFestivalPage({ params }: { params: Promise<{ slu
             {next && <p className="mt-4 inline-block bg-white border border-orange-200 rounded-2xl px-5 py-3 font-bold text-gray-900">{formatDateEn(next.dateStr)} ({weekdayEn(next.dateStr)}) · {tamilDateEn(next.tamilDateTa, slug)}</p>}
           </header>
           <section className="bg-white rounded-2xl border border-gray-100 p-6 mb-6"><p className="text-gray-700 leading-relaxed">{blurb}</p></section>
-          <AdsterraBanner format="300x250" className="mb-6" />
+          <ResultAd className="mb-6" />
           <section className="bg-white rounded-3xl border border-gray-100 shadow-sm p-5 md:p-8 mb-6">
             <h2 className="text-xl font-black text-gray-900 mb-4">Upcoming dates</h2>
             <table className="w-full text-sm">

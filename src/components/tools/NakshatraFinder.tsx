@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { TAMIL_CITIES } from '@/lib/astro-core/constants';
 import { findNakshatraByBirthDetails, type NakshatraFinderResult } from '@/lib/astro-core/nakshatra';
 import AdsterraBanner from '@/components/ads/AdsterraBanner';
+import { ResultAd } from '@/components/ads/AdPlacements';
 import RelatedTools from '@/components/tools/RelatedTools';
 
 export default function NakshatraFinder() {
@@ -229,9 +230,7 @@ export default function NakshatraFinder() {
         </div>
       </div>
 
-      <div className="flex justify-center mb-8">
-        <AdsterraBanner format="320x50" />
-      </div>
+      <ResultAd className="mb-8" />
 
       <RelatedTools currentSlug="nakshatra-finder" />
     </div>

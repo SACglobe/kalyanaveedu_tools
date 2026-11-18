@@ -49,6 +49,14 @@ export const ADSTERRA_CONFIG = {
       height: 600,
       width: 160,
     },
+    // 300x600 Half Page (Iframe Sync). Create this unit in the Adsterra dashboard and set
+    // NEXT_PUBLIC_ADSTERRA_BANNER_300x600; until then the sidebar falls back to 300x250.
+    halfpage_300x600: {
+      key: process.env.NEXT_PUBLIC_ADSTERRA_BANNER_300x600 || '',
+      format: 'iframe' as const,
+      height: 600,
+      width: 300,
+    },
     // Native Banner (4 items async)
     nativeBanner: {
       scriptUrl: process.env.NEXT_PUBLIC_ADSTERRA_NATIVE_BANNER_URL || 'https://bauval.org/21/e9169a30e2101d3bdf737a4a276e9d79',
@@ -60,3 +68,6 @@ export const ADSTERRA_CONFIG = {
     },
   },
 };
+
+/** True once a 300x600 unit key has been configured (the sidebar rail then uses it). */
+export const HAS_HALFPAGE = Boolean(ADSTERRA_CONFIG.units.halfpage_300x600.key);

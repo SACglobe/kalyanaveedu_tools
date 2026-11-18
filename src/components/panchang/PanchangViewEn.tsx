@@ -6,7 +6,7 @@ import { WEEKDAYS_TAMIL, type TamilCity } from '@/lib/astro-core/constants';
 import { addDays, formatDateEn, parseDateStr } from '@/lib/date-format';
 import CitySelect from '@/components/tools/CitySelect';
 import CityLinks from '@/components/tools/CityLinks';
-import AdsterraBanner from '@/components/ads/AdsterraBanner';
+import { ResultAd } from '@/components/ads/AdPlacements';
 
 function Row({ label, children }: { label: string; children: React.ReactNode }) {
   return (
@@ -77,7 +77,7 @@ export default function PanchangViewEn({ city, dateStr, isToday, basePath, updat
         </dl>
       </div>
 
-      <AdsterraBanner format="300x250" className="mb-6" />
+      <ResultAd className="mb-6" />
 
       <div className="grid md:grid-cols-2 gap-4 mb-6">
         <section className="bg-rose-50 rounded-2xl border border-rose-100 p-5">
