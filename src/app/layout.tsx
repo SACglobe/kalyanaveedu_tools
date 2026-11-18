@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { Inter, Noto_Sans_Tamil } from 'next/font/google';
 import './globals.css';
 import Header from '@/components/layout/Header';
+import { AdRailShell } from '@/components/ads/AdRail';
 import Footer from '@/components/layout/Footer';
 import CookieConsent from '@/components/layout/CookieConsent';
 import { SITE_CONFIG, COMPANY, NETWORK_SITES } from '@/lib/constants';
@@ -97,7 +98,7 @@ export default function RootLayout({
           />
           <Header />
           <main className="flex-grow">
-            {children}
+            <AdRailShell>{children}</AdRailShell>
           </main>
           <CookieConsent />
           <AdBlockDetector />
