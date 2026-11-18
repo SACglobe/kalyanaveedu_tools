@@ -54,17 +54,9 @@ export const ADSTERRA_CONFIG = {
       scriptUrl: process.env.NEXT_PUBLIC_ADSTERRA_NATIVE_BANNER_URL || 'https://bauval.org/21/e9169a30e2101d3bdf737a4a276e9d79',
       containerId: 'container-e9169a30e2101d3bdf737a4a276e9d79',
     },
-    // Popunder (JS Sync)
-    popunder: {
-      scriptUrl: process.env.NEXT_PUBLIC_ADSTERRA_POPUNDER_URL || 'https://abscloud.org/1/941cfbfc47699ece2bf1590d28fc816e',
-    },
     // Smartlink Direct URL
     smartlink: {
       url: process.env.NEXT_PUBLIC_ADSTERRA_SMARTLINK_URL || 'https://arapflhn.org/4/b70bfecca4f8cc9efe55d6ed488620bb',
-    },
-    // Social Bar (In-page Push JS Sync)
-    socialBar: {
-      scriptUrl: process.env.NEXT_PUBLIC_ADSTERRA_SOCIAL_BAR_URL || 'https://bauval.org/14/91af823bf4101a37ba76834b73db7c58',
     },
   },
 };

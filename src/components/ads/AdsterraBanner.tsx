@@ -1,7 +1,8 @@
 'use client';
 
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { ADSTERRA_CONFIG } from '@/lib/adsterra';
+import { useHasAdRail } from '@/components/ads/AdRailContext';
 
 type BannerFormat = '728x90' | '300x250' | '320x50' | '468x60' | '160x300' | '160x600';
 
@@ -9,6 +10,8 @@ interface AdsterraBannerProps {
   format?: BannerFormat;
   adKey?: string;
   className?: string;
+  /** Rendered inside the desktop ad rail (never hidden by the rail itself). */
+  rail?: boolean;
 }
 
 const FORMAT_MAP: Record<BannerFormat, { width: number; height: number; defaultKey: string }> = {
@@ -48,13 +51,27 @@ export default function AdsterraBanner({
   format = '300x250',
   adKey,
   className = '',
+  rail = false,
 }: AdsterraBannerProps) {
   const containerRef = useRef<HTMLDivElement>(null);
+  const hasRail = useHasAdRail();
+  // Lazy load: only start the ad when its slot is close to the viewport (keeps first paint fast)
+  const [near, setNear] = useState(false);
+  const slotRef = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    const el = slotRef.current;
+    if (!el || typeof IntersectionObserver === 'undefined') { setNear(true); return; }
+    const io = new IntersectionObserver((entries) => {
+      if (entries.some((e) => e.isIntersecting)) { setNear(true); io.disconnect(); }
+    }, { rootMargin: '400px' });
+    io.observe(el);
+    return () => io.disconnect();
+  }, []);
   const info = FORMAT_MAP[format] || FORMAT_MAP['300x250'];
   const activeKey = adKey || info.defaultKey;
 
   useEffect(() => {
-    if (!ADSTERRA_CONFIG.enabled || !activeKey || activeKey.startsWith('default_')) {
+    if (!near || !ADSTERRA_CONFIG.enabled || !activeKey || activeKey.startsWith('default_')) {
       return;
     }
 
@@ -109,14 +126,15 @@ export default function AdsterraBanner({
         container.innerHTML = '';
       }
     };
-  }, [activeKey, info.height, info.width]);
+  }, [activeKey, info.height, info.width, near]);
 
   // If in development/default key mode, render a clean subtle placeholder in dev/preview
   const isPlaceholder = !ADSTERRA_CONFIG.enabled || !activeKey || activeKey.startsWith('default_');
 
   return (
     <div
-      className={`my-6 flex flex-col items-center justify-center overflow-hidden transition-all ${className}`}
+      ref={slotRef}
+      className={`my-6 flex flex-col items-center justify-center overflow-hidden ${hasRail && !rail && format === '300x250' ? 'xl:hidden' : ''} ${className}`}
       style={{ minHeight: `${info.height}px` }}
     >
       <div
