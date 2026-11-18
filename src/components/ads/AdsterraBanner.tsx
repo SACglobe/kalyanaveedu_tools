@@ -4,7 +4,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import { ADSTERRA_CONFIG } from '@/lib/adsterra';
 import { useHasAdRail } from '@/components/ads/AdRailContext';
 
-type BannerFormat = '728x90' | '300x250' | '320x50' | '468x60' | '160x300' | '160x600';
+type BannerFormat = '728x90' | '300x250' | '300x600' | '320x50' | '468x60' | '160x300' | '160x600';
 
 interface AdsterraBannerProps {
   format?: BannerFormat;
@@ -24,6 +24,11 @@ const FORMAT_MAP: Record<BannerFormat, { width: number; height: number; defaultK
     width: 300,
     height: 250,
     defaultKey: ADSTERRA_CONFIG.units.rectangle_300x250.key,
+  },
+  '300x600': {
+    width: 300,
+    height: 600,
+    defaultKey: ADSTERRA_CONFIG.units.halfpage_300x600.key,
   },
   '320x50': {
     width: 320,

@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import type { Metadata } from 'next';
 import Breadcrumbs from '@/components/SEO/Breadcrumbs';
-import AdsterraBanner from '@/components/ads/AdsterraBanner';
+import { ResultAd } from '@/components/ads/AdPlacements';
 import { NAKSHATRAS_LIST } from '@/lib/astro-core/constants';
 import { nakshatraSlug } from '@/lib/baby-names';
 import { SITE_CONFIG } from '@/lib/constants';
@@ -44,7 +44,7 @@ export default function BabyNamesHub() {
               </Link>
             ))}
           </div>
-          <AdsterraBanner format="300x250" className="my-8" />
+          <ResultAd className="my-8" />
         </div>
       </div>
     </>

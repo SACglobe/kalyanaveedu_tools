@@ -2,7 +2,7 @@ import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import type { Metadata } from 'next';
 import Breadcrumbs from '@/components/SEO/Breadcrumbs';
-import AdsterraBanner from '@/components/ads/AdsterraBanner';
+import { ResultAd } from '@/components/ads/AdPlacements';
 import { cityTodayStr } from '@/lib/astro-core/sunrise';
 import { RASI_SLUGS, dailyRasiPalan, rasiIndexFromSlug, rasiInfo, stars, weekOutlook } from '@/lib/rasi-palan';
 import { HOUSE_PALAN_EN } from '@/lib/rasi-palan-en';
@@ -65,7 +65,7 @@ export default async function EnRasiDetailPage({ params }: { params: Promise<{ r
               {rows.map(([k, v]) => (<div key={k} className="py-3"><dt className="text-sm font-bold text-primary mb-0.5">{k}</dt><dd className="text-gray-700 leading-relaxed">{v}</dd></div>))}
             </dl>
           </section>
-          <AdsterraBanner format="300x250" className="mb-6" />
+          <ResultAd className="mb-6" />
           <section className="bg-white rounded-2xl border border-gray-100 p-6 mb-6">
             <h2 className="text-lg font-black text-gray-900 mb-3">7-day outlook</h2>
             <ul className="divide-y divide-gray-100 text-sm">

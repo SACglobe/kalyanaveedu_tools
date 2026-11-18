@@ -2,7 +2,7 @@ import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import type { Metadata } from 'next';
 import Breadcrumbs from '@/components/SEO/Breadcrumbs';
-import AdsterraBanner from '@/components/ads/AdsterraBanner';
+import { ResultAd } from '@/components/ads/AdPlacements';
 import { cityTodayStr } from '@/lib/astro-core/sunrise';
 import { VIRATHAM_LIST, VIRATHAM_SLUGS, getVirathamMeta, upcomingViratham } from '@/lib/viratham';
 import { formatDateEn, formatDateTa, parseDateStr } from '@/lib/date-format';
@@ -67,7 +67,7 @@ export default async function VirathamTypePage({ params }: { params: Promise<{ t
             )}
           </header>
 
-          <AdsterraBanner format="300x250" className="mb-6" />
+          <ResultAd className="mb-6" />
 
           <section className="bg-white rounded-3xl border border-gray-100 shadow-sm p-5 md:p-8 mb-6">
             <h2 className="text-xl font-black text-gray-900 mb-4">வரும் தேதிகள்</h2>

@@ -2,7 +2,7 @@ import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import type { Metadata } from 'next';
 import Breadcrumbs from '@/components/SEO/Breadcrumbs';
-import AdsterraBanner from '@/components/ads/AdsterraBanner';
+import { ResultAd } from '@/components/ads/AdPlacements';
 import { cityTodayStr } from '@/lib/astro-core/sunrise';
 import { RASI_SLUGS, dailyRasiPalan, rasiIndexFromSlug, rasiInfo, stars, weekOutlook, HOUSE_PALAN } from '@/lib/rasi-palan';
 import { formatDateEn, formatDateTa } from '@/lib/date-format';
@@ -90,7 +90,7 @@ export default async function RasiDetailPage({ params }: { params: Promise<{ ras
             </dl>
           </section>
 
-          <AdsterraBanner format="300x250" className="mb-6" />
+          <ResultAd className="mb-6" />
 
           <section className="bg-white rounded-2xl border border-gray-100 p-6 mb-6">
             <h2 className="text-lg font-black text-gray-900 mb-3">7 நாள் முன்னோட்டம்</h2>

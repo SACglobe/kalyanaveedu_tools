@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import type { Metadata } from 'next';
 import Breadcrumbs from '@/components/SEO/Breadcrumbs';
-import AdsterraBanner from '@/components/ads/AdsterraBanner';
+import { ResultAd } from '@/components/ads/AdPlacements';
 import { cityTodayStr } from '@/lib/astro-core/sunrise';
 import { festivalsForYear } from '@/lib/festivals';
 import { WEEKDAYS_TAMIL } from '@/lib/astro-core/constants';
@@ -41,7 +41,7 @@ export default function EnFestivalsHub() {
           <p className="text-gray-600"><Link href="/tools/festivals" className="text-primary font-bold">தமிழில் பார்க்க →</Link></p>
           {next && <p className="mt-4 inline-block bg-white border border-orange-200 rounded-2xl px-5 py-3 font-bold">Next: {next.icon} {next.nameEn} – {formatDateEn(next.dateStr)} ({weekdayEn(next.dateStr)})</p>}
         </header>
-        <AdsterraBanner format="300x250" className="mb-6" />
+        <ResultAd className="mb-6" />
         {[y, y + 1].map((yy) => (
           <section key={yy} className="bg-white rounded-3xl border border-gray-100 shadow-sm p-5 md:p-8 mb-6">
             <h2 className="text-xl font-black text-gray-900 mb-4">Festivals in {yy}</h2>

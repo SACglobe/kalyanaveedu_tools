@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import type { Metadata } from 'next';
 import Breadcrumbs from '@/components/SEO/Breadcrumbs';
-import AdsterraBanner from '@/components/ads/AdsterraBanner';
+import { ResultAd } from '@/components/ads/AdPlacements';
 import { cityTodayStr } from '@/lib/astro-core/sunrise';
 import { VIRATHAM_LIST, upcomingViratham } from '@/lib/viratham';
 import { formatDateTa } from '@/lib/date-format';
@@ -47,7 +47,7 @@ export default function VirathamHub() {
           })}
         </div>
 
-        <AdsterraBanner format="300x250" className="mb-8" />
+        <ResultAd className="mb-8" />
 
         <section className="bg-white rounded-3xl border border-gray-100 shadow-sm p-5 md:p-8 mb-6">
           <h2 className="text-xl font-black text-gray-900 mb-4">அடுத்த {horizon} நாட்களில் வரும் விரதங்கள்</h2>

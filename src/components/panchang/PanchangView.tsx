@@ -7,7 +7,7 @@ import { getTamilDate } from '@/lib/tamil-calendar-utils';
 import { addDays, formatDateEn, formatDateTa, parseDateStr } from '@/lib/date-format';
 import CitySelect from '@/components/tools/CitySelect';
 import CityLinks from '@/components/tools/CityLinks';
-import AdsterraBanner from '@/components/ads/AdsterraBanner';
+import { ResultAd } from '@/components/ads/AdPlacements';
 import RelatedTools from '@/components/tools/RelatedTools';
 
 function Row({ label, children }: { label: string; children: React.ReactNode }) {
@@ -143,7 +143,7 @@ export default function PanchangView({
         </dl>
       </div>
 
-      <AdsterraBanner format="300x250" className="mb-6" />
+      <ResultAd className="mb-6" />
 
       <div className="grid md:grid-cols-2 gap-4 mb-6">
         <section className="bg-rose-50 rounded-2xl border border-rose-100 p-5">

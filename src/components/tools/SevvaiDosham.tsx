@@ -227,9 +227,6 @@ export default function SevvaiDosham() {
         </div>
       </div>
 
-      <div className="flex justify-center mb-8">
-        <AdsterraBanner format="320x50" />
-      </div>
 
       <RelatedTools currentSlug="sevvai-dosham" />
     </div>

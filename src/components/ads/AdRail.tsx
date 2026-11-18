@@ -3,6 +3,7 @@
 import { usePathname } from 'next/navigation';
 import AdsterraBanner from '@/components/ads/AdsterraBanner';
 import { RailContext } from '@/components/ads/AdRailContext';
+import { HAS_HALFPAGE } from '@/lib/adsterra';
 
 /**
  * Calm ad layout (modelled on W3Schools): on wide screens a dedicated right-hand column holds one
@@ -25,7 +26,7 @@ export function AdRailShell({ children }: { children: React.ReactNode }) {
         <div className="min-w-0">{children}</div>
         <aside aria-label="Advertisement" className="hidden xl:block">
           <div className="sticky top-24 pt-6">
-            <AdsterraBanner format="300x250" rail className="!my-0" />
+            <AdsterraBanner format={HAS_HALFPAGE ? '300x600' : '300x250'} rail className="!my-0" />
           </div>
         </aside>
       </div>

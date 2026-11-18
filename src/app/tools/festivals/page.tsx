@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import type { Metadata } from 'next';
 import Breadcrumbs from '@/components/SEO/Breadcrumbs';
-import AdsterraBanner from '@/components/ads/AdsterraBanner';
+import { ResultAd } from '@/components/ads/AdPlacements';
 import { cityTodayStr } from '@/lib/astro-core/sunrise';
 import { festivalsForYear } from '@/lib/festivals';
 import { formatDateTa, parseDateStr } from '@/lib/date-format';
@@ -48,7 +48,7 @@ export default function FestivalsHub() {
             {next && <p className="mt-4 inline-block bg-white border border-orange-200 rounded-2xl px-5 py-3 font-bold">அடுத்தது: {next.icon} {next.nameTa} – {formatDateTa(next.dateStr)} ({next.weekdayTa})</p>}
           </header>
 
-          <AdsterraBanner format="300x250" className="mb-6" />
+          <ResultAd className="mb-6" />
 
           {years.map((yy) => (
             <section key={yy} className="bg-white rounded-3xl border border-gray-100 shadow-sm p-5 md:p-8 mb-6">
